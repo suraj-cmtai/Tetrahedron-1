@@ -20,6 +20,7 @@ const teamMembersData = [
     { id: 14, name: "Bedadeepa Sahoo", imgSrc: "/assets/images/team/Bedadeepa Sahoo.jpg" },
     { id: 15, name: "Shreya Semwal", imgSrc: "/assets/images/team/Shreya Semwal.jpg" },
     { id: 16, name: "Shruti Singh", imgSrc: "/assets/images/team/M20.jpg" },
+    { id: 17, name: "Piyush Singh", imgSrc: "/assets/images/team/Piyush Singh.jpg" },
     // Add other team members here if they were commented out and you want to include them
     // Example: { id: 17, name: "Deepak Kumar", imgSrc: "/assets/images/team/M16.png" },
 ];
