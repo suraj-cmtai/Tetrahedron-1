@@ -11,7 +11,7 @@ const teamMembersData = [
     { id: 5, name: "Penushya", imgSrc: "/assets/images/team/Penushya.jpg" },
     { id: 6, name: "Shubham Verma", imgSrc: "/assets/images/team/M6.png" },
     { id: 7, name: "Suraj Singh", imgSrc: "/assets/images/team/M7.png" },
-    { id: 8, name: "Priya Dwivedi", imgSrc: "/assets/images/team/Priya Dwivedi.jpg" },
+    { id: 8, name: "Priya Dwivedi", imgSrc: "/assets/images/team/M17.jpg" },
     { id: 9, name: "Rajat Yadav", imgSrc: "/assets/images/team/Rajat Yadav.jpg" },
     { id: 10, name: "Saurabh Verma", imgSrc: "/assets/images/team/Saurabh Verma.jpg" },
     { id: 11, name: "Tausif Ahamed", imgSrc: "/assets/images/team/Tausif Ahamed.jpg" },
@@ -62,7 +62,7 @@ export default function Home() {
             */}
             <style jsx global>{`
                 .team-one__single {
-                    background-color: #fff; /* Optional: give a background to the card */
+                    background-color: #001659; /* Optional: give a background to the card */
                     border-radius: 8px; /* Optional: rounded corners */
                     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Optional: subtle shadow */
                     overflow: hidden; /* Ensures content respects border-radius */
@@ -79,7 +79,7 @@ export default function Home() {
                     width: 100%;
                     height: 280px; /* KEY: Fixed height for image container. Adjust as needed. */
                     overflow: hidden; /* Important to clip the image properly */
-                    background-color: #e0e0e0; /* Placeholder color if image is missing or transparent */
+                    background-color:rgba(224, 224, 224, 0.17); /* Placeholder color if image is missing or transparent */
                 }
 
                 .team-one__img img {
@@ -97,7 +97,7 @@ export default function Home() {
                     display: flex;
                     flex-direction: column;
                     justify-content: center; /* Vertically centers the name within this section */
-                    min-height: 90px; /* KEY: Minimum height for the content area. Adjust to fit 1-2 lines of typical name length. */
+                    min-height: 50px; /* KEY: Minimum height for the content area. Adjust to fit 1-2 lines of typical name length. */
                 }
 
                 .team-one__title {
