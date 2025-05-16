@@ -46,28 +46,17 @@ export default function About() {
                                     </h1>
                                 </div>
                                 <p
-                                    className="about-two__text"
-                                    style={{
-                                        textAlign: "justify",
-                                        marginBottom: "16px",
-                                        fontSize: "20px",
-                                        lineHeight: "1.8",
-                                        color: "#333",
-                                        fontWeight: "400"
-                                    }}
+                                    className="text-justify mb-4 text-base sm:text-lg md:text-xl leading-relaxed text-[#333] font-normal"
                                 >
-                                    Tetrahedron provides manufacturing optimization consulting services. It is one of India’s fastest-growing end-to-end solution providers to 280+ manufacturing companies across 20 different industry segments. TMS supports its customers in improving profitability and sustainability through 3 distinct service verticals.
+                                    Tetrahedron provides manufacturing optimization consulting services. It is one of India’s
+                                    fastest-growing end-to-end solution providers to 280+ manufacturing companies across 20
+                                    different industry segments. TMS supports its customers in improving profitability and
+                                    sustainability through 3 distinct service verticals.
                                 </p>
 
+
                                 <p
-                                    className="about-two__text"
-                                    style={{
-                                        textAlign: "justify",
-                                        fontSize: "20px",
-                                        lineHeight: "1.8",
-                                        color: "#333",
-                                        fontWeight: "400"
-                                    }}
+                                    className="about-two__text text-justify text-base sm:text-lg md:text-xl leading-relaxed text-[#333] font-normal"
                                 >
                                     Manufacturing Management Consulting, Automation & Industry 4.0, and Training & Skill Development — by designing, developing, and implementing focused solutions.
                                 </p>
