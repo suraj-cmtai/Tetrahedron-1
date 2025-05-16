@@ -39,7 +39,7 @@ export default function Project() {
                 <div className="project-two__top">
                     <div className="section-title text-left">
                         <div className="section-title__tagline-box">
-                            <span className="section-title__tagline">Our Latest Awards</span>
+                            <span className="section-title__tagline" style={{top:"10px"}}>Our Latest Awards</span>
                         </div>
                         <h2 className="section-title__title">Awards & Recognition
                         </h2>
