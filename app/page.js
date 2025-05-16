@@ -12,6 +12,14 @@ import Awards from "@/components/home/Awards"
 import Testimonial from "@/components/home/Testimonial"
 
 export default function Home() {
+    if (process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true') {
+    return (
+      <div style={{ textAlign: 'center', padding: '50px', backgroundColor: '#f8d7da' }}>
+        <h1 style={{ color: '#721c24',fontSize:"100px" } }>Site is under maintenance</h1>
+        <p style={{fontSize:"100px"}}>Please check back later!</p>
+      </div>
+    );
+  }
     const [showForm, setShowForm] = useState(false)
     const pathname = usePathname()
 
