@@ -35,10 +35,10 @@ const industries = [
 export default function IndustriesSection() {
   const [selectedIndustry, setSelectedIndustry] = useState(null);
   const images = [
-    "/assets/images/industries/1.1.png",
+    // "/assets/images/industries/1.1.png",
     "/assets/images/industries/2.2.png",
     "/assets/images/industries/3.3.png",
-    // "/assets/images/industries/4.4.png",
+    "/assets/images/industries/4.4.png",
     // "/assets/images/industries/5.5.png",
     // "/assets/images/industries/6.6.png",
     // "/assets/images/industries/7.7.png",
