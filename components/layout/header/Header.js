@@ -16,16 +16,13 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                     <div className="main-header-two__logo">
                         <Link href="/">
                             <img
-                                // --- FIX HERE: Add leading slash ---
                                 src="/assets/images/Tetrahedron Logo.png"
-                                // --- END FIX ---
                                 alt="Logo"
                                 style={{ width: "70px", height: "auto", minHeight:"110px", minWidth:"110px" }}
                             />
                         </Link>
                     </div>
 
-                    {/* ... rest of the top header */}
                     <div className="main-header-two__top">
                         <div className="main-header-two__top-inner">
                             <ul className="list-unstyled main-header-two__contact-list">
@@ -59,25 +56,26 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                                             Follow On:
                                         </h4>
                                         <div className="main-header-two__social">
-                                            <Link href="#">
+                                            {/* --- FIX HERE: Add actual URLs --- */}
+                                            <Link href="https://www.facebook.com/TetrahedronManufacturingServices" target="_blank" rel="noopener noreferrer">
                                                 <i className="icon-facebook"></i>
                                             </Link>
-                                            <Link href="#">
+                                            <Link href="https://www.instagram.com/tetrahedron_tms/" target="_blank" rel="noopener noreferrer">
                                                 <i className="icon-instagram"></i>
                                             </Link>
-                                            <Link href="#">
+                                            <Link href="https://x.com/Tetrahe35782523" target="_blank" rel="noopener noreferrer"> {/* Replace with actual URL if icon-Frame is X/Twitter or other */}
                                                 <i className="icon-Frame"></i>
                                             </Link>
-                                            <Link href="#">
+                                            <Link href="https://www.linkedin.com/company/tetrahedronmanufacturingservicesprivatelimited/" target="_blank" rel="noopener noreferrer">
                                                 <i className="icon-link-in"></i>
                                             </Link>
+                                            {/* --- END FIX --- */}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {/* ... Navigation ... */}
                     <nav className="main-menu main-menu-two">
                         <div className="main-menu-two__wrapper">
                             <div className="main-menu-two__wrapper-inner">
@@ -109,19 +107,17 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                 </div>
             </header>
             <MobileMenu handleMobileMenu={handleMobileMenu} />
-            {/* Sticky Header Section */}
             <div
                 className={`stricky-header ${scroll ? "stricky-fixed" : ""} main-menu main-menu-two`}
             >
                 <div className="sticky-header__content">
-                    {/* --- ADD LOGO TO STICKY HEADER (Optional but recommended for consistency) --- */}
                     <div className="sticky-header__left">
-                        <div className="main-header-two__logo sticky-logo"> {/* Add sticky-logo class if you need different styling */}
+                        <div className="main-header-two__logo sticky-logo">
                             <Link href="/">
                                 <img
-                                    src="/assets/images/resources/logo.png" // Use absolute path here too
+                                    src="/assets/images/resources/logo.png"
                                     alt="Logo"
-                                    style={{ width: "60px", height: "auto" }} // Maybe slightly smaller for sticky
+                                    style={{ width: "60px", height: "auto" }}
                                 />
                             </Link>
                         </div>
@@ -133,15 +129,7 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                                     <div className="main-menu-two__menu-box-and-btn-box">
                                         <div className="main-menu-two__menu-box">
                                             <div className="main-menu-two__main-menu-box">
-                                                {/* Mobile toggler likely not needed or styled differently in sticky */}
-                                                {/* <Link
-                                                href="#"
-                                                className="mobile-nav__toggler"
-                                                onClick={handleMobileMenu}
-                                            >
-                                                <i className="fa fa-bars"></i>
-                                            </Link> */}
-                                                <Menu /> {/* Ensure Menu component handles dropdown */}
+                                                <Menu />
                                             </div>
                                         </div>
                                         <div className="main-menu-two__btn-box">
@@ -157,13 +145,11 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                             </div>
                         </nav>
                     </div>
-                    {/* --- END STICKY HEADER ADDITION --- */}
                 </div>
             </div>
 
             {isModalOpen && (
                 <div className="modal-overlay active">
-                    {/* Ensure the Modal component path is correct */}
                     <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
                 </div>
             )}
