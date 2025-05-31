@@ -24,7 +24,7 @@ export default function About() {
         }
     }
 
-   
+
 
     return (
         <>
@@ -90,24 +90,24 @@ export default function About() {
                         <div className="row">
                             <div className="col-xl-12 col-lg-12">
                                 <div className="contact-two__left">
-                                <div className="section-title text-center">
-                                <h2 className="section-title__title">Why Choose Us</h2>
-                                </div>
-                                <p className="contact-two__text">We believe in the best solution at the most competitive price. We are into continuous improvement and innovation to help clients experience the most effective solution. We practice inclusive growth of the entire value chain to make the solution sustainable. Our post delivery service is to empower customer and to be customers first choice.</p>
-                                <p className="contact-two__text">We promise 10 % improvement in quality, productivity and profit margin in 10-12 weeks.</p>
-                                <p className="contact-two__text">We have a working team from premier management schools such as IIM Calcutta and top technical institutes such as IIT Delhi and IIT Roorkee, enabling clients to become high-performance businesses and build a long-term relationship.</p>
+                                    <div className="section-title text-center">
+                                        <h2 className="section-title__title">Why Choose Us</h2>
+                                    </div>
+                                    <p className="contact-two__text">We believe in the best solution at the most competitive price. We are into continuous improvement and innovation to help clients experience the most effective solution. We practice inclusive growth of the entire value chain to make the solution sustainable. Our post delivery service is to empower customer and to be customers first choice.</p>
+                                    <p className="contact-two__text">We promise 10 % improvement in quality, productivity and profit margin in 10-12 weeks.</p>
+                                    <p className="contact-two__text">We have a working team from premier management schools such as IIM Calcutta and top technical institutes such as IIT Delhi and IIT Roorkee, enabling clients to become high-performance businesses and build a long-term relationship.</p>
                                 </div>
                             </div>
-                         
+
                         </div>
                     </div>
                 </section>
 
-                   {/*FAQ One Start*/}
-                   <section className="faq-one faq-five">
+                {/*FAQ One Start*/}
+                <section className="faq-one faq-five">
                     <div className="container">
                         <div className="row">
-                            
+
                             <div className="col-xl-6 col-lg-6">
                                 <div className="faq-one__right">
                                     <div className="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion-1">
@@ -140,16 +140,16 @@ export default function About() {
                                                     <p>We make the client understand and track the progress of the implementation by qualifying the solution into quantifiable parameters and we always deliver on those parameters in time.</p>
                                                 </div>{/* /.inner */}
                                             </div>
-                                        </div> 
-                                        
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
                             <div className="col-xl-6 col-lg-6">
                                 <div className="faq-one__right">
                                     <div className="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion-1">
-                                       
-                                       
+
+
                                         <div className={isActive.key == 4 ? "accrodion active" : "accrodion"} onClick={() => handleToggle(4)}>
                                             <div className="accrodion-title">
                                                 <h4>Relationship building</h4>
@@ -208,7 +208,7 @@ export default function About() {
                         <div className="counter-two__bottom">
                             <div className="row">
                                 {/* Counter Two Single Start */}
-                                <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="100ms">
+                                <div className="col-md-3 wow fadeInLeft" data-wow-delay="100ms">
                                     <div className="counter-two__single">
                                         <div className="counter-two__icon">
                                             <span className="icon-settings"></span>
@@ -222,7 +222,7 @@ export default function About() {
                                 </div>
                                 {/* Counter Two Single End */}
                                 {/* Counter Two Single Start */}
-                                <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="300ms">
+                                <div className="col-md-3 wow fadeInLeft" data-wow-delay="300ms">
                                     <div className="counter-two__single">
                                         <div className="counter-two__icon">
                                             <span className="icon-paint"></span>
@@ -236,7 +236,7 @@ export default function About() {
                                 </div>
                                 {/* Counter Two Single End */}
                                 {/* Counter Two Single Start */}
-                                <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInRight" data-wow-delay="600ms">
+                                <div className="col-md-3 wow fadeInRight" data-wow-delay="600ms">
                                     <div className="counter-two__single">
                                         <div className="counter-two__icon">
                                             <span className="icon-mechanic-2"></span>
@@ -249,10 +249,9 @@ export default function About() {
                                     </div>
                                 </div>
                                 {/* Counter Two Single End */}
-                                .
-
+                                {/* Stray dot removed from here */}
                                 {/* Counter Two Single Start */}
-                                <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInRight" data-wow-delay="900ms">
+                                <div className="col-md-3 wow fadeInRight" data-wow-delay="900ms">
                                     <div className="counter-two__single">
                                         <div className="counter-two__icon">
                                             <span className="icon-analytics"></span>
@@ -346,68 +345,76 @@ export default function About() {
                     <div className="success-one__shape-1">
                         <img src="assets/images/shapes/success-one-shape-1.png" alt="" />
                     </div>
-                    <div className="success-one__img-box">
-                        <div className="success-one__img">
-                            <img src="assets/images/resources/g.jpg" alt="" />
-                        </div>
-                        <div className="success-one__counter">
-                            <ul className="list-unstyled success-one__counter-list">
-                                <li>
-                                    <div className="success-one__counter-count count-box">
-                                        <h3 >100</h3>
-                                        <span className="success-one__counter-percent">%</span>
-                                    </div>
-                                    <p className="success-one__counter-text">Success Rate</p>
-                                </li>
-                                <li>
-                                    <div className="success-one__counter-count count-box">
-                                        <h3>250</h3>
-                                        <span className="success-one__counter-percent">+</span>
-                                    </div>
-                                    <p className="success-one__counter-text">Happy Clients</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                     <div className="container">
-                        <div className="row">
+                        <div className="row align-items-center">
+                            {/* Left Image and Counter */}
+                            <div className="col-xl-6 col-lg-6">
+                                <div className="success-one__img-box">
+                                    <div className="success-one__img">
+                                        <img src="assets/images/resources/g.jpg" alt="" />
+                                    </div>
+                                    <div className="success-one__counter">
+                                        <ul className="list-unstyled success-one__counter-list">
+                                            <li>
+                                                <div className="success-one__counter-count count-box">
+                                                    <h3>100</h3>
+                                                    <span className="success-one__counter-percent">%</span>
+                                                </div>
+                                                <p className="success-one__counter-text">Success Rate</p>
+                                            </li>
+                                            <li>
+                                                <div className="success-one__counter-count count-box">
+                                                    <h3>250</h3>
+                                                    <span className="success-one__counter-percent">+</span>
+                                                </div>
+                                                <p className="success-one__counter-text">Happy Clients</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Right Text Content */}
                             <div className="col-xl-6 col-lg-6">
                                 <div className="success-one__left">
                                     <div className="section-title text-left">
                                         <div className="section-title__tagline-box">
                                             <span className="section-title__tagline">Best Services</span>
                                         </div>
-                                        <h2 className="section-title__title">Create Innovative sustain
-                                            Place in the.</h2>
+                                        <h2 className="section-title__title">Create Innovative sustain Place in the.</h2>
                                     </div>
-                                    <p className="success-one__text">Lorem ipsum dolor sit amet consectetur adipiscing elit sociis
-                                        tempus magna vel, duis tincidunt fusce aenean lacus integer velit phasellus imperdiet
-                                        the a senectus, vestibulum ridiculus es</p>
+                                    <p className="success-one__text">
+                                        Lorem ipsum dolor sit amet consectetur adipiscing elit sociis tempus magna vel, duis tincidunt fusce aenean lacus integer velit phasellus imperdiet the a senectus, vestibulum ridiculus es
+                                    </p>
                                     <ul className="list-unstyled success-one__points">
                                         <li>
                                             <div className="success-one__points-icon">
                                                 <span className="icon-constructo-pro"></span>
                                             </div>
-                                            <p className="success-one__points-text"><Link href="service-details">Master Craft
-                                                Construction</Link></p>
+                                            <p className="success-one__points-text">
+                                                <Link href="service-details">Master Craft Construction</Link>
+                                            </p>
                                         </li>
                                         <li>
                                             <div className="success-one__points-icon">
                                                 <span className="icon-proconstruct"></span>
                                             </div>
-                                            <p className="success-one__points-text"><Link href="service-details">Quality
-                                                Construction Co</Link></p>
+                                            <p className="success-one__points-text">
+                                                <Link href="service-details">Quality Construction Co</Link>
+                                            </p>
                                         </li>
                                     </ul>
                                     <div className="success-one__btn-box">
-                                        <Link href="about" className="success-one__btn thm-btn">Read more<span
-                                            className="icon-dabble-arrow-right"></span></Link>
+                                        <Link href="about" className="success-one__btn thm-btn">
+                                            Read more<span className="icon-dabble-arrow-right"></span>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
+
                 {/* Success One End */}
 
                 {/*FAQ One Start*/}
@@ -502,7 +509,7 @@ export default function About() {
                                 {/* <img src="assets/images/case-studies/CS1.jpg" alt="" /> */}
                             </div>
                             <div className="cta-one__img">
-                                <img src="assets/images/case-studies/CS2.jpg" alt="" style={{maxWidth:"450px", minHeight:'375px',borderRadius:'10px'}} />
+                                <img src="assets/images/case-studies/CS2.jpg" alt="" style={{ maxWidth: "450px", minHeight: '375px', borderRadius: '10px' }} />
                             </div>
                             <h3 className="cta-one__title">Craftin digital experiences<br /> With that inspire</h3>
                             <div className="cta-one__from-box">
@@ -517,10 +524,7 @@ export default function About() {
                     </div>
                 </section>
                 {/*CTA One End*/}
-
             </Layout>
         </>
     )
 }
-
-
