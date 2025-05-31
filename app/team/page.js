@@ -16,7 +16,7 @@ const teamMembersData = [
     { id: 10, name: "Saurabh Verma", imgSrc: "/assets/images/team/Saurabh Verma.jpg" },
     { id: 11, name: "Tausif Ahamed", imgSrc: "/assets/images/team/Tausif Ahamed.jpg" },
     { id: 12, name: "Ashad", imgSrc: "/assets/images/team/Ashad.jpg" },
-    { id: 13, name: "Gadepu Abhi Patil", imgSrc: "/assets/images/team/Gudepu Abhi Patil.jpg" },
+    { id: 13, name: "Gudepu Abhilash", imgSrc: "/assets/images/team/Gudepu Abhi Patil.jpg" },
     { id: 14, name: "Bedadeepa Sahoo", imgSrc: "/assets/images/team/Bedadeepa Sahoo.jpg" },
     { id: 15, name: "Shreya Semwal", imgSrc: "/assets/images/team/Shreya Semwal.jpg" },
     { id: 16, name: "Shruti Singh", imgSrc: "/assets/images/team/M20.jpg" },
@@ -24,6 +24,7 @@ const teamMembersData = [
     { id: 18, name: "Vikram", imgSrc: "/assets/images/team/Vikram.jpg" },
     { id: 19, name: "Suryakant", imgSrc: "/assets/images/team/Suryakant.jpg" },
     { id: 20, name: "Darga karthik", imgSrc: "/assets/images/team/Darga karthik.jpg" },
+    { id: 21, name: "Vishal Thakur", imgSrc: "/assets/images/team/Vishal Thakur.jpg" },
     // Add other team members here if they were commented out and you want to include them
     // Example: { id: 17, name: "Deepak Kumar", imgSrc: "/assets/images/team/M16.png" },
 ];
@@ -37,7 +38,7 @@ export default function Home() {
                     <div className="container">
                         <div className="row">
                             {teamMembersData.map((member) => (
-                                <div key={member.id} className="col-xl-3 col-lg-6 col-md-6 mb-4"> {/* Added mb-4 for spacing between rows */}
+                                <div key={member.id} className="col-xl-3 col-lg-6 col-md-6 mb-4"> {/* Bootstrap columns: 4 on XL, 2 on LG, 2 on MD, 1 on SM and XS. mb-4 for spacing. */}
                                     <div className="team-one__single">
                                         <div className="team-one__img-box">
                                             <div className="team-one__img">
@@ -63,16 +64,20 @@ export default function Home() {
               Ideally, these styles should be part of your global CSS file (e.g., styles/globals.css)
               or your theme's stylesheet, rather than a <style jsx global> block in each component.
               Adjust values like heights, font sizes, and paddings to match your desired design.
+              
+              A NOTE ON IMAGES: For best results with `object-fit: cover`, try to use source images
+              that have a similar aspect ratio or where the main subject is relatively centered.
+              This will minimize undesired cropping.
             */}
             <style jsx global>{`
                 .team-one__single {
-                    background-color: #001659; /* Optional: give a background to the card */
-                    border-radius: 8px; /* Optional: rounded corners */
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Optional: subtle shadow */
-                    overflow: hidden; /* Ensures content respects border-radius */
+                    background-color: #001659; /* Dark background for the card */
+                    border-radius: 8px; 
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+                    overflow: hidden; 
                     display: flex;
                     flex-direction: column;
-                    height: 100%; /* Helps align cards if the parent row uses flexbox and aligns items */
+                    height: 100%; 
                 }
 
                 .team-one__img-box {
@@ -81,81 +86,88 @@ export default function Home() {
 
                 .team-one__img {
                     width: 100%;
-                    height: 280px; /* KEY: Fixed height for image container. Adjust as needed. */
-                    overflow: hidden; /* Important to clip the image properly */
-                    background-color:rgba(224, 224, 224, 0.17); /* Placeholder color if image is missing or transparent */
+                    height: 280px; /* Default fixed height for image container */
+                    overflow: hidden; 
+                    background-color:rgba(224, 224, 224, 0.17); /* Placeholder color */
                 }
 
                 .team-one__img img {
                     width: 100%;
                     height: 100%;
-                    object-fit: cover; /* KEY: Ensures image covers the area, maintains aspect ratio, crops if needed. */
-                    object-position: center top; /* Tries to keep top of the image visible, good for portraits. Use 'center center' if preferred. */
-                    display: block; /* Removes any extra space below the image */
+                    object-fit: cover; /* Ensures image covers the area, maintains aspect ratio, crops if needed. */
+                    object-position: center center; /* Tries to keep the center of the image visible. Changed from 'center top'. */
+                    display: block; 
                 }
 
                 .team-one__content {
-                    padding: 20px 15px; /* Consistent padding */
-                    text-align: center; /* Centers the name text */
-                    flex-grow: 1; /* Allows this content area to expand, helping equalize card height */
+                    padding: 20px 15px; 
+                    text-align: center; 
+                    flex-grow: 1; 
                     display: flex;
                     flex-direction: column;
-                    justify-content: center; /* Vertically centers the name within this section */
-                    min-height: 50px; /* KEY: Minimum height for the content area. Adjust to fit 1-2 lines of typical name length. */
+                    justify-content: center; 
+                    min-height: 60px; /* Minimum height for the content area. Increased slightly. */
                 }
 
                 .team-one__title {
-                    font-size: 1.15rem; /* KEY: Consistent font size for all names. Adjust as needed. */
-                    line-height: 1.3;   /* Spacing for text if it wraps to two lines */
-                    font-weight: 600; /* Or your theme's preferred weight, e.g., 700 for bolder */
-                    margin: 0; /* Reset default h3 margin */
+                    font-size: 1.15rem; 
+                    line-height: 1.3;   
+                    font-weight: 600; 
+                    margin: 0; 
                 }
 
                 .team-one__title a {
-                    color: #222; /* Choose your desired link color */
+                    color: black; /* CHANGED: White color for text on dark background */
                     text-decoration: none;
                 }
 
                 .team-one__title a:hover {
-                    color: #007bff; /* Example hover color */
+                    color: #e0e0e0; /* CHANGED: Light gray hover color for text on dark background */
                 }
 
                 /* Ensure columns themselves allow for flex behavior for height: 100% to work well on .team-one__single */
                 .col-xl-3, .col-lg-6, .col-md-6 {
-                    display: flex; /* Makes the column a flex container if not already */
-                    flex-direction: column; /* Stacks items vertically within the column */
+                    display: flex; 
+                    flex-direction: column; 
                 }
-                 /* Add some margin-bottom to columns for spacing, if not handled by .row's gutter */
-                .row > .col-xl-3, .row > .col-lg-6, .row > .col-md-6 {
-                    margin-bottom: 24px; /* Or use Bootstrap's 'mb-4' etc. on the column div itself */
-                }
+                 /* Bootstrap's mb-4 class on the column div itself is handling bottom margin. 
+                    If you remove mb-4, you might need:
+                    .row > .col-xl-3, .row > .col-lg-6, .row > .col-md-6 {
+                        margin-bottom: 24px; 
+                    }
+                 */
 
 
-                /* Responsive adjustments - example */
-                @media (max-width: 991px) { /* Corresponds to Bootstrap's lg breakpoint */
+                /* Responsive adjustments */
+                @media (max-width: 991px) { /* Tablets (Bootstrap's lg breakpoint) */
                     .team-one__img {
-                        height: 260px; /* Adjust height for tablets */
+                        height: 260px; 
                     }
                     .team-one__title {
                         font-size: 1.1rem;
                     }
                 }
 
-                @media (max-width: 767px) { /* Corresponds to Bootstrap's md breakpoint */
+                @media (max-width: 767px) { /* Small tablets/large phones (Bootstrap's md breakpoint) */
+                    /* Cards will be 2 per row here due to col-md-6 */
                     .team-one__img {
-                        height: 240px; /* Adjust height for smaller tablets/large phones */
+                        height: 240px;
+                    }
+                     .team-one__content {
+                        min-height: 70px; 
                     }
                 }
 
-                @media (max-width: 575px) { /* Corresponds to Bootstrap's sm breakpoint */
+                @media (max-width: 575px) { /* Mobile phones (Bootstrap's sm breakpoint) */
+                                      /* Cards will be 1 per row (full width) */
                     .team-one__img {
-                        height: 220px; /* Adjust height for mobile phones */
+                        height: 230px; /* Slightly adjusted from 220px. Experiment with this value. */
                     }
                     .team-one__title {
                         font-size: 1rem;
                     }
                     .team-one__content {
-                        min-height: 75px;
+                        min-height: 75px; /* Ensure enough space for potentially wrapped names */
                         padding: 15px 10px;
                     }
                 }
