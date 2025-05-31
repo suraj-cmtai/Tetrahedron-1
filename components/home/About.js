@@ -8,6 +8,7 @@ export default function About() {
                 <div className="container mx-auto max-w-[1200px] px-4">
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
 
+
                         {/* Text Left */}
                         
                         <div className="w-full md:w-6/12 lg:max-w-[540px] rounded-[10px] shadow-[0_20px_20px_rgba(0,0,0,0.3)] min-h-[500px] p-6">
@@ -16,7 +17,8 @@ export default function About() {
                                     <div className="section-title__tagline-box">
                                         <span className="section-title__tagline">ABOUT US</span>
                                     </div>
-                                    <h1 className="section-title__title text-left text-[clamp(32px,4vw,36px)] leading-[1.2] font-bold text-[#0a1c4c]">
+                                    {/* MODIFIED LINE BELOW: Adjusted clamp for more aggressive shrinking, kept whitespace-nowrap */}
+                                    <h1 className="section-title__title text-left text-[clamp(12px,3.5vw,36px)] leading-[1.2] font-bold text-[#0a1c4c] whitespace-nowrap">
                                         Tetrahedron Manufacturing Services Pvt Ltd
                                     </h1>
                                 </div>
