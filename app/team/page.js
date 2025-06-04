@@ -1,6 +1,5 @@
 'use client'
 import Layout from "@/components/layout/Layout"
-import Link from "next/link"
 
 // Data array for team members
 const teamMembersData = [
@@ -25,29 +24,31 @@ const teamMembersData = [
     { id: 19, name: "Suryakant", imgSrc: "/assets/images/team/Suryakant.jpg" },
     { id: 20, name: "Darga karthik", imgSrc: "/assets/images/team/Darga karthik.jpg" },
     { id: 21, name: "Vishal Thakur", imgSrc: "/assets/images/team/Vishal Thakur.jpg" },
-    // Add other team members here if they were commented out and you want to include them
-    // Example: { id: 17, name: "Deepak Kumar", imgSrc: "/assets/images/team/M16.png" },
 ];
 
 export default function Home() {
     return (
         <>
             <Layout headerStyle={6} footerStyle={6} breadcrumbTitle="Team">
-                {/*Team Page Start*/}
                 <section className="team-page">
                     <div className="container">
                         <div className="row">
                             {teamMembersData.map((member) => (
-                                <div key={member.id} className="col-xl-3 col-lg-6 col-md-6 mb-4"> {/* Bootstrap columns: 4 on XL, 2 on LG, 2 on MD, 1 on SM and XS. mb-4 for spacing. */}
-                                    <div className="team-one__single">
-                                        <div className="team-one__img-box">
-                                            <div className="team-one__img">
-                                                <img src={member.imgSrc} alt={member.name} />
-                                            </div>
+                                <div key={member.id} className="col-xl-3 col-lg-6 col-md-6 mb-4">
+                                    <div className="mycard-team-one__single">
+                                        {/* Image Area: Gradient, Rounded Corners for image */}
+                                        <div className="mycard-team-one__img">
+                                            {member.imgSrc && (
+                                                <img
+                                                    src={member.imgSrc}
+                                                    alt={member.name || "Team member photo"}
+                                                />
+                                            )}
                                         </div>
-                                        <div className="team-one__content">
-                                            <h3 className="team-one__title">
-                                                <Link href="#">{member.name}</Link>
+                                        {/* Name Banner: Half in, Half out from bottom */}
+                                        <div className="mycard-team-one__content">
+                                            <h3 className="mycard-team-one__title">
+                                                {member.name || "Name Here"}
                                             </h3>
                                         </div>
                                     </div>
@@ -56,121 +57,120 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                {/*Team Page End*/}
             </Layout>
 
-            {/* 
-              IMPORTANT: The CSS rules below are provided to ensure consistency.
-              Ideally, these styles should be part of your global CSS file (e.g., styles/globals.css)
-              or your theme's stylesheet, rather than a <style jsx global> block in each component.
-              Adjust values like heights, font sizes, and paddings to match your desired design.
-              
-              A NOTE ON IMAGES: For best results with `object-fit: cover`, try to use source images
-              that have a similar aspect ratio or where the main subject is relatively centered.
-              This will minimize undesired cropping.
-            */}
             <style jsx global>{`
-                .team-one__single {
-                    background-color: #001659; /* Dark background for the card */
-                    border-radius: 8px; 
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
-                    overflow: hidden; 
+                .col-xl-3, .col-lg-6, .col-md-6 {
                     display: flex;
                     flex-direction: column;
-                    height: 100%; 
                 }
 
-                .team-one__img-box {
-                    /* This box might not need specific styles if .team-one__img handles dimensions */
-                }
-
-                .team-one__img {
+                .mycard-team-one__single {
+                    position: relative; /* For absolute positioning of banner */
+                    /* NO border-radius here, as banner needs to overflow */
+                    /* NO overflow: hidden here, to allow banner to go outside */
+                    overflow: visible; /* Explicitly set to allow banner to hang off */
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Shadow for the card */
+                    background-color: transparent; /* Card itself can be transparent or a very light color */
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
                     width: 100%;
-                    height: 280px; /* Default fixed height for image container */
-                    overflow: hidden; 
-                    background-color:rgba(224, 224, 224, 0.17); /* Placeholder color */
+                    padding-bottom: 25px; /* Add padding at the bottom of the card if banner is large, to prevent overlap with next row items due to box-shadow visibility */
+                                          /* This might need adjustment based on banner height */
                 }
 
-                .team-one__img img {
+                .mycard-team-one__img { /* Image Area */
+                    position: relative;
+                    width: 100%;
+                    padding-bottom: 100%; /* 1:1 aspect ratio */
+                    background: linear-gradient(135deg, #3023AE, #8549B2); /* Gradient */
+                    display: block;
+                    border-radius: 20px; /* Rounded corners for the image/gradient area */
+                    overflow: hidden; /* Clip image to these rounded corners */
+                }
+
+                .mycard-team-one__img img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                     width: 100%;
                     height: 100%;
-                    object-fit: cover; /* Ensures image covers the area, maintains aspect ratio, crops if needed. */
-                    object-position: center center; /* Tries to keep the center of the image visible. Changed from 'center top'. */
-                    display: block; 
+                    object-fit: cover;
+                    object-position: center 20%;
+                    display: block;
                 }
 
-                .team-one__content {
-                    padding: 20px 15px; 
-                    text-align: center; 
-                    flex-grow: 1; 
+                .mycard-team-one__content { /* Name Banner */
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    
+                    /* Positioning: Half banner height outside */
+                    /* Assuming banner height approx 36px (padding 8+8 + line-height ~20) */
+                    bottom: -1px; /* Adjust this value based on actual banner height */
+                                    /* (negative half of its total height) */
+                    
+                    width: auto;
+                    min-width: 120px;
+                    max-width: calc(100% - 50px); /* Leave 25px space from card edges */
+                    
+                    background-color: #ffffff;
+                    border-radius: 10px; /* Slightly less rounded for banner */
+                    padding: 8px 15px;
+                    text-align: center;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow for banner */
+                    z-index: 30; /* High z-index */
+                    
                     display: flex;
-                    flex-direction: column;
-                    justify-content: center; 
-                    min-height: 60px; /* Minimum height for the content area. Increased slightly. */
+                    align-items: center;
+                    justify-content: center;
+
+                    /* TEMPORARY DEBUG BORDER - check banner position and content */
+                    border: 2px solid deeppink; 
                 }
 
-                .team-one__title {
-                    font-size: 1.15rem; 
-                    line-height: 1.3;   
-                    font-weight: 600; 
-                    margin: 0; 
+                .mycard-team-one__title {
+                    font-size: 0.95rem; /* Adjust as needed */
+                    line-height: 1.25;
+                    font-weight: 600; /* Slightly less bold if 700 is too much */
+                    color: #111111; /* Dark grey, almost black */
+                    margin: 0;
+                    padding: 0;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: block;
                 }
-
-                .team-one__title a {
-                    color: black; /* CHANGED: White color for text on dark background */
-                    text-decoration: none;
-                }
-
-                .team-one__title a:hover {
-                    color: #e0e0e0; /* CHANGED: Light gray hover color for text on dark background */
-                }
-
-                /* Ensure columns themselves allow for flex behavior for height: 100% to work well on .team-one__single */
-                .col-xl-3, .col-lg-6, .col-md-6 {
-                    display: flex; 
-                    flex-direction: column; 
-                }
-                 /* Bootstrap's mb-4 class on the column div itself is handling bottom margin. 
-                    If you remove mb-4, you might need:
-                    .row > .col-xl-3, .row > .col-lg-6, .row > .col-md-6 {
-                        margin-bottom: 24px; 
-                    }
-                 */
-
 
                 /* Responsive adjustments */
-                @media (max-width: 991px) { /* Tablets (Bootstrap's lg breakpoint) */
-                    .team-one__img {
-                        height: 260px; 
+                @media (min-width: 1200px) { /* XL */
+                    .mycard-team-one__title { font-size: 1rem; }
+                    .mycard-team-one__content { 
+                        padding: 10px 18px; 
+                        /* If banner height changes with padding, adjust 'bottom' too */
+                        /* Example: if height is 40px, bottom: -20px; */
                     }
-                    .team-one__title {
-                        font-size: 1.1rem;
+                    .mycard-team-one__single { padding-bottom: 30px; }
+                }
+                @media (max-width: 991.98px) { /* md-lg */
+                    .mycard-team-one__title { font-size: 0.9rem; }
+                    .mycard-team-one__content { 
+                        padding: 7px 12px; 
+                        bottom: -16px; /* Adjust if banner height changes */
+                    }
+                     .mycard-team-one__single { padding-bottom: 20px; }
+                }
+                @media (max-width: 767.98px) { /* sm */
+                    .mycard-team-one__title { font-size: 0.85rem; }
+                    .mycard-team-one__content { 
+                        padding: 6px 10px; 
+                        bottom: 0px; /* Adjust if banner height changes */
+                        min-width: 100px;
+                        border-radius: 8px;
                     }
                 }
 
-                @media (max-width: 767px) { /* Small tablets/large phones (Bootstrap's md breakpoint) */
-                    /* Cards will be 2 per row here due to col-md-6 */
-                    .team-one__img {
-                        height: 240px;
-                    }
-                     .team-one__content {
-                        min-height: 70px; 
-                    }
-                }
-
-                @media (max-width: 575px) { /* Mobile phones (Bootstrap's sm breakpoint) */
-                                      /* Cards will be 1 per row (full width) */
-                    .team-one__img {
-                        height: 230px; /* Slightly adjusted from 220px. Experiment with this value. */
-                    }
-                    .team-one__title {
-                        font-size: 1rem;
-                    }
-                    .team-one__content {
-                        min-height: 75px; /* Ensure enough space for potentially wrapped names */
-                        padding: 15px 10px;
-                    }
-                }
             `}</style>
         </>
     )
