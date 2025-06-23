@@ -96,6 +96,7 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                                         <button
                                             onClick={() => setModalOpen(true)}
                                             className="main-menu-two__btn thm-btn"
+                                            style={{ backgroundColor: "#ffc001" }}
                                         >
                                             Quick Support
                                         </button>
@@ -136,6 +137,7 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                                             <button
                                                 onClick={() => setModalOpen(true)}
                                                 className="main-menu-two__btn thm-btn"
+                                                style={{ backgroundColor: "#ffc001" }}
                                             >
                                                 Quick Support
                                             </button>
