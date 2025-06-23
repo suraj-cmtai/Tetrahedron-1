@@ -75,35 +75,35 @@ export default function Footer() {
                     </div>
                     <ul className="footer-widget-two__service-list list-unstyled">
                       <li>
-                        <Link href="service-details">
+                        <Link href="service-details" style={{flexWrap:"inherit"}}>
                           {" "}
                           <span className="icon-angle-left"></span>
                           Consulting Services
                         </Link>
                       </li>
                       <li>
-                        <Link href="service-details">
+                        <Link href="service-details" style={{flexWrap:"inherit"}}>
                           {" "}
                           <span className="icon-angle-left"></span>
                           Corporate Training
                         </Link>
                       </li>
                       <li>
-                        <Link href="service-details">
+                        <Link href="service-details" style={{flexWrap:"inherit"}}>
                           {" "}
                           <span className="icon-angle-left"></span>
                           Automation
                         </Link>
                       </li>
                       <li>
-                        <Link href="service-details">
+                        <Link href="service-details" style={{flexWrap:"inherit"}}>
                           {" "}
                           <span className="icon-angle-left"></span>
                           Sitemap
                         </Link>
                       </li>
                       <li>
-                        <Link href="service-details">
+                        <Link href="service-details" style={{flexWrap:"inherit"}}>
                           {" "}
                           <span className="icon-angle-left"></span>
                           DMCA PROTECTED

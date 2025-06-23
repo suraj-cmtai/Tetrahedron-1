@@ -49,15 +49,32 @@ export default function IndustriesSection() {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (selectedIndustry) {
-        setSelectedIndustry(null);
-      }
-    };
+    if (selectedIndustry) {
+      // When modal opens, disable body scroll
+      document.body.style.overflow = 'hidden';
+    } else {
+      // When modal closes, re-enable body scroll
+      document.body.style.overflow = 'unset';
+    }
 
-    window.addEventListener("scroll", handleScroll);
+    // Cleanup function to re-enable scroll when component unmounts
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedIndustry]);
+
+  useEffect(() => {
+    if (selectedIndustry) {
+      // When modal opens, disable body scroll
+      document.body.style.overflow = 'hidden';
+    } else {
+      // When modal closes, re-enable body scroll
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to re-enable scroll when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
     };
   }, [selectedIndustry]);
 
@@ -90,6 +107,7 @@ export default function IndustriesSection() {
                 alignItems: "center",
                 cursor: "pointer",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                overflow: "hidden",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-5px) scale(1.05)";
@@ -145,12 +163,13 @@ export default function IndustriesSection() {
             transition: "opacity 0.4s ease",
             animationName: "fadeIn",
             animationDuration: "0.5s",
+            overflow: "hidden", // prevent background scroll
           }}
-          onClick={(e) => {
-            if (e.target.id === "modalOverlay") {
-              setSelectedIndustry(null);
-            }
-          }}
+          // onClick={(e) => {
+          //   if (e.target.id === "modalOverlay") {
+          //     setSelectedIndustry(null);
+          //   }
+          // }}
         >
           <style>
             {`
