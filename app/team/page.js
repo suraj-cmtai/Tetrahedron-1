@@ -47,7 +47,7 @@ export default function Home() {
                                         </div>
                                         {/* Name Banner: Half in, Half out from bottom */}
                                         <div className="mycard-team-one__content">
-                                            <h3 className="mycard-team-one__title">
+                                            <h3 className="mycard-team-one__title" style={{ fontSize: 'var(--body-text-size) !important' }}>
                                                 {member.name || "Name Here"}
                                             </h3>
                                         </div>
