@@ -44,8 +44,9 @@ export default function Footer() {
                     <div className="footer-widget-two__logo">
                       <Link href="/">
                         <img
-                          src="assets/images/resources/footer-logo-2.png"
+                          src="assets/images/Tetrahedron Logo.png"
                           alt=""
+                          style={{ width: "100px", height: "auto" }}
                         />
                       </Link>
                     </div>

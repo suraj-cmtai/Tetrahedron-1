@@ -18,7 +18,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" className={poppins.variable} >
+        <html lang="en" className={poppins.variable}>
             <head>
                 <link rel="stylesheet" href="/assets/css/elitecons.css" />
                 <link rel="stylesheet" href="/assets/css/elitecons-responsive.css" />
@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
                         h2.section-title,
                         [class*="title"]:not([class*="sub-title"]) {
                             font-family: var(--font-poppins), Poppins, sans-serif !important;
-                            font-size: var(--body-text-size) !important;
+                            font-size: var(--heading-size) !important;
                             font-weight: 700;
                             line-height: 1.1 !important;
                         }
