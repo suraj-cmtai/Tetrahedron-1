@@ -389,7 +389,7 @@ export default function About() {
                       </li>
                     </ul>
                     <div className="success-one__btn-box" style={{marginTop: '12px'}}>
-                      <Link href="/about" className="success-one__btn thm-btn" style={{fontSize: "14px !important"}}>Read more<span className="icon-dabble-arrow-right"></span></Link>
+                      <Link href="/about-us" className="success-one__btn thm-btn" style={{fontSize: "14px !important"}}>Read more<span className="icon-dabble-arrow-right"></span></Link>
                     </div>
                   </div>
                 </div>
