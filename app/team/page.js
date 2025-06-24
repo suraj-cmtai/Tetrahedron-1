@@ -127,7 +127,8 @@ export default function Home() {
                     justify-content: center;
 
                     /* TEMPORARY DEBUG BORDER - check banner position and content */
-                    border: 2px solid deeppink; 
+                    border: 2px solid  var(--elitecons-base); 
+                    
                 }
 
                 .mycard-team-one__title {

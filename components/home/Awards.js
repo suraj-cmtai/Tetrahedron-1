@@ -29,7 +29,7 @@ const swiperOptions = {
 
 
 }
-export default function Project() {
+export default function Awards() {
     return (
         <>
 
@@ -39,7 +39,7 @@ export default function Project() {
                 <div className="project-two__top">
                     <div className="section-title text-left">
                         <div className="section-title__tagline-box">
-                            <span className="section-title__tagline" style={{top:"10px"}}>Our Latest Awards</span>
+                            <span className="section-title__tagline" style={{top:"20px"}}>Our Latest Awards</span>
                         </div>
                         <h2 className="section-title__title">Awards & Recognition
                         </h2>
@@ -59,16 +59,15 @@ export default function Project() {
                             {/*Services One Single Start*/}
                             <SwiperSlide>
                             <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award1.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award1.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award1.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -77,16 +76,15 @@ export default function Project() {
                             {/*Services One Single Start*/}
                             <SwiperSlide>
                             <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award5.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award5.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award5.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -95,16 +93,15 @@ export default function Project() {
                             {/*Services One Single Start*/}
                             <SwiperSlide>
                             <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award2.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award2.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award2.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -112,16 +109,15 @@ export default function Project() {
                             {/*Services One Single End*/}
                             <SwiperSlide>
                             <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award3.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award3.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award3.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -130,16 +126,15 @@ export default function Project() {
                             {/*Services One Single Start*/}
                             <SwiperSlide>
                             <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award4.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award4.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award4.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -148,16 +143,15 @@ export default function Project() {
                              {/*Services One Single Start*/}
                              <SwiperSlide>
                             <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award6.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award6.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award6.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -166,16 +160,15 @@ export default function Project() {
                              {/*Services One Single Start*/}
                              <SwiperSlide>
                             <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award7.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award7.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award7.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -184,16 +177,15 @@ export default function Project() {
                              {/*Services One Single Start*/}
                              <SwiperSlide>
                             <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award8.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award8.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award8.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -202,16 +194,15 @@ export default function Project() {
                              {/*Services One Single Start*/}
                              <SwiperSlide>
                             <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award9.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award9.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award9.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -220,16 +211,15 @@ export default function Project() {
                              {/*Services One Single Start*/}
                              <SwiperSlide>
                             <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award10.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award10.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award10.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -238,16 +228,15 @@ export default function Project() {
                              {/*Services One Single Start*/}
                              <SwiperSlide>
                             <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award11.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award11.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award11.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -256,16 +245,15 @@ export default function Project() {
                              {/*Services One Single Start*/}
                              <SwiperSlide>
                              <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award12.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award12.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award12.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -274,16 +262,15 @@ export default function Project() {
                              {/*Services One Single Start*/}
                              <SwiperSlide>
                             <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award13.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award13.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award13.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -292,16 +279,15 @@ export default function Project() {
                              {/*Services One Single Start*/}
                              <SwiperSlide>
                             <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award14.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award14.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award14.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -310,16 +296,15 @@ export default function Project() {
                              {/*Services One Single Start*/}
                              <SwiperSlide>
                             <div className="swiper-slide">
-                                <div className="project-two__single">
-                                    <div className="project-two__img">
-                                        <img src="assets/images/project/award15.jpg" alt=""/>
-                                        <div className="project-two__content">
-                                            
-                                            <div className="project-two__arrow">
-                                                <Link href="assets/images/project/award15.jpg" className="img-popup"><span
-                                                        className="icon-dabble-arrow-right"></span></Link>
-                                            </div>
-                                        </div>
+                                    <div style={{ padding: '10px' }}>
+                                        <div style={{ overflow: 'hidden' }}>
+                                            <img
+                                                src="assets/images/project/award15.jpg"
+                                                alt=""
+                                                style={{ width: '100%', transition: 'transform .4s ease', transform: 'scale(1)' }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                            />
                                     </div>
                                 </div>
                             </div>

@@ -1,5 +1,25 @@
 import Link from "next/link";
 
+const poppinsFont = {
+  fontFamily: "Poppins, sans-serif !important"
+};
+const mainHeading = {
+  ...poppinsFont,
+  fontSize: "32px !important"
+};
+const widgetTitle = {
+  ...poppinsFont,
+  fontSize: "26px !important"
+};
+const bodyText = {
+  ...poppinsFont,
+  fontSize: "18px !important"
+};
+const smallText = {
+  ...poppinsFont,
+  fontSize: "16px !important"
+};
+
 export default function Footer() {
   return (
     <>
@@ -29,21 +49,21 @@ export default function Footer() {
                         />
                       </Link>
                     </div>
-                    <p className="footer-widget-two__about-text">
+                    <p className="footer-widget-two__about-text" style={{fontSize: "18px !important"}}>
                       Lorem Ipsum is simply is dumiomy is text Lorem Ipsum is
                       simply
                     </p>
                     <div className="site-footer-two__social">
-                      <Link href="#">
+                      <Link href="#" style={{fontSize: "17px !important"}}>
                         <i className="icon-facebook"></i>
                       </Link>
-                      <Link href="#">
+                      <Link href="#" style={{fontSize: "17px !important"}}>
                         <i className="icon-twitter"></i>
                       </Link>
-                      <Link href="#">
+                      <Link href="#" style={{fontSize: "17px !important"}}>
                         <i className="icon-link-in"></i>
                       </Link>
-                      <Link href="#">
+                      <Link href="#" style={{fontSize: "17px !important"}}>
                         <i className="icon-pinterest"></i>
                       </Link>
                     </div>
@@ -53,10 +73,12 @@ export default function Footer() {
                           type="email"
                           placeholder="Your e-mail"
                           name="EMAIL"
+                          style={{fontSize: "17px !important"}}
                         />
                         <button
                           type="submit"
                           className="footer-widget-two__about-btn"
+                          style={{fontSize: "17px !important"}}
                         >
                           <span className="icon-arrow-right"></span>
                         </button>
@@ -71,39 +93,39 @@ export default function Footer() {
                 >
                   <div className="footer-widget-two__column footer-widget-two__service">
                     <div className="footer-widget-two__title-box">
-                      <h3 className="footer-widget-two__title">Expertise</h3>
+                      <h3 className="footer-widget-two__title" style={{fontSize: "24px !important"}}>Expertise</h3>
                     </div>
                     <ul className="footer-widget-two__service-list list-unstyled">
-                      <li>
-                        <Link href="service-details" style={{flexWrap:"inherit"}}>
+                      <li style={{fontSize: "17px !important"}}>
+                        <Link href="service-details" style={{fontSize: "17px !important"}}>
                           {" "}
                           <span className="icon-angle-left"></span>
                           Consulting Services
                         </Link>
                       </li>
-                      <li>
-                        <Link href="service-details" style={{flexWrap:"inherit"}}>
+                      <li style={{fontSize: "17px !important"}}>
+                        <Link href="service-details" style={{fontSize: "17px !important"}}>
                           {" "}
                           <span className="icon-angle-left"></span>
                           Corporate Training
                         </Link>
                       </li>
-                      <li>
-                        <Link href="service-details" style={{flexWrap:"inherit"}}>
+                      <li style={{fontSize: "17px !important"}}>
+                        <Link href="service-details" style={{fontSize: "17px !important"}}>
                           {" "}
                           <span className="icon-angle-left"></span>
                           Automation
                         </Link>
                       </li>
-                      <li>
-                        <Link href="service-details" style={{flexWrap:"inherit"}}>
+                      <li style={{fontSize: "17px !important"}}>
+                        <Link href="service-details" style={{fontSize: "17px !important"}}>
                           {" "}
                           <span className="icon-angle-left"></span>
                           Sitemap
                         </Link>
                       </li>
-                      <li>
-                        <Link href="service-details" style={{flexWrap:"inherit"}}>
+                      <li style={{fontSize: "17px !important"}}>
+                        <Link href="service-details" style={{fontSize: "17px !important"}}>
                           {" "}
                           <span className="icon-angle-left"></span>
                           DMCA PROTECTED
@@ -119,35 +141,35 @@ export default function Footer() {
                 >
                   <div className="footer-widget-two__column footer-widget-two__links">
                     <div className="footer-widget-two__title-box">
-                      <h3 className="footer-widget-two__title">Quick Links</h3>
+                      <h3 className="footer-widget-two__title" style={{fontSize: "24px !important"}}>Quick Links</h3>
                     </div>
                     <ul className="footer-widget-two__service-list list-unstyled">
-                      <li>
-                        <Link href="">
+                      <li style={{fontSize: "17px !important"}}>
+                        <Link href="" style={{fontSize: "17px !important"}}>
                           {" "}
                           <span className="icon-angle-left"></span> Home
                         </Link>
                       </li>
-                      <li>
-                        <Link href="about">
+                      <li style={{fontSize: "17px !important"}}>
+                        <Link href="about" style={{fontSize: "17px !important"}}>
                           {" "}
                           <span className="icon-angle-left"></span> About Us
                         </Link>
                       </li>
-                      <li>
-                        <Link href="contact">
+                      <li style={{fontSize: "17px !important"}}>
+                        <Link href="contact" style={{fontSize: "17px !important"}}>
                           {" "}
                           <span className="icon-angle-left"></span> Contact Us
                         </Link>
                       </li>
-                      <li>
-                        <Link href="gallery">
+                      <li style={{fontSize: "17px !important"}}>
+                        <Link href="gallery" style={{fontSize: "17px !important"}}>
                           {" "}
                           <span className="icon-angle-left"></span> Gallery
                         </Link>
                       </li>
-                      <li>
-                        <Link href="resources">
+                      <li style={{fontSize: "17px !important"}}>
+                        <Link href="resources" style={{fontSize: "17px !important"}}>
                           {" "}
                           <span className="icon-angle-left"></span> Resources
                           Services
@@ -163,48 +185,48 @@ export default function Footer() {
                 >
                   <div className="footer-widget-two__column footer-widget-two__contact">
                     <div className="footer-widget-two__title-box">
-                      <h3 className="footer-widget-two__title">Contact Us</h3>
+                      <h3 className="footer-widget-two__title" style={{fontSize: "24px !important"}}>Contact Us</h3>
                     </div>
                     <ul className="footer-widget-two__contact-list list-unstyled">
-                      <li>
+                      <li style={{fontSize: "17px !important"}}>
                         <div className="icon">
                           <span className="icon-arrow-up-2"></span>
                         </div>
                         <div className="content">
-                          <p>
-                            <Link href="mailto:marketing@tetrahedron.in">
+                          <p style={{fontSize: "17px !important"}}>
+                            <Link href="mailto:marketing@tetrahedron.in" style={{fontSize: "17px !important"}}>
                               marketing@tetrahedron.in
                             </Link>
                           </p>
                         </div>
                       </li>
-                      <li>
+                      <li style={{fontSize: "17px !important"}}>
                         <div className="icon">
                           <span className="icon-arrow-up-2"></span>
                         </div>
                         <div className="content">
-                          <p>
-                            <Link href="tel:918984189814">+91-8984189814</Link>
+                          <p style={{fontSize: "17px !important"}}>
+                            <Link href="tel:918984189814" style={{fontSize: "17px !important"}}>+91-8984189814</Link>
                           </p>
                         </div>
                       </li>
-                      <li>
+                      <li style={{fontSize: "17px !important"}}>
                         <div className="icon">
                           <span className="icon-arrow-up-2"></span>
                         </div>
                         <div className="content">
-                          <p>
+                          <p style={{fontSize: "17px !important"}}>
                             Main Office:- 204, Block A, Ecotech III, Noida,
                             Khera Choganpur, Uttar Pradesh 201306, India
                           </p>
                         </div>
                       </li>
-                      <li>
+                      <li style={{fontSize: "17px !important"}}>
                         <div className="icon">
                           <span className="icon-arrow-up-2"></span>
                         </div>
                         <div className="content">
-                          <p>
+                          <p style={{fontSize: "17px !important"}}>
                             Regional Office (East):- Unit 630, Located at DLF
                             Cybercity, Infocity Park, Patia – 751024,
                             Bhubaneswar, Odisha (India)
@@ -221,19 +243,19 @@ export default function Footer() {
         <div className="site-footer-two__bottom">
           <div className="container">
             <div className="site-footer-two__bottom-inner">
-              <p className="site-footer-two__bottom-text">
+              <p className="site-footer-two__bottom-text" style={{fontSize: "15px !important"}}>
                 Copyright© 2025, Tetrahedron Manufacturing Services Pvt. Ltd.
                 All Rights Reserved.
               </p>
               <ul className="list-unstyled site-footer-two__bottom-menu">
-                <li>
-                  <Link href="about">Terms & Condition</Link>
+                <li style={{fontSize: "15px !important"}}>
+                  <Link href="about" style={{fontSize: "15px !important"}}>Terms & Condition</Link>
                 </li>
-                <li>
-                  <Link href="about">Privacy Policy</Link>
+                <li style={{fontSize: "15px !important"}}>
+                  <Link href="about" style={{fontSize: "15px !important"}}>Privacy Policy</Link>
                 </li>
-                <li>
-                  <Link href="contact">Contact Us</Link>
+                <li style={{fontSize: "15px !important"}}>
+                  <Link href="contact" style={{fontSize: "15px !important"}}>Contact Us</Link>
                 </li>
               </ul>
             </div>

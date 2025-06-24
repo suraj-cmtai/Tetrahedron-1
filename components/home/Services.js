@@ -23,7 +23,7 @@ const industries = [
   { icon: FaLaptopCode, text: "IT / Industry 4.0 / Software", image: "/assets/images/industries/13.13.png" },
   { icon: FaCubes, text: "Plastic & Plastic Products", image: "/assets/images/industries/14.14.png" },
   { icon: FaIndustry, text: "Steel, Aluminum & Metal", image: "/assets/images/industries/15.15.png" },
-  { icon: FaPlug, text: "Cable Conductor Wires Nails", image: "/assets/images/industries/16.16.png" },
+  // { icon: FaPlug, text: "Cable Conductor Wires Nails", image: "/assets/images/industries/16.16.png" },
   { icon: FaCogs, text: "Heavy Engg, Precision Fabrication, Project Infra", image: "/assets/images/industries/17.17.png" },
   { icon: FaRobot, text: "Machine Manufacturing and Robot", image: "/assets/images/industries/18.18.png" },
   { icon: FaFlask, text: "Fertilizer, Paper, Cement, Carbon, Refractory, ElectroCeramic", image: "/assets/images/industries/19.19.png" },

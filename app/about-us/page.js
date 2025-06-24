@@ -31,9 +31,9 @@ export default function About() {
       {/* CSS for Font, Spacing, and Responsive Layout Improvements */}
       <style jsx global>{`
         /* 1. Apply Poppins Font Family */
-        body, h1, h2, h3, h4, h5, h6, p, a, span, li, input, textarea, button {
+        /* body, h1, h2, h3, h4, h5, h6, p, a, span, li, input, textarea, button {
             font-family: 'Poppins', sans-serif !important;
-        }
+        } */
 
         /* 2. Standardized Section Padding */
         .section-padding {
@@ -55,6 +55,11 @@ export default function About() {
             transition: all 0.3s ease;
         }
 
+        .cta-one__title{
+          font-size: 32px !important; /* Adjusted for better visibility */
+          font-weight: 700 !important; /* Ensure title is bold */
+        }
+
         /* 5. Responsive Adjustments */
         @media (max-width: 991px) {
             .section-title__title {
@@ -69,6 +74,7 @@ export default function About() {
             .contact-two__right {
                 margin-top: 40px;
             }
+
         }
 
         @media (max-width: 767px) {
@@ -114,15 +120,15 @@ export default function About() {
                 </div>
                 <div className="col-lg-6">
                   <div className="about-one__right" style={{ paddingLeft: "30px" }}>
-                    <div className="section-title text-left">
+                    <div className="section-title text-left" style={{ marginBottom: "10px !important" }}>
                       <div className="section-title__tagline-box">
                         <span className="section-title__tagline">ABOUT US</span>
                       </div>
-                      <h2 className="section-title__title" style={{ fontSize: "30px" }}>
+                      <h2 className="section-title__title" style={{ fontSize: "26px !important"}}>
                         Manufacturing Management Consulting
                       </h2>
                     </div>
-                    <p className="about-one__text" style={{ lineHeight: "1.7" }}>
+                    <p className="about-one__text" style={{ lineHeight: "1.5" }}>
                       Tetrahedron provides Manufacturing Consulting Services with different COEs: Manufacturing Excellence, Plant Layout Design, System Standardization (ISO Implementation, Manufacturing Audit), Energy Cost Reduction, and DOJO Implementation.
                     </p>
                   </div>
@@ -138,24 +144,24 @@ export default function About() {
               <div className="row">
                 <div className="col-lg-6 mb-4 mb-lg-0">
                   <div className="feature-box">
-                    <div className="section-title text-left">
-                      <h2 className="section-title__title" style={{ fontSize: "30px" }}>
+                    <div className="section-title text-left" style={{ marginBottom: "10px !important" }}>
+                      <h2 className="section-title__title" style={{ fontSize: "26px !important"}}>
                         Training and Skill Development
                       </h2>
                     </div>
-                    <p className="contact-two__text">
+                    <p className="contact-two__text" style={{ lineHeight: "1.5" }}>
                       Tetrahedron provides Manufacturing Consulting Services with different COEs: Manufacturing Excellence, Plant Layout Design, System Standardization (ISO Implementation, Manufacturing Audit), Energy Cost Reduction, and DOJO Implementation.
                     </p>
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="feature-box">
-                    <div className="section-title text-left">
-                      <h2 className="section-title__title" style={{ fontSize: "30px" }}>
+                    <div className="section-title text-left" style={{ marginBottom: "10px !important" }}>
+                      <h2 className="section-title__title" style={{ fontSize: "26px !important"}}>
                         Automation and Industry 4.0
                       </h2>
                     </div>
-                    <p className="contact-two__text">
+                    <p className="contact-two__text" style={{ lineHeight: "1.5" }}>
                       Manpower Cost Reduction, Improvement of Cycle Time, Material Handling, Quality Control, Increase the Speed of Innovation, Leading to Faster Design Processes, and More Flexible Solutions.
                     </p>
                   </div>
@@ -172,7 +178,7 @@ export default function About() {
                 <div className="col-xl-10 col-lg-12">
                   <div className="contact-two__left" style={{ textAlign: "justify" }}>
                     <div className="section-title ">
-                      <h2 className="section-title__title" style={{ fontSize: "30px" }}>Why Choose Us</h2>
+                      <h2 className="section-title__title" style={{ fontSize: "26px !important", marginBottom: "10px !important" }}>Why Choose Us</h2>
                     </div>
                     <p className="contact-two__text ">
                       We believe in the best solution at the most competitive price. We are into continuous improvement and innovation to help clients experience the most effective solution. We practice inclusive growth of the entire value chain to make the solution sustainable. Our post-delivery service is to empower our customers and to be their first choice.
@@ -194,7 +200,7 @@ export default function About() {
           <section className="faq-one section-padding section-bg-light">
             <div className="container">
               <div className="section-title mb-5" style={{ textAlign: "justify" }}>
-                <h2 className="section-title__title" style={{ fontSize: "30px" }}>Our Core Values</h2>
+                <h2 className="section-title__title" style={{ fontSize: "26px !important" }}>Our Core Values</h2>
               </div>
               <div className="row">
                 <div className="col-lg-6 mb-4 mb-lg-0">
@@ -249,7 +255,7 @@ export default function About() {
                   <div className="section-title__tagline-box">
                     <span className="section-title__tagline">Best roof repairing</span>
                   </div>
-                  <h2 className="section-title__title" style={{ fontSize: "30px" }}>
+                  <h2 className="section-title__title" style={{ fontSize: "26px !important" }}>
                     Crafting Structures That <br /> Stand the Test of Time
                   </h2>
                 </div>
@@ -301,13 +307,13 @@ export default function About() {
                   <div className="contact-two__left">
                     <div className="section-title text-left">
                       <div className="section-title__tagline-box"><span className="section-title__tagline">Talk to Us</span></div>
-                      <h2 className="section-title__title" style={{ fontSize: "30px" }}>Crafting Perfection from <br /> Foundation to Finish</h2>
+                      <h2 className="section-title__title" style={{ fontSize: "26px !important" }}>Crafting Perfection from <br /> Foundation to Finish</h2>
                     </div>
                     <p className="contact-two__text">We handle every detail with precision. Contact us today to discuss your project and see how we can bring your vision to life.</p>
                     <div className="contact-two__call-box">
                       <div className="icon"><span className="icon-call"></span></div>
                       <div className="content">
-                        <span>Need help?</span><p><Link href="tel:+8085550111">+(808) 555-0111</Link></p>
+                        <span>Need help?</span><p><Link href="tel:8984189814">+91-8984189814</Link></p>
                       </div>
                     </div>
                   </div>
@@ -350,45 +356,40 @@ export default function About() {
               <img src="assets/images/shapes/success-one-shape-1.png" alt="" />
             </div>
             <div className="container">
-              <div className="row align-items-center">
-                <div className="col-lg-6">
-                  <div className="success-one__img-box">
-                    <div className="success-one__img">
-                      <img src="assets/images/resources/g.jpg" alt="Construction Success" style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }} />
-                    </div>
-                    <div className="success-one__counter">
-                      <ul className="list-unstyled success-one__counter-list">
-                        <li>
-                          <div className="success-one__counter-count count-box"><h3>100</h3><span className="success-one__counter-percent">%</span></div>
-                          <p className="success-one__counter-text">Success Rate</p>
-                        </li>
-                        <li>
-                          <div className="success-one__counter-count count-box"><h3>250</h3><span className="success-one__counter-percent">+</span></div>
-                          <p className="success-one__counter-text">Happy Clients</p>
-                        </li>
-                      </ul>
+              <div className="row align-items-center" style={{display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start !important', width: '100% !important', margin: '0 !important', padding: '0 !important'}}>
+                <div className="col-lg-6" style={{display: 'flex', alignItems: 'flex-start !important', justifyContent: 'flex-start !important', width: '50% !important', maxWidth: '50% !important', padding: '0 !important', margin: '0 !important'}}>
+                  <div className="" style={{width: '100% !important', display: 'flex', justifyContent: 'flex-start !important', alignItems: 'flex-start !important', marginLeft: '0 !important', paddingLeft: '0 !important'}}>
+                    <div className="" style={{width: '100% !important', maxWidth: '400px !important', marginLeft: '0 !important'}}>
+                      <img src="assets/images/resources/g.jpg" alt="Construction Success" style={{ maxWidth: '100% !important', height: 'auto !important', borderRadius: '8px !important', display: 'block !important', objectFit: 'cover !important', width: '100% !important', minWidth: '220px !important', marginLeft: '60px !important', marginTop: '140px !important', transform: 'scale(1.5)' }} />
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-6">
-                  <div className="success-one__left">
-                    <div className="section-title text-left">
-                      <div className="section-title__tagline-box"><span className="section-title__tagline">Best Services</span></div>
-                      <h2 className="section-title__title" style={{ fontSize: "30px" }}>Creating Innovative and Sustainable Places</h2>
+                <div className="col-lg-6" style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start !important', alignItems: 'flex-start !important', width: '50% !important', maxWidth: '50% !important', padding: '0 16px !important', margin: '0 !important'}}>
+                  <div className="success-one__left" style={{width: '100% !important', display: 'flex', flexDirection: 'column', alignItems: 'flex-start !important', marginTop: '0 !important'}}>
+                    <div style={{ background: '#eb7434', color: 'white', borderRadius: '0.5rem', padding: '24px 24px 18px 24px', marginBottom: '20px', maxWidth: '340px', width: '100% !important', boxSizing: 'border-box', fontFamily: 'Poppins, sans-serif !important', marginTop: '0 !important' }}>
+                      <div style={{ fontWeight: 700, fontSize: '28px !important', lineHeight: 1.1, marginBottom: '8px' }}>100%</div>
+                      <div style={{ fontSize: '16px !important', fontWeight: 500, marginBottom: '12px' }}>Success Rate</div>
+                      <hr style={{ border: '1px solid #fff', opacity: 0.3, margin: '12px 0' }} />
+                      <div style={{ fontWeight: 700, fontSize: '22px !important', lineHeight: 1.1, marginBottom: '8px' }}>250+</div>
+                      <div style={{ fontSize: '16px !important', fontWeight: 500 }}>Happy Clients</div>
                     </div>
-                    <p className="success-one__text">We specialize in building environments that are not only modern and innovative but also sustainable and built to last. Our commitment is to excellence and forward-thinking design.</p>
-                    <ul className="list-unstyled success-one__points">
-                      <li>
-                        <div className="success-one__points-icon"><span className="icon-constructo-pro"></span></div>
-                        <p className="success-one__points-text"><Link href="/service-details">Master Craft Construction</Link></p>
+                    <div className="section-title text-left" style={{width: '100% !important', marginTop: '0 !important'}}>
+                      <div className="section-title__tagline-box"><span className="section-title__tagline" style={{fontSize: "14px !important"}}>Best Services</span></div>
+                      <h2 className="section-title__title" style={{ fontSize: "22px !important", margin: '0 0 12px 0', whiteSpace: 'nowrap', width: '100% !important', overflow: 'hidden', textOverflow: 'ellipsis' }}>Creating Innovative and Sustainable Places</h2>
+                    </div>
+                    <p className="success-one__text" style={{fontSize: "15px !important", margin: '0 0 12px 0', width: '100% !important'}}>We specialize in building environments that are not only modern and innovative but also sustainable and built to last. Our commitment is to excellence and forward-thinking design.</p>
+                    <ul className="list-unstyled success-one__points" style={{margin: 0, padding: 0, width: '100% !important'}}>
+                      <li style={{fontSize: "14px !important", marginBottom: '6px'}}>
+                        <div className="success-one__points-icon" style={{marginRight: '6px'}}><span className="icon-constructo-pro"></span></div>
+                        <p className="success-one__points-text" style={{fontSize: "14px !important", display: 'inline'}}><Link href="/service-details" style={{fontSize: "14px !important"}}>Master Craft Construction</Link></p>
                       </li>
-                      <li>
-                        <div className="success-one__points-icon"><span className="icon-proconstruct"></span></div>
-                        <p className="success-one__points-text"><Link href="/service-details">Quality Construction Co</Link></p>
+                      <li style={{fontSize: "14px !important"}}>
+                        <div className="success-one__points-icon" style={{marginRight: '6px'}}><span className="icon-proconstruct"></span></div>
+                        <p className="success-one__points-text" style={{fontSize: "14px !important", display: 'inline'}}><Link href="/service-details" style={{fontSize: "14px !important"}}>Quality Construction Co</Link></p>
                       </li>
                     </ul>
-                    <div className="success-one__btn-box">
-                      <Link href="/about" className="success-one__btn thm-btn">Read more<span className="icon-dabble-arrow-right"></span></Link>
+                    <div className="success-one__btn-box" style={{marginTop: '12px'}}>
+                      <Link href="/about" className="success-one__btn thm-btn" style={{fontSize: "14px !important"}}>Read more<span className="icon-dabble-arrow-right"></span></Link>
                     </div>
                   </div>
                 </div>
@@ -405,7 +406,7 @@ export default function About() {
                   <div className="faq-one__left">
                     <div className="section-title text-left">
                       <div className="section-title__tagline-box"><span className="section-title__tagline">SOME FAQs</span></div>
-                      <h2 className="section-title__title" style={{ fontSize: "30px" }}>Creating Structures That <br /> Stand the Test of Time</h2>
+                      <h2 className="section-title__title" style={{ fontSize: "26px !important" }}>Creating Structures That <br /> Stand the Test of Time</h2>
                     </div>
                     <p className="faq-one__text">Here are answers to some of the most common questions we receive. If you have other questions, feel free to get in touch with our team.</p>
                     <div className="faq-one__btn-box">
@@ -441,14 +442,14 @@ export default function About() {
           {/*FAQ One End*/}
 
           {/*CTA One Start*/}
-          <section className="cta-one">
-            <div className="container">
+          <section className="cta-one" style={{ height: "auto", padding: "60px 0" }}>
+            <div className="container" >
               <div className="cta-one__inner">
                 <div className="cta-one__shape-1"></div>
                 <div className="cta-one__img">
                   <img src="assets/images/case-studies/CS2.jpg" alt="Inspiring Digital Experience" style={{ maxWidth: "450px", minHeight: "375px", borderRadius: "10px" }} />
                 </div>
-                <h3 className="cta-one__title">
+                <h3 className="cta-one__title" style={{ fontSize: "45px !important", fontWeight: "700 !important", marginBottom: "20px" }}>
                   Crafting Digital Experiences <br /> That Inspire
                 </h3>
                 <div className="cta-one__from-box">

@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link";
 import Menu from "../Menu";
 import MobileMenu from "../MobileMenu";
@@ -32,7 +33,7 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                                     </div>
                                     <div className="text">
                                         <p>
-                                            <Link href="tel:918984189814">+91-8984189814</Link>
+                                            <Link href="tel:918984189814" style={{fontSize: "17px !important"}}>+91-8984189814</Link>
                                         </p>
                                     </div>
                                 </li>
@@ -42,7 +43,7 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                                     </div>
                                     <div className="text">
                                         <p>
-                                            <Link href="mailto:marketing@tetrahedron.in">
+                                            <Link href="mailto:marketing@tetrahedron.in" style={{fontSize: "17px !important"}}>
                                                 marketing@tetrahedron.in
                                             </Link>
                                         </p>
@@ -52,7 +53,7 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                             <div className="main-header-two__top-right">
                                 <div className="main-header-two__social-box">
                                     <div className="main-header-two__social-box-inner">
-                                        <h4 className="main-header-two__social-box-title">
+                                        <h4 className="main-header-two__social-box-title" style={{fontSize: "16px !important"}}>
                                             Follow On:
                                         </h4>
                                         <div className="main-header-two__social">
@@ -96,7 +97,7 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                                         <button
                                             onClick={() => setModalOpen(true)}
                                             className="main-menu-two__btn thm-btn"
-                                            style={{ backgroundColor: "#ffc001" }}
+                                            style={{ backgroundColor: "#ffc001", fontSize: "17px !important" }}
                                         >
                                             Quick Support
                                         </button>
@@ -137,7 +138,7 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                                             <button
                                                 onClick={() => setModalOpen(true)}
                                                 className="main-menu-two__btn thm-btn"
-                                                style={{ backgroundColor: "#ffc001" }}
+                                                style={{ backgroundColor: "#ffc001", fontSize: "17px !important" }}
                                             >
                                                 Quick Support
                                             </button>
