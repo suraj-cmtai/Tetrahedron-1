@@ -3,6 +3,26 @@ import { useState } from "react";
 import Link from "next/link";
 import Layout from "@/components/layout/Layout";
 
+const poppinsFont =  {
+  fontFamily: "Poppins, sans-serif !important"
+};
+const mainHeading = {
+  fontFamily: "Poppins, sans-serif !important",
+  fontSize: "32px !important"
+};
+const blogTitle = {
+  fontFamily: "Poppins, sans-serif !important",
+  fontSize: "26px !important"
+};
+const bodyText = {
+  fontFamily: "Poppins, sans-serif !important",
+  fontSize: "18px !important"
+};
+const smallText = {
+  fontFamily: "Poppins, sans-serif !important",
+  fontSize: "16px !important"
+};
+
 const blogPosts = [
     {
         id: 1,
@@ -38,7 +58,7 @@ const blogPosts = [
     },
     {
         id: 5,
-        title: "What are the Five S’s (5S) in 5S Methodology?",
+        title: "What are the Five S's (5S) in 5S Methodology?",
         date: "February 27, 2024",
         image: "assets/images/blog/banner5.jpg",
         description: "5S Methodology was first introduced by the Toyota Production System, and the main approach to adopt this technique is to organize the workplace in the form of a clean, protective, and highly efficient environment, well-structured and systematic to result in high productivity and significantly reduce waste effectively.",
@@ -49,7 +69,7 @@ const blogPosts = [
         title: "Plant layout : Definition, Objectives, Types, Case Studies, Factors",
         date: "February 27, 2024",
         image: "assets/images/blog/banner6.png",
-        description: "Full Form of Dojo is, the character “DO” refers to the way (in Chinese ‘Dao’ or ‘Tao’).” & the character “JO” refers to the place (in Chinese ‘Chang’). Generally the phrase safety and dojo where safety refers to the practice of ensuring well being and preventing harm.",
+        description: "Full Form of Dojo is, the character 'DO' refers to the way (in Chinese 'Dao' or 'Tao'). The character 'JO' refers to the place (in Chinese 'Chang'). Generally the phrase safety and dojo where safety refers to the practice of ensuring well being and preventing harm.",
         link: "blog-details"
     },
     {
@@ -57,7 +77,7 @@ const blogPosts = [
         title: "Plant layout : Definition, Objectives, Types, Case Studies, Factors",
         date: "December 18, 2023",
         image: "assets/images/blog/banner7.jpg",
-        description: "Maximize the potential with the right and efficient plant layout design. In this, we’ll explore the definition, objectives, and types of plant layout, along with detailed case studies, key strategies, & factors to consider. Whether you’re looking to increase productivity, reduce costs, or improve workplace safety and efficiency.",
+        description: "Maximize the potential with the right and efficient plant layout design. In this, we'll explore the definition, objectives, and types of plant layout, along with detailed case studies, key strategies, & factors to consider. Whether you're looking to increase productivity, reduce costs, or improve workplace safety and efficiency.",
         link: "blog-details"
     },
     {
@@ -290,7 +310,7 @@ const blogPosts = [
         title: "Why should an industry conduct an energy audit in their plant?",
         date: "March 27, 2020",
         image: "assets/images/blog/banner3.jpg",
-        description: "Importance of conducting energy audits & how they can help you identify energy-saving opportunities, reduce operating costs, & improve sustainability. From assessing your facility’s energy consumption & identifying areas of improvement to developing an action plan.",
+        description: "Importance of conducting energy audits & how they can help you identify energy-saving opportunities, reduce operating costs, & improve sustainability. From assessing your facility's energy consumption & identifying areas of improvement to developing an action plan.",
         link: "blog-details"
     },
     {
@@ -346,7 +366,7 @@ const blogPosts = [
         title: "How to Develop and Implement a Successful Competency Mapping Process",
         date: "January 14, 2020",
         image: "assets/images/blog/banner3.jpg",
-        description: "Unlock the full potential of your workforce with a strategic approach to competency mapping. In this informative guide, we’ll explore the process of competency mapping, from identifying key skills and behaviors to evaluating performance and creating development plans.",
+        description: "Unlock the full potential of your workforce with a strategic approach to competency mapping. In this informative guide, we'll explore the process of competency mapping, from identifying key skills and behaviors to evaluating performance and creating development plans.",
         link: "blog-details"
     },
     {
@@ -354,7 +374,7 @@ const blogPosts = [
         title: "How to Set Up a Process Specific DOJO Training Simulation",
         date: "December 9, 2019",
         image: "assets/images/blog/banner3.jpg",
-        description: "Take your training to the next level with a process-specific DOJO simulation. In this comprehensive guide, we’ll walk you through the step-by-step process of setting up a DOJO training simulation, tailored to your organization’s unique needs and processes.",
+        description: "Take your training to the next level with a process-specific DOJO simulation. In this comprehensive guide, we'll walk you through the step-by-step process of setting up a DOJO training simulation, tailored to your organization's unique needs and processes.",
         link: "blog-details"
     },
     {
@@ -370,7 +390,7 @@ const blogPosts = [
         title: "Skilling by Dojo in Manufacturing | Center Design",
         date: "November 30, 2019",
         image: "assets/images/blog/banner3.jpg",
-        description: "Empower your workforce with the power of skilling by dojo in manufacturing. In this, learn how to design a world-class training center that aligns with your business goals & maximizes your employees’ potential. From selecting the right training modules.",
+        description: "Empower your workforce with the power of skilling by dojo in manufacturing. In this, learn how to design a world-class training center that aligns with your business goals & maximizes your employees' potential. From selecting the right training modules.",
         link: "blog-details"
     },
     {
@@ -378,7 +398,7 @@ const blogPosts = [
         title: "Strategic Cost Reduction: Tips and Strategies for Maximising Efficiency",
         date: "September 9, 2019",
         image: "assets/images/blog/banner3.jpg",
-        description: "Maximize your profitability and stay ahead of the competition with a strategic approach to cost reduction and budgeting. In this, we’ll walk you through the process of identifying and prioritizing cost-saving opportunities, developing an effective budgeting strategy.",
+        description: "Maximize your profitability and stay ahead of the competition with a strategic approach to cost reduction and budgeting. In this, we'll walk you through the process of identifying and prioritizing cost-saving opportunities, developing an effective budgeting strategy.",
         link: "blog-details"
     },
   
@@ -410,14 +430,14 @@ export default function Home() {
                                             <Link href={post.link} className="blog-one__link"><span className="sr-only"></span></Link>
                                         </div>
                                     </div>
-                                    <Link href={post.link}><span className="icon-calender"></span> {post.date}</Link>
+                                    <Link href={post.link} style={{fontSize: "17px !important"}}><span className="icon-calender"></span> <span style={{fontSize: "17px !important"}}>{post.date}</span></Link>
                                     <div className="blog-one__content">
-                                        <h3 className="blog-one__title">
-                                            <Link href={post.link}>{post.title}</Link>
+                                        <h3 className="blog-one__title" style={{fontSize: "24px !important"}}>
+                                            <Link href={post.link} style={{fontSize: "24px !important"}}>{post.title}</Link>
                                         </h3>
-                                        <p>{post.description}</p>
+                                        <p style={{fontSize: "18px !important"}}>{post.description}</p>
                                         <div className="blog-one__read-more">
-                                            <Link href={post.link}>Read more<span className="icon-dabble-arrow-right"></span></Link>
+                                            <Link href={post.link} style={{fontSize: "17px !important"}}>Read more<span className="icon-dabble-arrow-right"></span></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -431,7 +451,7 @@ export default function Home() {
                                 style={{
                                     backgroundColor: "#eb7434", 
                                     color: "white", 
-                                    fontSize: "18px", 
+                                    fontSize: "18px !important", 
                                     padding: "12px 24px", 
                                     borderRadius: "5px", 
                                     border: "none",

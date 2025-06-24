@@ -50,8 +50,8 @@ export default function Services2() {
                                     <img src={service.img} alt={service.title} />
                                 </div>
                                 <div className="services-four__content">
-                                    <h5 className="services-four__title">
-                                        <Link href={service.link}>{service.title}</Link>
+                                    <h5 className="services-four__title" style={{ lineHeight: "0.5 !important" }}>
+                                        <Link href={service.link} style={{ lineHeight: "0.5" }}>{service.title}</Link>
                                     </h5>
                                     <p className="services-four__text">
                                         {expanded[index] ? service.fullText : `${service.text}`}

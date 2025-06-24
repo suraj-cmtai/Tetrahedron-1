@@ -27,7 +27,7 @@ export default function Pricing() {
                                 </div>
                                 <div className="pricing-one__call-content">
                                     <span>Need help?</span>
-                                    <p><Link href="tel:8085550111">+(808) 555-0111</Link></p>
+                                    <p><Link href="tel:8984189814">+91-8984189814</Link></p>
                                 </div>
                             </div>
                         </div>

@@ -10,7 +10,7 @@ const swiperOptions = {
     slidesPerView: 1,
     spaceBetween: 0,
     autoplay: {
-        delay: 4500,
+        delay: 6000, // Changed from 4500 to 6000 (6 seconds)
         disableOnInteraction: false,
     },
     loop: true,
@@ -62,6 +62,29 @@ export default function Banner() {
                         opacity: 1;
                         transform: translateX(0);
                     }
+                }
+
+                /* Apply standard line height to all text in the banner */
+                .main-slider-two {
+                    line-height: 1.6; /* Standard line height for better readability */
+                }
+
+                /* Specific line heights for different text elements */
+                .main-slider-two__sub-title {
+                    line-height: 1.4;
+                }
+
+                .main-slider-two__title {
+                    line-height: 1.3; /* Slightly tighter for large headings */
+                    font-size: 60px !important; 
+                }
+
+                .main-slider-two__call-number p {
+                    line-height: 1.5;
+                }
+
+                .main-slider-two__call-number h5 {
+                    line-height: 1.4;
                 }
 
                 /* Initially, hide the content */
@@ -121,7 +144,7 @@ export default function Banner() {
                                     <div className="col-xl-12">
                                         <div className="main-slider-two__content">
                                             <p className="main-slider-two__sub-title">Management Consulting</p>
-                                            <h2 className="main-slider-two__title">Find the right <br /> manufacturing <br /> consulting for <br /> your business needs
+                                            <h2 className="main-slider-two__title" style={{fontSize:"30px !important"}}>Find the right <br /> manufacturing <br /> consulting for <br /> your business needs
                                             </h2>
                                             <div className="main-slider-two__btn-and-call-box">
                                                 <div className="main-slider-two__btn-box">
@@ -134,7 +157,7 @@ export default function Banner() {
                                                     </div>
                                                     <div className="main-slider-two__call-number">
                                                         <p>Need Help</p>
-                                                        <h5><Link href="tel:2085550112">(+91) 8984189814</Link></h5>
+                                                        <h5><Link href="tel:8984189814">(+91) 8984189814</Link></h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -166,7 +189,7 @@ export default function Banner() {
                                     <div className="col-xl-12">
                                         <div className="main-slider-two__content">
                                             <p className="main-slider-two__sub-title">AMR/AGV</p>
-                                            <h2 className="main-slider-two__title">Your Trusted<br /> Partner for<br /> Advanced Mobile <br /> Robotics Solutions
+                                            <h2 className="main-slider-two__title" style={{fontSize:"30px !important"}}>Your Trusted<br /> Partner for<br /> Advanced Mobile <br /> Robotics Solutions
                                             </h2>
                                             <div className="main-slider-two__btn-and-call-box">
                                                 <div className="main-slider-two__btn-box">
@@ -179,7 +202,7 @@ export default function Banner() {
                                                     </div>
                                                     <div className="main-slider-two__call-number">
                                                         <p>Need Help</p>
-                                                        <h5><Link href="tel:2085550112">(+91) 8984189814</Link></h5>
+                                                        <h5><Link href="tel:8984189814">(+91) 8984189814</Link></h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -211,7 +234,7 @@ export default function Banner() {
                                     <div className="col-xl-12">
                                         <div className="main-slider-two__content">
                                             <p className="main-slider-two__sub-title">Skill Training</p>
-                                            <h2 className="main-slider-two__title">Upskill Your<br /> Workforce  & <br />Accelerate Growth<br /> with Our Corporate <br />Training Programs
+                                            <h2 className="main-slider-two__title" style={{fontSize:"30px !important"}}>Upskill Your<br /> Workforce  & <br />Accelerate Growth<br /> with Our Corporate <br />Training Programs
                                             </h2>
                                             <div className="main-slider-two__btn-and-call-box">
                                                 <div className="main-slider-two__btn-box">
@@ -224,7 +247,7 @@ export default function Banner() {
                                                     </div>
                                                     <div className="main-slider-two__call-number">
                                                         <p>Need Help</p>
-                                                        <h5><Link href="tel:2085550112">(+91) 8984189814</Link></h5>
+                                                        <h5><Link href="tel:8984189814">(+91) 8984189814</Link></h5>
                                                     </div>
                                                 </div>
                                             </div>
