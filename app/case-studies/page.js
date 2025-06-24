@@ -31,7 +31,7 @@ import CS23 from "/public/assets/images/case-studies/CS23.jpg";
 // Case Study Data
 const caseStudyData = [
     {
-        title: "Manpower Optimisation & Cycle time Reduction",
+        title: "Manpower Optimisation & Cycle Time Reduction",
         company: "India’s Largest Automobile Manufacturing",
         beforeTetrahedron: [
             "Difficulty in identifying unutilized space & removing unnecessary items",
