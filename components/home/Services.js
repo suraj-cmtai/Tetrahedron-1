@@ -335,10 +335,8 @@ export default function IndustriesSection() {
               {[
                 { placeholder: "Full Name *", type: "text", icon: "👤" },
                 { placeholder: "Company Name *", type: "text", icon: "🏢" },
-                { placeholder: "Location *", type: "text", icon: "📍" },
                 { placeholder: "Email *", type: "email", icon: "✉️" },
                 { placeholder: "Mobile No *", type: "tel", icon: "📱" },
-                { placeholder: "Enter Your Industry", type: "text", icon: "🏭" },
                 { placeholder: "Your Requirements *", type: "text", icon: "📋" },
               ].map((field, idx) => (
                 <div key={idx} style={{ position: "relative" }}>

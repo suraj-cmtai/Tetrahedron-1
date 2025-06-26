@@ -105,6 +105,10 @@ export default function About() {
                 margin-bottom: 15px;
             }
         }
+
+        .cta-one__img img::before {
+          background: none !important;
+        }
     `}</style>
         <Layout headerStyle={6} footerStyle={6} breadcrumbTitle="About Us">
           {/* About Us Section Start */}
@@ -443,24 +447,26 @@ export default function About() {
           {/*FAQ One End*/}
 
           {/*CTA One Start*/}
-          <section className="cta-one" style={{ height: "auto", padding: "60px 0" }}>
-            <div className="container" >
-              <div className="cta-one__inner">
-                <div className="cta-one__shape-1"></div>
-                <div className="cta-one__img">
-                  <img src="assets/images/case-studies/CS2.jpg" alt="Inspiring Digital Experience" style={{ maxWidth: "450px", minHeight: "375px", borderRadius: "10px" }} />
-                </div>
-                <h3 className="cta-one__title" style={{ fontSize: "45px !important", fontWeight: "700 !important", marginBottom: "20px" }}>
-                  Crafting Digital Experiences <br /> That Inspire
+          <section className="cta-one" style={{ height: "auto", padding: "60px 0", width: '100% !important', boxSizing: 'border-box' }}>
+            <div className="container" style={{ width: '100% !important', maxWidth: '1200px', margin: '0 auto', display: 'flex !important', alignItems: 'center !important', justifyContent: 'space-between !important', flexDirection: 'row !important', gap: '32px' }}>
+              {/* Left Side: Text and Form */}
+              <div style={{ flex: 1, display: 'flex !important', flexDirection: 'column !important', justifyContent: 'center !important', alignItems: 'flex-start !important', height: '100% !important', minHeight: '400px', padding: '0 0 0 24px', boxSizing: 'border-box' }}>
+              <h3 className="cta-one__title" style={{ fontSize: "36px !important", fontWeight: "700 !important", marginBottom: "20px" }}>
+                  Crafting Digital Experiences That Inspire
                 </h3>
                 <div className="cta-one__from-box">
                   <form className="cta-one__form">
                     <div className="cta-one__input-box">
                       <input type="email" placeholder="Your E-mail" name="email" />
                     </div>
-                    <button type="submit" className="cta-one__btn thm-btn">Subscribe Us</button>
+                    <button type="submit" className="cta-one__btn thm-btn" style={{width:"60%"}}>Subscribe Us</button>
                   </form>
                 </div>
+              </div>
+              {/* Right Side: Images */}
+              <div style={{ flex: 1, display: 'flex !important', flexDirection: 'column !important', alignItems: 'flex-end !important', justifyContent: 'center !important', height: '80% !important', gap: '16px', paddingRight: '24px', boxSizing: 'border-box' }}>
+                <img src="/assets/images/case-studies/CS2.jpg" alt="Inspiring Digital Experience" style={{ maxWidth: "350px !important", width: '90% !important', minHeight: "150px !important", maxHeight: '40% !important', borderRadius: "10px", marginBottom: '8px', objectFit: 'cover', background: 'none !important', zIndex: 2 }} />
+                <img src="/assets/images/case-studies/CS2.jpg" alt="Inspiring Digital Experience 2" style={{ maxWidth: "350px !important", width: '90% !important', minHeight: "150px !important", maxHeight: '40% !important', borderRadius: "10px", objectFit: 'cover', background: 'none !important', zIndex: 2 }} />
               </div>
             </div>
           </section>
