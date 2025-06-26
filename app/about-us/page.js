@@ -466,7 +466,7 @@ export default function About() {
               {/* Right Side: Images */}
               <div style={{ flex: 1, display: 'flex !important', flexDirection: 'column !important', alignItems: 'flex-end !important', justifyContent: 'center !important', height: '80% !important', gap: '16px', paddingRight: '24px', boxSizing: 'border-box' }}>
                 <img src="/assets/images/case-studies/CS2.jpg" alt="Inspiring Digital Experience" style={{ maxWidth: "350px !important", width: '90% !important', minHeight: "150px !important", maxHeight: '40% !important', borderRadius: "10px", marginBottom: '8px', objectFit: 'cover', background: 'none !important', zIndex: 2 }} />
-                <img src="/assets/images/case-studies/CS2.jpg" alt="Inspiring Digital Experience 2" style={{ maxWidth: "350px !important", width: '90% !important', minHeight: "150px !important", maxHeight: '40% !important', borderRadius: "10px", objectFit: 'cover', background: 'none !important', zIndex: 2 }} />
+                <img src="/assets/images/case-studies/CS6.jpg" alt="Inspiring Digital Experience 2" style={{ maxWidth: "350px !important", width: '90% !important', minHeight: "150px !important", maxHeight: '40% !important', borderRadius: "10px", objectFit: 'cover', background: 'none !important', zIndex: 2 }} />
               </div>
             </div>
           </section>
