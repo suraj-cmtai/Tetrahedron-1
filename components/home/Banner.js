@@ -144,7 +144,7 @@ export default function Banner() {
                                     <div className="col-xl-12">
                                         <div className="main-slider-two__content">
                                             <p className="main-slider-two__sub-title">Management Consulting</p>
-                                            <h2 className="main-slider-two__title" style={{fontSize:"30px !important"}}>Find the right <br /> manufacturing <br /> consulting for <br /> your business needs
+                                            <h2 className="main-slider-two__title" style={{fontSize:"40px !important"}}>Find the right <br /> manufacturing <br /> consulting for <br /> your business needs
                                             </h2>
                                             <div className="main-slider-two__btn-and-call-box">
                                                 <div className="main-slider-two__btn-box">
@@ -189,7 +189,7 @@ export default function Banner() {
                                     <div className="col-xl-12">
                                         <div className="main-slider-two__content">
                                             <p className="main-slider-two__sub-title">AMR/AGV</p>
-                                            <h2 className="main-slider-two__title" style={{fontSize:"30px !important"}}>Your Trusted<br /> Partner for<br /> Advanced Mobile <br /> Robotics Solutions
+                                            <h2 className="main-slider-two__title" style={{fontSize:"40px !important"}}>Your Trusted<br /> Partner for<br /> Advanced Mobile <br /> Robotics Solutions
                                             </h2>
                                             <div className="main-slider-two__btn-and-call-box">
                                                 <div className="main-slider-two__btn-box">
@@ -234,7 +234,7 @@ export default function Banner() {
                                     <div className="col-xl-12">
                                         <div className="main-slider-two__content">
                                             <p className="main-slider-two__sub-title">Skill Training</p>
-                                            <h2 className="main-slider-two__title" style={{fontSize:"30px !important"}}>Upskill Your<br /> Workforce  & <br />Accelerate Growth<br /> with Our Corporate <br />Training Programs
+                                            <h2 className="main-slider-two__title" style={{fontSize:"40px !important"}}>Upskill Your<br /> Workforce  & <br />Accelerate Growth<br /> with Our Corporate <br />Training Programs
                                             </h2>
                                             <div className="main-slider-two__btn-and-call-box">
                                                 <div className="main-slider-two__btn-box">

@@ -121,9 +121,6 @@ export default function About() {
                 <div className="col-lg-6">
                   <div className="about-one__right" style={{ paddingLeft: "30px" }}>
                     <div className="section-title text-left" style={{ marginBottom: "10px !important" }}>
-                      <div className="section-title__tagline-box">
-                        <span className="section-title__tagline">ABOUT US</span>
-                      </div>
                       <h2 className="section-title__title" style={{ fontSize: "26px !important"}}>
                         Manufacturing Management Consulting
                       </h2>
@@ -256,7 +253,7 @@ export default function About() {
                     <span className="section-title__tagline">Best roof repairing</span>
                   </div>
                   <h2 className="section-title__title" style={{ fontSize: "26px !important" }}>
-                    Crafting Structures That <br /> Stand the Test of Time
+                    Crafting Structures That the Test of Time
                   </h2>
                 </div>
                 <p className="counter-two__top-text">
@@ -306,14 +303,18 @@ export default function About() {
                 <div className="col-lg-6">
                   <div className="contact-two__left">
                     <div className="section-title text-left">
-                      <div className="section-title__tagline-box"><span className="section-title__tagline">Talk to Us</span></div>
-                      <h2 className="section-title__title" style={{ fontSize: "26px !important" }}>Crafting Perfection from <br /> Foundation to Finish</h2>
+                      <div className="section-title__tagline-box"><span className="section-title__tagline" style={{fontSize:"80%"}}>Talk to Us</span></div>
+                      <h2 className="section-title__title" style={{ fontSize: "24px !important", zoom:"90%" }}>Crafting Perfection from Foundation to Finish</h2>
                     </div>
                     <p className="contact-two__text">We handle every detail with precision. Contact us today to discuss your project and see how we can bring your vision to life.</p>
-                    <div className="contact-two__call-box">
+                    <div className="contact-two__call-box" style={{zoom:"95%"}}>
                       <div className="icon"><span className="icon-call"></span></div>
                       <div className="content">
-                        <span>Need help?</span><p><Link href="tel:8984189814">+91-8984189814</Link></p>
+                        <span>Need help?</span><p style={{fontSize:"80%"}}><Link href="tel:8984189814">+91-8984189814</Link></p>
+                      </div>
+                      <div className="icon" style={{marginLeft:"10px"}}><span className="icon-email"></span></div>
+                      <div className="content">
+                        <span>Email us</span><p style={{fontSize:"80%"}}><Link href="mailto:marketing@tetrahedron.in">marketing@tetrahedron.in</Link></p>
                       </div>
                     </div>
                   </div>

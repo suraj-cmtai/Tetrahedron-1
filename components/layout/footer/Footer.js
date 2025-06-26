@@ -46,13 +46,12 @@ export default function Footer() {
                         <img
                           src="assets/images/Tetrahedron Logo.png"
                           alt=""
-                          style={{ width: "100px", height: "auto" }}
+                          style={{ width: "150px", height: "auto" }}
                         />
                       </Link>
                     </div>
                     <p className="footer-widget-two__about-text" style={{fontSize: "18px !important"}}>
-                      Lorem Ipsum is simply is dumiomy is text Lorem Ipsum is
-                      simply
+                      We believe in the best solution at the most competitive price. 
                     </p>
                     <div className="site-footer-two__social">
                       <Link href="#" style={{fontSize: "17px !important"}}>

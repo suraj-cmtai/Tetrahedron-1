@@ -54,9 +54,9 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                                 <div className="main-header-two__social-box">
                                     <div className="main-header-two__social-box-inner">
                                         <h4 className="main-header-two__social-box-title" style={{fontSize: "16px !important"}}>
-                                            Follow On:
+                                            Follow Us On:
                                         </h4>
-                                        <div className="main-header-two__social">
+                                        <div className="main-header-two__social" style={{height:"24px"}}>
                                             {/* --- FIX HERE: Add actual URLs --- */}
                                             <Link href="https://www.facebook.com/TetrahedronManufacturingServices" target="_blank" rel="noopener noreferrer">
                                                 <i className="icon-facebook"></i>
