@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout"
 import CounterUp from "@/components/elements/CounterUp"
 import Link from "next/link"
 import { useState } from 'react'
+import ContactForm from "@/components/ContactForm"
 
 
 export default function About() {
@@ -325,29 +326,7 @@ export default function About() {
                 </div>
                 <div className="col-lg-6">
                   <div className="contact-two__right">
-                    <form action="assets/inc/sendemail.php" className="contact-two__form contact-form-validated">
-                      <div className="row">
-                        <div className="col-md-6">
-                          <div className="contact-two__input-box"><input type="text" placeholder="Your Name" name="name" /></div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="contact-two__input-box"><input type="email" placeholder="Your E-mail" name="email" /></div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="contact-two__input-box"><input type="text" placeholder="Your Phone" name="phone" /></div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="contact-two__input-box"><input type="text" placeholder="Your Location" name="location" /></div>
-                        </div>
-                        <div className="col-12">
-                          <div className="contact-two__input-box text-message-box"><textarea name="message" placeholder="Your Message"></textarea></div>
-                          <div className="contact-two__btn-box">
-                            <button type="submit" className="thm-btn contact-two__btn">Send us<span className="icon-dabble-arrow-right"></span></button>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                    <div className="result"></div>
+                    <ContactForm />
                   </div>
                 </div>
               </div>

@@ -507,7 +507,7 @@ export default function CaseStudies() {
                     <div key={index} style={{ display: "flex", flexDirection: index % 2 === 0 ? "row" : "row-reverse", alignItems: "center", justifyContent: "space-between", marginBottom: "60px", gap: "50px", padding: "30px", borderRadius: "12px", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", backgroundColor: "#f9f9f9" }}>
                         <Image src={study.image} alt={study.title} width={700} height={450} unoptimized={true} style={{ width: "48%", borderRadius: "12px" }} />
                         <div style={{ width: "50%" }}>
-                            <h3 style={{ fontSize: "24px", fontWeight: "bold", color: "#1A3B73", marginBottom: "12px" }}>{study.title}</h3>
+                            <h3 style={{ fontSize: "24px", fontWeight: "bold", color: "#1A3B73", marginBottom: "12px", fontFamily: "Poppins !important" }}>{study.title}</h3>
                             <h4 style={{ fontSize: "20px", fontWeight: "bold", color: "#1A3B73" }}>{study.company}</h4>
                             <p style={{ fontSize: "18px", lineHeight: "1.8", color: "#444", marginBottom: "15px" }}>Before Tetrahedron:</p>
                             <ul style={{ marginBottom: "15px" }}>{study.beforeTetrahedron.map((point, i) => <li key={i} style={{ fontSize: "16px", color: "#555" }}>{point}</li>)}</ul>

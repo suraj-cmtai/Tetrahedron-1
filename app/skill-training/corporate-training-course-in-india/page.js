@@ -1,5 +1,6 @@
 "use client";
 
+import ContactForm from "@/components/ContactForm";
 import Layout from "@/components/layout/Layout";
 import Image from "next/image";
 import { useState } from "react";
@@ -82,18 +83,7 @@ export default function Page() {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} style={formContainer}>
-              <h3 style={formTitle}>Get Started Now</h3>
-              <InputField name="name" placeholder="Name *" value={formData.name} error={errors.name} onChange={handleChange} />
-              <InputField name="companyName" placeholder="Company Name *" value={formData.companyName} error={errors.companyName} onChange={handleChange} />
-              <InputField name="email" placeholder="Email *" value={formData.email} error={errors.email} onChange={handleChange} />
-              <InputField name="mobile" placeholder="Mobile No *" value={formData.mobile} error={errors.mobile} onChange={handleChange} />
-              <InputField name="requirement" placeholder="Your Requirement (Optional)" value={formData.requirement} onChange={handleChange} textarea />
-              <button type="submit" style={buttonStyle}>
-                Submit Request
-                <span style={buttonArrow}>&rarr;</span>
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </div>
 

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
+import axios from 'axios'
 
 import Layout from "@/components/layout/Layout"
 import Banner from "@/components/home/Banner"
@@ -10,6 +11,7 @@ import About from "@/components/home/About"
 import Business from "@/components/home/Business"
 import Awards from "@/components/home/Awards"
 import Testimonial from "@/components/home/Testimonial"
+import ContactForm from "@/components/ContactForm"
 
 export default function Home() {
     if (process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true') {
@@ -22,6 +24,7 @@ export default function Home() {
   }
     const [showForm, setShowForm] = useState(false)
     const pathname = usePathname()
+    const [modal, setModal] = useState({ open: false, message: '', success: false });
 
     useEffect(() => {
         const checkFormVisibility = () => {
@@ -44,10 +47,22 @@ export default function Home() {
         localStorage.setItem("leadFormClosed", Date.now().toString())
     }
 
-    const handleSubmitForm = () => {
-        alert("Form submitted!")
-        handleCloseForm()
-    }
+    const handleSubmitForm = async (e) => {
+        e.preventDefault();
+        console.log('Sending form data:', formData);
+        try {
+            const res = await axios.post('/api/contact', formData);
+            if (res.status === 200) {
+                setModal({ open: true, message: 'Form submitted successfully!', success: true });
+                handleCloseForm();
+            } else {
+                setModal({ open: true, message: 'Failed to submit form.', success: false });
+            }
+        } catch (err) {
+            setModal({ open: true, message: 'Failed to submit form.', success: false });
+        }
+        setTimeout(() => setModal({ ...modal, open: false }), 3000);
+    };
 
     return (
         <Layout>
@@ -92,24 +107,18 @@ export default function Home() {
                             color: "#555"
                         }}>✖</div>
 
-                        <h2 style={{
-                            textAlign: "center",
-                            marginBottom: "20px",
-                            fontSize: "22px",
-                            color: "#333"
-                        }}>Get in Touch</h2>
+                        
 
-                        <input type="text" placeholder="Full Name*" required style={inputStyle} />
-                        <input type="text" placeholder="Company Name*" required style={inputStyle} />
-                        <input type="text" placeholder="Location*" required style={inputStyle} />
-                        <input type="email" placeholder="Email*" required style={inputStyle} />
-                        <input type="tel" placeholder="Mobile No.*" required style={inputStyle} />
-                        <input type="text" placeholder="Enter your industry" style={inputStyle} />
-                        <textarea placeholder="Your Requirements*" rows={3} required style={{ ...inputStyle, resize: "none" }}></textarea>
+                        <ContactForm />
+                    </div>
+                </div>
+            )}
 
-                        <div style={{ textAlign: "center", marginTop: "15px" }}>
-                            <button onClick={handleSubmitForm} style={submitButtonStyle}>Submit</button>
-                        </div>
+            {modal.open && (
+                <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(0,0,0,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 99999 }} onClick={() => setModal({ ...modal, open: false })}>
+                    <div style={{ background: '#fff', padding: '32px 48px', borderRadius: '16px', boxShadow: '0 8px 32px rgba(0,0,0,0.2)', textAlign: 'center', minWidth: '300px', fontSize: '18px', color: modal.success ? 'green' : 'red', fontWeight: 'bold', position: 'relative' }}>
+                        <span style={{ position: 'absolute', top: 8, right: 16, cursor: 'pointer', fontSize: 24, color: '#888' }} onClick={() => setModal({ ...modal, open: false })}>×</span>
+                        {modal.message}
                     </div>
                 </div>
             )}

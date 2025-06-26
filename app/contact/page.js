@@ -1,6 +1,40 @@
-
+"use client";
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
+
+async function handleContactThreeSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+        name: form.name.value,
+        company: form.companyName.value,
+        email: form.email.value,
+        mobile: form.Phone.value,
+        message: form.message.value,
+    };
+    
+    try {
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const result = await response.json();
+        console.log('Form submission successful:', result);
+        // You can add success handling here (e.g., show success message, reset form)
+    } catch (error) {
+        console.error('Error submitting form:', error);
+        // You can add error handling here (e.g., show error message to user)
+    }
+}
+
 export default function Home() {
 
     return (
@@ -88,7 +122,7 @@ export default function Home() {
                                 </div>
                                 <h2 className="section-title__title">Send us a message</h2>
                             </div>
-                            <form action="assets/inc/sendemail.php" className="contact-three__form contact-form-validated">
+                            <form action="#" className="contact-three__form contact-form-validated" onSubmit={handleContactThreeSubmit}>
                                 <div className="row">
                                     <div className="col-xl-3 col-lg-6">
                                         <div className="contact-three__input-box">
@@ -102,22 +136,12 @@ export default function Home() {
                                     </div>
                                     <div className="col-xl-3 col-lg-6">
                                         <div className="contact-three__input-box">
-                                            <input type="text" placeholder="Location" name="location" required />
-                                        </div>
-                                    </div>
-                                    <div className="col-xl-3 col-lg-6">
-                                        <div className="contact-three__input-box">
                                             <input type="email" placeholder="Your Email" name="email" required />
                                         </div>
                                     </div>
                                     <div className="col-xl-3 col-lg-6">
                                         <div className="contact-three__input-box">
                                             <input type="text" placeholder="Phone Number" name="Phone" required />
-                                        </div>
-                                    </div>
-                                    <div className="col-xl-3 col-lg-6">
-                                        <div className="contact-three__input-box">
-                                            <input type="text" placeholder="Your Industry" name="industry" />
                                         </div>
                                     </div>
                                 </div>

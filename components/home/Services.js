@@ -34,6 +34,15 @@ const industries = [
 
 export default function IndustriesSection() {
   const [selectedIndustry, setSelectedIndustry] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    mobile: '',
+    requirements: ''
+  });
+  const [modal, setModal] = useState({ open: false, message: '', success: false });
+  const [loading, setLoading] = useState(false);
   const images = [
     // "/assets/images/industries/1.1.png",
     "/assets/images/industries/2.2.png",
@@ -77,6 +86,31 @@ export default function IndustriesSection() {
       document.body.style.overflow = 'unset';
     };
   }, [selectedIndustry]);
+
+  // Modal form submit handler
+  async function handleModalFormSubmit(e) {
+    e.preventDefault();
+    setLoading(true);
+    console.log('Sending service modal form data:', formData);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      if (res.ok) {
+        setModal({ open: true, message: 'Form submitted successfully!', success: true });
+        setSelectedIndustry(null);
+        setFormData({ name: '', company: '', email: '', mobile: '', requirements: '' });
+      } else {
+        setModal({ open: true, message: 'Failed to submit form.', success: false });
+      }
+    } catch (err) {
+      setModal({ open: true, message: 'Failed to submit form.', success: false });
+    }
+    setLoading(false);
+    setTimeout(() => setModal({ ...modal, open: false }), 3000);
+  }
 
   return (
     <section style={{ padding: "40px 20px", backgroundColor: "#f4f4f4" }}>
@@ -295,20 +329,7 @@ export default function IndustriesSection() {
             </div>
 
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const modal = document.getElementById("modalOverlay");
-                const content = document.getElementById("modalContent");
-                if (modal && content) {
-                  content.style.animationName = "scaleOut";
-                  modal.style.animationName = "fadeOut";
-                  content.style.animationDuration = "0.4s";
-                  modal.style.animationDuration = "0.4s";
-                  setTimeout(() => setSelectedIndustry(null), 380);
-                } else {
-                  setSelectedIndustry(null);
-                }
-              }}
+              onSubmit={handleModalFormSubmit}
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -332,60 +353,136 @@ export default function IndustriesSection() {
                 {selectedIndustry.text}
               </h3>
 
-              {[
-                { placeholder: "Full Name *", type: "text", icon: "👤" },
-                { placeholder: "Company Name *", type: "text", icon: "🏢" },
-                { placeholder: "Email *", type: "email", icon: "✉️" },
-                { placeholder: "Mobile No *", type: "tel", icon: "📱" },
-                { placeholder: "Your Requirements *", type: "text", icon: "📋" },
-              ].map((field, idx) => (
-                <div key={idx} style={{ position: "relative" }}>
-                  <span
-                    style={{
-                      position: "absolute",
-                      left: "15px",
-                      top: "50%",
-                      transform: "translateY(-50%)",
-                      fontSize: "16px",
-                      zIndex: "2",
-                    }}
-                  >
-                    {field.icon}
-                  </span>
-                  <input
-                    type={field.type}
-                    placeholder={field.placeholder}
-                    style={{
-                      padding: "14px 14px 14px 45px",
-                      border: "2px solid #e2e8f0",
-                      borderRadius: "14px",
-                      width: "100%",
-                      color: "#2d3748",
-                      fontSize: "16px",
-                      fontFamily: "'Montserrat', 'Poppins', sans-serif",
-                      fontWeight: "400",
-                      outline: "none",
-                      backgroundColor: "rgba(255,255,255,0.8)",
-                      boxShadow: "inset 0 2px 4px rgba(0,0,0,0.05)",
-                      transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                    }}
-                    required={field.placeholder.includes("*")}
-                    onFocus={(e) => {
-                      e.target.style.border = "2px solid #4c51bf";
-                      e.target.style.boxShadow =
-                        "0 0 0 5px rgba(76,81,191,0.15), inset 0 2px 4px rgba(0,0,0,0)";
-                      e.target.style.backgroundColor = "#ffffff";
-                      e.target.style.transform = "translateY(-2px)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.border = "2px solid #e2e8f0";
-                      e.target.style.boxShadow = "inset 0 2px 4px rgba(0,0,0,0.05)";
-                      e.target.style.backgroundColor = "rgba(255,255,255,0.8)";
-                      e.target.style.transform = "translateY(0)";
-                    }}
-                  />
-                </div>
-              ))}
+              {/* Full Name */}
+              <div style={{ position: "relative" }}>
+                <span style={{ position: "absolute", left: "15px", top: "50%", transform: "translateY(-50%)", fontSize: "16px", zIndex: "2" }}>👤</span>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name *"
+                  value={formData.name}
+                  onChange={e => setFormData({ ...formData, name: e.target.value })}
+                  style={{
+                    padding: "14px 14px 14px 45px",
+                    border: "2px solid #e2e8f0",
+                    borderRadius: "14px",
+                    width: "100%",
+                    color: "#2d3748",
+                    fontSize: "16px",
+                    fontFamily: "'Montserrat', 'Poppins', sans-serif",
+                    fontWeight: "400",
+                    outline: "none",
+                    backgroundColor: "rgba(255,255,255,0.8)",
+                    boxShadow: "inset 0 2px 4px rgba(0,0,0,0.05)",
+                    transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  }}
+                  required
+                />
+              </div>
+              {/* Company Name */}
+              <div style={{ position: "relative" }}>
+                <span style={{ position: "absolute", left: "15px", top: "50%", transform: "translateY(-50%)", fontSize: "16px", zIndex: "2" }}>🏢</span>
+                <input
+                  type="text"
+                  name="company"
+                  placeholder="Company Name *"
+                  value={formData.company}
+                  onChange={e => setFormData({ ...formData, company: e.target.value })}
+                  style={{
+                    padding: "14px 14px 14px 45px",
+                    border: "2px solid #e2e8f0",
+                    borderRadius: "14px",
+                    width: "100%",
+                    color: "#2d3748",
+                    fontSize: "16px",
+                    fontFamily: "'Montserrat', 'Poppins', sans-serif",
+                    fontWeight: "400",
+                    outline: "none",
+                    backgroundColor: "rgba(255,255,255,0.8)",
+                    boxShadow: "inset 0 2px 4px rgba(0,0,0,0.05)",
+                    transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  }}
+                  required
+                />
+              </div>
+              {/* Email */}
+              <div style={{ position: "relative" }}>
+                <span style={{ position: "absolute", left: "15px", top: "50%", transform: "translateY(-50%)", fontSize: "16px", zIndex: "2" }}>✉️</span>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email *"
+                  value={formData.email}
+                  onChange={e => setFormData({ ...formData, email: e.target.value })}
+                  style={{
+                    padding: "14px 14px 14px 45px",
+                    border: "2px solid #e2e8f0",
+                    borderRadius: "14px",
+                    width: "100%",
+                    color: "#2d3748",
+                    fontSize: "16px",
+                    fontFamily: "'Montserrat', 'Poppins', sans-serif",
+                    fontWeight: "400",
+                    outline: "none",
+                    backgroundColor: "rgba(255,255,255,0.8)",
+                    boxShadow: "inset 0 2px 4px rgba(0,0,0,0.05)",
+                    transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  }}
+                  required
+                />
+              </div>
+              {/* Mobile No */}
+              <div style={{ position: "relative" }}>
+                <span style={{ position: "absolute", left: "15px", top: "50%", transform: "translateY(-50%)", fontSize: "16px", zIndex: "2" }}>📱</span>
+                <input
+                  type="tel"
+                  name="mobile"
+                  placeholder="Mobile No *"
+                  value={formData.mobile}
+                  onChange={e => setFormData({ ...formData, mobile: e.target.value })}
+                  style={{
+                    padding: "14px 14px 14px 45px",
+                    border: "2px solid #e2e8f0",
+                    borderRadius: "14px",
+                    width: "100%",
+                    color: "#2d3748",
+                    fontSize: "16px",
+                    fontFamily: "'Montserrat', 'Poppins', sans-serif",
+                    fontWeight: "400",
+                    outline: "none",
+                    backgroundColor: "rgba(255,255,255,0.8)",
+                    boxShadow: "inset 0 2px 4px rgba(0,0,0,0.05)",
+                    transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  }}
+                  required
+                />
+              </div>
+              {/* Your Requirements */}
+              <div style={{ position: "relative" }}>
+                <span style={{ position: "absolute", left: "15px", top: "50%", transform: "translateY(-50%)", fontSize: "16px", zIndex: "2" }}>📋</span>
+                <input
+                  type="text"
+                  name="requirements"
+                  placeholder="Your Requirements *"
+                  value={formData.requirements}
+                  onChange={e => setFormData({ ...formData, requirements: e.target.value })}
+                  style={{
+                    padding: "14px 14px 14px 45px",
+                    border: "2px solid #e2e8f0",
+                    borderRadius: "14px",
+                    width: "100%",
+                    color: "#2d3748",
+                    fontSize: "16px",
+                    fontFamily: "'Montserrat', 'Poppins', sans-serif",
+                    fontWeight: "400",
+                    outline: "none",
+                    backgroundColor: "rgba(255,255,255,0.8)",
+                    boxShadow: "inset 0 2px 4px rgba(0,0,0,0.05)",
+                    transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  }}
+                  required
+                />
+              </div>
 
               <button
                 type="submit"
@@ -398,32 +495,46 @@ export default function IndustriesSection() {
                   fontSize: "17px",
                   fontWeight: "600",
                   letterSpacing: "0.5px",
-                  cursor: "pointer",
+                  cursor: loading ? 'not-allowed' : 'pointer',
                   marginTop: "10px",
                   transition: "all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                   boxShadow: "0 6px 15px rgba(76,81,191,0.3)",
                   textTransform: "uppercase",
+                  opacity: loading ? 0.7 : 1
                 }}
+                disabled={loading}
                 onMouseOver={(e) => {
-                  e.target.style.background = "var(--elitecons-base)";
-                  e.target.style.boxShadow = "0 8px 20px rgba(76,81,191,0.5)";
-                  e.target.style.transform = "translateY(-3px) scale(1.02)";
-                  e.target.style.letterSpacing = "1px";
+                  if (!loading) {
+                    e.target.style.background = "var(--elitecons-base)";
+                    e.target.style.boxShadow = "0 8px 20px rgba(76,81,191,0.5)";
+                    e.target.style.transform = "translateY(-3px) scale(1.02)";
+                    e.target.style.letterSpacing = "1px";
+                  }
                 }}
                 onMouseOut={(e) => {
-                  e.target.style.background = "var(--elitecons-base)";
-                  e.target.style.boxShadow = "0 6px 15px rgba(76,81,191,0.3)";
-                  e.target.style.transform = "translateY(0) scale(1)";
-                  e.target.style.letterSpacing = "0.5px";
+                  if (!loading) {
+                    e.target.style.background = "var(--elitecons-base)";
+                    e.target.style.boxShadow = "0 6px 15px rgba(76,81,191,0.3)";
+                    e.target.style.transform = "translateY(0) scale(1)";
+                    e.target.style.letterSpacing = "0.5px";
+                  }
                 }}
               >
-                Submit
+                {loading ? 'Submitting...' : 'Submit'}
               </button>
             </form>
           </div>
         </div>
       )}
 
+      {modal.open && (
+        <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(0,0,0,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 99999 }} onClick={() => setModal({ ...modal, open: false })}>
+          <div style={{ background: '#fff', padding: '32px 48px', borderRadius: '16px', boxShadow: '0 8px 32px rgba(0,0,0,0.2)', textAlign: 'center', minWidth: '300px', fontSize: '18px', color: modal.success ? 'green' : 'red', fontWeight: 'bold', position: 'relative' }}>
+            <span style={{ position: 'absolute', top: 8, right: 16, cursor: 'pointer', fontSize: 24, color: '#888' }} onClick={() => setModal({ ...modal, open: false })}>×</span>
+            {modal.message}
+          </div>
+        </div>
+      )}
 
     </section>
   );
