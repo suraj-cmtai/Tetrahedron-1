@@ -201,18 +201,18 @@ export default function CareerPage() {
             </div>
             <div className="col-md-6" style={{ display: 'flex !important', flexDirection: 'column !important', alignItems: 'center !important', justifyContent: 'center !important' }}>
               <div style={{ textAlign: 'left !important', width: '100% !important' }}>
-                <p>
-                  Having a positive work culture is a must nowadays. It helps
-                  employees focus and maximize productivity.
-                </p>
-                <p>
-                  We ensure job satisfaction and encourage long-term career
-                  growth.
-                </p>
-                <p>
-                  We balance formal and informal routines to provide great
-                  flexibility and support.
-                </p>
+              <p>
+                Having a positive work culture is a must nowadays. It helps
+                employees focus and maximize productivity.
+              </p>
+              <p>
+                We ensure job satisfaction and encourage long-term career
+                growth.
+              </p>
+              <p>
+                We balance formal and informal routines to provide great
+                flexibility and support.
+              </p>
               </div>
             </div>
           </div>
@@ -233,13 +233,13 @@ export default function CareerPage() {
           <div className="row align-items-center">
             <div className="col-md-6" style={{ display: 'flex !important', flexDirection: 'column !important', alignItems: 'center !important', justifyContent: 'center !important' }}>
               <div style={{ textAlign: 'left !important', width: '100% !important' }}>
-                <p>Our work speaks of our efforts.</p>
-                <p>We believe in integrity – doing what is right.</p>
-                <p>
-                  We encourage teamwork and a shared business goal to build a
-                  strong personality.
-                </p>
-              </div>
+              <p>Our work speaks of our efforts.</p>
+              <p>We believe in integrity – doing what is right.</p>
+              <p>
+                We encourage teamwork and a shared business goal to build a
+                strong personality.
+              </p>
+            </div>
             </div>
             <div className="col-md-6" style={{ display: 'flex !important', flexDirection: 'column !important', alignItems: 'center !important', justifyContent: 'center !important' }}>
               <img
@@ -284,9 +284,9 @@ export default function CareerPage() {
             </div>
             <div className="col-md-6" style={{ display: 'flex !important', flexDirection: 'column !important', alignItems: 'center !important', justifyContent: 'center !important' }}>
               <div style={{ textAlign: 'left !important', width: '100% !important' }}>
-                <p>
+              <p>
                   We provide opportunities to grow and learn and help you to enhance your skills. You can also take guidance from our mentors whenever you feel like.Gain exposure and boost your learning skills and experience for your better career.
-                </p>
+              </p>
               </div>
             </div>
           </div>

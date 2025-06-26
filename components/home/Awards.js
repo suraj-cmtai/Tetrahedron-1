@@ -126,8 +126,8 @@ export default function Awards() {
     </div>
 )}
         {/* Project Two Start */}
-        <section className="project-two">
-            <div className="container" style={{width:"80vw !important"}}>
+        <section className="project-two" style={{width:"100% !important", display:"flex", justifyContent:"center", alignItems:"center"}}>
+            <div className="container" style={{width:"100% !important", maxWidth:"100% !important", margin:"0 auto !important"}}>
                 <div className="project-two__top" style={{ 
                     position: 'relative', 
                     width: '100%', 
@@ -140,7 +140,7 @@ export default function Awards() {
                     <div className="section-title text-left" style={{ 
                         textAlign: 'left',
                         width: '100%',
-                        maxWidth: '1200px',
+                        maxWidth: '7xl',
                         padding: '0 20px',
                         marginBottom: '20px'
                     }}>
@@ -159,7 +159,7 @@ export default function Awards() {
                                 textAlign: 'left !important',
                                 alignSelf: 'flex-start',
                                 marginLeft: '0 !important',
-                                width: 'auto !important',
+                                width: '100% !important',
                             }}>
                                 Our Latest Awards
                             </span>
@@ -210,7 +210,7 @@ export default function Awards() {
                         </div>
                     </div>
                 </div>
-                <div className="project-two__bottom" style={{marginTop:"10px", zoom:"80%"}}>
+                <div className="project-two__bottom" style={{marginTop:"10px", zoom:"80%", maxWidth:"7xl", width:"60%", margin:"0 auto !important"}}>
                     <Swiper {...swiperOptions} className="thm-swiper__slider swiper-container">
                         <div className="swiper-wrapper">
                             {/*Services One Single Start*/}
