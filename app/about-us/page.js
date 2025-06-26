@@ -451,7 +451,7 @@ export default function About() {
             <div className="container" style={{ width: '100% !important', maxWidth: '1200px', margin: '0 auto', display: 'flex !important', alignItems: 'center !important', justifyContent: 'space-between !important', flexDirection: 'row !important', gap: '32px' }}>
               {/* Left Side: Text and Form */}
               <div style={{ flex: 1, display: 'flex !important', flexDirection: 'column !important', justifyContent: 'center !important', alignItems: 'flex-start !important', height: '100% !important', minHeight: '400px', padding: '0 0 0 24px', boxSizing: 'border-box' }}>
-              <h3 className="cta-one__title" style={{ fontSize: "36px !important", fontWeight: "700 !important", marginBottom: "20px" }}>
+              <h3 className="cta-one__title" style={{ fontSize: "36px !important", fontWeight: "700 !important", marginBottom: "20px", width:"200% !important" }}>
                   Crafting Digital Experiences That Inspire
                 </h3>
                 <div className="cta-one__from-box">
