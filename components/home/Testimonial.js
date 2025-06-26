@@ -38,9 +38,9 @@ export default function Testimonial() {
                 <div className="container">
                     <div className="section-title text-center">
                         <div className="section-title__tagline-box">
-                            <span className="section-title__tagline">Cliens testimonial</span>
+                            <span className="section-title__tagline">Client testimonial</span>
                         </div>
-                        <h2 className="section-title__title">Excellence Dynam <br /> Builders Every Project</h2>
+                        <h2 className="section-title__title">Excellence Dynam Builders Every Project</h2>
                     </div>
                     <div className="row">
                         {/* Swiper section wider - col-xl-8 */}
@@ -219,7 +219,7 @@ export default function Testimonial() {
                                     <h3 style={{
                                         marginBottom: "32px",
                                         fontSize: "30px",
-                                        background: "var(--elitecons-base);",
+                                        background: "var(--elitecons-base)",
                                         WebkitBackgroundClip: "text",
                                         WebkitTextFillColor: "transparent",
                                         fontWeight: "800",
