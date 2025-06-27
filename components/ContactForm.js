@@ -130,47 +130,39 @@ export default function ContactForm({ onSuccess, onError, buttonText = "Submit",
         <div
           style={{
             position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            background: "rgba(0,0,0,0.4)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            background: "#fff !important",
+            padding: "32px 48px !important",
+            borderRadius: "16px !important",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.9) !important",
+            textAlign: "center !important",
+            minWidth: "300px !important",
+            maxWidth: "90vw !important",
+            fontSize: "18px !important",
+            color: modal.success ? "green" : "red",
+            fontWeight: "bold !important",
             zIndex: 99999,
+            width: "450px !important",
+            margin: 0,
           }}
           onClick={() => setModal({ ...modal, open: false })}
         >
-          <div
+          <span
             style={{
-              background: "#fff",
-              padding: "32px 48px",
-              borderRadius: "16px",
-              boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
-              textAlign: "center",
-              minWidth: "300px",
-              fontSize: "18px",
-              color: modal.success ? "green" : "red",
-              fontWeight: "bold",
-              position: "relative",
+              position: "absolute",
+              top: 8,
+              right: 16,
+              cursor: "pointer",
+              fontSize: 24,
+              color: "#888",
             }}
+            onClick={() => setModal({ ...modal, open: false })}
           >
-            <span
-              style={{
-                position: "absolute",
-                top: 8,
-                right: 16,
-                cursor: "pointer",
-                fontSize: 24,
-                color: "888",
-              }}
-              onClick={() => setModal({ ...modal, open: false })}
-            >
-              ×
-            </span>
-            {modal.message}
-          </div>
+            ×
+          </span>
+          {modal.message}
         </div>
       )}
     </form>
