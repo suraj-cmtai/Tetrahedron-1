@@ -192,7 +192,7 @@ export default function Testimonial() {
                         </div>
 
                         {/* Image section narrower - col-xl-4 */}
-                        <div className="col-xl-4">
+                        <div className="col-xl-4" style={{margin:"4px"}}>
                             <div className="testimonial-two__left">
             <ContactForm />
                             </div>

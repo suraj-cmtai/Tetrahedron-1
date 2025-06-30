@@ -125,8 +125,11 @@ export default function About() {
                 </div>
                 <div className="col-lg-6">
                   <div className="about-one__right" style={{ paddingLeft: "30px" }}>
-                    <div className="section-title text-left" style={{ marginBottom: "10px !important" }}>
-                      <h2 className="section-title__title" style={{ fontSize: "26px !important"}}>
+                    <div className="section-title text-left" ref={node => { if (node) node.style.setProperty("margin-bottom", "10px", "important"); }}>
+                      <h2
+                        className="section-title__title"
+                        ref={node => { if (node) { node.style.setProperty("font-size", "26px", "important"); } }}
+                      >
                         Manufacturing Management Consulting
                       </h2>
                     </div>
@@ -146,8 +149,10 @@ export default function About() {
               <div className="row">
                 <div className="col-lg-6 mb-4 mb-lg-0">
                   <div className="feature-box">
-                    <div className="section-title text-left" style={{ marginBottom: "10px !important" }}>
-                      <h2 className="section-title__title" style={{ fontSize: "26px !important"}}>
+                    <div className="section-title text-left" ref={node => { if (node) node.style.setProperty("margin-bottom", "10px", "important"); }}>
+                      <h2 className="section-title__title"
+                        ref={node => { if (node) { node.style.setProperty("font-size", "26px", "important"); } }}
+                      >
                         Training and Skill Development
                       </h2>
                     </div>
@@ -158,8 +163,10 @@ export default function About() {
                 </div>
                 <div className="col-lg-6">
                   <div className="feature-box">
-                    <div className="section-title text-left" style={{ marginBottom: "10px !important" }}>
-                      <h2 className="section-title__title" style={{ fontSize: "26px !important"}}>
+                    <div className="section-title text-left" ref={node => { if (node) node.style.setProperty("margin-bottom", "10px", "important"); }}>
+                      <h2 className="section-title__title"
+                        ref={node => { if (node) { node.style.setProperty("font-size", "26px", "important"); } }}
+                      >
                         Automation and Industry 4.0
                       </h2>
                     </div>
@@ -180,7 +187,11 @@ export default function About() {
                 <div className="col-xl-10 col-lg-12">
                   <div className="contact-two__left" style={{ textAlign: "justify" }}>
                     <div className="section-title ">
-                      <h2 className="section-title__title" style={{ fontSize: "26px !important", marginBottom: "10px !important" }}>Why Choose Us</h2>
+                      <h2 className="section-title__title"
+                        ref={node => { if (node) { node.style.setProperty("font-size", "26px", "important"); node.style.setProperty("margin-bottom", "10px", "important"); } }}
+                      >
+                        Why Choose Us
+                      </h2>
                     </div>
                     <p className="contact-two__text ">
                       We believe in the best solution at the most competitive price. We are into continuous improvement and innovation to help clients experience the most effective solution. We practice inclusive growth of the entire value chain to make the solution sustainable. Our post-delivery service is to empower our customers and to be their first choice.
@@ -202,7 +213,11 @@ export default function About() {
           <section className="faq-one section-padding section-bg-light">
             <div className="container">
               <div className="section-title mb-5" style={{ textAlign: "justify" }}>
-                <h2 className="section-title__title" style={{ fontSize: "26px !important" }}>Our Core Values</h2>
+                <h2 className="section-title__title"
+                  ref={node => { if (node) { node.style.setProperty("font-size", "26px", "important"); } }}
+                >
+                  Our Core Values
+                </h2>
               </div>
               <div className="row">
                 <div className="col-lg-6 mb-4 mb-lg-0">
@@ -257,7 +272,9 @@ export default function About() {
                   <div className="section-title__tagline-box">
                     <span className="section-title__tagline">Best roof repairing</span>
                   </div>
-                  <h2 className="section-title__title" style={{ fontSize: "26px !important" }}>
+                  <h2 className="section-title__title"
+                    ref={node => { if (node) { node.style.setProperty("font-size", "26px", "important"); } }}
+                  >
                     Crafting Structures That the Test of Time
                   </h2>
                 </div>
@@ -309,7 +326,12 @@ export default function About() {
                   <div className="contact-two__left">
                     <div className="section-title text-left">
                       <div className="section-title__tagline-box"><span className="section-title__tagline" style={{fontSize:"80%"}}>Talk to Us</span></div>
-                      <h2 className="section-title__title" style={{ fontSize: "24px !important", zoom:"90%" }}>Crafting Perfection from Foundation to Finish</h2>
+                      <h2 className="section-title__title"
+                        style={{ zoom: "90%" }}
+                        ref={node => { if (node) { node.style.setProperty("font-size", "24px", "important"); } }}
+                      >
+                        Crafting Perfection from Foundation to Finish
+                      </h2>
                     </div>
                     <p className="contact-two__text">We handle every detail with precision. Contact us today to discuss your project and see how we can bring your vision to life.</p>
                     <div className="contact-two__call-box" style={{zoom:"95%"}}>
@@ -340,40 +362,162 @@ export default function About() {
               <img src="assets/images/shapes/success-one-shape-1.png" alt="" />
             </div>
             <div className="container">
-              <div className="row align-items-center" style={{display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start !important', width: '100% !important', margin: '0 !important', padding: '0 !important'}}>
-                <div className="col-lg-6" style={{display: 'flex', alignItems: 'flex-start !important', justifyContent: 'flex-start !important', width: '50% !important', maxWidth: '50% !important', padding: '0 !important', margin: '0 !important'}}>
-                  <div className="" style={{width: '100% !important', display: 'flex', justifyContent: 'flex-start !important', alignItems: 'flex-start !important', marginLeft: '0 !important', paddingLeft: '0 !important'}}>
-                    <div className="" style={{width: '100% !important', maxWidth: '400px !important', marginLeft: '0 !important'}}>
-                      <img src="assets/images/resources/g.jpg" alt="Construction Success" style={{ maxWidth: '100% !important', height: 'auto !important', borderRadius: '8px !important', display: 'block !important', objectFit: 'cover !important', width: '100% !important', minWidth: '220px !important', marginLeft: '60px !important', marginTop: '140px !important', transform: 'scale(1.5)' }} />
+              <div className="row align-items-center"
+                style={{display: 'flex', flexWrap: 'wrap'}}
+                ref={node => { if (node) {
+                    node.style.setProperty('align-items', 'flex-start', 'important');
+                    node.style.setProperty('width', '100%', 'important');
+                    node.style.setProperty('margin', '0', 'important');
+                    node.style.setProperty('padding', '0', 'important');
+                }}}
+              >
+                <div className="col-lg-6"
+                    style={{display: 'flex'}}
+                    ref={node => { if (node) {
+                        node.style.setProperty('align-items', 'flex-start', 'important');
+                        node.style.setProperty('justify-content', 'flex-start', 'important');
+                        node.style.setProperty('width', '50%', 'important');
+                        node.style.setProperty('max-width', '50%', 'important');
+                        node.style.setProperty('padding', '0', 'important');
+                        node.style.setProperty('margin', '0', 'important');
+                    }}}
+                >
+                  <div className=""
+                    style={{display: 'flex'}}
+                    ref={node => { if (node) {
+                        node.style.setProperty('width', '100%', 'important');
+                        node.style.setProperty('justify-content', 'flex-start', 'important');
+                        node.style.setProperty('align-items', 'flex-start', 'important');
+                        node.style.setProperty('margin-left', '0', 'important');
+                        node.style.setProperty('padding-left', '0', 'important');
+                    }}}
+                  >
+                    <div className=""
+                        ref={node => { if (node) {
+                            node.style.setProperty('width', '100%', 'important');
+                            node.style.setProperty('max-width', '400px', 'important');
+                            node.style.setProperty('margin-left', '0', 'important');
+                        }}}
+                    >
+                      <img src="assets/images/resources/g.jpg" alt="Construction Success"
+                        style={{ transform: 'scale(1.5)' }}
+                        ref={node => {
+                          if (node) {
+                            node.style.setProperty("max-width", "100%", "important");
+                            node.style.setProperty("height", "auto", "important");
+                            node.style.setProperty("border-radius", "8px", "important");
+                            node.style.setProperty("display", "block", "important");
+                            node.style.setProperty("object-fit", "cover", "important");
+                            node.style.setProperty("width", "100%", "important");
+                            node.style.setProperty("min-width", "220px", "important");
+                            node.style.setProperty("margin-left", "60px", "important");
+                            node.style.setProperty("margin-top", "140px", "important");
+                          }
+                        }}
+                      />
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-6" style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start !important', alignItems: 'flex-start !important', width: '50% !important', maxWidth: '50% !important', padding: '0 16px !important', margin: '0 !important'}}>
-                  <div className="success-one__left" style={{width: '100% !important', display: 'flex', flexDirection: 'column', alignItems: 'flex-start !important', marginTop: '0 !important'}}>
-                    <div style={{ background: '#eb7434', color: 'white', borderRadius: '0.5rem', padding: '24px 24px 18px 24px', marginBottom: '20px', maxWidth: '340px', width: '100% !important', boxSizing: 'border-box', fontFamily: 'Poppins, sans-serif !important', marginTop: '0 !important' }}>
-                      <div style={{ fontWeight: 700, fontSize: '28px !important', lineHeight: 1.1, marginBottom: '8px' }}>100%</div>
-                      <div style={{ fontSize: '16px !important', fontWeight: 500, marginBottom: '12px' }}>Success Rate</div>
+                <div className="col-lg-6"
+                    style={{display: 'flex', flexDirection: 'column'}}
+                    ref={node => { if (node) {
+                        node.style.setProperty('justify-content', 'flex-start', 'important');
+                        node.style.setProperty('align-items', 'flex-start', 'important');
+                        node.style.setProperty('width', '50%', 'important');
+                        node.style.setProperty('max-width', '50%', 'important');
+                        node.style.setProperty('padding', '0 16px', 'important');
+                        node.style.setProperty('margin', '0', 'important');
+                    }}}
+                >
+                  <div className="success-one__left"
+                    style={{display: 'flex', flexDirection: 'column'}}
+                    ref={node => { if (node) {
+                        node.style.setProperty('width', '100%', 'important');
+                        node.style.setProperty('align-items', 'flex-start', 'important');
+                        node.style.setProperty('margin-top', '0', 'important');
+                    }}}
+                  >
+                    <div
+                      style={{ background: '#eb7434', color: 'white', borderRadius: '0.5rem', padding: '24px 24px 18px 24px', marginBottom: '20px', maxWidth: '340px', boxSizing: 'border-box' }}
+                      ref={node => {
+                        if (node) {
+                          node.style.setProperty("width", "100%", "important");
+                          node.style.setProperty("font-family", "Poppins, sans-serif", "important");
+                          node.style.setProperty("margin-top", "0", "important");
+                        }
+                      }}
+                    >
+                      <div style={{ fontWeight: 700, lineHeight: 1.1, marginBottom: '8px' }} ref={node => { if (node) node.style.setProperty("font-size", "28px", "important"); }}>
+                        100%
+                      </div>
+                      <div style={{ fontWeight: 500, marginBottom: '12px' }} ref={node => { if (node) node.style.setProperty("font-size", "16px", "important"); }}>
+                        Success Rate
+                      </div>
                       <hr style={{ border: '1px solid #fff', opacity: 0.3, margin: '12px 0' }} />
-                      <div style={{ fontWeight: 700, fontSize: '22px !important', lineHeight: 1.1, marginBottom: '8px' }}>250+</div>
-                      <div style={{ fontSize: '16px !important', fontWeight: 500 }}>Happy Clients</div>
+                      <div style={{ fontWeight: 700, lineHeight: 1.1, marginBottom: '8px' }} ref={node => { if (node) node.style.setProperty("font-size", "22px", "important"); }}>
+                        250+
+                      </div>
+                      <div style={{ fontWeight: 500 }} ref={node => { if (node) node.style.setProperty("font-size", "16px", "important"); }}>
+                        Happy Clients
+                      </div>
                     </div>
-                    <div className="section-title text-left" style={{width: '100% !important', marginTop: '0 !important'}}>
-                      <div className="section-title__tagline-box"><span className="section-title__tagline" style={{fontSize: "14px !important"}}>Best Services</span></div>
-                      <h2 className="section-title__title" style={{ fontSize: "22px !important", margin: '0 0 12px 0', whiteSpace: 'nowrap', width: '100% !important', overflow: 'hidden', textOverflow: 'ellipsis' }}>Creating Innovative and Sustainable Places</h2>
+                    <div className="section-title text-left"
+                        ref={node => { if (node) {
+                            node.style.setProperty('width', '100%', 'important');
+                            node.style.setProperty('margin-top', '0', 'important');
+                        }}}
+                    >
+                      <div className="section-title__tagline-box"><span className="section-title__tagline" ref={node => { if (node) node.style.setProperty("font-size", "14px", "important"); }}>Best Services</span></div>
+                      <h2 className="section-title__title"
+                        ref={node => { if (node) {
+                          node.style.setProperty("font-size", "22px", "important");
+                          node.style.setProperty("margin", "0 0 12px 0", "important");
+                          node.style.setProperty("white-space", "nowrap", "important");
+                          node.style.setProperty("width", "100%", "important");
+                          node.style.setProperty("overflow", "hidden", "important");
+                          node.style.setProperty("text-overflow", "ellipsis", "important");
+                        }}}
+                      >
+                        Creating Innovative and Sustainable Places
+                      </h2>
                     </div>
-                    <p className="success-one__text" style={{fontSize: "15px !important", margin: '0 0 12px 0', width: '100% !important'}}>We specialize in building environments that are not only modern and innovative but also sustainable and built to last. Our commitment is to excellence and forward-thinking design.</p>
-                    <ul className="list-unstyled success-one__points" style={{margin: 0, padding: 0, width: '100% !important'}}>
-                      <li style={{fontSize: "14px !important", marginBottom: '6px'}}>
+                    <p className="success-one__text"
+                      ref={node => { if (node) {
+                        node.style.setProperty("font-size", "15px", "important");
+                        node.style.setProperty("margin", "0 0 12px 0", "important");
+                        node.style.setProperty("width", "100%", "important");
+                      }}}
+                    >
+                      We specialize in building environments that are not only modern and innovative but also sustainable and built to last. Our commitment is to excellence and forward-thinking design.
+                    </p>
+                    <ul className="list-unstyled success-one__points"
+                        style={{margin: 0, padding: 0}}
+                        ref={node => { if (node) {
+                            node.style.setProperty('width', '100%', 'important');
+                        }}}
+                    >
+                      <li
+                        ref={node => { if (node) {
+                          node.style.setProperty("font-size", "14px", "important");
+                          node.style.setProperty("margin-bottom", "6px", "important");
+                        }}}
+                      >
                         <div className="success-one__points-icon" style={{marginRight: '6px'}}><span className="icon-constructo-pro"></span></div>
-                        <p className="success-one__points-text" style={{fontSize: "14px !important", display: 'inline'}}><Link href="/service-details" style={{fontSize: "14px !important"}}>Master Craft Construction</Link></p>
+                        <p className="success-one__points-text" style={{display: 'inline'}}><Link href="/service-details" ref={node => { if (node) node.style.setProperty("font-size", "14px", "important"); }}>Master Craft Construction</Link></p>
                       </li>
-                      <li style={{fontSize: "14px !important"}}>
+                      <li
+                        ref={node => { if (node) node.style.setProperty("font-size", "14px", "important"); }}
+                      >
                         <div className="success-one__points-icon" style={{marginRight: '6px'}}><span className="icon-proconstruct"></span></div>
-                        <p className="success-one__points-text" style={{fontSize: "14px !important", display: 'inline'}}><Link href="/service-details" style={{fontSize: "14px !important"}}>Quality Construction Co</Link></p>
+                        <p className="success-one__points-text" style={{display: 'inline'}}><Link href="/service-details" ref={node => { if (node) node.style.setProperty("font-size", "14px", "important"); }}>Quality Construction Co</Link></p>
                       </li>
                     </ul>
                     <div className="success-one__btn-box" style={{marginTop: '12px'}}>
-                      <Link href="/about-us" className="success-one__btn thm-btn" style={{fontSize: "14px !important"}}>Read more<span className="icon-dabble-arrow-right"></span></Link>
+                      <Link href="/about-us" className="success-one__btn thm-btn"
+                        ref={node => { if (node) node.style.setProperty("font-size", "14px", "important"); }}
+                      >
+                        Read more<span className="icon-dabble-arrow-right"></span>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -390,7 +534,11 @@ export default function About() {
                   <div className="faq-one__left">
                     <div className="section-title text-left">
                       <div className="section-title__tagline-box"><span className="section-title__tagline">SOME FAQs</span></div>
-                      <h2 className="section-title__title" style={{ fontSize: "26px !important" }}>Creating Structures That <br /> Stand the Test of Time</h2>
+                      <h2 className="section-title__title"
+                        ref={node => { if (node) { node.style.setProperty("font-size", "26px", "important"); } }}
+                      >
+                        Creating Structures That <br /> Stand the Test of Time
+                      </h2>
                     </div>
                     <p className="faq-one__text">Here are answers to some of the most common questions we receive. If you have other questions, feel free to get in touch with our team.</p>
                     <div className="faq-one__btn-box">
@@ -402,20 +550,20 @@ export default function About() {
                   <div className="faq-one__right">
                      <div className="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion-3">
                         <div className={isActive.key == 7 ? "accrodion active" : "accrodion"} onClick={() => handleToggle(7)}>
-                            <div className="accrodion-title"><h4>What is construction?</h4></div>
-                            <div className="accrodion-content"><div className="inner"><p>Construction is the process of creating and building infrastructure or a facility. It involves planning, designing, financing, and building structures.</p></div></div>
+                            <div className="accrodion-title"><h4 ref={node => { if (node) node.style.setProperty("font-family", "var(--font-poppins)", "important"); }}>What is construction?</h4></div>
+                            <div className="accrodion-content"><div className="inner"><p ref={node => { if (node) node.style.setProperty("font-family", "var(--font-poppins)", "important"); }}>Construction is the process of creating and building infrastructure or a facility. It involves planning, designing, financing, and building structures.</p></div></div>
                         </div>
                         <div className={isActive.key == 8 ? "accrodion active" : "accrodion"} onClick={() => handleToggle(8)}>
-                            <div className="accrodion-title"><h4>How long does a project typically take?</h4></div>
-                            <div className="accrodion-content"><div className="inner"><p>The duration of a project depends on its scope, size, and complexity. We provide a detailed timeline after the initial consultation and planning phase.</p></div></div>
+                            <div className="accrodion-title"><h4 ref={node => { if (node) node.style.setProperty("font-family", "var(--font-poppins)", "important"); }}>How long does a project typically take?</h4></div>
+                            <div className="accrodion-content"><div className="inner"><p ref={node => { if (node) node.style.setProperty("font-family", "var(--font-poppins)", "important"); }}>The duration of a project depends on its scope, size, and complexity. We provide a detailed timeline after the initial consultation and planning phase.</p></div></div>
                         </div>
                         <div className={isActive.key == 9 ? "accrodion active" : "accrodion"} onClick={() => handleToggle(9)}>
-                            <div className="accrodion-title"><h4>What different types of construction projects do you handle?</h4></div>
-                            <div className="accrodion-content"><div className="inner"><p>We handle a wide range of projects, including residential, commercial, and industrial construction, as well as renovations and remodeling.</p></div></div>
+                            <div className="accrodion-title"><h4 ref={node => { if (node) node.style.setProperty("font-family", "var(--font-poppins)", "important"); }}>What different types of construction projects do you handle?</h4></div>
+                            <div className="accrodion-content"><div className="inner"><p ref={node => { if (node) node.style.setProperty("font-family", "var(--font-poppins)", "important"); }}>We handle a wide range of projects, including residential, commercial, and industrial construction, as well as renovations and remodeling.</p></div></div>
                         </div>
                         <div className={isActive.key == 10 ? "accrodion active" : "accrodion"} onClick={() => handleToggle(10)}>
-                            <div className="accrodion-title"><h4>What is the role of a construction manager?</h4></div>
-                            <div className="accrodion-content"><div className="inner"><p>A construction manager oversees the planning, coordination, and execution of a project, ensuring it is completed on time, within budget, and to the required quality standards.</p></div></div>
+                            <div className="accrodion-title"><h4 ref={node => { if (node) node.style.setProperty("font-family", "var(--font-poppins)", "important"); }}>What is the role of a construction manager?</h4></div>
+                            <div className="accrodion-content"><div className="inner"><p ref={node => { if (node) node.style.setProperty("font-family", "var(--font-poppins)", "important"); }}>A construction manager oversees the planning, coordination, and execution of a project, ensuring it is completed on time, within budget, and to the required quality standards.</p></div></div>
                         </div>
                      </div>
                   </div>
@@ -426,11 +574,44 @@ export default function About() {
           {/*FAQ One End*/}
 
           {/*CTA One Start*/}
-          <section className="cta-one" style={{ height: "auto", padding: "60px 0", width: '100% !important', boxSizing: 'border-box' }}>
-            <div className="container" style={{ width: '100% !important', maxWidth: '1200px', margin: '0 auto', display: 'flex !important', alignItems: 'center !important', justifyContent: 'space-between !important', flexDirection: 'row !important', gap: '32px' }}>
+          <section className="cta-one"
+            style={{ height: "auto", padding: "60px 0", boxSizing: 'border-box' }}
+            ref={node => { if (node) node.style.setProperty("width", "100%", "important"); }}
+          >
+            <div className="container"
+                style={{margin: '0 auto', gap: '32px'}}
+                ref={node => { if (node) {
+                    node.style.setProperty('width', '100%', 'important');
+                    node.style.setProperty('max-width', '1200px', 'important');
+                    node.style.setProperty('display', 'flex', 'important');
+                    node.style.setProperty('align-items', 'center', 'important');
+                    node.style.setProperty('justify-content', 'space-between', 'important');
+                    node.style.setProperty('flex-direction', 'row', 'important');
+                }}}
+            >
               {/* Left Side: Text and Form */}
-              <div style={{ flex: 1, display: 'flex !important', flexDirection: 'column !important', justifyContent: 'center !important', alignItems: 'flex-start !important', height: '100% !important', minHeight: '400px', padding: '0 0 0 24px', boxSizing: 'border-box' }}>
-              <h3 className="cta-one__title" style={{ fontSize: "36px !important", fontWeight: "700 !important", marginBottom: "20px", width:"200% !important" }}>
+              <div
+                style={{ flex: 1, boxSizing: 'border-box' }}
+                ref={node => { if (node) {
+                    node.style.setProperty('display', 'flex', 'important');
+                    node.style.setProperty('flex-direction', 'column', 'important');
+                    node.style.setProperty('justify-content', 'center', 'important');
+                    node.style.setProperty('align-items', 'flex-start', 'important');
+                    node.style.setProperty('height', '100%', 'important');
+                    node.style.setProperty('min-height', '400px', 'important');
+                    node.style.setProperty('padding', '0 0 0 24px', 'important');
+                }}}
+              >
+              <h3 className="cta-one__title"
+                style={{ marginBottom: "20px" }}
+                ref={node => {
+                  if (node) {
+                    node.style.setProperty("font-size", "36px", "important");
+                    node.style.setProperty("font-weight", "700", "important");
+                    node.style.setProperty("width", "200%", "important");
+                  }
+                }}
+              >
                   Crafting Digital Experiences That Inspire
                 </h3>
                 <div className="cta-one__from-box">
@@ -443,9 +624,46 @@ export default function About() {
                 </div>
               </div>
               {/* Right Side: Images */}
-              <div style={{ flex: 1, display: 'flex !important', flexDirection: 'column !important', alignItems: 'flex-end !important', justifyContent: 'center !important', height: '80% !important', gap: '16px', paddingRight: '24px', boxSizing: 'border-box' }}>
-                <img src="/assets/images/case-studies/CS2.jpg" alt="Inspiring Digital Experience" style={{ maxWidth: "350px !important", width: '90% !important', minHeight: "150px !important", maxHeight: '40% !important', borderRadius: "10px", marginBottom: '8px', objectFit: 'cover', background: 'none !important', zIndex: 2 }} />
-                <img src="/assets/images/case-studies/CS6.jpg" alt="Inspiring Digital Experience 2" style={{ maxWidth: "350px !important", width: '90% !important', minHeight: "150px !important", maxHeight: '40% !important', borderRadius: "10px", objectFit: 'cover', background: 'none !important', zIndex: 2 }} />
+              <div
+                style={{ flex: 1, boxSizing: 'border-box' }}
+                ref={node => { if (node) {
+                    node.style.setProperty('display', 'flex', 'important');
+                    node.style.setProperty('flex-direction', 'column', 'important');
+                    node.style.setProperty('align-items', 'flex-end', 'important');
+                    node.style.setProperty('justify-content', 'center', 'important');
+                    node.style.setProperty('height', '80%', 'important');
+                    node.style.setProperty('gap', '16px', 'important');
+                    node.style.setProperty('padding-right', '24px', 'important');
+                }}}
+              >
+                <img src="/assets/images/case-studies/CS2.jpg" alt="Inspiring Digital Experience"
+                  style={{ marginBottom: '8px', zIndex: 2 }}
+                  ref={node => {
+                    if (node) {
+                      node.style.setProperty("max-width", "350px", "important");
+                      node.style.setProperty("width", "90%", "important");
+                      node.style.setProperty("min-height", "150px", "important");
+                      node.style.setProperty("max-height", "40%", "important");
+                      node.style.setProperty("border-radius", "10px", "important");
+                      node.style.setProperty("object-fit", "cover", "important");
+                      node.style.setProperty("background", "none", "important");
+                    }
+                  }}
+                />
+                <img src="/assets/images/case-studies/CS6.jpg" alt="Inspiring Digital Experience 2"
+                  style={{ zIndex: 2 }}
+                  ref={node => {
+                    if (node) {
+                      node.style.setProperty("max-width", "350px", "important");
+                      node.style.setProperty("width", "90%", "important");
+                      node.style.setProperty("min-height", "150px", "important");
+                      node.style.setProperty("max-height", "40%", "important");
+                      node.style.setProperty("border-radius", "10px", "important");
+                      node.style.setProperty("object-fit", "cover", "important");
+                      node.style.setProperty("background", "none", "important");
+                    }
+                  }}
+                />
               </div>
             </div>
           </section>

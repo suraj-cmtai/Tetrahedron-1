@@ -1,7 +1,6 @@
 'use client'
 import Link from "next/link"
-// 1. Import useState from React
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Autoplay, Navigation, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 
@@ -10,7 +9,7 @@ const swiperOptions = {
     slidesPerView: 1,
     spaceBetween: 0,
     autoplay: {
-        delay: 6000, // Changed from 4500 to 6000 (6 seconds)
+        delay: 6000,
         disableOnInteraction: false,
     },
     loop: true,
@@ -21,13 +20,11 @@ const swiperOptions = {
     },
     watchSlidesProgress: true,
 
-    // Navigation
     navigation: {
         nextEl: '.h1n',
         prevEl: '.h1p',
     },
 
-    // Pagination
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -35,12 +32,13 @@ const swiperOptions = {
 }
 
 export default function Banner() {
-    // 2. Initialize a state to track if Swiper is ready
     const [isReady, setIsReady] = useState(false);
+    const titleRef1 = useRef(null);
+    const titleRef2 = useRef(null);
+    const titleRef3 = useRef(null);
 
     return (
         <>
-            {/* Internal CSS for Animations */}
             <style jsx global>{`
                 @keyframes fadeInUp {
                     from {
@@ -64,19 +62,16 @@ export default function Banner() {
                     }
                 }
 
-                /* Apply standard line height to all text in the banner */
                 .main-slider-two {
-                    line-height: 1.6; /* Standard line height for better readability */
+                    line-height: 1.6;
                 }
 
-                /* Specific line heights for different text elements */
                 .main-slider-two__sub-title {
                     line-height: 1.4;
                 }
 
                 .main-slider-two__title {
-                    line-height: 1.3; /* Slightly tighter for large headings */
-                    font-size: 60px !important; 
+                    line-height: 1.3;
                 }
 
                 .main-slider-two__call-number p {
@@ -87,16 +82,12 @@ export default function Banner() {
                     line-height: 1.4;
                 }
 
-                /* Initially, hide the content */
                 .main-slider-two .main-slider-two__img,
                 .main-slider-two .main-slider-two__sub-title,
                 .main-slider-two .main-slider-two__title,
                 .main-slider-two .main-slider-two__btn-and-call-box {
                     opacity: 0;
                 }
-                
-                /* 5. UPDATE: Prefix all animation rules with our new .slider-ready class.
-                   This is the key change. The animation will not apply until the state is updated. */
                 
                 .main-slider-two.slider-ready .swiper-slide-active .main-slider-two__img {
                     animation: fadeInFromRight 1s ease-out 0.2s 1 forwards;
@@ -113,9 +104,7 @@ export default function Banner() {
                 }
             `}</style>
 
-            {/* 4. UPDATE: Add the conditional class to the main section */}
             <section className={`main-slider-two ${isReady ? 'slider-ready' : ''}`}>
-                {/* 3. UPDATE: Use the onSwiper prop to set the state to true when initialized */}
                 <Swiper
                     onSwiper={() => setIsReady(true)}
                     {...swiperOptions}
@@ -144,7 +133,15 @@ export default function Banner() {
                                     <div className="col-xl-12">
                                         <div className="main-slider-two__content">
                                             <p className="main-slider-two__sub-title">Management Consulting</p>
-                                            <h2 className="main-slider-two__title" style={{fontSize:"40px !important"}}>Find the right <br /> manufacturing <br /> consulting for <br /> your business needs
+                                            <h2 
+                                                className="main-slider-two__title"
+                                                ref={el => {
+                                                    if (el) {
+                                                        el.style.setProperty("font-size", "40px", "important");
+                                                    }
+                                                }}
+                                            >
+                                                Find the right <br /> manufacturing <br /> consulting for <br /> your business needs
                                             </h2>
                                             <div className="main-slider-two__btn-and-call-box">
                                                 <div className="main-slider-two__btn-box">
@@ -189,7 +186,15 @@ export default function Banner() {
                                     <div className="col-xl-12">
                                         <div className="main-slider-two__content">
                                             <p className="main-slider-two__sub-title">AMR/AGV</p>
-                                            <h2 className="main-slider-two__title" style={{fontSize:"40px !important"}}>Your Trusted<br /> Partner for<br /> Advanced Mobile <br /> Robotics Solutions
+                                            <h2 
+                                                className="main-slider-two__title"
+                                                ref={el => {
+                                                    if (el) {
+                                                        el.style.setProperty("font-size", "40px", "important");
+                                                    }
+                                                }}
+                                            >
+                                                Your Trusted<br /> Partner for<br /> Advanced Mobile <br /> Robotics Solutions
                                             </h2>
                                             <div className="main-slider-two__btn-and-call-box">
                                                 <div className="main-slider-two__btn-box">

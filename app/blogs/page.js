@@ -418,7 +418,6 @@ export default function Home() {
         <Layout headerStyle={6} footerStyle={6} breadcrumbTitle="Blog">
             <section className="blog-one">
                 <div className="container">
-                    
                     <div className="row">
                         {blogPosts.slice(0, visiblePosts).map((post) => (
                             <div className="col-xl-4 col-lg-4 wow fadeInUp" key={post.id} data-wow-delay="300ms">
@@ -430,14 +429,65 @@ export default function Home() {
                                             <Link href={post.link} className="blog-one__link"><span className="sr-only"></span></Link>
                                         </div>
                                     </div>
-                                    <Link href={post.link} style={{fontSize: "17px !important"}}><span className="icon-calender"></span> <span style={{fontSize: "17px !important"}}>{post.date}</span></Link>
+                                    <Link 
+                                        href={post.link} 
+                                        ref={el => {
+                                            if (el) {
+                                                el.style.setProperty("font-size", "17px", "important");
+                                            }
+                                        }}
+                                    >
+                                        <span className="icon-calender"></span> 
+                                        <span 
+                                            ref={el => {
+                                                if (el) {
+                                                    el.style.setProperty("font-size", "17px", "important");
+                                                }
+                                            }}
+                                        >
+                                            {post.date}
+                                        </span>
+                                    </Link>
                                     <div className="blog-one__content">
-                                        <h3 className="blog-one__title" style={{fontSize: "24px !important"}}>
-                                            <Link href={post.link} style={{fontSize: "24px !important"}}>{post.title}</Link>
+                                        <h3 
+                                            className="blog-one__title"
+                                            ref={el => {
+                                                if (el) {
+                                                    el.style.setProperty("font-size", "24px", "important");
+                                                }
+                                            }}
+                                        >
+                                            <Link 
+                                                href={post.link}
+                                                ref={el => {
+                                                    if (el) {
+                                                        el.style.setProperty("font-size", "24px", "important");
+                                                    }
+                                                }}
+                                            >
+                                                {post.title}
+                                            </Link>
                                         </h3>
-                                        <p style={{fontSize: "18px !important"}}>{post.description}</p>
+                                        <p 
+                                            ref={el => {
+                                                if (el) {
+                                                    el.style.setProperty("font-size", "18px", "important");
+                                                }
+                                            }}
+                                        >
+                                            {post.description}
+                                        </p>
                                         <div className="blog-one__read-more">
-                                            <Link href={post.link} style={{fontSize: "17px !important"}}>Read more<span className="icon-dabble-arrow-right"></span></Link>
+                                            <Link 
+                                                href={post.link}
+                                                ref={el => {
+                                                    if (el) {
+                                                        el.style.setProperty("font-size", "17px", "important");
+                                                    }
+                                                }}
+                                            >
+                                                Read more<span className="icon-dabble-arrow-right"></span>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -451,12 +501,16 @@ export default function Home() {
                                 style={{
                                     backgroundColor: "#eb7434", 
                                     color: "white", 
-                                    fontSize: "18px !important", 
                                     padding: "12px 24px", 
                                     borderRadius: "5px", 
                                     border: "none",
                                     cursor: "pointer"
-                                }} 
+                                }}
+                                ref={el => {
+                                    if (el) {
+                                        el.style.setProperty("font-size", "18px", "important");
+                                    }
+                                }}
                                 onClick={loadMorePosts}
                             >
                                 Load More

@@ -38,12 +38,15 @@ export default function CareerPage() {
         {/* Heading */}
         <div
           className="section-title text-center"
-          style={{
-            display: "flex !important",
-            justifyContent: "center !important",
-            alignItems: "center !important",
-            marginTop: "30px !important",
-            marginBottom: "30px !important",
+          style={{}}
+          ref={el => {
+            if (el) {
+              el.style.setProperty("display", "flex", "important");
+              el.style.setProperty("justify-content", "center", "important");
+              el.style.setProperty("align-items", "center", "important");
+              el.style.setProperty("margin-top", "30px", "important");
+              el.style.setProperty("margin-bottom", "30px", "important");
+            }
           }}
         >
           <h4
@@ -62,14 +65,24 @@ export default function CareerPage() {
                 key={index}
                 className="col-xl-4 col-lg-4 col-md-6 col-sm-12 wow fadeInUp"
                 data-wow-delay={`${100 * (index + 1)}ms`}
-                style={{borderRadius: "20px !important", ":hover": {borderRadius: "20px !important"}}}
+                style={{":hover": {borderRadius: "20px !important"}}}
+                ref={el => {
+                  if (el) {
+                    el.style.setProperty("border-radius", "20px", "important");
+                  }
+                }}
               >
                 <div className="services-four__single" style={{":hover": {borderRadius: "20px !important"}}}>
                   <div className="services-four__img" style={{":hover": {borderRadius: "20px !important"}}}>
                     <img
                       src={`/assets/images/career/${item.img}`}
                       alt={`Career ${index + 1}`}
-                      style={{borderRadius: "20px !important", ":hover": {borderRadius: "20px !important"}}}
+                      style={{":hover": {borderRadius: "20px !important"}}}
+                      ref={el => {
+                        if (el) {
+                          el.style.setProperty("border-radius", "20px", "important");
+                        }
+                      }}
                     />
                   </div>
                 </div>
@@ -79,8 +92,8 @@ export default function CareerPage() {
         </div>
 
         {/* Open Positions Section */}
-        <div className="container text-center">
-          <h3 style={{ marginTop: "40px", fontSize: "30px" }}>
+        <div className="container text-center" style={{fontFamily:"var(--font-poppins)"}}>
+          <h3 style={{ marginTop: "40px", fontSize: "30px", fontFamily:"var(--font-poppins)" }}>
             Open Positions
           </h3>
 
@@ -127,36 +140,36 @@ export default function CareerPage() {
           </div>
 
           {/* Job & Internship Details */}
-          <div className="row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100% !important' }}>
+          <div className="row career-card-row" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'stretch', gap: '24px', width: '100%' }}>
             {(selectedOption === "job" ? jobData : internshipData).map(
               (item, index) => (
                 <div
                   key={index}
                   className="col-md-6 col-sm-12"
-                  style={{ marginBottom: "20px", display: 'flex', justifyContent: 'center', width: '100%' }}
+                  style={{ marginBottom: "20px", display: 'flex', justifyContent: 'center', width: '100%', flex: '1 1 320px', maxWidth: '480px' }}
                 >
                   <div
-                    className="services-four__single"
+                    className="services-four__single career-card"
                     style={{
                       padding: "20px",
                       border: "1px solid #ddd",
                       borderRadius: "10px",
-                      minWidth: '320px',
-                      maxWidth: '480px',
                       width: '100%',
                       margin: '0 auto',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
+                      boxSizing: 'border-box',
+                      background: '#fff',
                     }}
                   >
-                    <h5 style={{ textAlign: 'center', width: '100%' }}>{item.title}</h5>
-                    <p style={{ textAlign: 'center', width: '100%' }}>{item.description}</p>
+                    <h5 style={{ textAlign: 'center', width: '100%', fontFamily:"var(--font-poppins)"}}>{item.title}</h5>
+                    <p style={{ textAlign: 'center', width: '100%', fontFamily:"var(--font-poppins)" }}>{item.description}</p>
                     <button
                       style={{
                         padding: "8px 15px",
                         backgroundColor: "#ff6600",
-                        color: "#fff",
+                        color: "white",
                         border: "none",
                         borderRadius: "5px",
                         cursor: "pointer",
@@ -171,6 +184,19 @@ export default function CareerPage() {
               )
             )}
           </div>
+          <style jsx>{`
+            @media (max-width: 768px) {
+              .career-card-row {
+                flex-direction: column !important;
+                gap: 16px !important;
+              }
+              .career-card {
+                min-width: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+              }
+            }
+          `}</style>
         </div>
 
         {/* TMS Work Culture Section */}
@@ -186,33 +212,61 @@ export default function CareerPage() {
           </h4>
 
           <div className="row align-items-center">
-            <div className="col-md-6" style={{ display: 'flex !important', flexDirection: 'column !important', alignItems: 'center !important', justifyContent: 'center !important' }}>
+            <div className="col-md-6"
+              ref={el => {
+                if (el) {
+                  el.style.setProperty("display", "flex", "important");
+                  el.style.setProperty("flex-direction", "column", "important");
+                  el.style.setProperty("align-items", "center", "important");
+                  el.style.setProperty("justify-content", "center", "important");
+                }
+              }}
+            >
               <img
                 src="/assets/images/career/tms culture.png"
                 alt="TMS Work Culture"
-                style={{
-                  width: "70% !important",
-                  borderRadius: "10px !important",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2) !important",
-                  display: 'block !important',
-                  margin: '0 auto !important',
+                style={{}}
+                ref={el => {
+                  if (el) {
+                    el.style.setProperty("width", "70%", "important");
+                    el.style.setProperty("border-radius", "10px", "important");
+                    el.style.setProperty("box-shadow", "0 4px 8px rgba(0, 0, 0, 0.2)", "important");
+                    el.style.setProperty("display", "block", "important");
+                    el.style.setProperty("margin", "0 auto", "important");
+                  }
                 }}
               />
             </div>
-            <div className="col-md-6" style={{ display: 'flex !important', flexDirection: 'column !important', alignItems: 'center !important', justifyContent: 'center !important' }}>
-              <div style={{ textAlign: 'left !important', width: '100% !important' }}>
-              <p>
-                Having a positive work culture is a must nowadays. It helps
-                employees focus and maximize productivity.
-              </p>
-              <p>
-                We ensure job satisfaction and encourage long-term career
-                growth.
-              </p>
-              <p>
-                We balance formal and informal routines to provide great
-                flexibility and support.
-              </p>
+            <div className="col-md-6"
+              ref={el => {
+                if (el) {
+                  el.style.setProperty("display", "flex", "important");
+                  el.style.setProperty("flex-direction", "column", "important");
+                  el.style.setProperty("align-items", "center", "important");
+                  el.style.setProperty("justify-content", "center", "important");
+                }
+              }}
+            >
+              <div
+                ref={el => {
+                  if (el) {
+                    el.style.setProperty("text-align", "left", "important");
+                    el.style.setProperty("width", "100%", "important");
+                  }
+                }}
+              >
+                <p>
+                  Having a positive work culture is a must nowadays. It helps
+                  employees focus and maximize productivity.
+                </p>
+                <p>
+                  We ensure job satisfaction and encourage long-term career
+                  growth.
+                </p>
+                <p>
+                  We balance formal and informal routines to provide great
+                  flexibility and support.
+                </p>
               </div>
             </div>
           </div>
@@ -221,36 +275,65 @@ export default function CareerPage() {
         {/* TMS Values Section */}
         <div
           className="container"
-          style={{ textAlign: "center" }}
+          style={{ textAlign: "center", fontFamily: "var(--font-poppins)" }}
         >
           <h4
             className="section-title__title"
-            style={{ fontSize: "30px", marginBottom: "20px" }}
+            style={{ fontSize: "30px", marginBottom: "20px", fontFamily: "var(--font-poppins)" }}
           >
             TMS Values
           </h4>
 
           <div className="row align-items-center">
-            <div className="col-md-6" style={{ display: 'flex !important', flexDirection: 'column !important', alignItems: 'center !important', justifyContent: 'center !important' }}>
-              <div style={{ textAlign: 'left !important', width: '100% !important' }}>
-              <p>Our work speaks of our efforts.</p>
-              <p>We believe in integrity – doing what is right.</p>
-              <p>
-                We encourage teamwork and a shared business goal to build a
-                strong personality.
-              </p>
+            <div className="col-md-6"
+              ref={el => {
+                if (el) {
+                  el.style.setProperty("display", "flex", "important");
+                  el.style.setProperty("flex-direction", "column", "important");
+                  el.style.setProperty("align-items", "center", "important");
+                  el.style.setProperty("justify-content", "center", "important");
+                }
+              }}
+            >
+              <div
+                ref={el => {
+                  if (el) {
+                    el.style.setProperty("text-align", "left", "important");
+                    el.style.setProperty("width", "100%", "important");
+                  }
+                }}
+                style={{ fontFamily: "var(--font-poppins)" }}
+              >
+                <p>Our work speaks of our efforts.</p>
+                <p>We believe in integrity – doing what is right.</p>
+                <p>
+                  We encourage teamwork and a shared business goal to build a
+                  strong personality.
+                </p>
+              </div>
             </div>
-            </div>
-            <div className="col-md-6" style={{ display: 'flex !important', flexDirection: 'column !important', alignItems: 'center !important', justifyContent: 'center !important' }}>
+            <div className="col-md-6"
+              ref={el => {
+                if (el) {
+                  el.style.setProperty("display", "flex", "important");
+                  el.style.setProperty("flex-direction", "column", "important");
+                  el.style.setProperty("align-items", "center", "important");
+                  el.style.setProperty("justify-content", "center", "important");
+                }
+              }}
+            >
               <img
                 src="/assets/images/career/tms values.png"
                 alt="TMS Values"
-                style={{
-                  width: "70% !important",
-                  borderRadius: "10px !important",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2) !important",
-                  display: 'block !important',
-                  margin: '0 auto !important',
+                style={{}}
+                ref={el => {
+                  if (el) {
+                    el.style.setProperty("width", "70%", "important");
+                    el.style.setProperty("border-radius", "10px", "important");
+                    el.style.setProperty("box-shadow", "0 4px 8px rgba(0, 0, 0, 0.2)", "important");
+                    el.style.setProperty("display", "block", "important");
+                    el.style.setProperty("margin", "0 auto", "important");
+                  }
                 }}
               />
             </div>
@@ -259,34 +342,63 @@ export default function CareerPage() {
         {/* TMS Work Culture Section */}
         <div
           className="container"
-          style={{ textAlign: "center" }}
+          style={{ textAlign: "center", fontFamily: "var(--font-poppins)" }}
         >
           <h4
             className="section-title__title"
-            style={{ fontSize: "30px", marginBottom: "20px" }}
+            style={{ fontSize: "30px", marginBottom: "20px", fontFamily: "var(--font-poppins)" }}
           >
             Boost Your Career
           </h4>
 
           <div className="row align-items-center">
-            <div className="col-md-6" style={{ display: 'flex !important', flexDirection: 'column !important', alignItems: 'center !important', justifyContent: 'center !important' }}>
+            <div className="col-md-6"
+              ref={el => {
+                if (el) {
+                  el.style.setProperty("display", "flex", "important");
+                  el.style.setProperty("flex-direction", "column", "important");
+                  el.style.setProperty("align-items", "center", "important");
+                  el.style.setProperty("justify-content", "center", "important");
+                }
+              }}
+            >
               <img
                 src="/assets/images/career/tms culture.png"
                 alt="TMS Work Culture"
-                style={{
-                  width: "70% !important",
-                  borderRadius: "10px !important",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2) !important",
-                  display: 'block !important',
-                  margin: '0 auto !important',
+                style={{}}
+                ref={el => {
+                  if (el) {
+                    el.style.setProperty("width", "70%", "important");
+                    el.style.setProperty("border-radius", "10px", "important");
+                    el.style.setProperty("box-shadow", "0 4px 8px rgba(0, 0, 0, 0.2)", "important");
+                    el.style.setProperty("display", "block", "important");
+                    el.style.setProperty("margin", "0 auto", "important");
+                  }
                 }}
               />
             </div>
-            <div className="col-md-6" style={{ display: 'flex !important', flexDirection: 'column !important', alignItems: 'center !important', justifyContent: 'center !important' }}>
-              <div style={{ textAlign: 'left !important', width: '100% !important' }}>
-              <p>
+            <div className="col-md-6"
+              ref={el => {
+                if (el) {
+                  el.style.setProperty("display", "flex", "important");
+                  el.style.setProperty("flex-direction", "column", "important");
+                  el.style.setProperty("align-items", "center", "important");
+                  el.style.setProperty("justify-content", "center", "important");
+                }
+              }}
+            >
+              <div
+                ref={el => {
+                  if (el) {
+                    el.style.setProperty("text-align", "left", "important");
+                    el.style.setProperty("width", "100%", "important");
+                  }
+                }}
+                style={{ fontFamily: "var(--font-poppins)" }}
+              >
+                <p>
                   We provide opportunities to grow and learn and help you to enhance your skills. You can also take guidance from our mentors whenever you feel like.Gain exposure and boost your learning skills and experience for your better career.
-              </p>
+                </p>
               </div>
             </div>
           </div>

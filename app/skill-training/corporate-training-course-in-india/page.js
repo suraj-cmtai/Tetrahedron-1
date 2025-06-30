@@ -60,7 +60,7 @@ export default function Page() {
 
   return (
     <Layout>
-      <div style={containerStyle}>
+      <div style={{...containerStyle, fontFamily: "var(--font-poppins)"}}>
         {/* Banner Section */}
         <div style={bannerContainer}>
           <div style={imageOverlay}>
@@ -73,35 +73,32 @@ export default function Page() {
             />
           </div>
 
-          <div style={contentWrapper}>
-            <div style={textContent}>
-              <h1 style={headingStyle}>CORPORATE TRAINING PROGRAMS</h1>
-              <h2 style={subheadingStyle}>350+ On-site & Online Trainings</h2>
-              <div style={divider}></div>
-              <p style={bannerTextStyle}>
+          <div style={{...contentWrapper, fontFamily: "var(--font-poppins)"}}>
+            <div style={{...textContent, width: '50%', fontFamily: "var(--font-poppins)"}}>
+              <h1 style={{...headingStyle, fontFamily: "var(--font-poppins)"}}>CORPORATE TRAINING PROGRAMS</h1>
+              <h2 style={{...subheadingStyle, fontFamily: "var(--font-poppins)"}}>350+ On-site & Online Trainings</h2>
+              <div style={{...divider, fontFamily: "var(--font-poppins)"}}></div>
+              <p style={{...bannerTextStyle, fontFamily: "var(--font-poppins)"}}>
                 Connect with our experts to discover tailored solutions that drive growth and innovation.
               </p>
             </div>
 
-            <ContactForm />
+            <div style={{width: '50%', fontFamily: 'var(--font-poppins)'}}>
+              <ContactForm />
+            </div>
           </div>
         </div>
 
         {/* Full-width Paragraph */}
         <div style={paragraphContainer}>
-          <p style={{ ...paragraphStyle, textAlign: 'justify', marginBottom: '20px', fontSize: '18px', lineHeight: '1.8' }}>
+          <p style={{ ...paragraphStyle, textAlign: 'justify', marginBottom: '20px', fontSize: '18px', lineHeight: '1.8', fontFamily: "var(--font-poppins)" }}>
             Corporate Training Programs are a series of learning activities designed to educate employees to perform better on the job. It can be considered on-job training for the existing employees. It is a function of the human resource operation of an association that aims to give knowledge and skills to the workforce to achieve success. As it is known, the Manufacturing Sector is a hasty industry thus Manufacturing companies need to certify that people working in these industries must possess solid processes, strong leadership, and technical proficiency which help boost the manufacturer’s productivity, decrease employee turnover and possibly solve the talent gap and optimize performance.
           </p>
         </div>
 
-
-
-
-
-        {/* Highlights Section */}
         {/* Highlights Section */}
         <div style={highlightSection}>
-          <h2 style={highlightHeading}>Highlights</h2>
+          <h2 style={{...highlightHeading, fontFamily: "var(--font-poppins)"}}>Highlights</h2>
           <div style={highlightGrid}>
             {[
               { id: 1, title: "Delivered by Industry Experts", description: "Professional solution with proven results and exceptional support", icon: "/assets/images/course/highlights1.jpg" },
@@ -110,7 +107,7 @@ export default function Page() {
               { id: 4, title: "Certification & Recognition", description: "Get certified with industry-recognized credentials", icon: "/assets/images/course/highlights4.jpg" },
               { id: 5, title: "Comprehensive Course Material", description: "Detailed and structured content for in-depth learning", icon: "/assets/images/course/highlights5.png" }
             ].map((item) => (
-              <div key={item.id} style={highlightCard}>
+              <div key={item.id} style={{...highlightCard, fontFamily: "var(--font-poppins)"}}>
                 <div style={iconWrapper}>
                   <Image
                     src={item.icon}
@@ -126,16 +123,13 @@ export default function Page() {
             ))}
           </div>
         </div>
+
         {/* Full-width Paragraph */}
         <div style={paragraphContainer}>
-          <p style={{ ...paragraphStyle, textAlign: 'justify', marginBottom: '20px', fontSize: '18px', lineHeight: '1.8' }}>
+          <p style={{ ...paragraphStyle, textAlign: 'justify', marginBottom: '20px', fontSize: '18px', lineHeight: '1.8', fontFamily: "var(--font-poppins)" }}>
             Tetrahedron is the largest end-to-end Training provider with 350+ Training Modules specifically designed for the individuals and organizations with a diverse experience of 25+ industries catering to the needs of all levels of management.The standard procedure to your learning transformation path starts by making sure to align your learning and business strategy. Tetrahedron’s proficiency helps as a custom corporate training developer certify us to deliver efficacious learning experiences that drive employee performance.350+ Online Trainings For Manufacturing Employee.
           </p>
-
-
         </div>
-
-
       </div>
     </Layout>
   );
@@ -150,7 +144,7 @@ const InputField = ({ name, placeholder, value, error, onChange, textarea }) => 
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        style={{ ...inputStyle, height: "80px" }}
+        style={{ ...inputStyle, height: "80px", fontFamily: "var(--font-poppins)" }}
       />
     ) : (
       <input
@@ -159,10 +153,10 @@ const InputField = ({ name, placeholder, value, error, onChange, textarea }) => 
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        style={inputStyle}
+        style={{...inputStyle, fontFamily: "var(--font-poppins)"}}
       />
     )}
-    {error && <p style={{ color: "red", fontSize: "12px", marginTop: "5px" }}>{error}</p>}
+    {error && <p style={{ color: "red", fontSize: "12px", marginTop: "5px", fontFamily: "var(--font-poppins)" }}>{error}</p>}
   </div>
 );
 

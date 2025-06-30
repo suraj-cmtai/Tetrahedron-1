@@ -31,7 +31,7 @@ export default function Services2() {
             title: "AUTOMATION: INDUSTRY 4.0",
             img: "assets/images/services/business3.jpg",
             link: "service-details",
-            text: "Industry 4.0 involves the integration of advanced technologies such as automation, artificial intelligence, and IoT into manufacturing processes...",
+            text: "Industry 4.0 involves the integration of advanced technologies such as automation, artificial intelligence, and IoT into...",
             fullText: "Industry 4.0 involves the integration of advanced technologies such as automation, artificial intelligence, and the Internet of Things (IoT) into manufacturing processes to revolutionize the manufacturing industry by reducing waste, increasing flexibility. Under the automation in Industry 4.0, we serve AR VR services. In-house developed AMR (Autonomous Mobile Robot) for material handling. Development & Design of Electric Vehicle, Qualification Packs & NOSs for EV Modules. Also we are leading in AGV manufacturers in India as well."
         }
     ];
@@ -50,7 +50,8 @@ export default function Services2() {
                                     <img src={service.img} alt={service.title} />
                                 </div>
                                 <div className="services-four__content">
-                                    <h5 className="services-four__title" style={{ lineHeight: "0.5 !important" }}>
+                                    <h5 className="services-four__title"
+                                    ref={node=>{if(node) node.style.setProperty("line-height", "0.5", "important")}}>
                                         <Link href={service.link} style={{ lineHeight: "0.5" }}>{service.title}</Link>
                                     </h5>
                                     <p className="services-four__text">

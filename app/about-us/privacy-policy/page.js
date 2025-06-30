@@ -13,7 +13,12 @@ export default function PrivacyPolicyPage() {
         <Layout headerStyle={6} footerStyle={6} breadcrumbTitle="Privacy Policy">
             {/* Main Content */}
             <section className="py-16 bg-white">
-                <div className="container mx-auto px-6 max-w-4xl" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+                <div className="container mx-auto px-6 max-w-4xl" ref={node => {
+                    if (node) {
+                        node.style.setProperty("max-width", "1200px", "important");
+                        node.style.setProperty("margin", "0 auto", "important");
+                    }
+                }}>
                     {/* Header */}
                     <div className="mb-10 text-center">
                         <h1 className="text-3xl md:text-4xl font-bold text-gray-800">Privacy Policy</h1>

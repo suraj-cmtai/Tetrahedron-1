@@ -388,13 +388,13 @@ export default function IndustriesSection() {
                   placeholder="Company Name *"
                   value={formData.company}
                   onChange={e => setFormData({ ...formData, company: e.target.value })}
-                  style={{
+                    style={{
                     padding: "14px 14px 14px 45px",
                     border: "2px solid #e2e8f0",
                     borderRadius: "14px",
                     width: "100%",
                     color: "#2d3748",
-                    fontSize: "16px",
+                      fontSize: "16px",
                     fontFamily: "'Montserrat', 'Poppins', sans-serif",
                     fontWeight: "400",
                     outline: "none",
@@ -408,26 +408,26 @@ export default function IndustriesSection() {
               {/* Email */}
               <div style={{ position: "relative" }}>
                 <span style={{ position: "absolute", left: "15px", top: "50%", transform: "translateY(-50%)", fontSize: "16px", zIndex: "2" }}>✉️</span>
-                <input
+                  <input
                   type="email"
                   name="email"
                   placeholder="Email *"
                   value={formData.email}
                   onChange={e => setFormData({ ...formData, email: e.target.value })}
-                  style={{
-                    padding: "14px 14px 14px 45px",
-                    border: "2px solid #e2e8f0",
-                    borderRadius: "14px",
-                    width: "100%",
-                    color: "#2d3748",
-                    fontSize: "16px",
-                    fontFamily: "'Montserrat', 'Poppins', sans-serif",
-                    fontWeight: "400",
-                    outline: "none",
-                    backgroundColor: "rgba(255,255,255,0.8)",
-                    boxShadow: "inset 0 2px 4px rgba(0,0,0,0.05)",
-                    transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                  }}
+                    style={{
+                      padding: "14px 14px 14px 45px",
+                      border: "2px solid #e2e8f0",
+                      borderRadius: "14px",
+                      width: "100%",
+                      color: "#2d3748",
+                      fontSize: "16px",
+                      fontFamily: "'Montserrat', 'Poppins', sans-serif",
+                      fontWeight: "400",
+                      outline: "none",
+                      backgroundColor: "rgba(255,255,255,0.8)",
+                      boxShadow: "inset 0 2px 4px rgba(0,0,0,0.05)",
+                      transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                    }}
                   required
                 />
               </div>
@@ -481,8 +481,8 @@ export default function IndustriesSection() {
                     transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                   }}
                   required
-                />
-              </div>
+                  />
+                </div>
 
               <button
                 type="submit"
@@ -505,18 +505,18 @@ export default function IndustriesSection() {
                 disabled={loading}
                 onMouseOver={(e) => {
                   if (!loading) {
-                    e.target.style.background = "var(--elitecons-base)";
-                    e.target.style.boxShadow = "0 8px 20px rgba(76,81,191,0.5)";
-                    e.target.style.transform = "translateY(-3px) scale(1.02)";
-                    e.target.style.letterSpacing = "1px";
+                  e.target.style.background = "var(--elitecons-base)";
+                  e.target.style.boxShadow = "0 8px 20px rgba(76,81,191,0.5)";
+                  e.target.style.transform = "translateY(-3px) scale(1.02)";
+                  e.target.style.letterSpacing = "1px";
                   }
                 }}
                 onMouseOut={(e) => {
                   if (!loading) {
-                    e.target.style.background = "var(--elitecons-base)";
-                    e.target.style.boxShadow = "0 6px 15px rgba(76,81,191,0.3)";
-                    e.target.style.transform = "translateY(0) scale(1)";
-                    e.target.style.letterSpacing = "0.5px";
+                  e.target.style.background = "var(--elitecons-base)";
+                  e.target.style.boxShadow = "0 6px 15px rgba(76,81,191,0.3)";
+                  e.target.style.transform = "translateY(0) scale(1)";
+                  e.target.style.letterSpacing = "0.5px";
                   }
                 }}
               >
