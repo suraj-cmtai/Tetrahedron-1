@@ -91,7 +91,7 @@ export default function ContactForm({ onSuccess, onError, buttonText = "Submit",
 
   return (
     <div style={normalStyle} ref={topDivRef}>
-      <form onSubmit={handleSubmitForm} style={{ padding: '30px', borderRadius: '16px', boxShadow: '0 8px 24px rgba(0,0,0,0.2)', border: '1px solid #e0e0e0', background: '#fff', maxWidth: '100%', boxSizing: 'border-box' }}>
+      <form onSubmit={handleSubmitForm} style={{ padding: '30px', borderRadius: '16px', boxShadow: '0 8px 24px rgba(0,0,0,0.2)', border: '1px solid #e0e0e0', background: '#fff', maxWidth: '100%', boxSizing: 'border-box', position: 'relative', overflow: 'hidden' }}>
         <h2 style={{ textAlign: 'center', marginBottom: '20px', fontSize: '22px', color: '#333' }}>Get in Touch</h2>
         <input
           type="text"
@@ -144,42 +144,49 @@ export default function ContactForm({ onSuccess, onError, buttonText = "Submit",
           </button>
         </div>
         {modal.open && (
-          <div
-            style={{
-              position: "fixed",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              background: "#fff !important",
-              padding: "32px 48px !important",
-              borderRadius: "16px !important",
-              boxShadow: "0 8px 32px rgba(0,0,0,0.9) !important",
-              textAlign: "center !important",
-              minWidth: "300px !important",
-              maxWidth: "90vw !important",
-              fontSize: "18px !important",
-              color: modal.success ? "green" : "red",
-              fontWeight: "bold !important",
-              zIndex: 99999,
-              width: "450px !important",
-              margin: 0,
-            }}
-            onClick={() => setModal({ ...modal, open: false })}
-          >
-            <span
+          <div style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "rgba(0,0,0,0.4)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 10,
+          }}>
+            <div
               style={{
-                position: "absolute",
-                top: 8,
-                right: 16,
-                cursor: "pointer",
-                fontSize: 24,
-                color: "#888",
+                background: "#fff",
+                padding: "32px 48px",
+                borderRadius: "16px",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
+                textAlign: "center",
+                minWidth: "220px",
+                maxWidth: "90vw",
+                fontSize: "18px",
+                color: modal.success ? "green" : "red",
+                fontWeight: "bold",
+                position: "relative",
+                zIndex: 11,
               }}
-              onClick={() => setModal({ ...modal, open: false })}
             >
-              ×
-            </span>
-            {modal.message}
+              <span
+                style={{
+                  position: "absolute",
+                  top: 8,
+                  right: 16,
+                  cursor: "pointer",
+                  fontSize: 24,
+                  color: "#888",
+                }}
+                onClick={() => setModal({ ...modal, open: false })}
+              >
+                ×
+              </span>
+              {modal.message}
+            </div>
           </div>
         )}
       </form>
