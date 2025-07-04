@@ -19,7 +19,14 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                             <img
                                 src="/assets/images/Tetrahedron Logo.png"
                                 alt="Logo"
-                                style={{ width: "70px", height: "auto", minHeight:"110px", minWidth:"110px" }}
+                                style={{
+                                    width: "60px",
+                                    position: "absolute",
+                                    top: "-12px",
+                                    height: "auto",
+                                    minHeight: "90px",
+                                    minWidth: "90px"
+                                }}
                             />
                         </Link>
                     </div>
@@ -110,49 +117,6 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                 </div>
             </header>
             <MobileMenu handleMobileMenu={handleMobileMenu} />
-            <div
-                className={`stricky-header ${scroll ? "stricky-fixed" : ""} main-menu main-menu-two`}
-            >
-                <div className="sticky-header__content">
-                    <div className="sticky-header__left">
-                        <div className="main-header-two__logo sticky-logo">
-                            <Link href="/">
-                                <img
-                                    src="/assets/images/resources/logo.png"
-                                    alt="Logo"
-                                    style={{ width: "60px", height: "auto" }}
-                                />
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="sticky-header__right">
-                        <nav className="main-menu-two">
-                            <div className="main-menu-two__wrapper">
-                                <div className="main-menu-two__wrapper-inner">
-                                    <div className="main-menu-two__menu-box-and-btn-box">
-                                        <div className="main-menu-two__menu-box">
-                                            <div className="main-menu-two__main-menu-box">
-                                                <Menu />
-                                            </div>
-                                        </div>
-                                        <div className="main-menu-two__btn-box">
-                                            <button
-                                                onClick={() => setModalOpen(true)}
-                                                className="main-menu-two__btn thm-btn"
-                                                style={{ backgroundColor: "#ffc001" }}
-                                                ref={node => { if (node) node.style.setProperty("font-size", "17px", "important"); }}
-                                            >
-                                                Quick Support
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-
             {isModalOpen && (
                 <div className="modal-overlay active">
                     <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />

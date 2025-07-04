@@ -20,8 +20,8 @@ export default function Page() {
         {/* Hero Section */}
         <section>
           <div className={styles.heroSection}>
-            <div className={styles.heroOverlay}>
-              <h1>Automated Guided Vehicle Manufacturers | AGV | AMR</h1>
+            <div className={styles.heroOverlay} style={{maxWidth:"80vw"}}>
+              <h1 style={{textAlign:"center", fontSize:"36px", marginTop:"20px"}}>Automated Guided Vehicle Manufacturers | AGV | AMR</h1>
               <p>From repetitive tasks on the factory floor to activities in Agriculture, Logistics, Hospitality, and more, the use of Autonomous Mobile Robots is changing how business gets done</p>
             </div>
           </div>
