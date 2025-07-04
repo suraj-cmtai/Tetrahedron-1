@@ -20,15 +20,27 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                                 src="/assets/images/Tetrahedron Logo.png"
                                 alt="Logo"
                                 style={{
-                                    width: "60px",
-                                    position: "absolute",
-                                    top: "-12px",
+                                    width: "70px",
                                     height: "auto",
-                                    minHeight: "90px",
-                                    minWidth: "90px"
+                                    minHeight: "110px",
+                                    minWidth: "110px",
                                 }}
+                                className="main-header-two__logo-img"
                             />
                         </Link>
+                        <style jsx>{`
+                            @media (max-width: 1200px) {
+                                
+                                .main-header-two__logo-img {
+                                    width: 60px !important;
+                                    position: absolute !important;
+                                    top: -12px !important;
+                                    height: auto !important;
+                                    min-height: 90px !important;
+                                    min-width: 90px !important;
+                                }
+                            }
+                        `}</style>
                     </div>
 
                     <div className="main-header-two__top">
