@@ -1,3 +1,4 @@
+"use client";
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 
@@ -31,29 +32,101 @@ export default function Error404() {
                 </section>
                 {/*Error Page End*/}
 
-                {/*CTA One Start*/}
-                <section className="cta-one">
-                    <div className="container">
-                        <div className="cta-one__inner">
-                            <div className="cta-one__shape-1">
-                                <img src="assets/images/shapes/cta-one-shape-1.png" alt=""/>
-                            </div>
-                            <div className="cta-one__img">
-                                <img src="assets/images/resources/cta-one-img.png" alt=""/>
-                            </div>
-                            <h3 className="cta-one__title">Craftin digital experiences<br/> With that inspire</h3>
-                            <div className="cta-one__from-box">
-                                <form className="cta-one__form">
-                                    <div className="cta-one__input-box">
-                                        <input type="email" placeholder="Your E-mail" name="email"/>
-                                    </div>
-                                    <button type="submit" className="cta-one__btn thm-btn">Subscribe Us</button>
-                                </form>
-                            </div>
-                        </div>
+                 {/*CTA One Start*/}
+          <section className="cta-one"
+            style={{ height: "auto", padding: "60px 0", boxSizing: 'border-box' }}
+            ref={node => { if (node) node.style.setProperty("width", "100%", "important"); }}
+          >
+            <div className="container"
+                style={{margin: '0 auto', gap: '32px'}}
+                ref={node => { if (node) {
+                    node.style.setProperty('width', '100%', 'important');
+                    node.style.setProperty('max-width', '1200px', 'important');
+                    node.style.setProperty('display', 'flex', 'important');
+                    node.style.setProperty('align-items', 'center', 'important');
+                    node.style.setProperty('justify-content', 'space-between', 'important');
+                    node.style.setProperty('flex-direction', 'row', 'important');
+                }}}
+            >
+              {/* Left Side: Text and Form */}
+              <div
+                style={{ flex: 1, boxSizing: 'border-box' }}
+                ref={node => { if (node) {
+                    node.style.setProperty('display', 'flex', 'important');
+                    node.style.setProperty('flex-direction', 'column', 'important');
+                    node.style.setProperty('justify-content', 'center', 'important');
+                    node.style.setProperty('align-items', 'flex-start', 'important');
+                    node.style.setProperty('height', '100%', 'important');
+                    node.style.setProperty('min-height', '400px', 'important');
+                    node.style.setProperty('padding', '0 0 0 24px', 'important');
+                }}}
+              >
+              <h3 className="cta-one__title"
+                style={{ marginBottom: "20px" }}
+                ref={node => {
+                  if (node) {
+                    node.style.setProperty("font-size", "36px", "important");
+                    node.style.setProperty("font-weight", "700", "important");
+                    node.style.setProperty("width", "200%", "important");
+                  }
+                }}
+              >
+                  Crafting Digital Experiences That Inspire
+                </h3>
+                <div className="cta-one__from-box">
+                  <form className="cta-one__form">
+                    <div className="cta-one__input-box">
+                      <input type="email" placeholder="Your E-mail" name="email" />
                     </div>
-                </section>
-                {/*CTA One End*/}
+                    <button type="submit" className="cta-one__btn thm-btn" style={{width:"60%"}}>Subscribe Us</button>
+                  </form>
+                </div>
+              </div>
+              {/* Right Side: Images */}
+              <div
+                style={{ flex: 1, boxSizing: 'border-box' }}
+                ref={node => { if (node) {
+                    node.style.setProperty('display', 'flex', 'important');
+                    node.style.setProperty('flex-direction', 'column', 'important');
+                    node.style.setProperty('align-items', 'flex-end', 'important');
+                    node.style.setProperty('justify-content', 'center', 'important');
+                    node.style.setProperty('height', '80%', 'important');
+                    node.style.setProperty('gap', '16px', 'important');
+                    node.style.setProperty('padding-right', '24px', 'important');
+                }}}
+              >
+                <img src="/assets/images/case-studies/CS2.jpg" alt="Inspiring Digital Experience"
+                  style={{ marginBottom: '8px', zIndex: 2 }}
+                  ref={node => {
+                    if (node) {
+                      node.style.setProperty("max-width", "350px", "important");
+                      node.style.setProperty("width", "90%", "important");
+                      node.style.setProperty("min-height", "150px", "important");
+                      node.style.setProperty("max-height", "40%", "important");
+                      node.style.setProperty("border-radius", "10px", "important");
+                      node.style.setProperty("object-fit", "cover", "important");
+                      node.style.setProperty("background", "none", "important");
+                    }
+                  }}
+                />
+                <img src="/assets/images/case-studies/CS6.jpg" alt="Inspiring Digital Experience 2"
+                  style={{ zIndex: 2 }}
+                  ref={node => {
+                    if (node) {
+                      node.style.setProperty("max-width", "350px", "important");
+                      node.style.setProperty("width", "90%", "important");
+                      node.style.setProperty("min-height", "150px", "important");
+                      node.style.setProperty("max-height", "40%", "important");
+                      node.style.setProperty("border-radius", "10px", "important");
+                      node.style.setProperty("object-fit", "cover", "important");
+                      node.style.setProperty("background", "none", "important");
+                    }
+                  }}
+                />
+              </div>
+            </div>
+          </section>
+          {/*CTA One End*/}
 
             </Layout>
 

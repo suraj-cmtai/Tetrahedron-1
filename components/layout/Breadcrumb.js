@@ -11,12 +11,12 @@ export default function Breadcrumb({ breadcrumbTitle }) {
             </div>
             <div className="container">
                 <div className="page-header__inner">
-                    <h2>{breadcrumbTitle}</h2>
+                    <h2 ref={node => { if (node) node.style.setProperty("font-family", "var(--font-poppins)", "important"); }}>{breadcrumbTitle}</h2>
                     <div className="thm-breadcrumb__box">
                         <ul className="thm-breadcrumb list-unstyled">
-                            <li><Link href="/">Home</Link></li>
+                            <li ref={node => { if (node) node.style.setProperty("font-family", "var(--font-poppins)", "important"); }}><Link href="/">Home</Link></li>
                             <li><span className="icon-angle-left"></span></li>
-                            <li>{breadcrumbTitle}</li>
+                            <li ref={node => { if (node) node.style.setProperty("font-family", "var(--font-poppins)", "important"); }}>{breadcrumbTitle}</li>
                         </ul>
                     </div>
                 </div>

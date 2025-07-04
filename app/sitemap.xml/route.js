@@ -11,6 +11,9 @@ export async function GET(request) {
   <url><loc>https://www.tetrahedron.in/career</loc><priority>0.8</priority></url>
   <url><loc>https://www.tetrahedron.in/case-studies</loc><priority>0.8</priority></url>
   <url><loc>https://www.tetrahedron.in/consulting</loc><priority>0.8</priority></url>
+  <url><loc>https://www.tetrahedron.in/consulting/manufacturing-operational-excellence-consulting</loc><priority>0.7</priority></url>
+  <!-- Example dynamic consulting slug: -->
+  <url><loc>https://www.tetrahedron.in/consulting/example-slug</loc><priority>0.7</priority></url>
   <url><loc>https://www.tetrahedron.in/contact</loc><priority>0.8</priority></url>
   <url><loc>https://www.tetrahedron.in/faq</loc><priority>0.8</priority></url>
   <url><loc>https://www.tetrahedron.in/gallery</loc><priority>0.8</priority></url>
@@ -21,9 +24,14 @@ export async function GET(request) {
   <url><loc>https://www.tetrahedron.in/service-details</loc><priority>0.6</priority></url>
   <url><loc>https://www.tetrahedron.in/services</loc><priority>0.8</priority></url>
   <url><loc>https://www.tetrahedron.in/skill-training</loc><priority>0.8</priority></url>
+  <url><loc>https://www.tetrahedron.in/skill-training/corporate-training-course-in-india</loc><priority>0.7</priority></url>
+  <!-- Example dynamic skill-training slug: -->
+  <url><loc>https://www.tetrahedron.in/skill-training/example-slug</loc><priority>0.7</priority></url>
   <url><loc>https://www.tetrahedron.in/team</loc><priority>0.8</priority></url>
   <url><loc>https://www.tetrahedron.in/terms-of-services</loc><priority>0.6</priority></url>
   <url><loc>https://www.tetrahedron.in/testimonials</loc><priority>0.8</priority></url>
+  <url><loc>https://www.tetrahedron.in/api/contact</loc><priority>0.5</priority></url>
+  <url><loc>https://www.tetrahedron.in/sitemap.xml</loc><priority>0.5</priority></url>
 </urlset>`;
 
   return new Response(sitemap, {

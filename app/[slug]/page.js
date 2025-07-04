@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import Layout from "@/components/layout/Layout";
 import { useState } from "react";
 import * as Icons from "lucide-react";
+import ContactFormModal from "@/components/ContactFormModal";
 
 // Internal CSS styles (keep the styles object as it is)
 const styles = {
@@ -351,6 +352,8 @@ export default function ServicePage({ params }) {
   const [hoveredIndustry, setHoveredIndustry] = useState(null);
   const [hoveredCard, setHoveredCard] = useState(null);
   const [openFAQs, setOpenFAQs] = useState({});
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalButtonText, setModalButtonText] = useState("");
 
   const toggleFAQ = (index) => {
     setOpenFAQs((prev) => ({
@@ -387,7 +390,7 @@ export default function ServicePage({ params }) {
       ));
   }
 
-  // Helper to render a standard CTA button
+  // Helper to render a standard CTA button with modal functionality
   const renderCtaButton = (text, href = "#") => (
      <a
       href={href}
@@ -395,6 +398,11 @@ export default function ServicePage({ params }) {
       style={styles.ctaButton}
       onMouseEnter={(e) => Object.assign(e.currentTarget.style, styles.ctaButton, styles.ctaButtonHover)}
       onMouseLeave={(e) => Object.assign(e.currentTarget.style, styles.ctaButton)}
+      onClick={(e) => {
+        e.preventDefault();
+        setModalButtonText(text || "Learn More");
+        setModalOpen(true);
+      }}
     >
       {text || "Learn More"}
     </a>
@@ -408,6 +416,7 @@ export default function ServicePage({ params }) {
 
   return (
     <Layout>
+      <ContactFormModal open={modalOpen} onClose={() => setModalOpen(false)} buttonText={modalButtonText} />
       {/* Banner Section */}
       <div style={styles.banner}>
         {data.img && (
@@ -621,7 +630,7 @@ export default function ServicePage({ params }) {
                                 <div className="p-3 fs-5">
                                     {renderParagraphs(data.comparison.textContent)}
                                 </div>
-                            </div>
+                             </div>
                          )}
                     </div>
                 </section>

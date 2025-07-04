@@ -1,412 +1,196 @@
-'use client'
-import Layout from "@/components/layout/Layout"
-import CounterUp from "@/components/elements/CounterUp"
-import Link from "next/link"
-import { useState } from 'react'
+import Link from 'next/link';
+import Layout from "@/components/layout/Layout";
 
-
-export default function About() {
-    const [isActive, setIsActive] = useState({
-        status: false,
-        key: 1,
-    })
-
-    const handleToggle = (key) => {
-        if (isActive.key === key) {
-            setIsActive({
-                status: false,
-            })
-        } else {
-            setIsActive({
-                status: true,
-                key,
-            })
-        }
-    }
-   
+export default function PrivacyPolicyPage() {
     return (
         <>
-        <Layout headerStyle={6} footerStyle={6} breadcrumbTitle="About Us">
-        {/*About One Start */}
-        <section className="about-one about-seven">
-            <div className="container">
-                <div className="row">
-                    <div className="col-xl-6">
-                        <div className="about-one__left">
-                            <div className="about-one__img wow slideInLeft" data-wow-delay="100ms"
-                                data-wow-duration="2500ms">
-                                <img src="assets/images/resources/about-one-img-1.jpg" alt=""/>
+        <Layout headerStyle={6} footerStyle={6} breadcrumbTitle="Privacy Policy">
+            {/* Main Content */}
+            <section className="py-16 bg-white">
+                <div
+                    className="container mx-auto px-6 max-w-4xl"
+                    style={{ maxWidth: "1200px", margin: "0 auto", fontFamily: "var(--font-poppins)" }}
+                >
+                    {/* Header */}
+                    <div className="mb-10 text-center" style={{ fontFamily: "var(--font-poppins)" }}>
+                        <h1 className="text-3xl md:text-4xl font-bold text-gray-800" style={{ fontFamily: "var(--font-poppins)" }}>Privacy Policy</h1>
+                        <div className="h-1 w-16 bg-blue-500 mx-auto mt-4" style={{ fontFamily: "var(--font-poppins)" }}></div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="shadow-md rounded-lg overflow-hidden" style={{ fontFamily: "var(--font-poppins)" }}>
+                        {/* Section 1 */}
+                        <div className="border-b border-gray-100" style={{ fontFamily: "var(--font-poppins)" }}>
+                            <div className="bg-gray-50 px-6 py-4" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <h2 className="text-xl font-bold text-gray-800" style={{ fontFamily: "var(--font-poppins)" }}>SECTION 1 – WHAT DO WE DO WITH YOUR INFORMATION?</h2>
+                            </div>
+                            <div className="px-6 py-4 bg-white" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    When you purchase something from our website, as part of the buying and selling process, we collect the personal information you give us such as your name, address, and email address.
+                                </p>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    When you browse our website, we also automatically receive your computer's internet protocol (IP) address in order to provide us with information that helps us learn about your browser and operating system.
+                                </p>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    <strong style={{ fontFamily: "var(--font-poppins)" }}>Email marketing (if applicable):</strong> With your permission, we may send you emails about our business, new products, and other updates.
+                                </p>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-xl-6">
-                        <div className="about-one__right">
-                            <div className="section-title text-left">
-                                <div className="section-title__tagline-box">
-                                    <span className="section-title__tagline">ABOUT US</span>
-                                </div>
-                                <h2 className="section-title__title">We are specialized solutions Building</h2>
-                            </div>
-                            <p className="about-one__text">Content Marketing Solutions: Engage, Inform, and Convert Content
-                                Marketing Solutions: Engage, Inform, and Convert </p>
-                            <ul className="about-one__points-list list-unstyled">
-                                <li>
-                                    <div className="icon">
-                                        <span className="icon-analytics"></span>
-                                    </div>
-                                    <div className="content">
-                                        <h3><Link href="about">Smart Analytics</Link></h3>
-                                        <p>Content Marketing printing Solutions: Engage, <br/> Inform, and Convert</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="icon">
-                                        <span className="icon-prestige"></span>
-                                    </div>
-                                    <div className="content">
-                                        <h3><Link href="about">Prestige Construction</Link></h3>
-                                        <p>Content Marketing printing Solutions: Engage, <br/> Inform, and Convert</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        {/*About One End */}
 
-        {/* Counter Two Start */}
-        <section className="counter-two">
-            <div className="counter-two__bg-box">
-                <div className="counter-two__bg"
-                    style={{ backgroundImage: 'url(assets/images/backgrounds/counter-two-bg.png' }} ></div>
-            </div>
-            <div className="container">
-                <div className="counter-two__top">
-                    <div className="section-title text-left">
-                        <div className="section-title__tagline-box">
-                            <span className="section-title__tagline">Best Roof rapairing</span>
-                        </div>
-                        <h2 className="section-title__title">Crafting Structures that a <br/> Stand the Test </h2>
-                    </div>
-                    <p className="counter-two__top-text">Dictum ultrices porttitor amet nec sollicit molestie adipiscing
-                        netus. Lorem at ac ut morbi ullamcorper mol lacus. Euismod design by man loren ipsum</p>
-                </div>
-                <div className="counter-two__bottom">
-                    <div className="row">
-                        {/* Counter Two Single Start */}
-                        <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="100ms">
-                            <div className="counter-two__single">
-                                <div className="counter-two__icon">
-                                    <span className="icon-settings"></span>
-                                </div>
-                                <div className="counter-two__count count-box">
-                                <CounterUp end={200} />
-                                    <span className="counter-two__plus">+</span>
-                                </div>
-                                <p className="counter-two__count-text">Team member</p>
+                        {/* Section 2 */}
+                        <div className="border-b border-gray-100" style={{ fontFamily: "var(--font-poppins)" }}>
+                            <div className="bg-gray-50 px-6 py-4" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <h2 className="text-xl font-bold text-gray-800" style={{ fontFamily: "var(--font-poppins)" }}>SECTION 2 – CONSENT</h2>
                             </div>
-                        </div>
-                        {/* Counter Two Single End */}
-                        {/* Counter Two Single Start */}
-                        <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="300ms">
-                            <div className="counter-two__single">
-                                <div className="counter-two__icon">
-                                    <span className="icon-paint"></span>
-                                </div>
-                                <div className="counter-two__count count-box">
-                                <CounterUp end={20} />
-                                    <span className="counter-two__plus">+</span>
-                                </div>
-                                <p className="counter-two__count-text">Team member</p>
-                            </div>
-                        </div>
-                        {/* Counter Two Single End */}
-                        {/* Counter Two Single Start */}
-                        <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInRight" data-wow-delay="600ms">
-                            <div className="counter-two__single">
-                                <div className="counter-two__icon">
-                                    <span className="icon-mechanic-2"></span>
-                                </div>
-                                <div className="counter-two__count count-box">
-                                <CounterUp end={10} />
-                                    <span className="counter-two__plus">k+</span>
-                                </div>
-                                <p className="counter-two__count-text">Complete project</p>
-                            </div>
-                        </div>
-                        {/* Counter Two Single End */}
-                        {/* Counter Two Single Start */}
-                        <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInRight" data-wow-delay="900ms">
-                            <div className="counter-two__single">
-                                <div className="counter-two__icon">
-                                    <span className="icon-analytics"></span>
-                                </div>
-                                <div className="counter-two__count count-box">
-                                <CounterUp end={900} />
-                                    <span className="counter-two__plus">+</span>
-                                </div>
-                                <p className="counter-two__count-text">Client review</p>
-                            </div>
-                        </div>
-                        {/* Counter Two Single End */}
-                    </div>
-                </div>
-            </div>
-        </section>
-        {/* Counter Two End */}
+                            <div className="px-6 py-4 bg-white" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <h3 className="text-lg font-semibold mb-3 text-gray-800" style={{ fontFamily: "var(--font-poppins)" }}>How do you get my consent?</h3>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    When you provide us with personal information to complete a transaction, verify your credit card, place an order, arrange for a delivery, or return a purchase, we consider that you have given your consent for us to collect and use your information for that specific reason only.
+                                </p>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    If we ask for your personal information for a secondary reason, like marketing, we will either ask you directly for your expressed consent or provide you with an opportunity to say no.
+                                </p>
 
-        {/*Contact Two Start */}
-        <section className="contact-two contact-four">
-            <div className="container">
-                <div className="row">
-                    <div className="col-xl-6 col-lg-6">
-                        <div className="contact-two__left">
-                            <div className="section-title text-left">
-                                <div className="section-title__tagline-box">
-                                    <span className="section-title__tagline">talk to us</span>
-                                </div>
-                                <h2 className="section-title__title">Crafting Perfect from <br/> Foundation to Finish</h2>
-                            </div>
-                            <p className="contact-two__text">Et purus duis sollicitudin dignissim habitant. Egestas nulla
-                                <br/> quis venenatis cras sed eu massa eu faucibus</p>
-                            <div className="contact-two__call-box">
-                                <div className="icon">
-                                    <span className="icon-call"></span>
-                                </div>
-                                <div className="content">
-                                    <span>Need help?</span>
-                                    <p><Link href="tel:+8085550111">+(808) 555-0111</Link></p>
-                                </div>
+                                <h3 className="text-lg font-semibold mb-3 mt-6 text-gray-800" style={{ fontFamily: "var(--font-poppins)" }}>How do I withdraw my consent?</h3>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    If after you opt-in, you change your mind, you may withdraw your consent for us to contact you, or for the continued collection, use, or disclosure of your information, at any time, by contacting us at <a href="mailto:marketing@tetrahedron.in" className="text-blue-500 hover:underline" style={{ fontFamily: "var(--font-poppins)" }}>marketing@tetrahedron.in</a> or mailing us at Main Office: 204, Block A, Ecotech III, Noida, Khera Choganpur, Uttar Pradesh 201306, India.
+                                </p>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-xl-6 col-lg-6">
-                        <div className="contact-two__right">
-                            <form action="assets/inc/sendemail.php" className="contact-two__form contact-form-validated">
-                                <div className="row">
-                                    <div className="col-xl-6 col-lg-6 col-md-6">
-                                        <div className="contact-two__input-box">
-                                            <input type="text" placeholder="Your Name" name="name"/>
-                                        </div>
-                                    </div>
-                                    <div className="col-xl-6 col-lg-6 col-md-6">
-                                        <div className="contact-two__input-box">
-                                            <input type="email" placeholder="Your E-mail" name="email"/>
-                                        </div>
-                                    </div>
-                                    <div className="col-xl-6 col-lg-6 col-md-6">
-                                        <div className="contact-two__input-box">
-                                            <input type="text" placeholder="Your Phone" name="email"/>
-                                        </div>
-                                    </div>
-                                    <div className="col-xl-6 col-lg-6 col-md-6">
-                                        <div className="contact-two__input-box">
-                                            <input type="text" placeholder="Your Location" name="email"/>
+
+                        {/* Section 3 */}
+                        <div className="border-b border-gray-100" style={{ fontFamily: "var(--font-poppins)" }}>
+                            <div className="bg-gray-50 px-6 py-4" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <h2 className="text-xl font-bold text-gray-800" style={{ fontFamily: "var(--font-poppins)" }}>SECTION 3 – DISCLOSURE</h2>
+                            </div>
+                            <div className="px-6 py-4 bg-white" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    We may disclose your personal information if required by law or if you violate our Terms of Service.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Section 4 */}
+                        <div className="border-b border-gray-100" style={{ fontFamily: "var(--font-poppins)" }}>
+                            <div className="bg-gray-50 px-6 py-4" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <h2 className="text-xl font-bold text-gray-800" style={{ fontFamily: "var(--font-poppins)" }}>SECTION 4 – PAYMENT</h2>
+                            </div>
+                            <div className="px-6 py-4 bg-white" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    We use Razorpay for processing payments. We and Razorpay do not store your card data on their servers. The data is encrypted through the Payment Card Industry Data Security Standard (PCI-DSS) when processing payment. Your purchase transaction data is only used as long as is necessary to complete your purchase transaction. After that is complete, your purchase transaction information is not saved.
+                                </p>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    Our payment gateway adheres to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, MasterCard, American Express, and Discover.
+                                </p>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    PCI-DSS requirements help ensure the secure handling of credit card information by our website and its service providers. For more insight, you may also want to read the terms and conditions of Razorpay at <a href="https://razorpay.com" className="text-blue-500 hover:underline" style={{ fontFamily: "var(--font-poppins)" }}>https://razorpay.com</a>.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Section 5 */}
+                        <div className="border-b border-gray-100" style={{ fontFamily: "var(--font-poppins)" }}>
+                            <div className="bg-gray-50 px-6 py-4" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <h2 className="text-xl font-bold text-gray-800" style={{ fontFamily: "var(--font-poppins)" }}>SECTION 5 – THIRD-PARTY SERVICES</h2>
+                            </div>
+                            <div className="px-6 py-4 bg-white" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    In general, the third-party providers used by us will only collect, use, and disclose your information to the extent necessary to allow them to perform the services they provide to us.
+                                </p>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    However, certain third-party service providers, such as payment gateways and other payment transaction processors, have their own privacy policies in respect to the information we are required to provide to them for your purchase-related transactions.
+                                </p>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    For these providers, we recommend that you read their privacy policies so you can understand the manner in which your personal information will be handled by these providers.
+                                </p>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    In particular, remember that certain providers may be located in or have facilities that are located in a different jurisdiction than either you or us. So if you elect to proceed with a transaction that involves the services of a third-party service provider, then your information may become subject to the laws of the jurisdiction(s) in which that service provider or its facilities are located.
+                                </p>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    Once you leave our website or are redirected to a third-party website or application, you are no longer governed by this Privacy Policy or our website's Terms of Service.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Section 6 */}
+                        <div className="border-b border-gray-100" style={{ fontFamily: "var(--font-poppins)" }}>
+                            <div className="bg-gray-50 px-6 py-4" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <h2 className="text-xl font-bold text-gray-800" style={{ fontFamily: "var(--font-poppins)" }}>SECTION 6 – SECURITY</h2>
+                            </div>
+                            <div className="px-6 py-4 bg-white" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    We follow industry standards to protect your personal information from misuse or unauthorized access.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Section 7 */}
+                        <div className="border-b border-gray-100" style={{ fontFamily: "var(--font-poppins)" }}>
+                            <div className="bg-gray-50 px-6 py-4" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <h2 className="text-xl font-bold text-gray-800" style={{ fontFamily: "var(--font-poppins)" }}>SECTION 7 – COOKIES</h2>
+                            </div>
+                            <div className="px-6 py-4 bg-white" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    We use cookies to maintain session data. They are not used to personally identify you on other websites.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Section 8 */}
+                        <div className="border-b border-gray-100" style={{ fontFamily: "var(--font-poppins)" }}>
+                            <div className="bg-gray-50 px-6 py-4" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <h2 className="text-xl font-bold text-gray-800" style={{ fontFamily: "var(--font-poppins)" }}>SECTION 8 – AGE OF CONSENT</h2>
+                            </div>
+                            <div className="px-6 py-4 bg-white" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    By using this site, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Section 9 */}
+                        <div className="border-b border-gray-100" style={{ fontFamily: "var(--font-poppins)" }}>
+                            <div className="bg-gray-50 px-6 py-4" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <h2 className="text-xl font-bold text-gray-800" style={{ fontFamily: "var(--font-poppins)" }}>SECTION 9 – CHANGES TO THIS PRIVACY POLICY</h2>
+                            </div>
+                            <div className="px-6 py-4 bg-white" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    We reserve the right to modify this privacy policy at any time, so please review it frequently. Changes and clarifications will take effect immediately upon their posting on the website. If we make material changes to this policy, we will notify you here that it has been updated, so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we use and/or disclose it.
+                                </p>
+                                <p className="mb-4 text-gray-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                    If our store is acquired or merged with another company, your information may be transferred to the new owners so that we may continue to sell products to you.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Contact Information */}
+                        <div style={{ fontFamily: "var(--font-poppins)" }}>
+                            <div className="bg-gray-50 px-6 py-4" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <h2 className="text-xl font-bold text-gray-800" style={{ fontFamily: "var(--font-poppins)" }}>QUESTIONS AND CONTACT INFORMATION</h2>
+                            </div>
+                            <div className="px-6 py-4 bg-white" style={{ fontFamily: "var(--font-poppins)" }}>
+                                <p className="mb-6 text-gray-700" style={{ textAlign: 'left', fontFamily: "var(--font-poppins)" }}>
+                                    If you would like to access, correct, amend, or delete any personal information we have about you, register a complaint, or simply want more information, contact our Privacy Compliance Officer at <a href="mailto:marketing@tetrahedron.in" className="text-blue-500 hover:underline" style={{ fontFamily: "var(--font-poppins)" }}>marketing@tetrahedron.in</a> or mail us at Main Office: 204, Block A, Ecotech III, Noida, Khera Choganpur, Uttar Pradesh 201306, India.
+                                </p>
+                                <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4" style={{ textAlign: 'left', fontFamily: "var(--font-poppins)" }}>
+                                    <div className="flex" style={{ fontFamily: "var(--font-poppins)" }}>
+                                        <div className="ml-3" style={{ fontFamily: "var(--font-poppins)" }}>
+                                            <p className="text-sm text-blue-700" style={{ fontFamily: "var(--font-poppins)" }}>
+                                                For any privacy-related concerns, please don't hesitate to reach out to us. We take your privacy seriously and will address your questions promptly.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row">
-                                    <div className="col-xl-12 col-lg-12">
-                                        <div className="contact-two__input-box text-message-box">
-                                            <textarea name="message" placeholder="Your Massage"></textarea>
-                                        </div>
-                                        <div className="contact-two__btn-box">
-                                            <button type="submit" className="thm-btn contact-two__btn">Send us<span
-                                                    className="icon-dabble-arrow-right"></span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <div className="result"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        {/*Contact Two End */}
-
-        {/* Success One Start */}
-        <section className="success-one">
-            <div className="success-one__shape-1">
-                <img src="assets/images/shapes/success-one-shape-1.png" alt=""/>
-            </div>
-            <div className="success-one__img-box">
-                <div className="success-one__img">
-                    <img src="assets/images/resources/success-one-img-1.jpg" alt=""/>
-                </div>
-                <div className="success-one__counter">
-                    <ul className="list-unstyled success-one__counter-list">
-                        <li>
-                            <div className="success-one__counter-count count-box">
-                                <h3 >100</h3>
-                                <span className="success-one__counter-percent">%</span>
-                            </div>
-                            <p className="success-one__counter-text">Success Rate</p>
-                        </li>
-                        <li>
-                            <div className="success-one__counter-count count-box">
-                                <h3>250</h3>
-                                <span className="success-one__counter-percent">+</span>
-                            </div>
-                            <p className="success-one__counter-text">Happy Clients</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div className="container">
-                <div className="row">
-                    <div className="col-xl-6 col-lg-6">
-                        <div className="success-one__left">
-                            <div className="section-title text-left">
-                                <div className="section-title__tagline-box">
-                                    <span className="section-title__tagline">Best Services</span>
-                                </div>
-                                <h2 className="section-title__title">Create Innovative sustain
-                                    Place in the.</h2>
-                            </div>
-                            <p className="success-one__text">Lorem ipsum dolor sit amet consectetur adipiscing elit sociis
-                                tempus magna vel, duis tincidunt fusce aenean lacus integer velit phasellus imperdiet
-                                the a senectus, vestibulum ridiculus es</p>
-                            <ul className="list-unstyled success-one__points">
-                                <li>
-                                    <div className="success-one__points-icon">
-                                        <span className="icon-constructo-pro"></span>
-                                    </div>
-                                    <p className="success-one__points-text"><Link href="service-details">Master Craft
-                                            Construction</Link></p>
-                                </li>
-                                <li>
-                                    <div className="success-one__points-icon">
-                                        <span className="icon-proconstruct"></span>
-                                    </div>
-                                    <p className="success-one__points-text"><Link href="service-details">Quality
-                                            Construction Co</Link></p>
-                                </li>
-                            </ul>
-                            <div className="success-one__btn-box">
-                                <Link href="about" className="success-one__btn thm-btn">Read more<span
-                                        className="icon-dabble-arrow-right"></span></Link>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        {/* Success One End */}
-
-        {/*FAQ One Start*/}
-        <section className="faq-one faq-five">
-            <div className="container">
-                <div className="row">
-                    <div className="col-xl-6 col-lg-6">
-                        <div className="faq-one__left">
-                            <div className="section-title text-left">
-                                <div className="section-title__tagline-box">
-                                    <span className="section-title__tagline">SOME fAQS</span>
-                                </div>
-                                <h2 className="section-title__title">Creating Structures that <br/> Stand of Time </h2>
-                            </div>
-                            <p className="faq-one__text">Et purus duis sollicitudin dignissim habitant. Egestas nulla quis
-                                venenatis cras sed eu massa eu faucibus. Urna fusce aenean tortor pretium. Et purus duis
-                                sollicitudin dignissim habitant. Egestas </p>
-                            <div className="faq-one__btn-box">
-                                <Link href="#" className="faq-one__btn thm-btn">Learn more<span
-                                        className="icon-dabble-arrow-right"></span></Link>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xl-6 col-lg-6">
-                        <div className="faq-one__right">
-                            <div className="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion-1">
-                                <div className={isActive.key == 1 ? "accrodion active" : "accrodion"} onClick={() => handleToggle(1)}>
-                                    <div className="accrodion-title">
-                                        <h4>What is construction?</h4>
-                                    </div>
-                                    <div className="accrodion-content">
-                                        <div className="inner">
-                                            <p>Et purus duis sollicitudin dignissim ha. Egest nulla quis venenatis cras
-                                                sed
-                                                eu massa eu faucibus. Urna fusce aenea tortor pretium Et purus duis
-                                                sollicitudin dignissim habitant</p>
-                                        </div>{/* /.inner */}
-                                    </div>
-                                </div>
-                                <div className={isActive.key == 2 ? "accrodion active" : "accrodion"} onClick={() => handleToggle(2)}>
-                                    <div className="accrodion-title">
-                                        <h4>How long does project typically take?</h4>
-                                    </div>
-                                    <div className="accrodion-content">
-                                        <div className="inner">
-                                            <p>Et purus duis sollicitudin dignissim ha. Egest nulla quis venenatis cras
-                                                sed
-                                                eu massa eu faucibus. Urna fusce aenea tortor pretium Et purus duis
-                                                sollicitudin dignissim habitant</p>
-                                        </div>{/* /.inner */}
-                                    </div>
-                                </div>
-                                <div className={isActive.key == 3 ? "accrodion active" : "accrodion"} onClick={() => handleToggle(3)}>
-                                    <div className="accrodion-title">
-                                        <h4>What different of construction projects?</h4>
-                                    </div>
-                                    <div className="accrodion-content">
-                                        <div className="inner">
-                                            <p>Et purus duis sollicitudin dignissim ha. Egest nulla quis venenatis cras
-                                                sed
-                                                eu massa eu faucibus. Urna fusce aenea tortor pretium Et purus duis
-                                                sollicitudin dignissim habitant</p>
-                                        </div>{/* /.inner */}
-                                    </div>
-                                </div>
-                                <div className={isActive.key == 4 ? "accrodion active" : "accrodion"} onClick={() => handleToggle(4)}>
-                                    <div className="accrodion-title">
-                                        <h4>What is the role of a construction manager?</h4>
-                                    </div>
-                                    <div className="accrodion-content">
-                                        <div className="inner">
-                                            <p>Et purus duis sollicitudin dignissim ha. Egest nulla quis venenatis cras
-                                                sed
-                                                eu massa eu faucibus. Urna fusce aenea tortor pretium Et purus duis
-                                                sollicitudin dignissim habitant</p>
-                                        </div>{/* /.inner */}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    
+                    <div className="mt-8 text-center text-sm text-gray-500" style={{ fontFamily: "var(--font-poppins)" }}>
+                        Last updated: May 2025
                     </div>
                 </div>
-            </div>
-        </section>
-        {/*FAQ One End*/}
-
-        {/*CTA One Start*/}
-        <section className="cta-one">
-            <div className="container">
-                <div className="cta-one__inner">
-                    <div className="cta-one__shape-1">
-                        <img src="assets/images/shapes/cta-one-shape-1.png" alt=""/>
-                    </div>
-                    <div className="cta-one__img">
-                        <img src="assets/images/resources/cta-one-img.png" alt=""/>
-                    </div>
-                    <h3 className="cta-one__title">Craftin digital experiences<br/> With that inspire</h3>
-                    <div className="cta-one__from-box">
-                        <form className="cta-one__form">
-                            <div className="cta-one__input-box">
-                                <input type="email" placeholder="Your E-mail" name="email"/>
-                            </div>
-                            <button type="submit" className="cta-one__btn thm-btn">Subscribe Us</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        {/*CTA One End*/}
-
-            </Layout>
+            </section>
+        </Layout>
         </>
-    )
+    );
 }
-
-

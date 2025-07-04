@@ -305,19 +305,19 @@ export default function Page() {
           <h1>Our Gallery</h1>
           <div className={styles.galleryContainer}>
             <div className={styles.galleryImage}>
-              <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_300/https://www.tetrahedron.in/wp-content/uploads/2023/06/A_Autonomous_mo_1-transformed-300x300.png" alt="Gallery Image 1" />
+              <img src="/images/servicesData/A_Autonomous_mo_1-transformed-300x300.png" alt="Gallery Image 1" />
             </div>
             <div className={styles.galleryImage}>
               <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_300/https://www.tetrahedron.in/wp-content/uploads/2023/06/Create-a-Autono-0-1-1-300x300.webp" alt="Gallery Image 2" />
             </div>
             <div className={styles.galleryImage}>
-              <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_300/https://www.tetrahedron.in/wp-content/uploads/2023/06/0975fea1-43f2-47a6-8895-3bdcf636f94a-300x300.png" alt="Gallery Image 3" />
+              <img src="/images/servicesData/0975fea1-43f2-47a6-8895-3bdcf636f94a-300x300.png" alt="Gallery Image 3" />
             </div>
             <div className={styles.galleryImage}>
-              <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_300/https://www.tetrahedron.in/wp-content/uploads/2023/06/A_Autonomous_mo_1-transformed-300x300.png" alt="Gallery Image 4" />
+              <img src="/images/servicesData/A_Autonomous_mo_1-transformed-300x300.png" alt="Gallery Image 4" />
             </div>
             {/* <div className={styles.galleryImage}>
-              <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_350,h_280/https://www.tetrahedron.in/wp-content/uploads/2024/08/Autonomous-Mobile-Robots-14.png" alt="Gallery Image 5" />
+              <img src="/images/servicesData/Autonomous-Mobile-Robots-14.png" alt="Gallery Image 5" />
             </div> */}
           </div>
         </section>

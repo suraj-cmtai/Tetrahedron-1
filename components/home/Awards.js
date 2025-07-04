@@ -24,22 +24,22 @@ const awardsData = [
 ];
 
 const swiperOptions = {
-  modules: [Autoplay, Pagination, Navigation],
-  slidesPerView: 3,
-  spaceBetween: 0,
-  // autoplay: {
-  //     delay: 2500,
-  //     disableOnInteraction: false,
-  // },
-  loop: true,
-  navigation: {
-    nextEl: '.h1n',
-    prevEl: '.h1p',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
+    modules: [Autoplay, Pagination, Navigation],
+    slidesPerView: 3,
+    spaceBetween: 0,
+    // autoplay: {
+    //     delay: 2500,
+    //     disableOnInteraction: false,
+    // },
+    loop: true,
+    navigation: {
+        nextEl: '.h1n',
+        prevEl: '.h1p',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
 };
 
 // Common styles
@@ -80,54 +80,54 @@ const imageStyles = {
 };
 
 const lightboxStyles = {
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  width: '100vw',
-  height: '100vh',
-  background: 'rgba(0,0,0,0.9)',
-  zIndex: 99999,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  cursor: 'zoom-out',
-  transition: 'background 0.3s ease',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            background: 'rgba(0,0,0,0.9)',
+            zIndex: 99999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'zoom-out',
+            transition: 'background 0.3s ease',
   zoom: "125%"
 };
 
 const lightboxImageStyles = {
-  height: '90vh',
-  width: 'auto',
-  maxWidth: '90vw',
-  objectFit: 'contain',
-  borderRadius: '16px',
-  boxShadow: '0 0 40px 8px rgba(0,0,0,0.8)',
-  background: '#fff',
-  zIndex: 100000,
-  cursor: 'default',
-  display: 'block',
-  margin: 'auto',
+                height: '90vh',
+                width: 'auto',
+                maxWidth: '90vw',
+                objectFit: 'contain',
+                borderRadius: '16px',
+                boxShadow: '0 0 40px 8px rgba(0,0,0,0.8)',
+                background: '#fff',
+                zIndex: 100000,
+                cursor: 'default',
+                display: 'block',
+                margin: 'auto',
 };
 
 const closeButtonStyles = {
-  position: 'absolute',
-  top: '32px',
-  right: '32px',
-  zIndex: 100001,
-  background: 'rgba(0,0,0,0.8)',
-  color: '#fff',
-  border: 'none',
-  borderRadius: '50%',
-  width: '48px',
-  height: '48px',
-  fontSize: '24px',
-  fontWeight: 'bold',
-  cursor: 'pointer',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  boxShadow: '0 2px 12px rgba(0,0,0,0.5)',
-  transition: 'all 0.2s ease',
+                position: 'absolute',
+                top: '32px',
+                right: '32px',
+                zIndex: 100001,
+                background: 'rgba(0,0,0,0.8)',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '50%',
+                width: '48px',
+                height: '48px',
+                fontSize: '24px',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 2px 12px rgba(0,0,0,0.5)',
+                transition: 'all 0.2s ease',
 };
 
 // Award Card Component
@@ -170,11 +170,11 @@ const Lightbox = ({ imageSrc, onClose }) => {
 
   const handleCloseButtonHover = (e, isHover) => {
     if (isHover) {
-      e.target.style.background = 'rgba(0,0,0,0.9)';
-      e.target.style.transform = 'scale(1.05)';
+                e.target.style.background = 'rgba(0,0,0,0.9)';
+                e.target.style.transform = 'scale(1.05)';
     } else {
-      e.target.style.background = 'rgba(0,0,0,0.8)';
-      e.target.style.transform = 'scale(1)';
+                e.target.style.background = 'rgba(0,0,0,0.8)';
+                e.target.style.transform = 'scale(1)';
     }
   };
 
@@ -191,10 +191,10 @@ const Lightbox = ({ imageSrc, onClose }) => {
         style={closeButtonStyles}
         onMouseEnter={(e) => handleCloseButtonHover(e, true)}
         onMouseLeave={(e) => handleCloseButtonHover(e, false)}
-        aria-label="Close"
-      >
-        ×
-      </button>
+            aria-label="Close"
+        >
+            ×
+        </button>
     </div>
   );
 };
@@ -224,106 +224,106 @@ export default function Awards() {
         <Lightbox imageSrc={lightboxImg} onClose={closeLightbox} />
       )}
 
-      {/* Project Two Start */}
+        {/* Project Two Start */}
       <section className="project-two" style={containerStyles}>
         <div className="container" style={containerStyles}>
-          <div className="project-two__top" style={{ 
-            position: 'relative', 
-            width: '100%', 
-            margin: '0 auto', 
-            padding: '20px 0',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center'
-          }}>
+                <div className="project-two__top" style={{ 
+                    position: 'relative', 
+                    width: '100%', 
+                    margin: '0 auto', 
+                    padding: '20px 0',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center'
+                }}>
             <div className="section-title text-left" 
               style={{ 
-                textAlign: 'left',
-                width: '100%',
-                maxWidth: '7xl',
-                padding: '0 20px',
-                marginBottom: '20px'
+                        textAlign: 'left',
+                        width: '100%',
+                        maxWidth: '7xl',
+                        padding: '0 20px',
+                        marginBottom: '20px'
               }}
             >
-              <div className="section-title__tagline-box" style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                width: '100%',
-              }}>
+                        <div className="section-title__tagline-box" style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            width: '100%',
+                        }}>
                 <span className="section-title__tagline" 
                   style={{ 
                     fontSize: '30px',
-                    color: '#ff5e14',
+                                color: '#ff5e14',
                     fontWeight: '700',
-                    display: 'block',
-                    marginBottom: '10px',
+                                display: 'block',
+                                marginBottom: '10px',
                     textAlign: 'left',
-                    alignSelf: 'flex-start',
+                                alignSelf: 'flex-start',
                     marginLeft: '0',
                     width: '100%'
                   }}
                 >
-                  Our Latest Awards
-                </span>
+                                Our Latest Awards
+                            </span>
                 <div className="project-two__nav" 
                   style={{ 
-                    display: 'flex',
-                    gap: '20px',
-                    width: 'auto',
-                    margin: '0',
-                    padding: '0',
-                    pointerEvents: 'none'
+                                display: 'flex',
+                                gap: '20px',
+                                width: 'auto',
+                                margin: '0',
+                                padding: '0',
+                                pointerEvents: 'none'
                   }}
                 >
                   <div className="swiper-button-prev1 h1p" 
                     style={{ 
-                      pointerEvents: 'auto',
-                      cursor: 'pointer',
-                      zIndex: 10
+                                    pointerEvents: 'auto',
+                                    cursor: 'pointer',
+                                    zIndex: 10
                     }}
                   >
                     <i className="icon-arrow-left" style={{ fontSize: '24px' }}></i>
-                  </div>
+                                </div>
                   <div className="swiper-button-next1 h1n" 
                     style={{ 
-                      pointerEvents: 'auto',
-                      cursor: 'pointer',
-                      zIndex: 10
+                                    pointerEvents: 'auto',
+                                    cursor: 'pointer',
+                                    zIndex: 10
                     }}
                   >
                     <i className="icon-arrow-right" style={{ fontSize: '24px' }}></i>
-                  </div>
-                </div>
-              </div>
-              <div style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "100%",
-                maxWidth: '100vw',
-                margin: "0 auto",
-                padding: "0 20px"
-              }}>
+                        </div>
+                    </div>
+                        </div>
+                        <div style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: "100%",
+                            maxWidth: '100vw',
+                            margin: "0 auto",
+                            padding: "0 20px"
+                        }}>
                 <h2 className="section-title__title" 
                   style={{
-                    textAlign: "center",
-                    width: "100%",
-                    maxWidth: "1200px",
+                                textAlign: "center",
+                                width: "100%",
+                                maxWidth: "1200px",
                     fontSize: '40px',
                     fontWeight: '700',
-                    color: '#0a1c4c',
-                    margin: '0'
+                                color: '#0a1c4c',
+                                margin: '0'
                   }}
                 >
-                  Awards & Recognition
-                </h2>
-              </div>
-            </div>
-          </div>
+                                Awards & Recognition
+                            </h2>
+                        </div>
+                    </div>
+                </div>
           
           <div className="project-two__bottom" 
-            style={{
+                                        style={{ 
               marginTop: "10px", 
               zoom: "80%", 
               maxWidth: "7xl", 
@@ -336,14 +336,14 @@ export default function Awards() {
                 {awardsData.map((award) => (
                   <SwiperSlide key={award.id}>
                     <AwardCard award={award} onImageClick={openLightbox} />
-                  </SwiperSlide>
+                            </SwiperSlide>
                 ))}
-              </div>
-            </Swiper>
-          </div>
-        </div>
-      </section>
-      {/* Project Two End */}
-    </>
-  )
+                        </div>
+                    </Swiper>
+                </div>
+            </div>
+        </section>
+        {/* Project Two End */}
+        </>
+    )
 }
