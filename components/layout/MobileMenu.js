@@ -97,9 +97,7 @@ const MobileMenu = ({ handleMobileMenu }) => {
                                         <li><Link href="/visual-management-consultants/" onClick={handleLinkClick}>Visual Management Consulting</Link></li>
                                     </ul>
                                 </li>
-                                {/* Plant Layout Design */}
                                 <li><Link href="/plant-layout-design/" onClick={handleLinkClick}>Plant Layout Design</Link></li>
-                                {/* Dojo Training Center */}
                                 <li className="dropdown">
                                     <Link href="#" onClick={() => handleToggle(2, "sub2")}>Dojo Training Center</Link>
                                     <button
@@ -114,11 +112,9 @@ const MobileMenu = ({ handleMobileMenu }) => {
                                         <li><Link href="/mini-dojo-training-center/" onClick={handleLinkClick}>Mini DOJO Training Center Design and Setup</Link></li>
                                     </ul>
                                 </li>
-                                {/* Safety Management System */}
                                 <li><Link href="/safety-consultants/" onClick={handleLinkClick}>Safety Management System</Link></li>
-                                {/* ISO Implementation */}
                                 <li className="dropdown">
-                                    <Link href="#" onClick={() => handleToggle(2, "sub3")}>ISO Implementation</Link>
+                                    <Link href="/iso-certification-consultants" onClick={() => handleToggle(2, "sub3")}>ISO Implementation</Link>
                                     <button
                                         onClick={() => handleToggle(2, "sub3")}
                                         className={isActive.key == 2 && isActive.subMenuKey == "sub3" ? "expanded open" : ""}
@@ -133,7 +129,6 @@ const MobileMenu = ({ handleMobileMenu }) => {
                                         <li><Link href="/iso-50001-enms/" onClick={handleLinkClick}>ISO 50001 EnMS (Energy Management System)</Link></li>
                                     </ul>
                                 </li>
-                                {/* Energy Cost Reduction Services */}
                                 <li><Link href="/energy-audit-and-efficiency-services/" onClick={handleLinkClick}>Energy Cost Reduction Services</Link></li>
                             </ul>
                         </li>
@@ -145,11 +140,9 @@ const MobileMenu = ({ handleMobileMenu }) => {
                                 <span className="fa fa-angle-right" />
                             </button>
                             <ul style={{ display: isActive.key == 3 ? "block" : "none" }}>
-                                {/* Corporate Training Course */}
                                 <li><Link href="/corporate-training-companies/" onClick={handleLinkClick}>Corporate Training Course In India</Link></li>
-                                {/* Technical Training Courses */}
                                 <li className="dropdown">
-                                    <Link href="#" onClick={() => handleToggle(3, "sub1")}>Technical Training Courses</Link>
+                                    <Link href="/corporate-training-companies/technical-trainings/" onClick={() => handleToggle(3, "sub1")}>Technical Training Courses</Link>
                                     <button
                                         onClick={() => handleToggle(3, "sub1")}
                                         className={isActive.key == 3 && isActive.subMenuKey == "sub1" ? "expanded open" : ""}
@@ -178,8 +171,68 @@ const MobileMenu = ({ handleMobileMenu }) => {
                                         <li><Link href="/ul-508a-training/" onClick={handleLinkClick}>Industrial Control Panel Standard UL 508A Training</Link></li>
                                     </ul>
                                 </li>
-                                {/* Process Improvement Training Courses */}
-                                <li><Link href="/corporate-training-companies/process-improvement-training-courses/" onClick={handleLinkClick}>Process Improvement Training Courses</Link></li>
+                                <li className="dropdown">
+                                    <Link href="/corporate-training-companies/process-improvement-training-courses/" onClick={() => handleToggle(3, "sub2")}>Process Improvement Training Courses</Link>
+                                    <button
+                                        onClick={() => handleToggle(3, "sub2")}
+                                        className={isActive.key == 3 && isActive.subMenuKey == "sub2" ? "expanded open" : ""}
+                                    >
+                                        <span className="fa fa-angle-right" />
+                                    </button>
+                                    <ul style={{ display: isActive.key == 3 && isActive.subMenuKey == "sub2" ? "block" : "none" }}>
+                                        <li><Link href="/corporate-training-companies/process-improvement-training-courses/cost-reduction-strategies/" onClick={handleLinkClick}>Cost Reduction Strategies | Training Courses</Link></li>
+                                        <li><Link href="/corporate-training-companies/process-improvement-training-courses/7-new-qctools/" onClick={handleLinkClick}>Problem Solving with new 7 QC Tools Training in India</Link></li>
+                                        <li><Link href="/corporate-training-companies/process-improvement-training-courses/line-balancing/" onClick={handleLinkClick}>Line Balancing in Manufacturing | Training</Link></li>
+                                        <li><Link href="/corporate-training-companies/process-improvement-training-courses/root-cause-analysis/" onClick={handleLinkClick}>Root Cause Analysis Training | RCA Training</Link></li>
+                                        <li><Link href="/corporate-training-companies/process-improvement-training-courses/simple-low-cost-automation/" onClick={handleLinkClick}>Simple & Low-Cost Automation | Industrial Automation Course</Link></li>
+                                        <li><Link href="/corporate-training-companies/process-improvement-training-courses/5s-training-program/" onClick={handleLinkClick}>5s Safety Training in Workplace | Lean Training</Link></li>
+                                        <li><Link href="/corporate-training-companies/process-improvement-training-courses/value-engineering-value-analysis/" onClick={handleLinkClick}>Value Engineering & Value Analysis Training</Link></li>
+                                        <li><Link href="/corporate-training-companies/process-improvement-training-courses/performance-management-and-improvement-plan/" onClick={handleLinkClick}>Performance Management and Improvement Plan</Link></li>
+                                        <li><Link href="/corporate-training-companies/process-improvement-training-courses/total-quality-management-tqm/" onClick={handleLinkClick}>Total Quality Management (TQM) Training Course in India</Link></li>
+                                        <li><Link href="/?page_id=12632" onClick={handleLinkClick}>Quality Control System</Link></li>
+                                        <li><Link href="/corporate-training-companies/process-improvement-training-courses/cost-reduction-by-lean-manufacturing/" onClick={handleLinkClick}>Cost Reduction by Lean Manufacturing</Link></li>
+                                        <li><Link href="/corporate-training-companies/process-improvement-training-courses/why-why-analysis-fish-born-5-why-training/" onClick={handleLinkClick}>Why Why Analysis | Fish-born | 5 why training</Link></li>
+                                        <li><Link href="/corporate-training-companies/process-improvement-training-courses/kaizen-training-program/" onClick={handleLinkClick}>Kaizen Training Program| Kaizen Certification</Link></li>
+                                    </ul>
+                                </li>
+                                <li className="dropdown">
+                                    <Link href="#" onClick={() => handleToggle(3, "sub3")}>Strategic Management and Training Consultants</Link>
+                                    <button
+                                        onClick={() => handleToggle(3, "sub3")}
+                                        className={isActive.key == 3 && isActive.subMenuKey == "sub3" ? "expanded open" : ""}
+                                    >
+                                        <span className="fa fa-angle-right" />
+                                    </button>
+                                    <ul style={{ display: isActive.key == 3 && isActive.subMenuKey == "sub3" ? "block" : "none" }}>
+                                        <li><Link href="/corporate-training-companies/strategic-training/esg-certification-training/" onClick={handleLinkClick}>Environmental, Social and Governance (ESG) Training</Link></li>
+                                        <li><Link href="/corporate-training-companies/strategic-training/daily-work-management/" onClick={handleLinkClick}>Daily Work Management</Link></li>
+                                        <li><Link href="/corporate-training-companies/strategic-training/design-thinking/" onClick={handleLinkClick}>Design Thinking Course | Online Trainings</Link></li>
+                                        <li><Link href="/corporate-training-companies/strategic-training/finance-for-non-finance-manager/" onClick={handleLinkClick}>Finanace For Non Finance Managers Training</Link></li>
+                                        <li><Link href="/corporate-training-companies/strategic-training/theory-of-inventive-problem-solving/" onClick={handleLinkClick}>Theory Of Inventive Problem Solving (Triz)</Link></li>
+                                        <li><Link href="/corporate-training-companies/strategic-training/balance-score-card/" onClick={handleLinkClick}>Balance Score Card</Link></li>
+                                        <li><Link href="/corporate-training-companies/strategic-training/competency-mapping/" onClick={handleLinkClick}>Competency Mapping</Link></li>
+                                        <li><Link href="/corporate-training-companies/strategic-training/productivity-focus-skill-mapping/" onClick={handleLinkClick}>Productivity Focus Skill Mapping</Link></li>
+                                        <li><Link href="/corporate-training-companies/strategic-training/world-class-manufacturing/" onClick={handleLinkClick}>World Class Manufacturing</Link></li>
+                                        <li><Link href="/dwm-and-time-management-techniques/" onClick={handleLinkClick}>DWM and Time Management Techniques</Link></li>
+                                    </ul>
+                                </li>
+                                <li className="dropdown">
+                                    <Link href="/corporate-training-companies/behavioural-training/" onClick={() => handleToggle(3, "sub4")}>Behavioural Training</Link>
+                                    <button
+                                        onClick={() => handleToggle(3, "sub4")}
+                                        className={isActive.key == 3 && isActive.subMenuKey == "sub4" ? "expanded open" : ""}
+                                    >
+                                        <span className="fa fa-angle-right" />
+                                    </button>
+                                    <ul style={{ display: isActive.key == 3 && isActive.subMenuKey == "sub4" ? "block" : "none" }}>
+                                        <li><Link href="/?page_id=12379" onClick={handleLinkClick}>Presentation Skills Training Courses</Link></li>
+                                        <li><Link href="/corporate-training-companies/behavioural-training/art-of-delegation-training/" onClick={handleLinkClick}>The Art of Delegation Training</Link></li>
+                                        <li><Link href="/corporate-training-companies/behavioural-training/planning-and-prioritization-skill/" onClick={handleLinkClick}>Planning & Prioritization Skills Training</Link></li>
+                                        <li><Link href="/corporate-training-companies/behavioural-training/team-time-and-task-management/" onClick={handleLinkClick}>Team, Time and Task Management Training & Seminars</Link></li>
+                                        <li><Link href="/?page_id=13155" onClick={handleLinkClick}>Non Verbal Communication Online Training</Link></li>
+                                        <li><Link href="/corporate-training-companies/behavioural-training/team-development-motivation/" onClick={handleLinkClick}>Team Development & Motivation Training Programmes</Link></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
 
@@ -195,8 +248,9 @@ const MobileMenu = ({ handleMobileMenu }) => {
                         </li>
 
                         <li><Link href="/career" onClick={handleLinkClick}>Career</Link></li>
-                        <li><Link href="blogs" onClick={handleLinkClick}>Blogs</Link></li>
-                        <li><Link href="contact" onClick={handleLinkClick}>Contact Us</Link></li>
+                        <li><Link href="/case-studies" onClick={handleLinkClick}>Case Studies</Link></li>
+                        <li><Link href="/blog" onClick={handleLinkClick}>Blogs</Link></li>
+                        <li><Link href="/contact-us" onClick={handleLinkClick}>Contact Us</Link></li>
                     </ul>
                 </div>
 

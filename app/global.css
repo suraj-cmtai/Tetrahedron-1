@@ -7,7 +7,7 @@
   /* Apply global font family to all text nodes */
   html, body,
   h1, h2, h3, h4, h5, h6,
-  p, span, a, li, ul, ol, label, input, textarea, button, th, td, div, blockquote, pre, code, strong, em, b, i, small, sup, sub, legend, caption, figcaption, dt, dd {
+  p, span, a, li, ul, ol, label, input, textarea, button, th, td, div, blockquote, pre, code, strong, em, b, small, sup, sub, legend, caption, figcaption, dt, dd {
     font-family: var(--font-poppins), Poppins, sans-serif !important;
   }
   /* About section specific font sizes */
