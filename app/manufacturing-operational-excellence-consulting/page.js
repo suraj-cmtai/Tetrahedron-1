@@ -55,7 +55,7 @@ export default function ConsultingPage() {
           <p>
             Operational Excellence Consulting provides a holistic approach to
             help your organization achieve its desired goals. Tetrahedron
-            deploys various tools and techniques that align the organization’s
+            deploys various tools and techniques that align the organization's
             culture, enable employees, and sustain all implemented initiatives.
             The Manufacturing Operational Excellence programs are also used in
             different formats in part or whole with names like Operational
@@ -78,7 +78,7 @@ export default function ConsultingPage() {
         <section className={styles.aboutImageSection}>
           <div className={styles.aboutImageContainer}>
             <img
-              src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_768/https://www.tetrahedron.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-14-at-5.52.21-PM-768x492.jpeg"
+              src="/images/WhatsApp-Image-2024-03-14-at-5.52.21-PM-768x492.jpeg"
               alt="Operational Excellence"
               style={{maxWidth:'400px'}}
             />
@@ -111,7 +111,7 @@ export default function ConsultingPage() {
               <div key={index} className={styles.objectiveCardWrapper}>
                 <div className={styles.objectiveCard}>
                   <img
-                    src="https://www.tetrahedron.in/wp-content/uploads/2023/01/11.jpg"
+                    src="/images/11.jpg"
                     alt="Objective Image"
                     // style={{maxWidth:'500px'}}
                   />
@@ -140,7 +140,7 @@ export default function ConsultingPage() {
             {[...Array(5)].map((_, index) => (
               <div key={index} className={styles.challengesImageWrapper}>
                 <img
-                  src="https://www.tetrahedron.in/wp-content/uploads/2021/09/Untitled-design-86.jpg"
+                  src="/images/Untitled-design-86.jpg"
                   alt={`Challenge ${index + 1}`}
                   className={styles.challengesImage}
                 />
@@ -150,7 +150,7 @@ export default function ConsultingPage() {
           </div>
 
           <p>
-            Though these challenges are external factors that can’t be
+            Though these challenges are external factors that can't be
             controlled by any company, the one and only way to remain
             sustainable is by a structured manufacturing operations strategy
             consulting approach.
@@ -192,10 +192,10 @@ export default function ConsultingPage() {
                 </tr>
                 <tr>
                   <td>Aligned with organization vision and mission</td>
-                  <td>Aligned with processes’ cost, safety, and quality</td>
+                  <td>Aligned with processes' cost, safety, and quality</td>
                 </tr>
                 <tr>
-                  <td>Unique and can’t be copied for another organization</td>
+                  <td>Unique and can't be copied for another organization</td>
                   <td>Can be replicated/copied to another</td>
                 </tr>
                 <tr>
@@ -243,7 +243,15 @@ export default function ConsultingPage() {
 
             {/* Right side - Video */}
             <div className={styles.feedbackVideoContainer}>
-              <video controls src="video.mp4"></video>
+              <iframe
+                width="100%"
+                height="200"
+                src="https://www.youtube.com/embed/YFZbsp8rxJE"
+                title="Client's Heartfelt Feedback"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
         </section>
@@ -256,7 +264,7 @@ export default function ConsultingPage() {
             {/* Case Study 1 */}
             <div className={styles.caseStudy}>
               <h2>Material Handling and Process Automation</h2>
-              <h4>(India’s Largest Precious Metal Exporters)</h4>
+              <h4>(India's Largest Precious Metal Exporters)</h4>
 
               <h3>Challenges:</h3>
               <ul>
@@ -288,7 +296,7 @@ export default function ConsultingPage() {
             {/* Case Study 2 */}
             <div className={styles.caseStudy}>
               <h2>Manufacturing Excellence in Flock Manufacturing</h2>
-              <h4>(India’s Leading Velvet Cloth Manufacturing)</h4>
+              <h4>(India's Leading Velvet Cloth Manufacturing)</h4>
 
               <h3>Challenges:</h3>
               <ul>

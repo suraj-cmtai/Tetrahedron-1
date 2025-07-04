@@ -31,7 +31,7 @@ export default function Page() {
         <section className={styles.agvSection}>
           <h1 className={styles.agvTitle}>Automated Guided Vehicle</h1>
           <p className={styles.agvDescription}>
-            Automated Guided Vehicles are driverless vehicles that fundamentally perform transportation functions. As experts in Automated Guided Vehicles, we’re here to help you implement these cutting-edge systems to enhance your operations.
+            Automated Guided Vehicles are driverless vehicles that fundamentally perform transportation functions. As experts in Automated Guided Vehicles, we're here to help you implement these cutting-edge systems to enhance your operations.
             <br />
             Automated Guided Vehicles (AGVs) are material handling vehicles used to autonomously transport carriers throughout a warehouse, distribution center, or manufacturing facility without human operators. Automated Guided Vehicle manufacturers specialize in producing these advanced systems. We are leading AGV suppliers in India, providing advanced automated guided vehicles to enhance your material handling processes.
             <br />
@@ -83,7 +83,7 @@ export default function Page() {
             {/* Left Side - Image */}
             <div className={styles.amrImageContainer}>
               <img
-                src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_537/https://www.tetrahedron.in/wp-content/uploads/2024/08/Autonomous-Mobile-Robots-10.png"
+                src="/images/Autonomous-Mobile-Robots-10.png"
                 alt="Autonomous Mobile Robot"
               />
             </div>
@@ -167,7 +167,7 @@ export default function Page() {
                 Tetrahedron Manufacturing Services Pvt Ltd is dedicated to providing simple and cost-effective automation solutions to address complex business problems. As one of the leading AMR providers and AGV Manufacturers in India, we have successfully tackled material handling challenges in various industries.
               </p>
               <p>
-                Through our experience working with diverse sectors, we have observed the significant variable costs and inconsistencies associated with manual labor in transporting heavy loads within manufacturing facilities. Whether it’s moving raw materials, work in progress, or finished goods across the shop floor, the industry heavily relies on manual labor for these tasks.
+                Through our experience working with diverse sectors, we have observed the significant variable costs and inconsistencies associated with manual labor in transporting heavy loads within manufacturing facilities. Whether it's moving raw materials, work in progress, or finished goods across the shop floor, the industry heavily relies on manual labor for these tasks.
               </p>
               <p>
                 To overcome these challenges, we have developed Autonomous Mobile Robots (AMRs) that are equipped with intelligent sensors. These sensors enable our robots to detect obstacles along their path and navigate through them safely, ensuring a successful and efficient delivery to their destination. Our collaboration with AGV manufacturers in India has been instrumental in enhancing the capabilities of these robots.
@@ -175,7 +175,7 @@ export default function Page() {
             </div>
             {/* Right Side - Image */}
             <div className={styles.solutionImageContainer}>
-              <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_200/https://www.tetrahedron.in/wp-content/uploads/2024/08/MOUNTED-CONVEYOR-1.png" alt="Autonomous Mobile Robot" />
+              <img src="/images/MOUNTED-CONVEYOR-1.png" alt="Autonomous Mobile Robot" />
             </div>
           </div>
 
@@ -308,7 +308,7 @@ export default function Page() {
               <img src="/images/servicesData/A_Autonomous_mo_1-transformed-300x300.png" alt="Gallery Image 1" />
             </div>
             <div className={styles.galleryImage}>
-              <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_300/https://www.tetrahedron.in/wp-content/uploads/2023/06/Create-a-Autono-0-1-1-300x300.webp" alt="Gallery Image 2" />
+              <img src="/images/Create-a-Autono-0-1-1-300x300.webp" alt="Gallery Image 2" />
             </div>
             <div className={styles.galleryImage}>
               <img src="/images/servicesData/0975fea1-43f2-47a6-8895-3bdcf636f94a-300x300.png" alt="Gallery Image 3" />
