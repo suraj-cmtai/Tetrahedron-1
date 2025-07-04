@@ -143,24 +143,93 @@ export default function Home() {
                 {/*Testimonial Page End*/}
 
                 {/*CTA One Start*/}
-                <section className="cta-one">
-                    <div className="container">
-                        <div className="cta-one__inner">
-                            <div className="cta-one__shape-1">
-                                <img src="assets/images/shapes/cta-one-shape-1.png" alt=""/>
-                            </div>
-                            <div className="cta-one__img">
-                                <img src="assets/images/resources/cta-one-img.png" alt=""/>
-                            </div>
-                            <h3 className="cta-one__title">Craftin digital experiences<br/> With that inspire</h3>
+                <section
+                    className="cta-one"
+                    style={{ height: "auto", padding: "60px 0", boxSizing: "border-box", width: "100%" }}
+                >
+                    <div
+                        className="container"
+                        style={{
+                            margin: "0 auto",
+                            gap: "32px",
+                            width: "100%",
+                            maxWidth: "1200px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            flexDirection: "row",
+                        }}
+                    >
+                        {/* Left Side: Text and Form */}
+                        <div
+                            style={{
+                                flex: 1,
+                                boxSizing: "border-box",
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "flex-start",
+                                height: "100%",
+                                minHeight: "400px",
+                                padding: "0 0 0 24px",
+                            }}
+                        >
+                            <h3
+                                className=""
+                                style={{
+                                    marginBottom: "20px",
+                                    fontSize: "36px",
+                                    fontWeight: 700,
+                                    width: "200%",
+                                    color: "white"
+                                }}
+                            >
+                                Crafting Digital Experiences That Inspire
+                            </h3>
                             <div className="cta-one__from-box">
                                 <form className="cta-one__form">
                                     <div className="cta-one__input-box">
-                                        <input type="email" placeholder="Your E-mail" name="email"/>
+                                        <input type="email" placeholder="Your E-mail" name="email" />
                                     </div>
-                                    <button type="submit" className="cta-one__btn thm-btn">Subscribe Us</button>
+                                    <button
+                                        type="submit"
+                                        className="cta-one__btn thm-btn"
+                                        style={{ width: "60%" }}
+                                    >
+                                        Subscribe Us
+                                    </button>
                                 </form>
                             </div>
+                        </div>
+                        {/* Right Side: Images */}
+                        <div
+                            style={{
+                                flex: 1,
+                                boxSizing: "border-box",
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-end",
+                                justifyContent: "center",
+                                height: "80%",
+                                gap: "16px",
+                                paddingRight: "24px",
+                            }}
+                        >
+                            <img
+                                src="assets/images/resources/cta-one-img.png"
+                                alt="Inspiring Digital Experience"
+                                style={{
+                                    marginBottom: "8px",
+                                    zIndex: 2,
+                                    maxWidth: "350px",
+                                    width: "90%",
+                                    minHeight: "150px",
+                                    maxHeight: "40%",
+                                    borderRadius: "10px",
+                                    objectFit: "cover",
+                                    background: "none",
+                                }}
+                            />
                         </div>
                     </div>
                 </section>

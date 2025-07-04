@@ -1,4 +1,3 @@
-'use client';
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 export default function Home() {
@@ -151,86 +150,97 @@ export default function Home() {
         {/*Gallery Page End*/}
 
         {/*CTA One Start*/}
-        <section className="cta-one"
-            style={{ height: "auto", padding: "60px 0", boxSizing: 'border-box' }}
-            ref={node => { if (node) node.style.setProperty("width", "100%", "important"); }}
+        <section
+          className="cta-one"
+          style={{ height: "auto", padding: "60px 0", boxSizing: "border-box", width: "100%" }}
+        >
+          <div
+            className="container"
+            style={{
+              margin: "0 auto",
+              gap: "32px",
+              width: "100%",
+              maxWidth: "1200px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              flexDirection: "row",
+            }}
           >
-            <div className="container"
-                style={{margin: '0 auto', gap: '32px'}}
-                ref={node => { if (node) {
-                    node.style.setProperty('width', '100%', 'important');
-                    node.style.setProperty('max-width', '1200px', 'important');
-                    node.style.setProperty('display', 'flex', 'important');
-                    node.style.setProperty('align-items', 'center', 'important');
-                    node.style.setProperty('justify-content', 'space-between', 'important');
-                    node.style.setProperty('flex-direction', 'row', 'important');
-                }}}
+            {/* Left Side: Text and Form */}
+            <div
+              style={{
+                flex: 1,
+                boxSizing: "border-box",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "flex-start",
+                height: "100%",
+                minHeight: "400px",
+                padding: "0 0 0 24px",
+              }}
             >
-              {/* Left Side: Text and Form */}
-              <div
-                style={{ flex: 1, boxSizing: 'border-box' }}
-                ref={node => { if (node) {
-                    node.style.setProperty('display', 'flex', 'important');
-                    node.style.setProperty('flex-direction', 'column', 'important');
-                    node.style.setProperty('justify-content', 'center', 'important');
-                    node.style.setProperty('align-items', 'flex-start', 'important');
-                    node.style.setProperty('height', '100%', 'important');
-                    node.style.setProperty('min-height', '400px', 'important');
-                    node.style.setProperty('padding', '0 0 0 24px', 'important');
-                }}}
-              >
-              <h3 className="cta-one__title"
-                style={{ marginBottom: "20px" }}
-                ref={node => {
-                  if (node) {
-                    node.style.setProperty("font-size", "36px", "important");
-                    node.style.setProperty("font-weight", "700", "important");
-                    node.style.setProperty("width", "200%", "important");
-                  }
+              <h3
+                className=""
+                style={{
+                  marginBottom: "20px",
+                  fontSize: "36px",
+                  fontWeight: 700,
+                  width: "200%",
+                  color: "white"
                 }}
               >
-                  Crafting Digital Experiences That Inspire
-                </h3>
-                <div className="cta-one__from-box">
-                  <form className="cta-one__form">
-                    <div className="cta-one__input-box">
-                      <input type="email" placeholder="Your E-mail" name="email" />
-                    </div>
-                    <button type="submit" className="cta-one__btn thm-btn" style={{width:"60%"}}>Subscribe Us</button>
-                  </form>
-                </div>
-              </div>
-              {/* Right Side: Image */}
-              <div
-                style={{ flex: 1, boxSizing: 'border-box' }}
-                ref={node => { if (node) {
-                    node.style.setProperty('display', 'flex', 'important');
-                    node.style.setProperty('flex-direction', 'column', 'important');
-                    node.style.setProperty('align-items', 'flex-end', 'important');
-                    node.style.setProperty('justify-content', 'center', 'important');
-                    node.style.setProperty('height', '80%', 'important');
-                    node.style.setProperty('gap', '16px', 'important');
-                    node.style.setProperty('padding-right', '24px', 'important');
-                }}}
-              >
-                <img src="/images/Capture2-1_bb72b4a606c59c6564021df7232071e1.png" alt="Gallery" 
-                  style={{ zIndex: 2, maxWidth: "350px", width: "90%", minHeight: "150px", maxHeight: "40%", borderRadius: "10px", objectFit: "cover", background: "none" }}
-                  ref={node => {
-                    if (node) {
-                      node.style.setProperty("max-width", "350px", "important");
-                      node.style.setProperty("width", "90%", "important");
-                      node.style.setProperty("min-height", "150px", "important");
-                      node.style.setProperty("max-height", "40%", "important");
-                      node.style.setProperty("border-radius", "10px", "important");
-                      node.style.setProperty("object-fit", "cover", "important");
-                      node.style.setProperty("background", "none", "important");
-                    }
-                  }}
-                />
+                Crafting Digital Experiences That Inspire
+              </h3>
+              <div className="cta-one__from-box">
+                <form className="cta-one__form">
+                  <div className="cta-one__input-box">
+                    <input type="email" placeholder="Your E-mail" name="email" />
+                  </div>
+                  <button
+                    type="submit"
+                    className="cta-one__btn thm-btn"
+                    style={{ width: "60%" }}
+                  >
+                    Subscribe Us
+                  </button>
+                </form>
               </div>
             </div>
-          </section>
-          {/*CTA One End*/}
+            {/* Right Side: Image */}
+            <div
+              style={{
+                flex: 1,
+                boxSizing: "border-box",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-end",
+                justifyContent: "center",
+                height: "80%",
+                gap: "16px",
+                paddingRight: "24px",
+              }}
+            >
+              <img
+                src="/images/Capture2-1_bb72b4a606c59c6564021df7232071e1.png"
+                alt="Gallery"
+                style={{
+                  marginBottom: "8px",
+                  zIndex: 2,
+                  maxWidth: "350px",
+                  width: "90%",
+                  minHeight: "150px",
+                  maxHeight: "40%",
+                  borderRadius: "10px",
+                  objectFit: "cover",
+                  background: "none",
+                }}
+              />
+            </div>
+          </div>
+        </section>
+        {/*CTA One End*/}
         
         </Layout>
     </>
