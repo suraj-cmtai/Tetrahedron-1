@@ -1,4 +1,7 @@
+"use client";
 import Link from "next/link";
+import { useState } from "react";
+import ContactFormModal from "@/components/ContactFormModal";
 
 const poppinsFont = {
   fontFamily: "Poppins, sans-serif !important"
@@ -21,6 +24,19 @@ const smallText = {
 };
 
 export default function Footer() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalButtonText, setModalButtonText] = useState("");
+
+  const openModal = (buttonText) => {
+    setModalButtonText(buttonText);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalButtonText("");
+  };
+
   return (
     <>
       {/*Site Footer Two Start*/}
@@ -76,9 +92,10 @@ export default function Footer() {
                           ref={el => el && el.style.setProperty("font-size", "17px", "important")}
                         />
                         <button
-                          type="submit"
+                          type="button"
                           className="footer-widget-two__about-btn"
                           ref={el => el && el.style.setProperty("font-size", "17px", "important")}
+                          onClick={() => openModal("Quick Support")}
                         >
                           <span className="icon-arrow-right"></span>
                         </button>
@@ -262,6 +279,11 @@ export default function Footer() {
         </div>
       </footer>
       {/*Site Footer End*/}
+      <ContactFormModal
+        open={isModalOpen}
+        onClose={closeModal}
+        buttonText={modalButtonText}
+      />
     </>
   );
 }
