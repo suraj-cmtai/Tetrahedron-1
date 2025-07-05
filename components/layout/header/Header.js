@@ -6,10 +6,24 @@ import MobileMenu from "../MobileMenu";
 // Assuming it might be in app/components/Modal.js or similar:
 // import Modal from "@/components/Modal"; // Example correction
 import Modal from "../../../app/leadModal"; // Keep if this path is correct relative to Header.js
+import ContactFormModal from "@/components/ContactFormModal";
 import { useState } from "react";
 
 export default function Header({ scroll, handlePopup, handleMobileMenu }) {
     const [isModalOpen, setModalOpen] = useState(false);
+    const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+    const [modalButtonText, setModalButtonText] = useState("");
+
+    const openContactModal = (buttonText) => {
+        setModalButtonText(buttonText);
+        setIsContactModalOpen(true);
+    };
+
+    const closeContactModal = () => {
+        setIsContactModalOpen(false);
+        setModalButtonText("");
+    };
+
     return (
         <>
             <header className={`main-header-two ${scroll ? "fixed-header" : ""}`} style={{ zoom: '80%' }}>
@@ -114,7 +128,7 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                                     </div>
                                     <div className="main-menu-two__btn-box">
                                         <button
-                                            onClick={() => setModalOpen(true)}
+                                            onClick={() => openContactModal("Quick Support")}
                                             className="main-menu-two__btn thm-btn"
                                             style={{ backgroundColor: "#ffc001" }}
                                             ref={node => { if (node) node.style.setProperty("font-size", "17px", "important"); }}
@@ -134,6 +148,11 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                     <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
                 </div>
             )}
+            <ContactFormModal
+                open={isContactModalOpen}
+                onClose={closeContactModal}
+                buttonText={modalButtonText}
+            />
         </>
     );
 }

@@ -1,9 +1,22 @@
 "use client";
 import { useState } from "react";
 import Layout from "@/components/layout/Layout";
+import ContactFormModal from "@/components/ContactFormModal";
 
 export default function CareerPage() {
     const [selectedOption, setSelectedOption] = useState("job");
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalButtonText, setModalButtonText] = useState("");
+
+    const openModal = (buttonText) => {
+        setModalButtonText(buttonText);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setModalButtonText("");
+    };
 
     const images = [
         { img: "1.jpeg" }, { img: "2.jpg" }, { img: "3.jpeg" },
@@ -176,6 +189,7 @@ export default function CareerPage() {
                         margin: '0 auto',
                         display: 'block',
                       }}
+                      onClick={() => openModal(item.title)}
                     >
                       View Details
                     </button>
@@ -403,6 +417,12 @@ export default function CareerPage() {
             </div>
           </div>
         </div>
+
+        <ContactFormModal
+          open={isModalOpen}
+          onClose={closeModal}
+          buttonText={modalButtonText}
+        />
       </Layout>
     );
 }

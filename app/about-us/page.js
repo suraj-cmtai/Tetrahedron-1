@@ -4,6 +4,7 @@ import CounterUp from "@/components/elements/CounterUp"
 import Link from "next/link"
 import { useState } from 'react'
 import ContactForm from "@/components/ContactForm"
+import ContactFormModal from "@/components/ContactFormModal"
 
 
 export default function About() {
@@ -11,6 +12,8 @@ export default function About() {
         status: false,
         key: 1,
     })
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [modalButtonText, setModalButtonText] = useState("")
 
     const handleToggle = (key) => {
         if (isActive.key === key) {
@@ -23,6 +26,16 @@ export default function About() {
                 key,
             })
         }
+    }
+
+    const openModal = (buttonText) => {
+        setModalButtonText(buttonText)
+        setIsModalOpen(true)
+    }
+
+    const closeModal = () => {
+        setIsModalOpen(false)
+        setModalButtonText("")
     }
 
 
@@ -619,7 +632,7 @@ export default function About() {
                     <div className="cta-one__input-box">
                       <input type="email" placeholder="Your E-mail" name="email" />
                     </div>
-                    <button type="submit" className="cta-one__btn thm-btn" style={{width:"60%"}}>Subscribe Us</button>
+                    <button type="button" className="cta-one__btn thm-btn" style={{width:"60%"}} onClick={() => openModal("Subscribe Us")}>Subscribe Us</button>
                   </form>
                 </div>
               </div>
@@ -669,6 +682,11 @@ export default function About() {
           </section>
           {/*CTA One End*/}
         </Layout>
+        <ContactFormModal
+          open={isModalOpen}
+          onClose={closeModal}
+          buttonText={modalButtonText}
+        />
       </>
     );
 }

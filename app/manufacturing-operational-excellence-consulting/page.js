@@ -3,15 +3,28 @@
 import Layout from "@/components/layout/Layout";
 import styles from "./Consulting.module.css";
 import { useState } from "react";
+import ContactFormModal from "@/components/ContactFormModal";
 
 export default function ConsultingPage() {
   const [openFAQs, setOpenFAQs] = useState({}); // Object to track multiple open states
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalButtonText, setModalButtonText] = useState("");
 
   const toggleFAQ = (index) => {
     setOpenFAQs((prev) => ({
       ...prev,
       [index]: !prev[index], // Toggle only the selected FAQ
     }));
+  };
+
+  const openModal = (buttonText) => {
+    setModalButtonText(buttonText);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalButtonText("");
   };
 
   return (
@@ -321,7 +334,7 @@ export default function ConsultingPage() {
             </div>
           </div>
 
-          <button className={styles.readMoreButton}>Read More Case Studies</button>
+          <button className={styles.readMoreButton} onClick={() => openModal("Read More Case Studies")}>Read More Case Studies</button>
         </section>
 
         {/* Serving Section */}
@@ -361,9 +374,9 @@ export default function ConsultingPage() {
                 To adhere to operational excellence in your Manufacturing
                 Business
               </h3>
-              <button className={styles.talkExpertButton}>
-                Talk to our expert
-              </button>
+                              <button className={styles.talkExpertButton} onClick={() => openModal("Talk to our expert")}>
+                  Talk to our expert
+                </button>
             </div>
           </div>
         </section>
@@ -442,6 +455,12 @@ export default function ConsultingPage() {
           </div>
         </section>
       </div>
+
+      <ContactFormModal
+        open={isModalOpen}
+        onClose={closeModal}
+        buttonText={modalButtonText}
+      />
     </Layout>
   );
 }

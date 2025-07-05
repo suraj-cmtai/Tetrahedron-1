@@ -3,15 +3,28 @@
 import Layout from "@/components/layout/Layout";
 import styles from "./style.module.css";
 import { useState } from "react";
+import ContactFormModal from "@/components/ContactFormModal";
 
 export default function Page() {
   const [openFAQs, setOpenFAQs] = useState({}); // Object to track multiple open states
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalButtonText, setModalButtonText] = useState("");
 
   const toggleFAQ = (index) => {
     setOpenFAQs((prev) => ({
       ...prev,
       [index]: !prev[index], // Toggle only the selected FAQ
     }));
+  };
+
+  const openModal = (buttonText) => {
+    setModalButtonText(buttonText);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalButtonText("");
   };
 
   return (
@@ -101,7 +114,7 @@ export default function Page() {
 
           {/* Centered Button */}
           <div className={styles.amrButtonContainer}>
-            <button className={styles.amrButton}>Schedule Demo</button>
+            <button className={styles.amrButton} onClick={() => openModal("Schedule Demo")}>Schedule Demo</button>
           </div>
         </section>
 
@@ -203,7 +216,7 @@ export default function Page() {
               </p>
               {/* Button */}
               <div className={styles.benefitsButtonContainer}>
-                <button className={styles.benefitsButton}>Download Brochure</button>
+                <button className={styles.benefitsButton} onClick={() => openModal("Download Brochure")}>Download Brochure</button>
               </div>
             </div>
 
@@ -380,6 +393,12 @@ export default function Page() {
         </section>
 
       </div>
+
+      <ContactFormModal
+        open={isModalOpen}
+        onClose={closeModal}
+        buttonText={modalButtonText}
+      />
 
     </Layout >
   );

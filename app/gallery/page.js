@@ -1,6 +1,22 @@
+"use client";
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
+import { useState } from "react";
+import ContactFormModal from "@/components/ContactFormModal";
+
 export default function Home() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalButtonText, setModalButtonText] = useState("");
+
+    const openModal = (buttonText) => {
+        setModalButtonText(buttonText);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setModalButtonText("");
+    };
 
     return (
         <>
@@ -198,13 +214,14 @@ export default function Home() {
                   <div className="cta-one__input-box">
                     <input type="email" placeholder="Your E-mail" name="email" />
                   </div>
-                  <button
-                    type="submit"
-                    className="cta-one__btn thm-btn"
-                    style={{ width: "60%" }}
-                  >
-                    Subscribe Us
-                  </button>
+                                      <button
+                      type="button"
+                      className="cta-one__btn thm-btn"
+                      style={{ width: "60%" }}
+                      onClick={() => openModal("Subscribe Us")}
+                    >
+                      Subscribe Us
+                    </button>
                 </form>
               </div>
             </div>
@@ -243,6 +260,11 @@ export default function Home() {
         {/*CTA One End*/}
         
         </Layout>
+        <ContactFormModal
+          open={isModalOpen}
+          onClose={closeModal}
+          buttonText={modalButtonText}
+        />
     </>
     )
 }

@@ -23,8 +23,9 @@ export default function ContactFormModal({ open, onClose, buttonText }) {
         boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
         padding: "0",
         minWidth: 320,
-        maxWidth: "95vw",
+        maxWidth: "60vw",
         maxHeight: "95vh",
+
         overflowY: "auto",
       }}>
         <span
