@@ -17,7 +17,7 @@ export default function Home() {
         setIsModalOpen(false);
         setModalButtonText("");
     };
-
+    
     return (
         <>
         <Layout headerStyle={6} footerStyle={6} breadcrumbTitle="Project">      

@@ -209,11 +209,11 @@ export default function Home() {
               >
                 Crafting Digital Experiences That Inspire
               </h3>
-              <div className="cta-one__from-box">
-                <form className="cta-one__form">
-                  <div className="cta-one__input-box">
+                    <div className="cta-one__from-box">
+                        <form className="cta-one__form">
+                            <div className="cta-one__input-box">
                     <input type="email" placeholder="Your E-mail" name="email" />
-                  </div>
+                            </div>
                                       <button
                       type="button"
                       className="cta-one__btn thm-btn"
@@ -222,9 +222,9 @@ export default function Home() {
                     >
                       Subscribe Us
                     </button>
-                </form>
-              </div>
-            </div>
+                        </form>
+                    </div>
+                </div>
             {/* Right Side: Image */}
             <div
               style={{
@@ -255,7 +255,7 @@ export default function Home() {
                 }}
               />
             </div>
-          </div>
+            </div>
         </section>
         {/*CTA One End*/}
         

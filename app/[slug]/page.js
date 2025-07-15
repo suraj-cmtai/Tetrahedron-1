@@ -3,8 +3,10 @@
 "use client";
 
 import { consultingPages } from "@/lib/servicesData"; // Assuming servicesData.js is in lib
+import { blogPages, recentBlogs } from "@/lib/blogData";
 import { notFound } from "next/navigation";
 import Layout from "@/components/layout/Layout";
+import BlogDetails from "@/components/BlogDetails";
 import { useState } from "react";
 import * as Icons from "lucide-react";
 import ContactFormModal from "@/components/ContactFormModal";
@@ -338,7 +340,17 @@ const styles = {
   },
 };
 
-export default function ServicePage({ params }) {
+export default function ServiceOrBlogPage({ params }) {
+  // If the slug matches a blog, render BlogDetails
+  if (blogPages[params.slug]) {
+    return (
+      <Layout>
+        <BlogDetails blog={blogPages[params.slug]} recentBlogs={recentBlogs} />
+      </Layout>
+    );
+  }
+
+  // Otherwise, render the existing ServicePage logic
   const data = consultingPages[params.slug];
   if (!data) return notFound();
   console.log(data.img,"this is new data");

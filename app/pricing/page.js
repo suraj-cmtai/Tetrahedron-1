@@ -205,14 +205,14 @@ export default function Home() {
                                     <div className="cta-one__input-box">
                                         <input type="email" placeholder="Your E-mail" name="email" />
                                     </div>
-                                                                <button
+                                    <button
                                 type="button"
-                                className="cta-one__btn thm-btn"
-                                style={{ width: "60%" }}
+                                        className="cta-one__btn thm-btn"
+                                        style={{ width: "60%" }}
                                 onClick={() => openModal("Subscribe Us")}
-                            >
-                                Subscribe Us
-                            </button>
+                                    >
+                                        Subscribe Us
+                                    </button>
                                 </form>
                             </div>
                         </div>

@@ -375,8 +375,8 @@ export default function ConsultingPage() {
                 Business
               </h3>
                               <button className={styles.talkExpertButton} onClick={() => openModal("Talk to our expert")}>
-                  Talk to our expert
-                </button>
+                Talk to our expert
+              </button>
             </div>
           </div>
         </section>
