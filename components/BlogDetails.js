@@ -16,7 +16,21 @@ export default function BlogDetails({ blog, recentBlogs }) {
     return (
       <Tag
         ref={node => {
-          if (node) node.style.setProperty("font-family", "var(--font-poppins)", "important");
+          if (node) {
+            node.style.setProperty("font-family", "var(--font-poppins)", "important");
+            // Responsive font size for headings
+            const resizeHeading = () => {
+              if (window.innerWidth < 600) {
+                node.style.fontSize = "22px";
+                node.style.margin = "18px 0 8px 0";
+              } else {
+                node.style.fontSize = "28px";
+                node.style.margin = "24px 0 12px 0";
+              }
+            };
+            resizeHeading();
+            window.addEventListener('resize', resizeHeading);
+          }
         }}
         style={{ fontWeight: 700, margin: "24px 0 12px 0" }}
       >
@@ -26,10 +40,25 @@ export default function BlogDetails({ blog, recentBlogs }) {
   };
 
   // Helper to render paragraphs with ref
-  const renderParagraph = (text) => (
+  const renderParagraph = (text, key) => (
     <p
+      key={key}
       ref={node => {
-        if (node) node.style.setProperty("font-family", "var(--font-poppins)", "important");
+        if (node) {
+          node.style.setProperty("font-family", "var(--font-poppins)", "important");
+          // Responsive font size for paragraphs
+          const resizePara = () => {
+            if (window.innerWidth < 600) {
+              node.style.fontSize = "15px";
+              node.style.marginBottom = "12px";
+            } else {
+              node.style.fontSize = "18px";
+              node.style.marginBottom = "16px";
+            }
+          };
+          resizePara();
+          window.addEventListener('resize', resizePara);
+        }
       }}
       style={{ fontSize: "18px", marginBottom: "16px" }}
     >
@@ -44,6 +73,32 @@ export default function BlogDetails({ blog, recentBlogs }) {
     <img
       src={src}
       alt={alt}
+      ref={node => {
+        if (node) {
+          // Responsive image width
+          const resizeImg = () => {
+            if (window.innerWidth < 600) {
+              node.style.width = isMain ? "100%" : "90vw";
+              node.style.maxWidth = isMain ? "98vw" : "95vw";
+              node.style.margin = isMain ? "12px 0" : "0 0 12px 0";
+              node.style.float = undefined;
+              node.style.display = "block";
+            } else {
+              node.style.width = isMain ? "100%" : "240px";
+              node.style.maxWidth = isMain ? "600px" : "320px";
+              node.style.margin = isMain
+                ? "16px 0"
+                : floatDir === "left"
+                  ? "0 24px 16px 0"
+                  : "0 0 16px 24px";
+              node.style.float = isMain ? undefined : floatDir;
+              node.style.display = isMain ? "block" : "inline-block";
+            }
+          };
+          resizeImg();
+          window.addEventListener('resize', resizeImg);
+        }
+      }}
       style={{
         width: isMain ? "100%" : 240,
         maxWidth: isMain ? 600 : 320,
@@ -62,6 +117,41 @@ export default function BlogDetails({ blog, recentBlogs }) {
   // Count headings to insert CTA after every 2
   let headingCount = 0;
 
+  // Responsive main container and sidebar
+  const mainContainerRef = useRef(null);
+  const sidebarRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 600);
+      if (mainContainerRef.current) {
+        if (window.innerWidth < 900) {
+          mainContainerRef.current.style.flexDirection = "column";
+          mainContainerRef.current.style.gap = "0";
+          mainContainerRef.current.style.padding = "0 8px";
+        } else {
+          mainContainerRef.current.style.flexDirection = "row";
+          mainContainerRef.current.style.gap = "32px";
+          mainContainerRef.current.style.padding = "0";
+        }
+      }
+      if (sidebarRef.current) {
+        if (window.innerWidth < 900) {
+          sidebarRef.current.style.maxWidth = "100%";
+          sidebarRef.current.style.minWidth = "0";
+          sidebarRef.current.style.marginTop = "32px";
+        } else {
+          sidebarRef.current.style.maxWidth = "320px";
+          sidebarRef.current.style.minWidth = "260px";
+          sidebarRef.current.style.marginTop = "0";
+        }
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="blog-details-page" style={{ background: "#fff" }}>
       {/* Banner */}
@@ -77,7 +167,7 @@ export default function BlogDetails({ blog, recentBlogs }) {
           padding: 0,
         }}
       >
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", width: "100%", padding: "0 8px" }}>
           {blog.title && (
             <h1
               ref={titleRef}
@@ -89,7 +179,11 @@ export default function BlogDetails({ blog, recentBlogs }) {
         </div>
       </div>
       {/* Main Content */}
-      <div className="container" style={{ display: "flex", flexDirection: "row", gap: 32, maxWidth: 1200, margin: "32px auto" }}>
+      <div
+        className="container"
+        ref={mainContainerRef}
+        style={{ display: "flex", flexDirection: "row", gap: 32, maxWidth: 1200, margin: "32px auto" }}
+      >
         {/* Blog Content */}
         <div style={{ flex: 3, minWidth: 0 }}>
           {blog.image && renderImage(blog.image, blog.title, true)}
@@ -105,30 +199,44 @@ export default function BlogDetails({ blog, recentBlogs }) {
             if (section.image) {
               const floatDir = imageFloatDirection % 2 === 0 ? "left" : "right";
               imageFloatDirection++;
-              // Render image and content side by side
-              content.push(
-                <div key={`img-content-${idx}`} style={{ overflow: "auto", minHeight: 120 }}>
-                  {renderImage(section.image, undefined, false, floatDir)}
-                  <div style={{ overflow: "hidden" }}>
-                    {/* Content paragraphs will be rendered below */}
+              if (isMobile) {
+                // In mobile, image above content
+                content.push(
+                  <div key={`img-content-${idx}`} style={{ width: "100%", marginBottom: 12 }}>
+                    {renderImage(section.image, undefined, false, undefined)}
                   </div>
-                </div>
-              );
+                );
+              } else {
+                // Desktop: image beside content
+                content.push(
+                  <div key={`img-content-${idx}`} style={{ overflow: "auto", minHeight: 120 }}>
+                    {renderImage(section.image, undefined, false, floatDir)}
+                    <div style={{ overflow: "hidden" }}>
+                      {/* Content paragraphs will be rendered below */}
+                    </div>
+                  </div>
+                );
+              }
             }
             // Render content paragraphs (if image present, render after image; else, just render)
             if (section.content) {
               if (section.image) {
-                // If image, render paragraphs inside the floated image container
-                content[content.length - 1] = (
-                  <div key={`img-content-${idx}`} style={{ overflow: "auto", minHeight: 120 }}>
-                    {renderImage(section.image, undefined, false, imageFloatDirection % 2 === 1 ? "left" : "right")}
-                    <div style={{ overflow: "hidden" }}>
-                      {section.content.map((para, i) => renderParagraph(para))}
+                if (isMobile) {
+                  // In mobile, paragraphs after image
+                  section.content.forEach((para, i) => content.push(renderParagraph(para, `para-${idx}-${i}`)));
+                } else {
+                  // Desktop: paragraphs beside image
+                  content[content.length - 1] = (
+                    <div key={`img-content-${idx}`} style={{ overflow: "auto", minHeight: 120 }}>
+                      {renderImage(section.image, undefined, false, imageFloatDirection % 2 === 1 ? "left" : "right")}
+                      <div style={{ overflow: "hidden" }}>
+                        {section.content.map((para, i) => renderParagraph(para, `para-${idx}-${i}`))}
+                      </div>
                     </div>
-                  </div>
-                );
+                  );
+                }
               } else {
-                section.content.forEach((para, i) => content.push(renderParagraph(para)));
+                section.content.forEach((para, i) => content.push(renderParagraph(para, `para-${idx}-${i}`)));
               }
             }
             // Insert CTA after every 2 headings
@@ -184,7 +292,7 @@ export default function BlogDetails({ blog, recentBlogs }) {
           )}
         </div>
         {/* Sidebar */}
-        <aside style={{ flex: 1, minWidth: 260, maxWidth: 320 }}>
+        <aside ref={sidebarRef} style={{ flex: 1, minWidth: 260, maxWidth: 320 }}>
           <div style={{ background: "#f5f7fa", borderRadius: 12, padding: 24, marginBottom: 32 }}>
             <h3
               ref={node => {

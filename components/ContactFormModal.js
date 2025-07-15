@@ -8,7 +8,7 @@ export default function ContactFormModal({ open, onClose, buttonText }) {
       position: "fixed",
       top: 0,
       left: 0,
-      width: "100vw",
+      width: "95vw",
       height: "100vh",
       background: "rgba(0,0,0,0.7)",
       zIndex: 9999,
