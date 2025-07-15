@@ -86,7 +86,7 @@ export const blogPosts = [
         date: "April 28, 2023",
         image: "assets/images/blog/banner8.jpg",
         description: "Operational excellence in manufacturing refers to the continuous improvement and optimization of various operational processes. It involves implementing strategies and practices that aim to maximize efficiency, minimize waste, and enhance overall productivity.",
-        link: "maximizing-performance-with-operational-excellence"
+        link: "achieve-manufacturing-excellence"
     },
     {
         id: 9,
