@@ -10,11 +10,12 @@ export default function BlogDetails({ blog, recentBlogs }) {
   if (!blog) return null;
 
   // Helper to render section headings with ref
-  const renderHeading = (text, level = 2) => {
+  const renderHeading = (text, level = 2, key) => {
     const Tag = `h${level}`;
     const ref = useRef(null);
     return (
       <Tag
+        key={key}
         ref={node => {
           if (node) {
             node.style.setProperty("font-family", "var(--font-poppins)", "important");
@@ -121,6 +122,21 @@ export default function BlogDetails({ blog, recentBlogs }) {
   const mainContainerRef = useRef(null);
   const sidebarRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
+  // Responsive banner title font size
+  React.useEffect(() => {
+    const handleBannerResize = () => {
+      if (titleRef.current) {
+        if (window.innerWidth < 600) {
+          titleRef.current.style.fontSize = "30px";
+        } else {
+          titleRef.current.style.fontSize = "40px";
+        }
+      }
+    };
+    handleBannerResize();
+    window.addEventListener('resize', handleBannerResize);
+    return () => window.removeEventListener('resize', handleBannerResize);
+  }, []);
   React.useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 600);
@@ -193,7 +209,7 @@ export default function BlogDetails({ blog, recentBlogs }) {
             // Render heading if present
             if (section.heading) {
               headingCount++;
-              content.push(renderHeading(section.heading, 2));
+              content.push(renderHeading(section.heading, 2, `heading-${idx}`));
             }
             // Always render image if present (alternate left/right)
             if (section.image) {
@@ -263,7 +279,7 @@ export default function BlogDetails({ blog, recentBlogs }) {
               );
             }
             return (
-              <React.Fragment key={idx}>
+              <React.Fragment key={`section-frag-${idx}`}>
                 {content}
                 {ctaToRender}
               </React.Fragment>
