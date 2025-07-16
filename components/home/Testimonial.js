@@ -39,7 +39,26 @@ export default function Testimonial() {
                 <div className="container">
                     <div className="section-title text-center">
                         <div className="section-title__tagline-box">
-                            <span className="section-title__tagline">Client testimonial</span>
+                            <span
+                                className="section-title__tagline"
+                                ref={el => {
+                                    if (el) {
+                                        el.style.textTransform = "none";
+                                        el.style.fontSize = "0.95rem";
+                                        el.style.letterSpacing = "0.01em";
+                                        // Capitalize only the first 'C' and the first 'T'
+                                        const text = el.textContent || "";
+                                        // Regex to capitalize first C and first T, rest lowercase
+                                        const newText = text
+                                            .toLowerCase()
+                                            .replace(/^c/, "C")
+                                            .replace(/ t/, " T");
+                                        el.textContent = newText;
+                                    }
+                                }}
+                            >
+                                Client testimonial
+                            </span>
                         </div>
                         <h2 className="section-title__title">Excellence Dynam Builders Every Project</h2>
                     </div>

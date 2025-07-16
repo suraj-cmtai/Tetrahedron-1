@@ -17,7 +17,7 @@ const awardsData = [
   { id: 9, image: 'assets/images/project/award9.jpg', alt: 'Award 9' },
   { id: 10, image: 'assets/images/project/award10.jpg', alt: 'Award 10' },
   { id: 11, image: 'assets/images/project/award11.jpg', alt: 'Award 11' },
-//   { id: 12, image: 'assets/images/project/award12.jpg', alt: 'Award 12' },
+  //   { id: 12, image: 'assets/images/project/award12.jpg', alt: 'Award 12' },
   { id: 13, image: 'assets/images/project/award13.jpg', alt: 'Award 13' },
   { id: 14, image: 'assets/images/project/award14.jpg', alt: 'Award 14' },
   { id: 15, image: 'assets/images/project/award15.jpg', alt: 'Award 15' },
@@ -199,6 +199,21 @@ const Lightbox = ({ imageSrc, onClose }) => {
   );
 };
 
+// Helper to render "Our Latest Awards" with each first letter in a span and capitalized
+function RenderTagline() {
+  const tagline = "Our Latest Awards";
+  return (
+    <>
+      {tagline.split(' ').map((word, idx) => (
+        <span key={idx} style={{ marginRight: idx !== tagline.split(' ').length - 1 ? 4 : 0 }}>
+          <span style={{ textTransform: 'uppercase', fontWeight: 900 }}>{word[0]}</span>
+          <span style={{ textTransform: 'lowercase' }}>{word.slice(1)}</span>
+        </span>
+      ))}
+    </>
+  );
+}
+
 export default function Awards() {
   const [lightboxImg, setLightboxImg] = useState(null);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -224,49 +239,28 @@ export default function Awards() {
         <Lightbox imageSrc={lightboxImg} onClose={closeLightbox} />
       )}
 
-        {/* Project Two Start */}
+      {/* Project Two Start */}
       <section className="project-two" style={containerStyles}>
         <div className="container" style={containerStyles}>
-                <div className="project-two__top" style={{ 
-                    position: 'relative', 
-                    width: '100%', 
-                    margin: '0 auto', 
-                    padding: '20px 0',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center'
-                }}>
-            <div className="section-title text-left" 
-              style={{ 
-                        textAlign: 'left',
-                        width: '100%',
-                        maxWidth: '7xl',
-                        padding: '0 20px',
-                        marginBottom: '20px'
+
+          {/* Centered Tagline Above Awards Section */}
+          <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 10 }}>
+            <div
+              className="section-title__tagline"
+              style={{
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '30px',
+                color: '#ff5e14',
+                fontWeight: '700',
+                marginBottom: '10px',
+                textAlign: 'center',
+                gap: '16px'
               }}
             >
-                        <div className="section-title__tagline-box" style={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            width: '100%',
-                        }}>
-                <span className="section-title__tagline" 
-                  style={{ 
-                    fontSize: '30px',
-                                color: '#ff5e14',
-                    fontWeight: '700',
-                                display: 'block',
-                                marginBottom: '10px',
-                    textAlign: 'left',
-                                alignSelf: 'flex-start',
-                    marginLeft: '0',
-                    width: '100%'
-                  }}
-                >
-                                Our Latest Awards
-                            </span>
-                <div className="project-two__nav" 
+             <div className="project-two__nav" 
                   style={{ 
                                 display: 'flex',
                                 gap: '20px',
@@ -276,7 +270,8 @@ export default function Awards() {
                                 pointerEvents: 'none'
                   }}
                 >
-                  <div className="swiper-button-prev1 h1p" 
+              {/* Blue left arrow */}
+              <div className="swiper-button-prev1 h1p" 
                     style={{ 
                                     pointerEvents: 'auto',
                                     cursor: 'pointer',
@@ -285,7 +280,23 @@ export default function Awards() {
                   >
                     <i className="icon-arrow-left" style={{ fontSize: '24px' }}></i>
                                 </div>
-                  <div className="swiper-button-next1 h1n" 
+                                </div>
+              {/* Tagline with first letters in span */}
+              <span>
+                <RenderTagline />
+              </span>
+              <div className="project-two__nav" 
+                  style={{ 
+                                display: 'flex',
+                                gap: '20px',
+                                width: 'auto',
+                                margin: '0',
+                                padding: '0',
+                                pointerEvents: 'none'
+                  }}
+                >
+              {/* Blue right arrow */}
+              <div className="swiper-button-next1 h1n" 
                     style={{ 
                                     pointerEvents: 'auto',
                                     cursor: 'pointer',
@@ -294,40 +305,71 @@ export default function Awards() {
                   >
                     <i className="icon-arrow-right" style={{ fontSize: '24px' }}></i>
                         </div>
-                    </div>
                         </div>
-                        <div style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            width: "100%",
-                            maxWidth: '100vw',
-                            margin: "0 auto",
-                            padding: "0 20px"
-                        }}>
-                <h2 className="section-title__title" 
-                  style={{
-                                textAlign: "center",
-                                width: "100%",
-                                maxWidth: "1200px",
-                    fontSize: '40px',
-                    fontWeight: '700',
-                                color: '#0a1c4c',
-                                margin: '0'
-                  }}
-                >
-                                Awards & Recognition
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-          
-          <div className="project-two__bottom" 
-                                        style={{ 
-              marginTop: "10px", 
-              zoom: "80%", 
-              maxWidth: "7xl", 
-              width: "60%", 
+            </div>
+            <h2
+              className="section-title__title"
+              style={{
+                textAlign: 'center',
+                width: '100%',
+                maxWidth: '1200px',
+                fontSize: '40px',
+                fontWeight: '700',
+                color: '#0a1c4c',
+                margin: '0',
+              }}
+            >
+              Awards & Recognition
+            </h2>
+          </div>
+          {/* Navigation and rest of the section remain unchanged */}
+          <div className="project-two__top" style={{
+            position: 'relative',
+            width: '100%',
+            margin: '0 auto',
+            padding: '20px 0',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+          }}>
+            <div className="section-title text-left"
+              style={{
+                textAlign: 'left',
+                width: '100%',
+                maxWidth: '7xl',
+                padding: '0 20px',
+                marginBottom: '20px'
+              }}
+            >
+              <div className="section-title__tagline-box" style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                width: '100%',
+              }}>
+                {/* Navigation is now handled in tagline above, so this is empty */}
+                <div style={{ width: 'auto', margin: 0, padding: 0 }}></div>
+              </div>
+            </div>
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+              maxWidth: '100vw',
+              margin: "0 auto",
+              padding: "0 20px"
+            }}>
+              {/* Awards & Recognition heading moved above */}
+            </div>
+          </div>
+
+          <div className="project-two__bottom"
+            style={{
+              marginTop: "10px",
+              zoom: "80%",
+              maxWidth: "7xl",
+              width: "60%",
               margin: "0 auto"
             }}
           >
@@ -336,14 +378,14 @@ export default function Awards() {
                 {awardsData.map((award) => (
                   <SwiperSlide key={award.id}>
                     <AwardCard award={award} onImageClick={openLightbox} />
-                            </SwiperSlide>
+                  </SwiperSlide>
                 ))}
-                        </div>
-                    </Swiper>
-                </div>
-            </div>
-        </section>
-        {/* Project Two End */}
-        </>
-    )
+              </div>
+            </Swiper>
+          </div>
+        </div>
+      </section>
+      {/* Project Two End */}
+    </>
+  )
 }
