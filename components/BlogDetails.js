@@ -121,6 +121,7 @@ export default function BlogDetails({ blog, recentBlogs }) {
   // Responsive main container and sidebar
   const mainContainerRef = useRef(null);
   const sidebarRef = useRef(null);
+  const outerContainerRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
   // Responsive banner title font size
   React.useEffect(() => {
@@ -140,8 +141,16 @@ export default function BlogDetails({ blog, recentBlogs }) {
   React.useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 600);
+      // Add padding for mobile and tablet views
+      if (outerContainerRef.current) {
+        if (window.innerWidth < 1200) {
+          outerContainerRef.current.style.padding = "0 10px";
+        } else {
+          outerContainerRef.current.style.padding = "0";
+        }
+      }
       if (mainContainerRef.current) {
-        if (window.innerWidth < 900) {
+        if (window.innerWidth < 1200) {
           mainContainerRef.current.style.flexDirection = "column";
           mainContainerRef.current.style.gap = "0";
           mainContainerRef.current.style.padding = "0 8px";
@@ -152,7 +161,7 @@ export default function BlogDetails({ blog, recentBlogs }) {
         }
       }
       if (sidebarRef.current) {
-        if (window.innerWidth < 900) {
+        if (window.innerWidth < 1200) {
           sidebarRef.current.style.maxWidth = "100%";
           sidebarRef.current.style.minWidth = "0";
           sidebarRef.current.style.marginTop = "32px";
@@ -169,7 +178,7 @@ export default function BlogDetails({ blog, recentBlogs }) {
   }, []);
 
   return (
-    <div className="blog-details-page" style={{ background: "#fff" }}>
+    <div className="blog-details-page" ref={outerContainerRef} style={{ background: "#fff" }}>
       {/* Banner */}
       <div
         style={{
