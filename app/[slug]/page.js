@@ -2,7 +2,7 @@
 
 "use client";
 
-import { consultingPages } from "@/lib/servicesData"; // Assuming servicesData.js is in lib
+import { consultingPages, skillTrainingData } from "@/lib/servicesData"; // Add skillTrainingData import
 import { blogPages, recentBlogs } from "@/lib/blogData";
 import { notFound } from "next/navigation";
 import Layout from "@/components/layout/Layout";
@@ -351,8 +351,11 @@ export default function ServiceOrBlogPage({ params }) {
   }
 
   // Otherwise, render the existing ServicePage logic
-  const data = consultingPages[params.slug];
-  if (!data) return notFound();
+  let data = consultingPages[params.slug];
+  if (!data) {
+    data = skillTrainingData[params.slug];
+    if (!data) return notFound();
+  }
   console.log(data.img,"this is new data");
   // Determine if this is a detailed page (has more sections) or a simple one
   const simpleKeys = ['title', 'img', 'bannerTitle', 'bannerSubtitle', 'bannerDescription', 'content'];
@@ -431,9 +434,9 @@ export default function ServiceOrBlogPage({ params }) {
       <ContactFormModal open={modalOpen} onClose={() => setModalOpen(false)} buttonText={modalButtonText} />
       {/* Banner Section */}
       <div style={styles.banner}>
-        {data.img && (
+        {(data.img || data.image) && (
           <img
-            src={data.img}
+            src={data.img || data.image}
             style={styles.bannerImage}
             alt={data.title || "Service Banner"}
           />

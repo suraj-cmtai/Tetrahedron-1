@@ -2,7 +2,7 @@
 
 "use client";
 
-import { skillTrainingData } from "@/lib/servicesData"; // Keep this import
+import { consultingPages, skillTrainingData } from "@/lib/servicesData";
 // Removed: import * as styleThemes from '@/lib/styleThemes';
 import { notFound } from "next/navigation";
 import Layout from "@/components/layout/Layout";
@@ -128,8 +128,11 @@ const themes = {
 
 
 export default function TrainingPage({ params }) {
-    const data = skillTrainingData[params.slug];
-    if (!data) return notFound();
+    let data = consultingPages[params.slug];
+    if (!data) {
+        data = skillTrainingData[params.slug];
+        if (!data) return notFound();
+    }
 
     // --- Determine Current Theme ---
     const currentTheme = useMemo(() => {
@@ -364,7 +367,7 @@ export default function TrainingPage({ params }) {
 
     const renderBanner = () => ( // Banner usually always shows, no major content check needed inside, but the data itself is checked initially
         <div style={dynamicStyles.banner}>
-            {data.image && <img src={data.image} style={dynamicStyles.bannerImage} alt={data.title || "Training Banner"} />}
+            {(data.img || data.image) && <img src={data.img || data.image} style={dynamicStyles.bannerImage} alt={data.title || "Training Banner"} />}
             <div style={dynamicStyles.bannerContent}>
                 {data.bannerTitle && <h1 style={dynamicStyles.bannerTitle}>{data.bannerTitle}</h1>}
                 {data.bannerSubtitle && <p style={dynamicStyles.bannerSubtitle}>{data.bannerSubtitle}</p>}

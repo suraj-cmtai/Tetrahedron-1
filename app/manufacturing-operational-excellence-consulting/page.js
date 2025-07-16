@@ -4,6 +4,7 @@ import Layout from "@/components/layout/Layout";
 import styles from "./Consulting.module.css";
 import { useState } from "react";
 import ContactFormModal from "@/components/ContactFormModal";
+import ContactForm from "@/components/ContactForm";
 
 export default function ConsultingPage() {
   const [openFAQs, setOpenFAQs] = useState({}); // Object to track multiple open states
@@ -31,17 +32,22 @@ export default function ConsultingPage() {
     <Layout>
       <div className={styles.container}>
         {/* Hero Section */}
-        <div className={styles.heroSection}>
-          <div className={styles.heroOverlay}>
-            <h1>Operational Excellence Solutions</h1>
-            <p>Reduce Manufacturing Cost & Increase Productivity</p>
-            <ul>
+        <div className={styles.heroSection} style={{ display: 'flex', alignItems: 'stretch', minHeight: 400 }}>
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '40px 24px 40px 6vw', minWidth: 0 }}>
+            <h1 style={{textAlign:"left", fontSize:"36px", marginTop:"0", color: 'white'}}>Operational Excellence Solutions</h1>
+            <p style={{color: 'white', fontSize: '18px', marginTop: '18px'}}>Reduce Manufacturing Cost & Increase Productivity</p>
+            <ul style={{color: 'white', fontSize: '16px', marginTop: '18px', listStyle: 'none', padding: 0}}>
               <li>✅ Boost Profit Margins</li>
               <li>✅ Optimize Resources</li>
               <li>✅ Drive Innovation</li>
               <li>✅ Enhance Quality</li>
               <li>✅ Streamline Processes</li>
             </ul>
+          </div>
+          <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: 0, padding: '40px 6vw 40px 24px' }}>
+            <div style={{ width: '100%', maxWidth: 400, background: 'rgba(255,255,255,0.97)', borderRadius: 16, boxShadow: '0 8px 32px rgba(0,0,0,0.10)' }}>
+              <ContactForm buttonText="Contact Us" />
+            </div>
           </div>
         </div>
 
