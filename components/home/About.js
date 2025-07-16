@@ -51,13 +51,51 @@ export default function About() {
                         </div>
 
                         {/* Image Right */}
-                        <div className="w-full md:w-6/12 lg:max-w-[540px] rounded-[10px] shadow-[0_20px_20px_rgba(0,0,0,0.3)] overflow-hidden" >
-                            <div className="about-two__img w-full h-full min-h-[300px] md:min-h-[500px]" style={{ position: 'relative', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <div
+                            className="w-full md:w-6/12 lg:max-w-[540px] rounded-[10px] shadow-[0_20px_20px_rgba(0,0,0,0.3)] overflow-hidden"
+                        >
+                            <div
+                                className="about-two__img w-full h-full min-h-[300px] md:min-h-[500px]"
+                                style={{
+                                    position: 'relative',
+                                    overflow: 'hidden',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center'
+                                }}
+                            >
                                 <img
                                     src="assets/images/resources/about-two-img3.jpg"
-                                    alt="Tetrahedron Manufacturing Services" 
-                                    className="w-full h-full object-cover rounded-[8px] shadow-[0_10px_20px_rgba(0,0,0,0.1)]"
-                                    style={{borderRadius:"20px", height:"40%", width:"60%", }}
+                                    alt="Tetrahedron Manufacturing Services"
+                                    className="object-cover rounded-[8px] shadow-[0_10px_20px_rgba(0,0,0,0.1)]"
+                                    ref={node => {
+                                        if (node) {
+                                            // Always set border radius
+                                            node.style.setProperty("border-radius", "20px", "important");
+                                            // Responsive width/height for mobile/desktop
+                                            const setResponsiveImg = () => {
+                                                if (window.innerWidth < 768) {
+                                                    node.style.setProperty("width", "100%", "important");
+                                                    node.style.setProperty("height", "100%", "important");
+                                                    node.style.setProperty("maxWidth", "100%", "important");
+                                                    node.style.setProperty("maxHeight", "100%", "important");
+                                                } else {
+                                                    node.style.setProperty("width", "60%", "important");
+                                                    node.style.setProperty("height", "40%", "important");
+                                                    node.style.setProperty("maxWidth", "", "important");
+                                                    node.style.setProperty("maxHeight", "", "important");
+                                                }
+                                            };
+                                            setResponsiveImg();
+                                            window.addEventListener("resize", setResponsiveImg);
+                                        }
+                                    }}
+                                    style={{
+                                        borderRadius: "20px",
+                                        width: "60%",
+                                        height: "40%",
+                                        objectFit: "cover"
+                                    }}
                                 />
                             </div>
                         </div>
