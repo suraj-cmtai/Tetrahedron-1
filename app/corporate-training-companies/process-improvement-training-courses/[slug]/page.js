@@ -129,7 +129,7 @@ export default function TrainingPage({ params }) {
     let data = consultingPages[params.slug];
     if (!data) {
         data = skillTrainingData[params.slug];
-        if (!data) return notFound();
+    if (!data) return notFound();
     }
 
     // --- Determine Current Theme ---

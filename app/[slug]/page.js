@@ -354,7 +354,7 @@ export default function ServiceOrBlogPage({ params }) {
   let data = consultingPages[params.slug];
   if (!data) {
     data = skillTrainingData[params.slug];
-    if (!data) return notFound();
+  if (!data) return notFound();
   }
   console.log(data.img,"this is new data");
   // Determine if this is a detailed page (has more sections) or a simple one
