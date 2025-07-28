@@ -9,6 +9,7 @@
     background: url("/images/servicesData/Untitled-design.png?id=20925") no-repeat center center/cover;
     height: 600px;
     display: flex;
+    opacity: 80%;
   }
   
   .heroOverlay {
