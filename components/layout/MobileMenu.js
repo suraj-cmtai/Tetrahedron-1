@@ -58,7 +58,7 @@ const MobileMenu = ({ handleMobileMenu }) => {
                             </button>
                             <ul style={{ display: isActive.key == 1 ? "block" : "none" }}>
                                 <li><Link href="/about-us/" onClick={handleLinkClick}>Who We Are</Link></li>
-                                <li><Link href="/our-team/" onClick={handleLinkClick}>Our Team</Link></li>
+                                <li><Link href="/our-team/" onClick={handleLinkClick}>Our Executives</Link></li>
                                 <li className="dropdown">
                                     <Link href="#" onClick={() => handleToggle(1, "sub1")}>Policies</Link>
                                     <button onClick={() => handleToggle(1, "sub1")} className={isActive.key == 1 && isActive.subMenuKey == "sub1" ? "expanded open" : ""}>
