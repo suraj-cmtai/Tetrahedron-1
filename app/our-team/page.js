@@ -33,8 +33,7 @@ const teamMembersData = [
 // const teamMembersData = [
 //     { id: 1, name: "Nitin Kumar", imgSrc: "/assets/images/team/M1.png" },
 //     { id: 2, name: "Alok Sahu", imgSrc: "/assets/images/team/M2.png" },
-//     // Add more members...
-// ]
+// ];
 
 export default function Home() {
     return (
@@ -70,15 +69,15 @@ export default function Home() {
             <style jsx global>{`
                 .team-grid {
                     display: grid;
-                    grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
-                    gap: 40px; /* More spacing between cards */
-                    max-width: 900px; /* Keep grid narrower for bigger cards */
-                    margin: 0 auto; /* Center the grid */
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 40px;
+                    max-width: 900px;
+                    margin: 0 auto;
                 }
 
                 @media (max-width: 767px) {
                     .team-grid {
-                        grid-template-columns: 1fr; /* 1 column on mobile */
+                        grid-template-columns: 1fr;
                         max-width: 500px;
                     }
                 }
@@ -87,20 +86,16 @@ export default function Home() {
                     position: relative;
                     overflow: visible;
                     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-                    background-color: transparent;
                     display: flex;
                     flex-direction: column;
-                    height: 100%;
-                    width: 100%;
                     padding-bottom: 25px;
                 }
 
                 .mycard-team-one__img {
                     position: relative;
                     width: 100%;
-                    padding-bottom: 120%; /* Taller to make photo look bigger */
+                    padding-bottom: 90%; /* Reduced from 120% for smaller images */
                     background: linear-gradient(135deg, #3023AE, #8549B2);
-                    display: block;
                     border-radius: 20px;
                     overflow: hidden;
                 }
@@ -113,7 +108,6 @@ export default function Home() {
                     height: 100%;
                     object-fit: cover;
                     object-position: center 20%;
-                    display: block;
                 }
 
                 .mycard-team-one__content {
@@ -121,47 +115,23 @@ export default function Home() {
                     left: 50%;
                     transform: translateX(-50%);
                     bottom: -1px;
-                    width: auto;
                     min-width: 120px;
-                    max-width: calc(100% - 50px);
                     background-color: #ffffff;
                     border-radius: 10px;
                     padding: 8px 15px;
                     text-align: center;
                     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                    z-index: 30;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
                     border: 2px solid var(--elitecons-base);
                 }
 
                 .mycard-team-one__title {
                     font-size: 1rem;
-                    line-height: 1.25;
                     font-weight: 600;
                     color: #111111;
                     margin: 0;
-                    padding: 0;
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                    display: block;
-                }
-
-                @media (min-width: 1200px) {
-                    .mycard-team-one__title { font-size: 1.05rem; }
-                    .mycard-team-one__content { padding: 10px 18px; }
-                    .mycard-team-one__single { padding-bottom: 30px; }
-                }
-                @media (max-width: 991.98px) {
-                    .mycard-team-one__title { font-size: 0.95rem; }
-                    .mycard-team-one__content { padding: 7px 12px; bottom: -16px; }
-                    .mycard-team-one__single { padding-bottom: 20px; }
-                }
-                @media (max-width: 767.98px) {
-                    .mycard-team-one__title { font-size: 0.9rem; }
-                    .mycard-team-one__content { padding: 6px 10px; bottom: 0px; min-width: 100px; border-radius: 8px; }
                 }
             `}</style>
         </>
