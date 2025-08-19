@@ -10,6 +10,7 @@ import BlogDetails from "@/components/BlogDetails";
 import { useState } from "react";
 import * as Icons from "lucide-react";
 import ContactFormModal from "@/components/ContactFormModal";
+import ContactForm from "@/components/ContactForm";
 
 // Internal CSS styles (keep the styles object as it is)
 const styles = {
@@ -462,9 +463,15 @@ export default function ServiceOrBlogPage({ params }) {
 
         </div>
       </div>
-
-      {/* Main Content Area */}
-      <div className="container py-5"> {/* Main container for content */}
+      
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "400px", width: "100%" }}>
+        <div style={{ width: "100%", maxWidth: "500px" }}>
+          <ContactForm />
+        </div>
+      </div>
+      <div className="container py-5"> 
+      
+      {/* Main container for content */}
 
         {/* Intro Text Section (Common for detailed pages) */}
         {isDetailedPage && isNonEmptyString(data.introText) && (

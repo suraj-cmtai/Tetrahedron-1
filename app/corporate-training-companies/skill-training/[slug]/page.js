@@ -764,6 +764,11 @@ export default function TrainingPage({ params }) {
         <Layout headerStyle={1} footerStyle={1}>
             <ContactFormModal open={modalOpen} onClose={() => setModalOpen(false)} buttonText={modalButtonText} />
             {renderBanner()}
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "400px", width: "100%" }}>
+        <div style={{ width: "100%", maxWidth: "500px" }}>
+          <ContactForm />
+        </div>
+      </div>
 
             <div className="container py-4">
                 {/* Sections will now only render if they have content */}

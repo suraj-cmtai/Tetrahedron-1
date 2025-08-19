@@ -761,41 +761,60 @@ export default function TrainingPage({ params }) {
 
     // --- Main Render Logic ---
     return (
-        <Layout headerStyle={1} footerStyle={1}>
-            <ContactFormModal open={modalOpen} onClose={() => setModalOpen(false)} buttonText={modalButtonText} />
-            {renderBanner()}
+      <Layout headerStyle={1} footerStyle={1}>
+        <ContactFormModal
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+          buttonText={modalButtonText}
+        />
+        {renderBanner()}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "400px",
+            width: "100%",
+          }}
+        >
+          <div style={{ width: "100%", maxWidth: "500px" }}>
+            <ContactForm />
+          </div>
+        </div>
 
-            <div className="container py-4">
-                {/* Sections will now only render if they have content */}
-                {renderIntro()}
-                {renderWhyChoose()}
+        <div className="container py-4">
+          {/* Sections will now only render if they have content */}
+          {renderIntro()}
+          {renderWhyChoose()}
 
-                {/* Render the primary content block based on its key */}
-                {/* These functions now internally check for content before rendering */}
-                {renderPillars()}
-                {renderKeyConcepts('keyConcepts', 'Key Concepts')}
-                {renderKeyConcepts('keyFocusAreas', 'Key Focus Areas')}
-                {renderKeyConcepts('keyLeanTools', 'Key Lean Tools')}
-                {renderKeyConcepts('designThinkingPhases', 'Design Thinking Phases')}
-                {renderKeyConcepts('bscPerspectives', 'Balanced Scorecard Perspectives')}
-                {renderProcessSteps()}
-                {renderKeyConcepts('keyTechniques', 'Key Techniques')}
-                {renderKeyConcepts('keyConceptsTools', 'Key Concepts & Tools')}
-                {renderKeyConcepts('keyTechniquesCovered', 'Key Techniques Covered')}
-                {renderKeyConcepts('wcmPillars', 'WCM Pillars')}
-                {renderKeyConcepts('ppapElements', 'Key PPAP Elements')}
-                {renderKeyConcepts('keyStrategies', 'Key Strategies')}
-                {renderKeyConcepts('keyTools', 'Key Tools Covered')}
+          {/* Render the primary content block based on its key */}
+          {/* These functions now internally check for content before rendering */}
+          {renderPillars()}
+          {renderKeyConcepts("keyConcepts", "Key Concepts")}
+          {renderKeyConcepts("keyFocusAreas", "Key Focus Areas")}
+          {renderKeyConcepts("keyLeanTools", "Key Lean Tools")}
+          {renderKeyConcepts("designThinkingPhases", "Design Thinking Phases")}
+          {renderKeyConcepts(
+            "bscPerspectives",
+            "Balanced Scorecard Perspectives"
+          )}
+          {renderProcessSteps()}
+          {renderKeyConcepts("keyTechniques", "Key Techniques")}
+          {renderKeyConcepts("keyConceptsTools", "Key Concepts & Tools")}
+          {renderKeyConcepts("keyTechniquesCovered", "Key Techniques Covered")}
+          {renderKeyConcepts("wcmPillars", "WCM Pillars")}
+          {renderKeyConcepts("ppapElements", "Key PPAP Elements")}
+          {renderKeyConcepts("keyStrategies", "Key Strategies")}
+          {renderKeyConcepts("keyTools", "Key Tools Covered")}
 
-                {renderFeatures()}
-                {renderTargetAudience()}
-                {renderCourseContent()}
-                {renderMethodology()}
-                {renderClients()}
-                {renderForm()}
-
-            </div>
-        </Layout>
+          {renderFeatures()}
+          {renderTargetAudience()}
+          {renderCourseContent()}
+          {renderMethodology()}
+          {renderClients()}
+          {renderForm()}
+        </div>
+      </Layout>
     );
 }
 

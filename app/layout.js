@@ -4,6 +4,7 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "./global.css";
 import { Poppins } from "next/font/google";
+import ReduxProvider from "./providers/ReduxProvider";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -25,7 +26,7 @@ export default function RootLayout({ children }) {
                 <link rel="stylesheet" href="/assets/css/elitecons-responsive.css" />
             </head>
             <body className={poppins.className} style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.6' }}>
-                {children}
+                <ReduxProvider> {children} </ReduxProvider>
             </body>
         </html>
     );
