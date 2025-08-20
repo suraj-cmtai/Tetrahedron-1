@@ -10,7 +10,7 @@ const initialState: BlogState = {
   error: null,
   filters: {
     search: '',
-    status: 'published',
+    status: '',
     category: '',
     featured: null,
     tags: []

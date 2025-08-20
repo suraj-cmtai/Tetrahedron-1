@@ -161,7 +161,7 @@ type BlogSection = {
 };
 
 type BlogFormProps = {
-  onSubmit: (formData: FormData) => void;
+  onSubmit: (formData: FormData, jsonMode?: boolean, jsonData?: any) => void;
   initial?: any;
   loading: boolean;
   onCancel?: () => void;
@@ -198,6 +198,7 @@ function BlogForm({ onSubmit, initial, loading, onCancel }: BlogFormProps) {
   const [jsonFile, setJsonFile] = useState<File | null>(null);
   const [jsonError, setJsonError] = useState<string>('');
   const [jsonPreview, setJsonPreview] = useState<string>('');
+  const [jsonParsed, setJsonParsed] = useState<any>(null);
 
   // Handle main image preview
   useEffect(() => {
@@ -248,6 +249,7 @@ function BlogForm({ onSubmit, initial, loading, onCancel }: BlogFormProps) {
   const handleJsonFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setJsonError('');
     setJsonPreview('');
+    setJsonParsed(null);
     const file = e.target.files && e.target.files[0];
     setJsonFile(file || null);
     if (file) {
@@ -256,6 +258,7 @@ function BlogForm({ onSubmit, initial, loading, onCancel }: BlogFormProps) {
         try {
           const json = JSON.parse(evt?.target?.result as string);
           setJsonPreview(JSON.stringify(json, null, 2));
+          setJsonParsed(json);
         } catch (err) {
           setJsonError('Invalid JSON file');
         }
@@ -266,17 +269,23 @@ function BlogForm({ onSubmit, initial, loading, onCancel }: BlogFormProps) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Prepare FormData
-    const formData = new FormData();
 
-    // If JSON file is uploaded, send only the JSON file
-    if (jsonFile) {
-      formData.append('jsonFile', jsonFile);
-      onSubmit(formData);
+    // If JSON file is uploaded, only use the JSON file and do not use form fields
+    if (jsonFile && jsonParsed) {
+      // If the JSON is an array, call multiple create requests
+      if (Array.isArray(jsonParsed)) {
+        // Pass the array to parent for batch creation
+        onSubmit(new FormData(), true, jsonParsed);
+      } else {
+        // Single object or object with slugs as keys
+        onSubmit(new FormData(), true, jsonParsed);
+      }
       return;
     }
 
-    // Build the blogData as before, but also build the "json" field as required
+    // Otherwise, use form fields as before
+    const formData = new FormData();
+
     const blogData = {
       title,
       slug,
@@ -337,107 +346,16 @@ function BlogForm({ onSubmit, initial, loading, onCancel }: BlogFormProps) {
         formData.append(`sectionImageUrl_${idx}`, sec.existingImageUrl);
       }
     });
-    onSubmit(formData);
+    onSubmit(formData, false, null);
   };
+
+  // If JSON file is uploaded, hide the form fields and only show the JSON upload/preview
+  const showFormFields = !jsonFile;
 
   return (
     <form style={styles.formSection} onSubmit={handleSubmit}>
       <h3 style={{marginBottom: 12}}>{initial ? 'Edit Blog' : 'Create Blog'}</h3>
-      <label style={styles.label}>Title</label>
-      <input style={styles.input} value={title} onChange={e => setTitle(e.target.value)} required />
-
-      <label style={styles.label}>Slug</label>
-      <input style={styles.input} value={slug} onChange={e => setSlug(e.target.value)} required />
-
-      <label style={styles.label}>Category</label>
-      <input style={styles.input} value={category} onChange={e => setCategory(e.target.value)} />
-
-      <label style={styles.label}>Meta Description</label>
-      <textarea style={styles.input} value={metaDescription} onChange={e => setMetaDescription(e.target.value)} rows={2} />
-
-      <label style={styles.label}>Status</label>
-      <select style={styles.input} value={status} onChange={e => setStatus(e.target.value)}>
-        <option value="draft">Draft</option>
-        <option value="published">Published</option>
-      </select>
-
-      <label style={styles.label}>
-        <input type="checkbox" checked={featured} onChange={e => setFeatured(e.target.checked)} style={{marginRight: 8}} />
-        Featured
-      </label>
-
-      <label style={styles.label}>Tags (comma separated)</label>
-      <input style={styles.input} value={tags} onChange={e => setTags(e.target.value)} />
-
-      <label style={styles.label}>Main Image</label>
-      <input
-        type="file"
-        accept="image/*"
-        style={styles.input}
-        onChange={e => {
-          if (e.target.files && e.target.files[0]) {
-            setMainImage(e.target.files[0]);
-          }
-        }}
-      />
-      {mainImagePreview && (
-        <img src={mainImagePreview} alt="Main" style={{maxWidth: 120, margin: '8px 0', borderRadius: 6}} />
-      )}
-
-      <h4 style={{marginTop: 18}}>Sections</h4>
-      {sections.map((sec, idx) => (
-        <div key={idx} style={styles.sectionBox}>
-          <label style={styles.label}>Heading</label>
-          <input
-            style={styles.input}
-            value={sec.heading}
-            onChange={e => handleSectionChange(idx, 'heading', e.target.value)}
-            required
-          />
-          <label style={styles.label}>Content (one paragraph per line)</label>
-          <textarea
-            style={styles.input}
-            value={sec.content}
-            onChange={e => handleSectionChange(idx, 'content', e.target.value)}
-            rows={3}
-            required
-          />
-          <label style={styles.label}>Section Image</label>
-          <input
-            type="file"
-            accept="image/*"
-            style={styles.input}
-            onChange={e => {
-              if (e.target.files && e.target.files[0]) {
-                handleSectionImage(idx, e.target.files[0]);
-              }
-            }}
-          />
-          {sec.imagePreview && (
-            <img src={sec.imagePreview} alt="Section" style={{maxWidth: 100, margin: '6px 0', borderRadius: 5}} />
-          )}
-          {sections.length > 1 && (
-            <button
-              type="button"
-              style={styles.removeSectionBtn}
-              onClick={() => removeSection(idx)}
-            >
-              Remove Section
-            </button>
-          )}
-        </div>
-      ))}
-      <button type="button" style={styles.addSectionBtn} onClick={addSection}>
-        + Add Section
-      </button>
-
-      <h4 style={{marginTop: 18}}>CTA</h4>
-      <label style={styles.label}>Button Text</label>
-      <input style={styles.input} value={ctaButtonText} onChange={e => setCtaButtonText(e.target.value)} />
-      <label style={styles.label}>CTA Text</label>
-      <input style={styles.input} value={ctaText} onChange={e => setCtaText(e.target.value)} />
-
-      <h4 style={{marginTop: 24}}>Or Upload Blog JSON</h4>
+      <h4 style={{marginTop: 24}}>Upload Blog JSON</h4>
       <input
         type="file"
         accept="application/json"
@@ -455,6 +373,105 @@ function BlogForm({ onSubmit, initial, loading, onCancel }: BlogFormProps) {
           overflow: 'auto',
           fontSize: 13
         }}>{jsonPreview}</pre>
+      )}
+
+      {showFormFields && (
+        <>
+          <label style={styles.label}>Title</label>
+          <input style={styles.input} value={title} onChange={e => setTitle(e.target.value)} required />
+
+          <label style={styles.label}>Slug</label>
+          <input style={styles.input} value={slug} onChange={e => setSlug(e.target.value)} required />
+
+          <label style={styles.label}>Category</label>
+          <input style={styles.input} value={category} onChange={e => setCategory(e.target.value)} />
+
+          <label style={styles.label}>Meta Description</label>
+          <textarea style={styles.input} value={metaDescription} onChange={e => setMetaDescription(e.target.value)} rows={2} />
+
+          <label style={styles.label}>Status</label>
+          <select style={styles.input} value={status} onChange={e => setStatus(e.target.value)}>
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>
+            <option value="archived">Archived</option>
+          </select>
+
+          <label style={styles.label}>
+            <input type="checkbox" checked={featured} onChange={e => setFeatured(e.target.checked)} style={{marginRight: 8}} />
+            Featured
+          </label>
+
+          <label style={styles.label}>Tags (comma separated)</label>
+          <input style={styles.input} value={tags} onChange={e => setTags(e.target.value)} />
+
+          <label style={styles.label}>Main Image</label>
+          <input
+            type="file"
+            accept="image/*"
+            style={styles.input}
+            onChange={e => {
+              if (e.target.files && e.target.files[0]) {
+                setMainImage(e.target.files[0]);
+              }
+            }}
+          />
+          {mainImagePreview && (
+            <img src={mainImagePreview} alt="Main" style={{maxWidth: 120, margin: '8px 0', borderRadius: 6}} />
+          )}
+
+          <h4 style={{marginTop: 18}}>Sections</h4>
+          {sections.map((sec, idx) => (
+            <div key={idx} style={styles.sectionBox}>
+              <label style={styles.label}>Heading</label>
+              <input
+                style={styles.input}
+                value={sec.heading}
+                onChange={e => handleSectionChange(idx, 'heading', e.target.value)}
+                required
+              />
+              <label style={styles.label}>Content (one paragraph per line)</label>
+              <textarea
+                style={styles.input}
+                value={sec.content}
+                onChange={e => handleSectionChange(idx, 'content', e.target.value)}
+                rows={3}
+                required
+              />
+              <label style={styles.label}>Section Image</label>
+              <input
+                type="file"
+                accept="image/*"
+                style={styles.input}
+                onChange={e => {
+                  if (e.target.files && e.target.files[0]) {
+                    handleSectionImage(idx, e.target.files[0]);
+                  }
+                }}
+              />
+              {sec.imagePreview && (
+                <img src={sec.imagePreview} alt="Section" style={{maxWidth: 100, margin: '6px 0', borderRadius: 5}} />
+              )}
+              {sections.length > 1 && (
+                <button
+                  type="button"
+                  style={styles.removeSectionBtn}
+                  onClick={() => removeSection(idx)}
+                >
+                  Remove Section
+                </button>
+              )}
+            </div>
+          ))}
+          <button type="button" style={styles.addSectionBtn} onClick={addSection}>
+            + Add Section
+          </button>
+
+          <h4 style={{marginTop: 18}}>CTA</h4>
+          <label style={styles.label}>Button Text</label>
+          <input style={styles.input} value={ctaButtonText} onChange={e => setCtaButtonText(e.target.value)} />
+          <label style={styles.label}>CTA Text</label>
+          <input style={styles.input} value={ctaText} onChange={e => setCtaText(e.target.value)} />
+        </>
       )}
 
       <div style={{marginTop: 18}}>
@@ -527,15 +544,133 @@ export default function AdminBlogDashboard() {
     setIsLoggedIn(false);
   };
 
-  // Create blog
-  const handleCreateBlog = async (formData: FormData) => {
+  // Create blog (single or batch)
+  const normalizeImage = (img: any) => {
+    // If already an object with url/publicId, return as is
+    if (img && typeof img === 'object' && img.url && img.publicId) {
+      return img;
+    }
+    // If it's a string, convert to object with url, publicId, alt
+    if (typeof img === 'string') {
+      return {
+        url: img,
+        publicId: '', // You may want to extract or generate this if possible
+        alt: ''
+      };
+    }
+    return img;
+  };
+
+  const normalizeBlogImages = (blogObj: any) => {
+    // Normalize top-level image
+    if (blogObj.image) {
+      blogObj.image = normalizeImage(blogObj.image);
+    }
+    // Normalize images in sections
+    if (Array.isArray(blogObj.sections)) {
+      blogObj.sections = blogObj.sections.map((section: any) => {
+        if (section.image) {
+          section.image = normalizeImage(section.image);
+        }
+        return section;
+      });
+    }
+    return blogObj;
+  };
+
+  const handleCreateBlog = async (formData: FormData, jsonMode?: boolean, jsonData?: any) => {
     setFormLoading(true);
     try {
-      await dispatch(createBlog(formData)).unwrap();
-      setShowForm(false);
-      setEditBlog(null);
-      dispatch(fetchBlogs({}));
-      alert('Blog created successfully!');
+      if (jsonMode && jsonData) {
+        // If jsonData is an array, create multiple blogs
+        if (Array.isArray(jsonData)) {
+          let successCount = 0;
+          let failCount = 0;
+          for (const item of jsonData) {
+            let blogObj = item;
+            let slug = '';
+            if (
+              typeof item === 'object' &&
+              !Array.isArray(item) &&
+              Object.keys(item).length === 1 &&
+              typeof Object.values(item)[0] === 'object'
+            ) {
+              slug = Object.keys(item)[0];
+              blogObj = Object.values(item)[0];
+            } else if (item.slug) {
+              slug = item.slug;
+            }
+            // Ensure slug is present in the data object
+            let blogDataWithSlug = { ...blogObj, slug };
+            blogDataWithSlug = normalizeBlogImages(blogDataWithSlug);
+            const fd = new FormData();
+            fd.append('json', JSON.stringify(blogDataWithSlug));
+            try {
+              await dispatch(createBlog(fd)).unwrap();
+              successCount++;
+            } catch (err) {
+              failCount++;
+            }
+          }
+          setShowForm(false);
+          setEditBlog(null);
+          // Do NOT refresh blogs here (per instruction: don't refresh screen)
+          alert(`All blogs processed. Success: ${successCount}, Failed: ${failCount}`);
+        } else if (
+          typeof jsonData === 'object' &&
+          !Array.isArray(jsonData)
+        ) {
+          // If it's an object with slugs as keys or a single blog object
+          const keys = Object.keys(jsonData);
+          if (
+            keys.length > 0 &&
+            typeof jsonData[keys[0]] === 'object'
+          ) {
+            let successCount = 0;
+            let failCount = 0;
+            for (const slug of keys) {
+              let blogObj = jsonData[slug];
+              let blogDataWithSlug = { ...blogObj, slug };
+              blogDataWithSlug = normalizeBlogImages(blogDataWithSlug);
+              const fd = new FormData();
+              fd.append('json', JSON.stringify(blogDataWithSlug));
+              try {
+                await dispatch(createBlog(fd)).unwrap();
+                successCount++;
+              } catch (err) {
+                failCount++;
+              }
+            }
+            setShowForm(false);
+            setEditBlog(null);
+            // Do NOT refresh blogs here
+            alert(`All blogs processed. Success: ${successCount}, Failed: ${failCount}`);
+          } else {
+            // Single blog object
+            let blogObj = jsonData;
+            let slug = '';
+            if (jsonData.slug) {
+              slug = jsonData.slug;
+            }
+            let blogDataWithSlug = { ...blogObj, slug };
+            blogDataWithSlug = normalizeBlogImages(blogDataWithSlug);
+            const fd = new FormData();
+            fd.append('json', JSON.stringify(blogDataWithSlug));
+            await dispatch(createBlog(fd)).unwrap();
+            setShowForm(false);
+            setEditBlog(null);
+            // Do NOT refresh blogs here
+            alert('Blog created successfully!');
+          }
+        }
+      } else {
+        // Normal formData (from fields)
+        await dispatch(createBlog(formData)).unwrap();
+        setShowForm(false);
+        setEditBlog(null);
+        // Do NOT refresh blogs here
+        alert('Blog created successfully!');
+      }
     } catch (err) {
       alert('Failed to create blog');
     }
@@ -686,5 +821,3 @@ export default function AdminBlogDashboard() {
     </div>
   );
 }
-
-

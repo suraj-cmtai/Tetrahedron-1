@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '10');
-    const status = searchParams.get('status') || 'published';
+    const status = searchParams.get('status');
     const category = searchParams.get('category');
     const search = searchParams.get('search');
     const featured = searchParams.get('featured');
