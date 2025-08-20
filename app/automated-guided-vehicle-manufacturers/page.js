@@ -34,9 +34,40 @@ export default function Page() {
         {/* Hero Section */}
         <section>
           <div className={styles.heroSection} style={{ display: 'flex', alignItems: 'stretch', minHeight: 400 }}>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '40px 24px 40px 6vw', minWidth: 0 }}>
-              <h1 style={{textAlign:"left", fontSize:"36px", marginTop:"0", color: 'white'}}>Automated Guided Vehicle Manufacturers | AGV | AMR</h1>
-              <p style={{color: 'white', fontSize: '18px', marginTop: '18px'}}>From repetitive tasks on the factory floor to activities in Agriculture, Logistics, Hospitality, and more, the use of Autonomous Mobile Robots is changing how business gets done</p>
+            <div style={{ 
+              flex: 1, 
+              display: 'flex', 
+              flexDirection: 'column', 
+              justifyContent: 'center', 
+              padding: '40px 24px 40px 6vw', 
+              minWidth: 0 
+            }}>
+              <div style={{
+                background: 'rgba(0,0,0,0.72)',
+                borderRadius: '16px',
+                padding: '32px 28px',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.18)',
+                maxWidth: 700,
+                width: '100%',
+                margin: '0 auto'
+              }}>
+                <h1 style={{
+                  textAlign: "left", 
+                  fontSize: "36px", 
+                  marginTop: "0", 
+                  color: 'white',
+                  marginBottom: '18px'
+                }}>
+                  Automated Guided Vehicle Manufacturers | AGV | AMR
+                </h1>
+                <p style={{
+                  color: 'white', 
+                  fontSize: '18px', 
+                  marginTop: '0'
+                }}>
+                  From repetitive tasks on the factory floor to activities in Agriculture, Logistics, Hospitality, and more, the use of Autonomous Mobile Robots is changing how business gets done
+                </p>
+              </div>
             </div>
             <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: 0, padding: '40px 6vw 40px 24px' }}>
               <div style={{ width: '100%', maxWidth: 400, background: 'rgba(255,255,255,0.97)', borderRadius: 16, boxShadow: '0 8px 32px rgba(0,0,0,0.10)' }}>
