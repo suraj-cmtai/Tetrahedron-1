@@ -342,6 +342,146 @@ const styles = {
 };
 
 export default function ServiceOrBlogPage({ params }) {
+  // console.log("🚀 Component mounted with slug:", params.slug);
+
+  // const dispatch = useDispatch();
+  // const currentBlog = useSelector(selectCurrentBlog);
+  // const allBlogs = useSelector(selectBlogs);
+  // const blogsLoading = useSelector(selectBlogsLoading);
+  // const blogsError = useSelector(selectBlogsError);
+
+  // const [blogNotFound, setBlogNotFound] = useState(false);
+  // const [debugInfo, setDebugInfo] = useState(null);
+  // const [fallbackType, setFallbackType] = useState(null);
+
+  // // Initialize all hooks at the top level - CRITICAL for preventing hook order issues
+  // const [activeTab, setActiveTab] = useState(0);
+  // const [hoveredFeature, setHoveredFeature] = useState(null);
+  // const [hoveredIndustry, setHoveredIndustry] = useState(null);
+  // const [hoveredCard, setHoveredCard] = useState(null);
+  // const [openFAQs, setOpenFAQs] = useState({});
+  // const [modalOpen, setModalOpen] = useState(false);
+  // const [modalButtonText, setModalButtonText] = useState("");
+
+  // // Determine data source consistently
+  // const data = useMemo(() => {
+  //   // If blogNotFound and fallbackType is set, use the correct fallback
+  //   if (blogNotFound) {
+  //     if (fallbackType === "consultingPages" && consultingPages[params.slug]) {
+  //       return consultingPages[params.slug];
+  //     }
+  //     if (fallbackType === "skillTrainingData" && skillTrainingData[params.slug]) {
+  //       return skillTrainingData[params.slug];
+  //     }
+  //   }
+  //   // Default: try consultingPages, then skillTrainingData
+  //   let d = consultingPages[params.slug];
+  //   if (!d) d = skillTrainingData[params.slug];
+  //   return d;
+  // }, [params.slug, blogNotFound, fallbackType]);
+
+  // // Determine if this is a detailed page
+  // const simpleKeys = ['title', 'img', 'bannerTitle', 'bannerSubtitle', 'bannerDescription', 'content'];
+  // const dataKeys = data ? Object.keys(data) : [];
+  // const isDetailedPage = useMemo(() =>
+  //   data && dataKeys.some(key => !simpleKeys.includes(key) && data[key] !== null && data[key] !== undefined && (typeof data[key] !== 'object' || Object.keys(data[key]).length > 0))
+  // , [data, dataKeys.join(",")]);
+
+  // useEffect(() => {
+  //   console.log("🔄 useEffect triggered for slug:", params.slug);
+
+  //   setFallbackType(null);
+
+  //   const fetchBlogData = async () => {
+  //     console.log("📡 Dispatching fetchBlogBySlug for:", params.slug);
+  //     console.log("📡 API endpoint will be:", `/api/blogs/slug/${params.slug}`);
+
+  //     try {
+  //       setBlogNotFound(false);
+  //       setDebugInfo(null);
+
+  //       // Test the API endpoint directly first
+  //       const directFetch = await fetch(`/api/blogs/slug/${params.slug}`);
+  //       console.log("🔍 Direct fetch response status:", directFetch.status);
+  //       console.log("🔍 Direct fetch response ok:", directFetch.ok);
+
+  //       if (!directFetch.ok) {
+  //         const errorText = await directFetch.text();
+  //         console.error("❌ Direct fetch error response:", errorText);
+  //         setDebugInfo({
+  //           type: 'API_ERROR',
+  //           status: directFetch.status,
+  //           statusText: directFetch.statusText,
+  //           errorText
+  //         });
+  //       } else {
+  //         const directResult = await directFetch.json();
+  //         console.log("✅ Direct fetch success:", directResult);
+  //         setDebugInfo({
+  //           type: 'API_SUCCESS',
+  //           data: directResult
+  //         });
+  //       }
+
+  //       // Now try the Redux dispatch
+  //       const result = await dispatch(fetchBlogBySlug(params.slug)).unwrap();
+  //       console.log("✅ Redux fetchBlogBySlug success:", result);
+  //       setBlogNotFound(false);
+
+  //     } catch (error) {
+  //       console.error("❌ Error in fetchBlogData:", error);
+  //       console.error("❌ Error details:", {
+  //         message: error.message,
+  //         name: error.name,
+  //         stack: error.stack
+  //       });
+  //       setBlogNotFound(true);
+  //       setDebugInfo(prev => ({
+  //         ...prev,
+  //         reduxError: {
+  //           message: error.message,
+  //           name: error.name
+  //         }
+  //       }));
+
+  //       // Fallback logic: set fallbackType for rendering
+  //       if (typeof blogPages !== 'undefined' && blogPages[params.slug]) {
+  //         setFallbackType("blogPages");
+  //       } else if (consultingPages[params.slug]) {
+  //         setFallbackType("consultingPages");
+  //       } else if (skillTrainingData[params.slug]) {
+  //         setFallbackType("skillTrainingData");
+  //       } else {
+  //         setFallbackType("notFound");
+  //       }
+  //     }
+  //   };
+
+  //   // Fetch recent blogs for sidebar
+  //   console.log("📡 Dispatching fetchBlogs for recent blogs");
+  //   dispatch(fetchBlogs({ limit: 10, status: 'published' }));
+
+  //   fetchBlogData();
+  // }, [dispatch, params.slug]);
+
+  // // Debug: log all relevant state
+  // console.log("📊 Redux State Debug:");
+  // console.log("  - currentBlog:", currentBlog);
+  // console.log("  - allBlogs count:", allBlogs?.length || 0);
+  // console.log("  - blogsLoading:", blogsLoading);
+  // console.log("  - blogsError:", blogsError);
+  // console.log("  - blogNotFound:", blogNotFound);
+  // console.log("  - debugInfo:", debugInfo);
+  // console.log("  - fallbackType:", fallbackType);
+
+  // const toggleFAQ = (index) => {
+  //   setOpenFAQs((prev) => ({
+  //     ...prev,
+  //     [index]: !prev[index],
+  //   }));
+  // };
+
+
   console.log("🚀 Component mounted with slug:", params.slug);
 
   const dispatch = useDispatch();
@@ -353,6 +493,7 @@ export default function ServiceOrBlogPage({ params }) {
   const [blogNotFound, setBlogNotFound] = useState(false);
   const [debugInfo, setDebugInfo] = useState(null);
   const [fallbackType, setFallbackType] = useState(null);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   // Initialize all hooks at the top level - CRITICAL for preventing hook order issues
   const [activeTab, setActiveTab] = useState(0);
@@ -363,116 +504,149 @@ export default function ServiceOrBlogPage({ params }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalButtonText, setModalButtonText] = useState("");
 
+  // Improved fallback logic
+  const getFallbackData = (slug) => {
+    console.log("🔍 Checking fallback data for slug:", slug);
+    
+    // Check blogPages first
+    if (typeof blogPages !== 'undefined' && blogPages[slug]) {
+      console.log("✅ Found in blogPages");
+      return { data: blogPages[slug], type: "blogPages" };
+    }
+    
+    // Then consultingPages
+    if (consultingPages && consultingPages[slug]) {
+      console.log("✅ Found in consultingPages");
+      return { data: consultingPages[slug], type: "consultingPages" };
+    }
+    
+    // Then skillTrainingData
+    if (skillTrainingData && skillTrainingData[slug]) {
+      console.log("✅ Found in skillTrainingData");
+      return { data: skillTrainingData[slug], type: "skillTrainingData" };
+    }
+    
+    console.log("❌ Not found in any fallback data");
+    return { data: null, type: "notFound" };
+  };
+
   // Determine data source consistently
   const data = useMemo(() => {
-    // If blogNotFound and fallbackType is set, use the correct fallback
-    if (blogNotFound) {
-      if (fallbackType === "consultingPages" && consultingPages[params.slug]) {
-        return consultingPages[params.slug];
-      }
-      if (fallbackType === "skillTrainingData" && skillTrainingData[params.slug]) {
-        return skillTrainingData[params.slug];
-      }
+    console.log("🔄 Recalculating data with:", { blogNotFound, fallbackType, slug: params.slug });
+    
+    // If we have a current blog from Redux and no error, use it
+    if (currentBlog && !blogNotFound && currentBlog.slug === params.slug) {
+      console.log("✅ Using currentBlog from Redux");
+      return currentBlog;
     }
-    // Default: try consultingPages, then skillTrainingData
-    let d = consultingPages[params.slug];
-    if (!d) d = skillTrainingData[params.slug];
-    return d;
-  }, [params.slug, blogNotFound, fallbackType]);
+    
+    // Otherwise, check fallback data
+    const fallback = getFallbackData(params.slug);
+    return fallback.data;
+  }, [params.slug, currentBlog, blogNotFound, fallbackType]);
 
   // Determine if this is a detailed page
   const simpleKeys = ['title', 'img', 'bannerTitle', 'bannerSubtitle', 'bannerDescription', 'content'];
   const dataKeys = data ? Object.keys(data) : [];
-  const isDetailedPage = useMemo(() =>
-    data && dataKeys.some(key => !simpleKeys.includes(key) && data[key] !== null && data[key] !== undefined && (typeof data[key] !== 'object' || Object.keys(data[key]).length > 0))
-  , [data, dataKeys.join(",")]);
+  const isDetailedPage = useMemo(() => {
+    if (!data) return false;
+    return dataKeys.some(key => 
+      !simpleKeys.includes(key) && 
+      data[key] !== null && 
+      data[key] !== undefined && 
+      (typeof data[key] !== 'object' || (data[key] && Object.keys(data[key]).length > 0))
+    );
+  }, [data, dataKeys]);
 
+  // Main useEffect for fetching blog data
   useEffect(() => {
     console.log("🔄 useEffect triggered for slug:", params.slug);
+    console.log("🔄 Current isInitialized:", isInitialized);
 
+    // Reset states for new slug
+    setBlogNotFound(false);
+    setDebugInfo(null);
     setFallbackType(null);
 
     const fetchBlogData = async () => {
-      console.log("📡 Dispatching fetchBlogBySlug for:", params.slug);
-      console.log("📡 API endpoint will be:", `/api/blogs/slug/${params.slug}`);
+      console.log("📡 Starting fetchBlogData for:", params.slug);
 
       try {
-        setBlogNotFound(false);
-        setDebugInfo(null);
-
         // Test the API endpoint directly first
+        console.log("🔍 Testing direct API call...");
         const directFetch = await fetch(`/api/blogs/slug/${params.slug}`);
         console.log("🔍 Direct fetch response status:", directFetch.status);
-        console.log("🔍 Direct fetch response ok:", directFetch.ok);
 
         if (!directFetch.ok) {
           const errorText = await directFetch.text();
-          console.error("❌ Direct fetch error response:", errorText);
-          setDebugInfo({
-            type: 'API_ERROR',
-            status: directFetch.status,
-            statusText: directFetch.statusText,
-            errorText
-          });
-        } else {
-          const directResult = await directFetch.json();
-          console.log("✅ Direct fetch success:", directResult);
-          setDebugInfo({
-            type: 'API_SUCCESS',
-            data: directResult
-          });
+          console.error("❌ Direct fetch error:", errorText);
+          throw new Error(`API returned ${directFetch.status}: ${errorText}`);
         }
 
+        const directResult = await directFetch.json();
+        console.log("✅ Direct fetch success:", directResult);
+
         // Now try the Redux dispatch
+        console.log("📡 Dispatching Redux action...");
         const result = await dispatch(fetchBlogBySlug(params.slug)).unwrap();
         console.log("✅ Redux fetchBlogBySlug success:", result);
+        
         setBlogNotFound(false);
+        setDebugInfo({
+          type: 'SUCCESS',
+          data: result,
+          timestamp: new Date().toISOString()
+        });
 
       } catch (error) {
         console.error("❌ Error in fetchBlogData:", error);
-        console.error("❌ Error details:", {
-          message: error.message,
-          name: error.name,
-          stack: error.stack
-        });
         setBlogNotFound(true);
-        setDebugInfo(prev => ({
-          ...prev,
-          reduxError: {
+        
+        // Check fallback data and set appropriate type
+        const fallback = getFallbackData(params.slug);
+        setFallbackType(fallback.type);
+        
+        setDebugInfo({
+          type: 'ERROR',
+          error: {
             message: error.message,
             name: error.name
-          }
-        }));
+          },
+          fallbackType: fallback.type,
+          timestamp: new Date().toISOString()
+        });
 
-        // Fallback logic: set fallbackType for rendering
-        if (typeof blogPages !== 'undefined' && blogPages[params.slug]) {
-          setFallbackType("blogPages");
-        } else if (consultingPages[params.slug]) {
-          setFallbackType("consultingPages");
-        } else if (skillTrainingData[params.slug]) {
-          setFallbackType("skillTrainingData");
-        } else {
-          setFallbackType("notFound");
+        // If no fallback data found, trigger 404
+        if (fallback.type === "notFound") {
+          console.log("❌ No fallback data found, will show 404");
         }
+      } finally {
+        setIsInitialized(true);
       }
     };
 
-    // Fetch recent blogs for sidebar
+    // Always fetch recent blogs for sidebar
     console.log("📡 Dispatching fetchBlogs for recent blogs");
     dispatch(fetchBlogs({ limit: 10, status: 'published' }));
 
+    // Execute the main fetch
     fetchBlogData();
-  }, [dispatch, params.slug]);
 
-  // Debug: log all relevant state
-  console.log("📊 Redux State Debug:");
-  console.log("  - currentBlog:", currentBlog);
-  console.log("  - allBlogs count:", allBlogs?.length || 0);
-  console.log("  - blogsLoading:", blogsLoading);
-  console.log("  - blogsError:", blogsError);
-  console.log("  - blogNotFound:", blogNotFound);
-  console.log("  - debugInfo:", debugInfo);
-  console.log("  - fallbackType:", fallbackType);
+  }, [dispatch, params.slug]); // Only depend on dispatch and params.slug
+
+  // Separate useEffect for debugging
+  useEffect(() => {
+    console.log("📊 Redux State Debug:");
+    console.log("  - currentBlog:", currentBlog);
+    console.log("  - allBlogs count:", allBlogs?.length || 0);
+    console.log("  - blogsLoading:", blogsLoading);
+    console.log("  - blogsError:", blogsError);
+    console.log("  - blogNotFound:", blogNotFound);
+    console.log("  - debugInfo:", debugInfo);
+    console.log("  - fallbackType:", fallbackType);
+    console.log("  - isInitialized:", isInitialized);
+    console.log("  - data:", data ? "Found" : "Not found");
+  }, [currentBlog, allBlogs, blogsLoading, blogsError, blogNotFound, debugInfo, fallbackType, isInitialized, data]);
 
   const toggleFAQ = (index) => {
     setOpenFAQs((prev) => ({
@@ -480,6 +654,27 @@ export default function ServiceOrBlogPage({ params }) {
       [index]: !prev[index],
     }));
   };
+
+  // Show loading state while initializing
+  if (!isInitialized) {
+    return (
+      <Layout>
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p>Loading...</p>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
+  // Show 404 if no data found anywhere
+  if (!data && fallbackType === "notFound") {
+    console.log("❌ Triggering 404 - no data found");
+    notFound();
+    return null;
+  }
 
   // Enhanced getIcon to handle styling within wrapper
   const getIcon = (iconName, size = 28) => {
