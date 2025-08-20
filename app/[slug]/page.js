@@ -80,7 +80,7 @@ const styles = {
   },
    featureCardContent: { // New style for text content alignment
     paddingLeft: '40px', // Indent text relative to icon
-    textAlign: 'justify',
+    textAlign: 'left',
   },
   pillarsTab: {
     backgroundColor: "#f8f9fa",
@@ -88,7 +88,7 @@ const styles = {
     borderRadius: "0.25rem",
     padding: "1rem",
     height: "100%",
-    textAlign: "justify",
+    textAlign: "left",
     fontWeight: "500",
     borderBottom: 'none', // Remove individual bottom borders initially
     borderBottomRightRadius: 0, // Ensure square corners for stacking
@@ -211,7 +211,7 @@ const styles = {
   comparisonTableThTd: {
     borderBottom: '1px solid #dee2e6', // Horizontal lines only
     padding: '0.85rem 1rem', // Adjust padding
-    textAlign: 'justify',
+    textAlign: 'left',
     verticalAlign: 'top',
   },
    comparisonTableTh: {
@@ -327,7 +327,7 @@ const styles = {
   comparisonPointsTh: {
     border: '1px solid #dee2e6',
     padding: '0.75rem',
-    textAlign: 'justify',
+    textAlign: 'left',
     backgroundColor: '#e9ecef',
     fontWeight: '600',
     width: '25%', // Approx width for Feature column
@@ -335,7 +335,7 @@ const styles = {
   comparisonPointsTd: {
     border: '1px solid #dee2e6',
     padding: '0.75rem',
-    textAlign: 'justify',
+    textAlign: 'left',
     verticalAlign: 'top',
     width: '37.5%', // Approx width for Dojo columns
   },
