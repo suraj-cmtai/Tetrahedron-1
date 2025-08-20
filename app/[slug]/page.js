@@ -1,5 +1,3 @@
-// --- START OF FILE page.js ---
-
 "use client";
 
 import { consultingPages, skillTrainingData } from "@/lib/servicesData"; // Add skillTrainingData import
@@ -7,7 +5,9 @@ import { blogPages, recentBlogs } from "@/lib/blogData";
 import { notFound } from "next/navigation";
 import Layout from "@/components/layout/Layout";
 import BlogDetails from "@/components/BlogDetails";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBlogBySlug, fetchBlogs, selectCurrentBlog, selectBlogs, selectBlogsLoading, selectBlogsError } from "@/lib/store/blogSlice";
 import * as Icons from "lucide-react";
 import ContactFormModal from "@/components/ContactFormModal";
 import ContactForm from "@/components/ContactForm";
@@ -342,11 +342,158 @@ const styles = {
 };
 
 export default function ServiceOrBlogPage({ params }) {
-  // If the slug matches a blog, render BlogDetails
-  if (blogPages[params.slug]) {
+  // --- Blog Page Logic using Redux Slice Only (no blogPages fallback) ---
+  console.log("🚀 Component mounted with slug:", params.slug);
+
+  const dispatch = useDispatch();
+  const currentBlog = useSelector(selectCurrentBlog);
+  const allBlogs = useSelector(selectBlogs);
+  const blogsLoading = useSelector(selectBlogsLoading);
+  const blogsError = useSelector(selectBlogsError);
+
+  const [blogNotFound, setBlogNotFound] = useState(false);
+  const [debugInfo, setDebugInfo] = useState(null);
+
+  useEffect(() => {
+    console.log("🔄 useEffect triggered for slug:", params.slug);
+    
+    const fetchBlogData = async () => {
+      console.log("📡 Dispatching fetchBlogBySlug for:", params.slug);
+      console.log("📡 API endpoint will be:", `/api/blogs/slug/${params.slug}`);
+      
+      try {
+        setBlogNotFound(false);
+        setDebugInfo(null);
+        
+        // Test the API endpoint directly first
+        const directFetch = await fetch(`/api/blogs/slug/${params.slug}`);
+        console.log("🔍 Direct fetch response status:", directFetch.status);
+        console.log("🔍 Direct fetch response ok:", directFetch.ok);
+        
+        if (!directFetch.ok) {
+          const errorText = await directFetch.text();
+          console.error("❌ Direct fetch error response:", errorText);
+          setDebugInfo({
+            type: 'API_ERROR',
+            status: directFetch.status,
+            statusText: directFetch.statusText,
+            errorText
+          });
+        } else {
+          const directResult = await directFetch.json();
+          console.log("✅ Direct fetch success:", directResult);
+          setDebugInfo({
+            type: 'API_SUCCESS',
+            data: directResult
+          });
+        }
+
+        // Now try the Redux dispatch
+        const result = await dispatch(fetchBlogBySlug(params.slug)).unwrap();
+        console.log("✅ Redux fetchBlogBySlug success:", result);
+        setBlogNotFound(false);
+        
+      } catch (error) {
+        console.error("❌ Error in fetchBlogData:", error);
+        console.error("❌ Error details:", {
+          message: error.message,
+          name: error.name,
+          stack: error.stack
+        });
+        setBlogNotFound(true);
+        setDebugInfo(prev => ({
+          ...prev,
+          reduxError: {
+            message: error.message,
+            name: error.name
+          }
+        }));
+      }
+    };
+
+    // Fetch recent blogs for sidebar
+    console.log("📡 Dispatching fetchBlogs for recent blogs");
+    dispatch(fetchBlogs({ limit: 10, status: 'published' }));
+    
+    fetchBlogData();
+  }, [dispatch, params.slug]);
+
+  // Debug: log all relevant state
+  console.log("📊 Redux State Debug:");
+  console.log("  - currentBlog:", currentBlog);
+  console.log("  - allBlogs count:", allBlogs?.length || 0);
+  console.log("  - blogsLoading:", blogsLoading);
+  console.log("  - blogsError:", blogsError);
+  console.log("  - blogNotFound:", blogNotFound);
+  console.log("  - debugInfo:", debugInfo);
+
+  
+
+
+  // Loading state
+  if (blogsLoading && !blogNotFound) {
+    console.log("🔄 Rendering loading state");
+    return (
+      <Layout>
+        <div
+          className="container py-5"
+          style={{
+            minHeight: "60vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <div className="text-center">
+            <div className="spinner-border" role="status">
+              <span className="sr-only">Loading...</span>
+            </div>
+            <p className="mt-3">Loading blog...</p>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
+  // Success: Found blog from Redux
+  if (currentBlog && !blogNotFound) {
+    const recentBlogsData = allBlogs
+      .filter(blog => blog._id !== currentBlog._id && blog.status === 'published')
+      .slice(0, 4)
+      .map(blog => ({
+        slug: blog.slug || blog._id,
+        title: blog.title,
+        image: blog.image?.url
+      }));
+
+    console.log("✅ Rendering BlogDetails with currentBlog");
+    return (
+      <Layout>
+        <BlogDetails blog={currentBlog} recentBlogs={recentBlogsData} />
+      </Layout>
+    );
+  }
+
+  // Fallback to static blog data (if available)
+  if (blogNotFound && typeof blogPages !== 'undefined' && blogPages[params.slug]) {
+    console.log("📝 Using static fallback for:", params.slug);
     return (
       <Layout>
         <BlogDetails blog={blogPages[params.slug]} recentBlogs={recentBlogs} />
+      </Layout>
+    );
+  }
+  // If loading blogs, show loading state
+  if (blogsLoading && !blogNotFound) {
+    return (
+      <Layout>
+        <div className="container py-5">
+          <div className="text-center">
+            <h2>Blog Not Found</h2>
+            <p>Sorry, we couldn't find a blog post for <strong>{params.slug}</strong>.</p>
+            {blogsError && <div className="alert alert-danger mt-3">{blogsError}</div>}
+          </div>
+        </div>
       </Layout>
     );
   }
@@ -1288,5 +1435,3 @@ export default function ServiceOrBlogPage({ params }) {
     </Layout>
   );
 }
-
-// --- END OF FILE page.js ---

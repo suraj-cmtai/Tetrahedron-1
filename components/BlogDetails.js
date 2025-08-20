@@ -1,6 +1,8 @@
+// components/BlogDetails.js
 import React, { useRef, useState } from "react";
 import ContactFormModal from "./ContactFormModal";
 import Link from "next/link";
+import ContactForm from "./ContactForm";
 
 export default function BlogDetails({ blog, recentBlogs }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -203,6 +205,12 @@ export default function BlogDetails({ blog, recentBlogs }) {
           )}
         </div>
       </div>
+      {/* {ContactForm} */}
+      {/* <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", margin: "32px 0" }}>
+        <div style={{ width: "100%", maxWidth: 400, background: "rgba(255,255,255,0.97)", borderRadius: 16, boxShadow: "0 8px 32px rgba(0,0,0,0.10)", padding: 24 }}>
+          <ContactForm buttonText="Contact Us" />
+        </div>
+      </div> */}
       {/* Main Content */}
       <div
         className="container"
@@ -211,7 +219,7 @@ export default function BlogDetails({ blog, recentBlogs }) {
       >
         {/* Blog Content */}
         <div style={{ flex: 3, minWidth: 0 }}>
-          {blog.image && renderImage(blog.image, blog.title, true)}
+          {blog.image && renderImage(blog.image.url || blog.image , blog.title, true)}
           {blog.sections && blog.sections.map((section, idx) => {
             let ctaToRender = null;
             let content = [];
@@ -228,14 +236,14 @@ export default function BlogDetails({ blog, recentBlogs }) {
                 // In mobile, image above content
                 content.push(
                   <div key={`img-content-${idx}`} style={{ width: "100%", marginBottom: 12 }}>
-                    {renderImage(section.image, undefined, false, undefined)}
+                    {renderImage(section.image.url || section.image , undefined, false, undefined)}
                   </div>
                 );
               } else {
                 // Desktop: image beside content
                 content.push(
                   <div key={`img-content-${idx}`} style={{ overflow: "auto", minHeight: 120 }}>
-                    {renderImage(section.image, undefined, false, floatDir)}
+                    {renderImage(section.image.url || section.image , undefined, false, floatDir)}
                     <div style={{ overflow: "hidden" }}>
                       {/* Content paragraphs will be rendered below */}
                     </div>
@@ -253,7 +261,7 @@ export default function BlogDetails({ blog, recentBlogs }) {
                   // Desktop: paragraphs beside image
                   content[content.length - 1] = (
                     <div key={`img-content-${idx}`} style={{ overflow: "auto", minHeight: 120 }}>
-                      {renderImage(section.image, undefined, false, imageFloatDirection % 2 === 1 ? "left" : "right")}
+                      {renderImage(section.image.url  || section.image , undefined, false, imageFloatDirection % 2 === 1 ? "left" : "right")}
                       <div style={{ overflow: "hidden" }}>
                         {section.content.map((para, i) => renderParagraph(para, `para-${idx}-${i}`))}
                       </div>
@@ -317,13 +325,78 @@ export default function BlogDetails({ blog, recentBlogs }) {
           )}
         </div>
         {/* Sidebar */}
-        <aside ref={sidebarRef} style={{ flex: 1, minWidth: 260, maxWidth: 320 }}>
-          <div style={{ background: "#f5f7fa", borderRadius: 12, padding: 24, marginBottom: 32 }}>
+        <aside
+          ref={sidebarRef}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 32,
+            flex: 1,
+            minWidth: 260,
+            maxWidth: 420,
+            position: "sticky",
+            top: 32,
+            alignSelf: "flex-start",
+            zIndex: 3,
+            height: "fit-content"
+          }}
+        >
+          {/* Contact Form - wider and sticky (now handled by sticky aside) */}
+          <div
+            ref={node => {
+              if (node) {
+                node.style.setProperty("background", "#f5f7fa", "important");
+                node.style.setProperty("borderRadius", "12px", "important");
+                node.style.setProperty("marginBottom", "32px", "important");
+                node.style.setProperty("width", "100%", "important");
+                node.style.setProperty("maxWidth", "420px", "important");
+                node.style.setProperty("alignSelf", "stretch", "important");
+                node.style.setProperty("boxSizing", "border-box", "important");
+                node.style.setProperty("position", "sticky", "important");
+                node.style.setProperty("top", "32px", "important");
+                node.style.setProperty("zIndex", "2", "important");
+              }
+            }}
+          >
+            <h3
+              ref={node => {
+                if (node) {
+                  node.style.setProperty("font-family", "var(--font-poppins)", "important");
+                  node.style.setProperty("fontWeight", "700", "important");
+                  node.style.setProperty("fontSize", "24px", "important");
+                  node.style.setProperty("marginBottom", "20px", "important");
+                  node.style.setProperty("textAlign", "center", "important");
+                }
+              }}
+            >
+              Contact Us
+            </h3>
+            <ContactForm />
+          </div>
+          {/* Recent Blogs - narrower */}
+          <div
+            ref={node => {
+              if (node) {
+                node.style.setProperty("background", "#f5f7fa", "important");
+                node.style.setProperty("borderRadius", "12px", "important");
+                node.style.setProperty("padding", "24px", "important");
+                node.style.setProperty("width", "100%", "important");
+                node.style.setProperty("maxWidth", "320px", "important");
+                node.style.setProperty("alignSelf", "flex-start", "important");
+                node.style.setProperty("boxSizing", "border-box", "important");
+                node.style.setProperty("position", "sticky", "important");
+                node.style.setProperty("top", "340px", "important"); // below contact form
+                node.style.setProperty("zIndex", "1", "important");
+              }
+            }}
+          >
             <h3
               ref={node => {
                 if (node) node.style.setProperty("font-family", "var(--font-poppins)", "important");
+                if (node) node.style.setProperty("fontWeight", "700", "important");
+                if (node) node.style.setProperty("fontSize", "22px", "important");
+                if (node) node.style.setProperty("marginBottom", "20px", "important");
               }}
-              style={{ fontWeight: 700, fontSize: 22, marginBottom: 20 }}
             >
               Recent Blogs
             </h3>
@@ -331,7 +404,7 @@ export default function BlogDetails({ blog, recentBlogs }) {
               {recentBlogs && recentBlogs.slice(0, 4).map((b, i) => (
                 <li key={b.slug} style={{ marginBottom: 18, display: "flex", alignItems: "center" }}>
                   {b.image && (
-                    <img src={b.image} alt={b.title} style={{ width: 56, height: 56, objectFit: "cover", borderRadius: 8, marginRight: 12 }} />
+                    <img src={b.image.url  || b.image } alt={b.title} style={{ width: 56, height: 56, objectFit: "cover", borderRadius: 8, marginRight: 12 }} />
                   )}
                   <div>
                     <Link href={`/${b.slug}`} style={{ color: "#0a2c5e", fontWeight: 600, textDecoration: "none", fontSize: 16 }}>

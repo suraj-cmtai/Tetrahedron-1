@@ -781,7 +781,7 @@ export default function AdminBlogDashboard() {
           <tbody>
             {loading ? (
               <tr>
-                <td colSpan={9} style={styles.td}>Loading...</td>
+                <td colSpan={9} style={{ ...styles.td, textAlign: 'center' }}>Loading...</td>
               </tr>
             ) : blogs.length === 0 ? (
               <tr>

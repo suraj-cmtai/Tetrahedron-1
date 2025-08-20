@@ -68,7 +68,7 @@ export const fetchBlogs = createAsyncThunk(
 export const fetchBlogBySlug = createAsyncThunk(
   'blogs/fetchBlogBySlug',
   async (slug: string) => {
-    const response = await fetch(`/api/blogs/${slug}`);
+    const response = await fetch(`/api/blogs/slug/${slug}`);
     if (!response.ok) {
       throw new Error('Failed to fetch blog');
     }

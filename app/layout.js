@@ -26,7 +26,9 @@ export default function RootLayout({ children }) {
                 <link rel="stylesheet" href="/assets/css/elitecons-responsive.css" />
             </head>
             <body className={poppins.className} style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.6' }}>
-                <ReduxProvider> {children} </ReduxProvider>
+                <ReduxProvider> 
+                {children}
+                </ReduxProvider>
             </body>
         </html>
     );
