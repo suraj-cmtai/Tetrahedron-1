@@ -80,7 +80,7 @@ const styles = {
   },
    featureCardContent: { // New style for text content alignment
     paddingLeft: '40px', // Indent text relative to icon
-    textAlign: 'left',
+    textAlign: 'justify',
   },
   pillarsTab: {
     backgroundColor: "#f8f9fa",
@@ -88,7 +88,7 @@ const styles = {
     borderRadius: "0.25rem",
     padding: "1rem",
     height: "100%",
-    textAlign: "left",
+    textAlign: "justify",
     fontWeight: "500",
     borderBottom: 'none', // Remove individual bottom borders initially
     borderBottomRightRadius: 0, // Ensure square corners for stacking
@@ -211,7 +211,7 @@ const styles = {
   comparisonTableThTd: {
     borderBottom: '1px solid #dee2e6', // Horizontal lines only
     padding: '0.85rem 1rem', // Adjust padding
-    textAlign: 'left',
+    textAlign: 'justify',
     verticalAlign: 'top',
   },
    comparisonTableTh: {
@@ -327,7 +327,7 @@ const styles = {
   comparisonPointsTh: {
     border: '1px solid #dee2e6',
     padding: '0.75rem',
-    textAlign: 'left',
+    textAlign: 'justify',
     backgroundColor: '#e9ecef',
     fontWeight: '600',
     width: '25%', // Approx width for Feature column
@@ -335,7 +335,7 @@ const styles = {
   comparisonPointsTd: {
     border: '1px solid #dee2e6',
     padding: '0.75rem',
-    textAlign: 'left',
+    textAlign: 'justify',
     verticalAlign: 'top',
     width: '37.5%', // Approx width for Dojo columns
   },
@@ -1396,7 +1396,7 @@ export default function ServiceOrBlogPage({ params }) {
                         <div className="row g-4 justify-content-center">
                             {data.coreConcepts.items.map((concept, index) => (
                                 <div key={index} className="col-md-6">
-                                    <div style={{...styles.infoCard, textAlign: 'left'}}>
+                                    <div style={{...styles.infoCard, textAlign: 'justify'}}>
                                         {concept.icon && getIcon(concept.icon)}
                                         <h5 style={styles.infoCardTitle}>{concept.title}</h5>
                                         {concept.desc && <p style={styles.infoCardText}>{concept.desc}</p>}

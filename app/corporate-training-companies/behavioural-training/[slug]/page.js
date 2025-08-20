@@ -232,7 +232,7 @@ export default function TrainingPage({ params }) {
             color: currentTheme.primary, // Use theme color
             width: '20px', height: '20px',
         },
-        listStyleBase: { listStyle: 'none', paddingLeft: 0, maxWidth: '850px', margin: '1.5rem auto', textAlign: 'left' },
+        listStyleBase: { listStyle: 'none', paddingLeft: 0, maxWidth: '850px', margin: '1.5rem auto', textAlign: 'justify' },
         listItemBase: {
             marginBottom: '0.8rem', display: 'flex', alignItems: 'flex-start',
             fontSize: '1.05rem', color: currentTheme.textPrimary || '#334155', // Use theme color
