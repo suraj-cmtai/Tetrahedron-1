@@ -238,6 +238,8 @@ const blogSlice = createSlice({
       .addCase(fetchBlogBySlug.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || 'Failed to fetch blog';
+        state.currentBlog  = null;
+
       })
 
     // Create Blog
