@@ -5,7 +5,7 @@ import { blogPages, recentBlogs } from "@/lib/blogData";
 import { notFound } from "next/navigation";
 import Layout from "@/components/layout/Layout";
 import BlogDetails from "@/components/BlogDetails";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBlogBySlug, fetchBlogs, selectCurrentBlog, selectBlogs, selectBlogsLoading, selectBlogsError } from "@/lib/store/blogSlice";
 import * as Icons from "lucide-react";
@@ -342,7 +342,6 @@ const styles = {
 };
 
 export default function ServiceOrBlogPage({ params }) {
-  // --- Blog Page Logic using Redux Slice Only (no blogPages fallback) ---
   console.log("🚀 Component mounted with slug:", params.slug);
 
   const dispatch = useDispatch();
@@ -353,23 +352,59 @@ export default function ServiceOrBlogPage({ params }) {
 
   const [blogNotFound, setBlogNotFound] = useState(false);
   const [debugInfo, setDebugInfo] = useState(null);
+  const [fallbackType, setFallbackType] = useState(null);
+
+  // Initialize all hooks at the top level - CRITICAL for preventing hook order issues
+  const [activeTab, setActiveTab] = useState(0);
+  const [hoveredFeature, setHoveredFeature] = useState(null);
+  const [hoveredIndustry, setHoveredIndustry] = useState(null);
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const [openFAQs, setOpenFAQs] = useState({});
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalButtonText, setModalButtonText] = useState("");
+
+  // Determine data source consistently
+  const data = useMemo(() => {
+    // If blogNotFound and fallbackType is set, use the correct fallback
+    if (blogNotFound) {
+      if (fallbackType === "consultingPages" && consultingPages[params.slug]) {
+        return consultingPages[params.slug];
+      }
+      if (fallbackType === "skillTrainingData" && skillTrainingData[params.slug]) {
+        return skillTrainingData[params.slug];
+      }
+    }
+    // Default: try consultingPages, then skillTrainingData
+    let d = consultingPages[params.slug];
+    if (!d) d = skillTrainingData[params.slug];
+    return d;
+  }, [params.slug, blogNotFound, fallbackType]);
+
+  // Determine if this is a detailed page
+  const simpleKeys = ['title', 'img', 'bannerTitle', 'bannerSubtitle', 'bannerDescription', 'content'];
+  const dataKeys = data ? Object.keys(data) : [];
+  const isDetailedPage = useMemo(() =>
+    data && dataKeys.some(key => !simpleKeys.includes(key) && data[key] !== null && data[key] !== undefined && (typeof data[key] !== 'object' || Object.keys(data[key]).length > 0))
+  , [data, dataKeys.join(",")]);
 
   useEffect(() => {
     console.log("🔄 useEffect triggered for slug:", params.slug);
-    
+
+    setFallbackType(null);
+
     const fetchBlogData = async () => {
       console.log("📡 Dispatching fetchBlogBySlug for:", params.slug);
       console.log("📡 API endpoint will be:", `/api/blogs/slug/${params.slug}`);
-      
+
       try {
         setBlogNotFound(false);
         setDebugInfo(null);
-        
+
         // Test the API endpoint directly first
         const directFetch = await fetch(`/api/blogs/slug/${params.slug}`);
         console.log("🔍 Direct fetch response status:", directFetch.status);
         console.log("🔍 Direct fetch response ok:", directFetch.ok);
-        
+
         if (!directFetch.ok) {
           const errorText = await directFetch.text();
           console.error("❌ Direct fetch error response:", errorText);
@@ -392,7 +427,7 @@ export default function ServiceOrBlogPage({ params }) {
         const result = await dispatch(fetchBlogBySlug(params.slug)).unwrap();
         console.log("✅ Redux fetchBlogBySlug success:", result);
         setBlogNotFound(false);
-        
+
       } catch (error) {
         console.error("❌ Error in fetchBlogData:", error);
         console.error("❌ Error details:", {
@@ -408,13 +443,24 @@ export default function ServiceOrBlogPage({ params }) {
             name: error.name
           }
         }));
+
+        // Fallback logic: set fallbackType for rendering
+        if (typeof blogPages !== 'undefined' && blogPages[params.slug]) {
+          setFallbackType("blogPages");
+        } else if (consultingPages[params.slug]) {
+          setFallbackType("consultingPages");
+        } else if (skillTrainingData[params.slug]) {
+          setFallbackType("skillTrainingData");
+        } else {
+          setFallbackType("notFound");
+        }
       }
     };
 
     // Fetch recent blogs for sidebar
     console.log("📡 Dispatching fetchBlogs for recent blogs");
     dispatch(fetchBlogs({ limit: 10, status: 'published' }));
-    
+
     fetchBlogData();
   }, [dispatch, params.slug]);
 
@@ -426,9 +472,66 @@ export default function ServiceOrBlogPage({ params }) {
   console.log("  - blogsError:", blogsError);
   console.log("  - blogNotFound:", blogNotFound);
   console.log("  - debugInfo:", debugInfo);
+  console.log("  - fallbackType:", fallbackType);
 
-  
+  const toggleFAQ = (index) => {
+    setOpenFAQs((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
 
+  // Enhanced getIcon to handle styling within wrapper
+  const getIcon = (iconName, size = 28) => {
+    const IconComponent = Icons[iconName];
+    return IconComponent ? (
+        <span style={styles.iconWrapper}>
+            <IconComponent size={size} />
+        </span>
+     ) : null;
+  };
+
+  // Centralized Title Rendering
+  const renderSectionTitle = (title) => (
+    <h2 className="text-center" style={styles.sectionTitle}>
+      {title}
+      <span style={styles.sectionTitleAfter}></span>
+    </h2>
+  );
+
+  // Helper to render paragraphs from text with newlines
+  const renderParagraphs = (text, style = {}) => {
+      if (!text || typeof text !== 'string') return null;
+      return text.split('\n').map((paragraph, index) => (
+          <p key={index} className="mb-3" style={style}>
+              {paragraph.trim()}
+          </p>
+      ));
+  }
+
+  // Helper to render a standard CTA button with modal functionality
+  const renderCtaButton = (text, href = "#") => (
+     <a
+      href={href}
+      className="btn"
+      style={styles.ctaButton}
+      onMouseEnter={(e) => Object.assign(e.currentTarget.style, styles.ctaButton, styles.ctaButtonHover)}
+      onMouseLeave={(e) => Object.assign(e.currentTarget.style, styles.ctaButton)}
+      onClick={(e) => {
+        e.preventDefault();
+        setModalButtonText(text || "Learn More");
+        setModalOpen(true);
+      }}
+    >
+      {text || "Learn More"}
+    </a>
+  );
+
+  // Helper to check if an array is non-empty
+  const isNonEmptyArray = (arr) => Array.isArray(arr) && arr.length > 0;
+
+  // Helper to check if a string is non-empty
+  const isNonEmptyString = (str) => typeof str === 'string' && str.trim() !== '';
 
   // Loading state
   if (blogsLoading && !blogNotFound) {
@@ -475,7 +578,7 @@ export default function ServiceOrBlogPage({ params }) {
   }
 
   // Fallback to static blog data (if available)
-  if (blogNotFound && typeof blogPages !== 'undefined' && blogPages[params.slug]) {
+  if (blogNotFound && fallbackType === "blogPages" && typeof blogPages !== 'undefined' && blogPages[params.slug]) {
     console.log("📝 Using static fallback for:", params.slug);
     return (
       <Layout>
@@ -483,6 +586,7 @@ export default function ServiceOrBlogPage({ params }) {
       </Layout>
     );
   }
+
   // If loading blogs, show loading state
   if (blogsLoading && !blogNotFound) {
     return (
@@ -498,84 +602,15 @@ export default function ServiceOrBlogPage({ params }) {
     );
   }
 
-  // Otherwise, render the existing ServicePage logic
-  let data = consultingPages[params.slug];
-  if (!data) {
-    data = skillTrainingData[params.slug];
+  // If blogNotFound and fallbackType is notFound, show notFound
+  if (blogNotFound && fallbackType === "notFound") {
+    return notFound();
+  }
+
+  // If no data found at all, return not found
   if (!data) return notFound();
-  }
+
   console.log(data.img,"this is new data");
-  // Determine if this is a detailed page (has more sections) or a simple one
-  const simpleKeys = ['title', 'img', 'bannerTitle', 'bannerSubtitle', 'bannerDescription', 'content'];
-  const dataKeys = Object.keys(data);
-  const isDetailedPage = dataKeys.some(key => !simpleKeys.includes(key) && data[key] !== null && data[key] !== undefined && (typeof data[key] !== 'object' || Object.keys(data[key]).length > 0)); // Added check for empty objects
-
-  const [activeTab, setActiveTab] = useState(0);
-  const [hoveredFeature, setHoveredFeature] = useState(null);
-  const [hoveredIndustry, setHoveredIndustry] = useState(null);
-  const [hoveredCard, setHoveredCard] = useState(null);
-  const [openFAQs, setOpenFAQs] = useState({});
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalButtonText, setModalButtonText] = useState("");
-
-  const toggleFAQ = (index) => {
-    setOpenFAQs((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
-
-  // Enhanced getIcon to handle styling within wrapper
-  const getIcon = (iconName, size = 28) => {
-    const IconComponent = Icons[iconName];
-    return IconComponent ? (
-        <span style={styles.iconWrapper}>
-            <IconComponent size={size} />
-        </span>
-     ) : null;
-  };
-
-  // Centralized Title Rendering
-  const renderSectionTitle = (title) => (
-    <h2 className="text-center" style={styles.sectionTitle}>
-      {title}
-      <span style={styles.sectionTitleAfter}></span>
-    </h2>
-  );
-
-  // Helper to render paragraphs from text with newlines
-  const renderParagraphs = (text, style = {}) => {
-      if (!text || typeof text !== 'string') return null; // Added type check
-      return text.split('\n').map((paragraph, index) => (
-          <p key={index} className="mb-3" style={style}>
-              {paragraph.trim()}
-          </p>
-      ));
-  }
-
-  // Helper to render a standard CTA button with modal functionality
-  const renderCtaButton = (text, href = "#") => (
-     <a
-      href={href}
-      className="btn"
-      style={styles.ctaButton}
-      onMouseEnter={(e) => Object.assign(e.currentTarget.style, styles.ctaButton, styles.ctaButtonHover)}
-      onMouseLeave={(e) => Object.assign(e.currentTarget.style, styles.ctaButton)}
-      onClick={(e) => {
-        e.preventDefault();
-        setModalButtonText(text || "Learn More");
-        setModalOpen(true);
-      }}
-    >
-      {text || "Learn More"}
-    </a>
-  );
-
-  // Helper to check if an array is non-empty
-  const isNonEmptyArray = (arr) => Array.isArray(arr) && arr.length > 0;
-
-  // Helper to check if a string is non-empty
-  const isNonEmptyString = (str) => typeof str === 'string' && str.trim() !== '';
 
   return (
     <Layout>
