@@ -127,7 +127,13 @@ export default function Home() {
                                             <img 
                                                 src={blog.image?.url || '/assets/images/blog/default-blog.jpg'} 
                                                 alt={blog.image?.alt || blog.title} 
-                                                className="main-img"
+                                                className="main-img" 
+                                                style={{ width: "100%", height: "250px", objectFit: "cover" }}
+                                            />
+                                            <img 
+                                                src={blog.image?.url || '/assets/images/blog/default-blog.jpg'} 
+                                                alt={blog.image?.alt || blog.title} 
+                                                className="hover-img" 
                                                 style={{ width: "100%", height: "250px", objectFit: "cover" }}
                                             />
                                             <Link href={getBlogLink(blog)} className="blog-one__link">
