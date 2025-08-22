@@ -123,20 +123,28 @@ export default function ConsultingPage() {
           <h1>Objective of Operational Excellence in Manufacturing</h1>
           <div className={styles.objectiveCardContainer}>
             {[
-              "Employee Engagement",
-              "Profitability Improvement",
-              "Business Sustenance",
-            ].map((title, index) => (
+              {
+                title: "Employee Engagement",
+                img: "/images/10.jpg",
+              },
+              {
+                title: "Profitability Improvement",
+                img: "/images/11.jpg",
+              },
+              {
+                title: "Business Sustenance",
+                img: "/images/12.jpg",
+              },
+            ].map((item, index) => (
               <div key={index} className={styles.objectiveCardWrapper}>
                 <div className={styles.objectiveCard}>
                   <img
-                    src="/images/11.jpg"
-                    alt="Objective Image"
-                    // style={{maxWidth:'500px'}}
+                    src={item.img}
+                    alt={item.title}
                   />
                 </div>
                 <div className={styles.objectiveCardText}>
-                  <h5>{title}</h5>
+                  <h5>{item.title}</h5>
                 </div>
               </div>
             ))}
