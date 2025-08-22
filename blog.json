@@ -129,6 +129,7 @@
     "image": "/images/blog/value-stream-mapping-1.jpg",
     "sections": [
       {
+        "heading": "Value Stream Mapping: The New Age of Manufacturing Efficiency",
         "content": [
           "The new age of manufacturing needs maximum efficiency in the history of mankind, serving the customers better than ever, and making employees more empowered, predictive, and satisfied. The main key factor behind this magical achievement that we have today is the Value Stream Mapping.",
           "If you're a manufacturer and want your team to be productive, this can change your game forever. In this blog, we will cover everything about Value Stream Mapping (VSM), including how it can benefit your organization and the Value Stream Mapping tools you can use to implement it effectively.",
@@ -276,6 +277,7 @@
     "image": "/images/blog/agv-manufacturers-in-india.jpg",
     "sections": [
       {
+        "heading": "What is AGV & How it is benefiting Indian Manufacturers?",
         "content": [
           "We are living under the governance of Narendra Modi and his digital India vision made everything digitized and automated, and so has manufacturing equipment.",
           "That is why companies always look for ways to increase their operations, save money, and improve safety. To optimize operations more and more, businesses are turning to automation and incorporating automated guided vehicles into their workflow.",
@@ -554,6 +556,7 @@
     "image": "/images/blog/5s-methodology-1.jpg",
     "sections": [
       {
+        "heading": "Introduction to 5S Methodology",
         "content": [
           "5S Methodology is first introduced by the Toyota Production System and main motive to adopt this technique is to organize workplace in the form of clean, protective environment, well structured that result in high productivity and reduce waste.",
           "Simply 5S methodology in the fast-evolving world of contemporary production rises as a revolutionizing factor. Developed on five centralized Japanese principles—Seiri, Seiton, Seiso, Seiketsu and Shitsuke-5S provides strategic templates to facilitate operational efficiency and minimise waste. Now, let us dive into these five pillars that define efficiency in the manufacturing playfield."
@@ -627,6 +630,7 @@
     "title": "Safety Dojo | How Safety Dojo will help in workers' safety?",
     "sections": [
       {
+        "heading": "What is Safety Dojo?",
         "content": [
           "'Full Form of Dojo is, the character 'DO' refers to the way' & the character 'JO' refers to the place.",
           "Generally the phrase Safety dojo meant to be a combination of safety and dojo where safety refers to the practice of ensuring well being and preventing harm. And Dojo is an old Japanese word which refers to a martial arts training hall or a place of learning and sharing. But if we combine both words and make a sensible term 'Safety Dojo' in automation industry then it is related to a training hall or education hall where we educate industrial workers for safety skills with the help of simulation of accidents.",
@@ -718,6 +722,7 @@
         ]
       },
       {
+        "heading": "Did you know that a good planning of your Plant Layout can give you more utilisation of space and resources, overall increase your productivity and profit.",
         "content": [
           "Did you know that a good planning of your Plant Layout can give you more utilisation of space and resources, overall increase your productivity and profit.",
           "When we talk about running any manufacturing company there are a lot of factors to consider. As Owner or Top management, you're probably looking for ways to increase your productivity and profitability."
@@ -928,6 +933,7 @@
         ]
       },
       {
+        "heading": "Factors to consider when choosing Plant Layout",
         "content": [
           "Here We discuss types of Plant Layout and their advantages & disadvantages after reading that you can be confused to choose the perfect layout  for your Plant so, let's discuss the factors you need to keep in mind when choosing layout for your plant."
         ]
@@ -1122,6 +1128,7 @@
     "image": "/images/blog/achieve-manufacturing-excellence-0.jpg",
     "sections": [
       {
+        "heading": "Best Practices and Strategies for Achieving Manufacturing Excellence",
         "content": [
           "Do you know that the right decisions and plannings for your operations and production strategies by streamlining processes, process understanding, risk-based thinking and maximizing efficiency can help you to meet the ever-growing market demands while reducing costs.",
           "There are some different practices and strategies to achieve manufacturing excellence. Let firstly know in depth what is meant by manufacturing excellence."
@@ -1235,6 +1242,7 @@
     "image": "/images/blog/unleashing-the-power-of-kaizen-0.jpg",
     "sections": [
       {
+        "heading": "Boosting Productivity in Manufacturing Industries: Unleashing the Power of Kaizen",
         "content": [
           "By incorporating Kaizen principles into their manufacturing processes, companies can experience a remarkable boost in productivity and overall performance. This blog aims to shed light on the benefits of Kaizen, exploring how it improves processes and enhances the productivity of manufacturing industries."
         ]
@@ -1402,6 +1410,7 @@
     "image": "/images/blog/material-handling-complete-guide-for-efficient-warehouse-operations-0.jpg",
     "sections": [
       {
+        "heading":"Material Handling",
         "content": [
           "Material handling is essential in today's era because it plays a crucial role in enhancing the productivity and efficiency of warehouses and manufacturing facilities. Effective material handling practices not only help reduce operational costs but also improve workplace safety by reducing accidents and injuries caused by improper handling of materials. With the rise of e-commerce and increased demand for faster delivery times, efficient material handling has become even more critical to meet customer expectations. It allows businesses to manage their inventory effectively, reduce downtime, and improve overall customer satisfaction. In short, material handling is a vital component in today's era for optimizing warehouse operations and achieving business success."
         ]
@@ -1501,6 +1510,7 @@
     "image": "/images/blog/six-sigma-comprehensive-guide-methodology-and-tools-0.jpg",
     "sections": [
       {
+        "heading": "A Comprehensive Guide to Six Sigma: Methodology and Tools",
         "content": [
           "In today's world, Six Sigma is widely used in industries such as manufacturing, healthcare, finance, and information technology, among others. Its use has expanded beyond traditional quality control functions to include process improvement, data analysis, and project management.",
           "One of the reasons for Six Sigma's continued popularity is its ability to help organizations improve their operational efficiency and reduce costs. By identifying and eliminating defects and errors in their processes, organizations can save time and money, improve customer satisfaction, and gain a competitive advantage. So let's talk about what is Six Sigma? Definition and History of Six Sigma."
@@ -1625,6 +1635,7 @@
     "image": "/images/blog/vr-for-training-0.jpg",
     "sections": [
       {
+        "heading": "VR FOR TRAINING",
         "content": [
           "As we know, training is a crucial aspect of any organization or industry. It helps employees develop the necessary skills and knowledge to perform their job responsibilities efficiently and safely.",
           "However, traditional training methods such as classroom lectures, videos, and manuals can be monotonous, and learners may find it difficult to retain information.",
@@ -1719,6 +1730,7 @@
     "image": "/images/blog/total-quality-management-tqm-the-key-to-achieving-business-success-0.jpg",
     "sections": [
       {
+        "heading": "Total Quality Management (TQM): The Key to achieving Business Success",
         "content": [
           "The expectations of customers are increasing rapidly, and they are well-informed about the capabilities of modern technology. As a result, they expect companies to use technology to provide high-quality products and services. If a company fails to meet these expectations, they risk losing out to competitors.",
           "Total Quality Management (TQM) is an effective approach for improving the operations of manufacturing industries. TQM helps manufacturers to focus on meeting or exceeding customer expectations, enhancing product quality, and reducing costs by eliminating waste and inefficiencies. TQM also empowers employees by involving them in the decision-making process, and encouraging them to participate in continuous improvement initiatives. This involvement fosters a sense of ownership and responsibility for quality and drives motivation, productivity, and job satisfaction.",
@@ -1846,6 +1858,7 @@
     "image": "/images/blog/how-to-maximize-air-compressor-efficiency-reducing-cost-0.jpg",
     "sections": [
       {
+        "heading": "What is an Air Compressor?",
         "content": [
           "An air compressor is a machine that converts power, usually from an electric motor, diesel engine, or gasoline engine, into potential energy stored in pressurized air. The compressed air can then be used for a variety of applications, such as powering pneumatic tools, operating industrial machinery, or inflating tires."
         ]
@@ -2001,6 +2014,7 @@
     "image": "/images/blog/how-to-improve-chiller-efficiency-0.jpg",
     "sections": [
       {
+        "heading":"Improve Chiller Efficiency and Plant Performance",
         "content": [
           "Every manufacturing organization have a requirement of efficient chillers, Chillers are the single energy-consuming component in the majority of companies and can frequently use more than 50% of the electricity. According to the Department of Energy, chillers can waste up to 30% more energy due to inefficiency. Inefficiently operating chillers also reduce equipment reliability, lengthen maintenance intervals, and limit equipment lifespan. The efficiency can be significantly affected by even a small drop in chiller performance. For example, every degree Celsius increase in condenser water temperature above the full load design can reduce chiller performance by 1% to 2%. In extreme circumstances, a malfunctioning or neglected water treatment scheme can cause a reduction in efficiency of 10% to 35% or more."
         ]
@@ -2070,6 +2084,7 @@
     "image": "/images/blog/total-productive-maintenance-0.jpg",
     "sections": [
       {
+        "heading":"TPM (Total Productive Maintenance)",
         "content": [
           "Do you know that there is a strategy named TPM that should be implemented in manufacturing firms for direct reduction in customer complaints, workplace benefits and manufacturing cost so that the productivity and quality of product should be increased. Let firstly know what exactly TPM( Total Productive Maintenance) is?"
         ]
@@ -2161,6 +2176,7 @@
     "image": "/images/blog/iso-45001-2018-safety-management-system-comprehensive-guide-0.jpg",
     "sections": [
       {
+        "heading":"Safety Management System",
         "content": [
           "In today's fast-paced and constantly changing world, safety in the workplace is more important than ever before. With the increasing number of workplace accidents, companies need to take proactive steps to ensure the safety of their employees. One way to achieve this is by implementing a safety management system that conforms to international standards. The ISO 45001 safety management system is a globally recognized standard that helps organizations establish a framework for the management of occupational health and safety."
         ]
@@ -2262,6 +2278,7 @@
     "image": "/images/blog/energy-management-system-0.jpg",
     "sections": [
       {
+        "heading": "Energy Management System",
         "content": [
           "In today's world, energy consumption has become a critical issue for businesses due to the rising cost of energy, the need to reduce greenhouse gas emissions, and the increasing demand for sustainable practices. The implementation of an energy management system can help organizations to reduce their energy consumption, optimize their energy usage, and achieve their sustainability goals. This blog has explored the reasons why an energy management system is essential for businesses and the steps involved in implementing such a system.",
           "Energy management is an important aspect of any business operation. It refers to the process of monitoring, controlling, and conserving energy usage in commercial or industrial facilities.",
@@ -2365,6 +2382,7 @@
     "image": "/images/blog/iso-450012018-safety-management-system-0.jpg",
     "sections": [
       {
+        "heading": "ISO 45001 Safety Management System (ISO for Safety Management)",
         "content": [
           "ISO 45001 Safety Management System (ISO for Safety Management) is the international standard for Occupational Health and Safety Management Systems (OHSMS). It was developed to provide organizations with a framework to improve the safety and well-being of their employees, reduce workplace accidents, and comply with relevant regulations."
         ]
@@ -2412,6 +2430,7 @@
     "image": "/images/blog/iso-450012018-safety-management-system-0.jpg",
     "sections": [
       {
+        "heading": "ISO 45001 Safety Management System (ISO for Safety Management)",
         "content": [
           "ISO 45001 Safety Management System (ISO for Safety Management) is the international standard for Occupational Health and Safety Management Systems (OHSMS). It was developed to provide organizations with a framework to improve the safety and well-being of their employees, reduce workplace accidents, and comply with relevant regulations."
         ]
@@ -2459,6 +2478,7 @@
     "image": "/images/blog/how-does-energy-efficiency-beneficial-for-healthcare-0.jpg",
     "sections": [
       {
+        "heading":"Energy Efficiency Beneficial for Healthcare",
         "content": [
           "Each year, hospitals spend significant amounts on electricity bills for each bed. Given their high operational costs, it makes sense for hospitals to reduce energy use. Efficient energy use in hospitals requires ability and coordination, but the benefits include financial savings and even aiding in the recovery process for patients."
         ]
@@ -2509,6 +2529,7 @@
     "image": "/images/blog/iso-50001-2018-enms-energy-management-system-0.jpg",
     "sections": [
       {
+        "heading": "ISO 50001:2018 EnMS (Energy Management System)",
         "content": [
           "ISO 50001 EnMS is a globally recognized standard for energy management systems (EnMS). It was first published in 2011 by the International Organization for Standardization (ISO) to help organizations of all sizes and types to establish, implement, maintain, and continually improve their energy management systems.",
           "ISO 50001 Certification requires organizations to establish an energy baseline and develop an energy performance indicator (EnPI) to measure their energy performance. Organizations must also identify significant energy uses (SEUs) and establish energy objectives and targets for each SEU. Finally, organizations must monitor and measure their energy performance regularly and continually improve their energy management system."
@@ -2555,6 +2576,7 @@
     "image": "/images/blog/iso-50001-2018-enms-energy-management-system-0.jpg",
     "sections": [
       {
+        "heading": "ISO 50001:2018 EnMS (Energy Management System)",
         "content": [
           "ISO 50001 EnMS is a globally recognized standard for energy management systems (EnMS). It was first published in 2011 by the International Organization for Standardization (ISO) to help organizations of all sizes and types to establish, implement, maintain, and continually improve their energy management systems.",
           "ISO 50001 Certification requires organizations to establish an energy baseline and develop an energy performance indicator (EnPI) to measure their energy performance. Organizations must also identify significant energy uses (SEUs) and establish energy objectives and targets for each SEU. Finally, organizations must monitor and measure their energy performance regularly and continually improve their energy management system."
@@ -2602,6 +2624,7 @@
     "image": "/images/blog/operational-excellence-consultant-helps-in-manufacturing-excellence-0.jpg",
     "sections": [
       {
+        "heading": "What is Manufacturing Excellence?",
         "content": [
           "Manufacturing Excellence refers to the ability of a manufacturing organization to consistently produce high-quality products efficiently, safely, and with minimum waste. Achieving manufacturing excellence requires a commitment to continuous improvement and the implementation of best practices throughout all levels of the organization.",
           "Manufacturing Excellence is essential for organizations to remain competitive in today's global marketplace. It requires a focus on lean manufacturing principles, which aim to eliminate waste and optimize production processes. This approach involves analyzing every step in the manufacturing process to identify areas of inefficiency and develop solutions to improve efficiency.",
@@ -2639,6 +2662,7 @@
         ]
       },
       {
+        "heading": "Conclusion",
         "content": [
           "We Tetrahedron Manufacturing Services as an Operational Excellence consultant and lean manufacturing consultant can bring valuable expertise and experience to help organizations achieve manufacturing excellence by identifying and addressing inefficiencies and implementing best practices."
         ]
@@ -2663,6 +2687,7 @@
         ]
       },
       {
+        "heading": "Air Vents can be installed at the following places:-",
         "content": [
           "For better efficiency of the system, Air vents can also be fitted at the below places:-",
           "1. Along to a thermodynamic trap or, in certain cases, an inverted bucket trap. On start-up, these traps might occasionally be sluggish to release air.",
@@ -2682,6 +2707,7 @@
         ]
       },
       {
+        "heading": "How much insulation is required?",
         "content": [
           "The thickness of insulation that is most cost-effective will depend on a number of variables:-",
           "1. Cost of Installation",
@@ -2693,6 +2719,7 @@
         ]
       },
       {
+        "heading": "Insulation of Hot Components of the System",
         "content": [
           "With the exception of safety valves, it is crucial to insulate all hot components of the system. This pertains to all mains' flanged couplings, as well as the valves and other fittings. In the past, it was normal practise to trim back the insulation on either side of a flanged junction so that the bolts could be accessed for maintenance.",
           "Calcium silicate, mineral wool with an aluminum coating, and fiberglass are frequently used in installations. Insulating material must not be damaged or allowed to clog with water. Particularly in outdoor situations, adequate mechanical protection and waterproofing are necessary."
@@ -2709,11 +2736,13 @@
     "image": "/images/blog/steam-distribution-system-1.jpg",
     "sections": [
       {
+        "heading": "Steam Distribution System In Process Plant",
         "content": [
           "A Steam Distribution System inside any Plant plays a crucial role in performance improvement and efficient operation of Plant. To keep the Plant equipment healthy, to maintain their effective working and to maintain the high Production, the efficient distribution of Steam is necessary which accounts to the supply of steam of most appropriate quality (Pressure & Temperature) and quantity."
         ]
       },
       {
+        "heading": "The Process of Steam Distribution",
         "content": [
           "The Process of Steam Distribution starts with the Central Source where the Steam is being generated, either in a Boiler or Co-Generation Plant then outflow towards the Point of use. The steam need to be passed down to the point of use through the Stream of Pipes or 'Steam Mains' transferring the steam from Boiler to the operation center.",
           "Starting Load: During Startup, the condensing rate will be at its peak because this is due to the fact that the temperature difference between the steam and the pipework is at its greatest at the start. The condensing rate of steam during the startup is often termed as 'Starting Load'.",
@@ -2721,6 +2750,7 @@
         ]
       },
       {
+        "heading":"Gradient",
         "content": [
           "Due to the gradient in the steam main, which should be set up to fall in the direction of steam flow, the ensuing condensate falls to the bottom of the pipe and is carried along by the steam flow. The steam main will then need to have the condensate emptied from a number of key locations.",
           "Once the product and equipment are warmed up (starting load), the steam sends its energy to the process to continue heating it (running load)."
@@ -2736,6 +2766,7 @@
         ]
       },
       {
+        "heading": "Advantages of High Pressure Steam Distribution System",
         "content": [
           "At higher pressures, a kilograms of steam takes up less space than it does at lower pressures. Therefore, for a given heat load, the size of the distribution mains will be less with a high-pressure system than a low-pressure system if steam is created in the boiler at a high pressure and also supplied at a high pressure."
         ]
@@ -2750,6 +2781,7 @@
       },
       {
         "image": "/images/blog/steam-distribution-system-2.jpg",
+        "heading": "Steam Distribution System Components",
         "content": [
           "For the purpose of preventing entrained and ensuring that high-quality steam passes through, a PRV is mounted upstream of the reducing valve. If the PRV malfunctions, a safety valve on the downstream side protects the system.",
           "Thus efficient steam distribution is critical in improving the plant and process efficiency and performance."
@@ -2807,6 +2839,7 @@
         ]
       },
       {
+        "heading": "Why is Lean Plant Layout Important?",
         "content": [
           "Lean Consultants are facing increasing pressure to increase production while reducing costs. Despite efforts to streamline operations, they continue to struggle with inefficiencies and bottlenecks in the production process.",
           "Many plant managers today are dealing with the same issues that were prevalent years back:",
@@ -2818,6 +2851,7 @@
         ]
       },
       {
+        "heading": "Benefits of Lean Plant Layout",
         "content": [
           "Lean facility layout, which incorporates lean principles such as value stream mapping, waste reduction, continuous improvement, and visual management, is a powerful approach to improving efficiency and ranking higher in the industry.",
           "In this blog post, we will discuss the importance and benefits of lean plant layout, how to implement it, and share success stories of companies that have successfully adopted this approach.",
@@ -2836,6 +2870,7 @@
         ]
       },
       {
+        "heading": "Key Principles of Lean Plant Layout",
         "content": [
           "One of the key principles of lean plant layout is waste reduction. This involves identifying and eliminating all forms of waste, including overproduction, waiting, defects, excess processing, excess inventory, unnecessary motion, and unused talent.",
           "By removing waste, companies can reduce costs, improve efficiency, and enhance the overall quality of their products.",
@@ -2971,6 +3006,7 @@
         ]
       },
       {
+        "heading": "Control System with Single Air Compressor",
         "content": [
           "Manufacturers of compressors have created a variety of various control systems over the years. When the need for air decreases, controls like load/unload and start/stop turn the compressor off or unload it to stop the Supply of the Air. By adjusting the inlet and multi-stage control, the compressor can operate at part load and deliver less air when demand is low. In non – peak hours, the compressor's speed is decreased with variable speed controllers. Part-load compressors typically operate at a lower efficiency than full-load compressors."
         ]
@@ -3101,26 +3137,31 @@
     "image": "/images/blog/does-energy-management-reduce-energy-costs-0.jpg",
     "sections": [
       {
+        "heading": "Does Energy Management Reduce Energy Costs?",
         "content": [
           "The answer is a resounding yes! As the industries and business houses are still unaware of the real benefits that one gets from adopting energy management and conservation practices."
         ]
       },
       {
+        "heading": "Energy Management System",
         "content": [
           "In Tetrahedron Energy Management System is a framework for energy consumers, including industrial, commercial and public sector organizations, to manage their energy cost and usage. Our energy management services identify opportunities to adopt and improve energy-saving, including those that do not necessarily require high capital investment. In most cases, the successful implementation of Energy management system requires specialized expertise and staff training and we at Tetrahedron bank on it."
         ]
       },
       {
+        "heading":"Energy Management System",
         "content": [
           "Tetrahedron is having a successful track record of implementing Energy management system by assigning a committed energy manager at the client facility. Such managers are able to overwhelm the inevitable difficulties encountered in what is essentially a change management process. They are successful in getting support from top management and in persuading the assigned team to deliver on the promise made at the conceptual stage. Support, commitment and leadership from the top are essential."
         ]
       },
       {
+        "heading":"Energy Management System",
         "content": [
           "Energy conservation and management involves developing and implementing an energy management schemes, setting achievable targets for energy use, and designing action plans to reach them and measure progress. It includes implementation of new energy-efficient technologies, reducing energy waste or improving current processes to cut energy costs."
         ]
       },
       {
+        "heading":"Energy Management System",
         "content": [
           "In the world of throat cut competition Energy management System gives the competitive advantage to the business as it lowers the unit cost of production and also enhances the life of the reliability and equipment equipment."
         ]
@@ -3133,6 +3174,7 @@
         ]
       },
       {
+        "heading":"Energy Management System",
         "content": [
           "We at Tetrahedron are having a team of experts, who can provide solution to all your business constraints, needs and requirement in the form of most efficient and efficient energy management system. Our energy management and conservation approach is collaborative and we associate ourselves with the client so the implementation of conservation measures can be faster and sustainable also."
         ]
@@ -3149,6 +3191,7 @@
     "sections": [
       {
         "image": "/images/blog/ar-vr-for-industries-1.jpg",
+        "heading": "Augmented Reality & Virtual Reality",
         "content": [
           "Augmented reality (AR) augments your surroundings by adding digital elements to a live view, often by using the camera on a smartphone.",
           "In AR, a virtual environment is designed to coexist with the real environment, with the goal of being informative and providing additional data about the real world, which a user can access without having to do a search. For example, industrial AR apps could offer instant troubleshooting information when a handset is aimed at a piece of failing equipment."
@@ -3244,6 +3287,7 @@
     "image": "/assets/images/backgrounds/page-header-bg1.jpg",
     "sections": [
       {
+        "heading": "What is an energy audit?",
         "content": [
           "An energy audit is done to understand a building's or facility's energy usage and create a plan to optimize its efficiency.",
           "Common problems like energy-consuming machines in an overloaded, oversized, and inefficient state cause the bill to reach the sky.",
@@ -3345,6 +3389,7 @@
     "image": "/images/blog/iso-9001-certification.jpg",
     "sections": [
       {
+        "heading": "What is ISO 9001 Certification? Why is it important for your business?",
         "content": [
           "ISO 9001 is the standard for Quality Management. The latest version of the ISO 9001 is ISO 9001:2015. It is part of the ISO 9000 family and is used by millions of businesses. It delivers a system of continuous improvement from the perspective of customers' needs. This leads to improved efficiencies, cost savings, and greater consistency.",
           "Quality is a key factor that customers take into consideration. Before buying a product customer thinks 100 times of quality but if the customer observes the product or service is ISO certified they will buy without thinking. This means ISO 9001 certification assures the quality of a particular product or service that a customer can rely on."
@@ -3434,6 +3479,7 @@
         ]
       },
       {
+        "heading": "What is ISO Certification? Types of ISO Certification?",
         "content": [
           "ISO is a non-government organization that provides an organization with a certificate for best and safe use for consumers. It means quality assurance, safety assurance, environment safety, and security.",
           "There are various types of ISO Certification for industries; like ISO 9001 for Quality Management Systems, ISO 14001 for Environmental Management Systems, ISO 27001 for Information Security, ISO 22000 for Food Safety Management Systems, ISO 50001 for Energy Management, ISO 31000 for Risk Management, ISO 26000 for Social Responsibility, ISO 45001 for Safety Management, ISO 13485 for Medical Devices, IATF 16949 for International Standard for Automotive Quality Management System and many more."
@@ -3490,6 +3536,7 @@
         ]
       },
       {
+        "heading": "Conclusion",
         "content": [
           "The ISO Certification in India has many vital benefits like high credibility, high recognition, improved consistency, enhanced revenues, a classic government label, and better customer retention. All of these lead to capturing the market with sustainability."
         ]
@@ -3505,12 +3552,14 @@
     "image": "/images/blog/be-more-profitable-with-manufacturing-operational-excellence-0.jpg",
     "sections": [
       {
+        "heading": "What is Manufacturing Operational Excellence?",
         "content": [
           "We can Catch excellence if We Chase perfection",
           "Have you ever thought of why Excellence in manufacturing is required?"
         ]
       },
       {
+        "heading": "Tetrahedron Manufacturing Operational Excellence",
         "content": [
           "Tetrahedron Manufacturing Operational Excellence embraces certain principles and tools to create a culture of operational excellence within an organization.",
           "It means every employee can see, deliver, and improve the flow of value to customers and unlock profitability.",
@@ -3542,6 +3591,7 @@
         ]
       },
       {
+        "heading": "Lean Manufacturing House",
         "content": [
           "Before we jump over to the lean principles, one of the most crucial and important things to be learned about lean manufacturing is the lean manufacturing house. For any production system the major three categories of problems faces are:",
           "Waste (Muda)",
@@ -3551,6 +3601,7 @@
         ]
       },
       {
+        "heading": "What is an energy audit?",
         "content": [
           "The basic root of the lean house is stability. The overall motive of the lean house is to standardize the work methods and monitor the strategy for increased efficiency and reduced waste in the production process. The base of the house is made up of two major elements over which the entire house is made upon:",
           "Reduction of Muda",
@@ -3558,6 +3609,7 @@
         ]
       },
       {
+        "heading": "The Pillars of Lean House",
         "content": [
           "Next, we have two pillars of the lean house –",
           "JIT",
@@ -3568,6 +3620,7 @@
         ]
       },
       {
+        "heading": "The Walls of Lean House",
         "content": [
           "The walls of the house are made up of tools to provide support to the roof of the house. The tools are :",
           "Pulled flow, Talk time, and continuous flow- for the JIT pillar",
@@ -3575,12 +3628,14 @@
         ]
       },
       {
+        "heading": "The Roof of Lean House",
         "content": [
           "The roof of the house can be summarized as:",
           "CQD- Reduced Costs, Improved Quality, and matched Delivery times"
         ]
       },
       {
+        "heading": "Lean Principles of Manufacturing",
         "content": [
           "With tetrahedron lean manufacturing consultants, a manufacturing house can get better and improvised lean manufacturing for the firm. Also, it is important to learn about the basic lean principles of the manufacturing system.",
           "Lean principles are made with the objective of eliminating waste. When lean manufacturing is operated correctly then one can make huge improvements in efficiency and increase productivity as well. The Five lean principles that can help you to eliminate the waste to possible zero and enhance the efficiency areas:"
@@ -3597,6 +3652,7 @@
         ]
       },
       {
+        "heading": "Conclusion",
         "content": [
           "With lean manufacturing, customers also realize the improvements and they might get likely to be part of your system. You can learn how to implement lean principles with lean manufacturing training.",
           "Tetrahedron being one of the fastest-growing and renowned manufacturing consulting services in India provides you the best services.",
@@ -3644,6 +3700,7 @@
         ]
       },
       {
+        "heading":"Ergonomics",
         "content": [
           "Ergonomics has become an important aspect to consider while setting up a business. Facts have proven that companies that pay attention to ergonomics have much effective workforce and generate good profits. So, it is high time companies start catering to ergonomics before expecting a performance from their employees.",
           "Tetrahedron's Consultants has successfully implemented Effective Ergonomics Based Manufacturing Processes in the various organizations, which have helped the organizations to reduce manufacturing costs, keep employees healthy and increased the quality of their products."
@@ -3660,6 +3717,7 @@
     "image": "/images/blog/process-of-competency-mapping-0.jpg",
     "sections": [
       {
+        "heading": "What is Competency Mapping?",
         "content": [
           "For most of the companies, the recruitment of the employees in their firm is one of the most difficult & crucial tasks. This is the means by which the company paves the pathways towards its success. The new employee for a firm can do the task of either heads or tails like a coin.",
           "Competency Mapping is one of the key methods which are used for job evaluation. This plays a crucial role in recruiting, selecting, and retaining the appropriate people. The ultimate objective of the competency mapping technique is to allow individuals to better understand themselves. Tetrahedron manufacturing services will aid you in this job evaluation yourself. With the best problem-solving capabilities and expert execution of the work, we have successfully earned the trust and love among our customers."
@@ -3779,23 +3837,27 @@
     "image": "/images/blog/automated-guided-vehicle-manufacturers-blog.jpg",
     "sections": [
       {
+        "heading": "Automated Guided Vehicle Manufacturers",
         "content": [
           "In this era of technology and continuous innovations and development in it, the engineers and scientist are innovating the new machines and means for reducing the human efforts in every field.",
           "The automated guided vehicle manufacturers are one such device that encompasses all of the transport systems which are capable of operation without any human efforts."
         ]
       },
       {
+        "heading": "What is an Automated Guided Vehicle?",
         "content": [
           "https://www.youtube.com/watch?v=m_gbXqM4_LU"
         ],
         "image": "/images/blog/automated-guided-vehicle-manufacturers-blog.jpg"
       },
       {
+        "heading": "What is an Automated Mobile Robot?",
         "content": [
           "Stating in simple words 'A driverless vehicle used for the efficient movement of the materials'"
         ]
       },
       {
+        "heading": "Hercules 1000: The Economic Automated Mobile Robot",
         "content": [
           "Tetrahedron Manufacturing Services (TMS): is a well-knowing industry for the manufacturing of automated mobile robots. One of the latest innovations in the firm is Hercules 1000. This is the lowest cost automated mobile robots which are exclusively designed for industrial purposes.",
           "This is a wonder product that is exclusively designed for enthusiasts who love playing with their work. By using the Hercules 1000, one can easily manage the operations effortlessly. This collaborative robot has been designed with an initiative of better performance and reduced emissions while working.",
@@ -3821,6 +3883,7 @@
         ]
       },
       {
+        "heading": "Conclusion",
         "content": [
           "This mini and wonder mobile robot is designed by the leading consulting and automation services provider, tetrahedron manufacturing services. The firm is known for the best solution at the leading prices in the market. Feel free to contact TMS and their experts will provide you the proper guidance.",
           "They deliver our clients and customers with the best in class solution and develop the capabilities of problem-solving to help the client experience the change."
@@ -3873,11 +3936,13 @@
         ]
       },
       {
+        "heading": "Believe",
         "content": [
           "See this to Believe – https://www.youtube.com/watch?v=Wn4lpt6Rg1I"
         ]
       },
       {
+        "heading": "Dojo Training Center",
         "content": [
           "Recall your childhood when you were learning to ride a bicycle, it was difficult to ride / pedal without seeing the pedals. But once you rode it for some days you never-ever needed to see the pedal. Have you ever thought that this level of expertise can be developed?"
         ]
@@ -3893,6 +3958,7 @@
     "image": "/images/blog/cost-reduction-and-budget.jpg",
     "sections": [
       {
+        "heading": "Cost Reduction and Budgeting Process",
         "content": [
           "In this era of a competitive market where most of the firms are price takers, cost reduction is the only option left for companies to survive in the market and earn a profit.",
           "Companies can only maximize their profit only if they attach the lowest possible cost to every component of product and process.",

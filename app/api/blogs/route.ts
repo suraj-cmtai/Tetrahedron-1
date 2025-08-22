@@ -161,7 +161,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Error creating blog:', error);
     return NextResponse.json(
-      { success: false, message: 'Error creating blog' },
+      { success: false, message: 'Error creating blog', error },
       { status: 500 }
     );
   }

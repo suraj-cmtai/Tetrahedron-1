@@ -8,33 +8,33 @@ export const blogValidationSchema = Joi.object({
     Joi.object({
       url: Joi.string().allow('').optional(),
       publicId: Joi.string().allow('').optional(),
-      alt: Joi.string().max(100).allow('').optional()
+      alt: Joi.string().allow('').optional()
     }),
     Joi.string().uri().allow('').optional() // or just a string URL
   ).optional(),
   
-  title: Joi.string().min(3).max(200).required(),
-  slug: Joi.string().min(3).max(200).required(),
-  sections: Joi.array().min(1).items(Joi.object({
-    heading: Joi.string().min(1).max(100).allow('').optional(),
-    content: Joi.array().min(1).items(Joi.allow('').optional()).allow('').optional(),
+  title: Joi.string().required(),
+  slug: Joi.string().required(),
+  sections: Joi.array().items(Joi.object({
+    heading: Joi.string().allow('').optional(),
+    content: Joi.array().items(Joi.allow('').optional()).allow('').optional(),
     // Optional image object with url, publicId, and alt text or image string
     image: Joi.alternatives().try(
       Joi.object({
         url: Joi.string().allow('').optional(),
         publicId: Joi.string().allow('').optional(),
-        alt: Joi.string().max(100).allow('').optional()
+        alt: Joi.string().allow('').optional()
       }),
       Joi.string().uri().allow('').optional() // or just a string URL
     ).optional()
   })).optional(),
   cta: Joi.object({
-    buttonText: Joi.string().max(50).allow('').optional(),
+    buttonText: Joi.string().allow('').optional(),
     text: Joi.string().allow('').optional()
   }).optional(),
   status: Joi.string().valid('draft', 'published', 'archived').default('published'),
   featured: Joi.boolean().default(false),
   tags: Joi.array().items(Joi.string().allow('')),
   category: Joi.string().allow('').optional(),
-  metaDescription: Joi.string().max(160).allow('').optional()
+  metaDescription: Joi.string().allow('').optional()
 });
