@@ -9,9 +9,8 @@ export async function GET(request: NextRequest) {
   try {
     await connectDB();
 
+    // If you want to keep filtering, you can keep this logic, but ignore pagination
     const searchParams = request.nextUrl.searchParams;
-    const page = parseInt(searchParams.get('page') || '1');
-    const limit = parseInt(searchParams.get('limit') || '10');
     const status = searchParams.get('status');
     const category = searchParams.get('category');
     const search = searchParams.get('search');
@@ -22,7 +21,7 @@ export async function GET(request: NextRequest) {
     if (status) filter.status = status;
     if (category) filter.category = new RegExp(category, 'i');
     if (featured !== null) filter.featured = featured === 'true';
-    
+
     if (search) {
       filter.$or = [
         { title: { $regex: search, $options: 'i' } },
@@ -30,29 +29,13 @@ export async function GET(request: NextRequest) {
       ];
     }
 
-    const skip = (page - 1) * limit;
-
-    const [blogs, total] = await Promise.all([
-      Blog.find(filter)
-        .sort({ createdAt: -1 })
-        .skip(skip)
-        .limit(limit),
-      Blog.countDocuments(filter)
-    ]);
-
-    const totalPages = Math.ceil(total / limit);
+    // Fetch all blogs at once (no pagination)
+    const blogs = await Blog.find(filter).sort({ createdAt: -1 });
 
     return NextResponse.json({
       success: true,
       data: blogs,
-      pagination: {
-        currentPage: page,
-        totalPages,
-        totalBlogs: total,
-        hasNextPage: page < totalPages,
-        hasPrevPage: page > 1,
-        limit
-      }
+      totalBlogs: blogs.length
     });
   } catch (error) {
     console.error('Error fetching blogs:', error);
