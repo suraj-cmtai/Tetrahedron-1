@@ -6,26 +6,26 @@ export const blogValidationSchema = Joi.object({
   id: Joi.alternatives().try(Joi.string().allow(''), Joi.number()).optional(),
   image: Joi.alternatives().try(
     Joi.object({
-      url: Joi.string().required(),
+      url: Joi.string().allow('').optional(),
       publicId: Joi.string().allow('').optional(),
       alt: Joi.string().max(100).allow('').optional()
     }),
-    Joi.string().uri().required() // or just a string URL
+    Joi.string().uri().allow('').optional() // or just a string URL
   ).optional(),
   
   title: Joi.string().min(3).max(200).required(),
   slug: Joi.string().min(3).max(200).required(),
   sections: Joi.array().min(1).items(Joi.object({
-    heading: Joi.string().min(1).max(100).required(),
-    content: Joi.array().min(1).items(Joi.string().required()).required(),
+    heading: Joi.string().min(1).max(100).allow('').optional(),
+    content: Joi.array().min(1).items(Joi.allow('').optional()).allow('').optional(),
     // Optional image object with url, publicId, and alt text or image string
     image: Joi.alternatives().try(
       Joi.object({
-        url: Joi.string().required(),
+        url: Joi.string().allow('').optional(),
         publicId: Joi.string().allow('').optional(),
         alt: Joi.string().max(100).allow('').optional()
       }),
-      Joi.string().uri().required() // or just a string URL
+      Joi.string().uri().allow('').optional() // or just a string URL
     ).optional()
   })).optional(),
   cta: Joi.object({
