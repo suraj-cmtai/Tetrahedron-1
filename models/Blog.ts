@@ -9,13 +9,10 @@ interface BlogModel extends Model<IBlog> {}
 const sectionSchema = new Schema<IBlogSection>({
   heading: {
     type: String,
-    required: true,
     trim: true,
-    maxlength: 100
   },
   content: [{
     type: String,
-    required: true,
     trim: true
   }],
   image: {
@@ -35,7 +32,6 @@ const blogSchema = new Schema<IBlog, BlogModel>({
     type: String,
     required: [true, 'Blog title is required'],
     trim: true,
-    maxlength: [200, 'Title cannot exceed 200 characters']
   },
   slug: {
     type: String,
@@ -52,7 +48,6 @@ const blogSchema = new Schema<IBlog, BlogModel>({
     buttonText: {
       type: String,
       trim: true,
-      maxlength: 50
     },
     text: {
       type: String,
@@ -80,7 +75,6 @@ const blogSchema = new Schema<IBlog, BlogModel>({
   metaDescription: {
     type: String,
     trim: true,
-    maxlength: 160
   },
   readingTime: {
     type: Number,
