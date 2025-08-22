@@ -141,6 +141,7 @@ export default function ConsultingPage() {
                   <img
                     src={item.img}
                     alt={item.title}
+                    style={{ width: "100%", height: "180px", objectFit: "cover", borderRadius: "8px" }}
                   />
                 </div>
                 <div className={styles.objectiveCardText}>
