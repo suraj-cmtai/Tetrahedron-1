@@ -38,7 +38,7 @@ const teamMembersData = [
 export default function Home() {
     return (
         <>
-            <Layout headerStyle={6} footerStyle={6} breadcrumbTitle="Our Executives">
+            <Layout headerStyle={6} footerStyle={6} breadcrumbTitle="Our Owners">
                 <section className="team-page">
                     <div className="container">
                         <div className="team-grid">

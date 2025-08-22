@@ -59,7 +59,7 @@ export default function Page() {
               fontFamily: "var(--font-poppins)",
             }}
           >
-            <strong>“ESG Training in India”</strong> is the non-financial, sustainability-related area of corporate decision-making and responsibility. Where “E” refers to environmental issues – such as pollution, efficient use of natural resources, and greenhouse emissions – that companies face due to their business activities. “S” refers to social issues like workplace wellbeing and safety, product safety, human rights, and social responsibility. “G” alludes to corporate governance and leadership, including corporate purpose, the rights and representation of shareholders and other stakeholders, and executives.
+            <strong>“ESG Training in India”</strong> is the non-financial, sustainability-related area of corporate decision-making and responsibility. Where “E” refers to environmental issues – such as pollution, efficient use of natural resources, and greenhouse emissions – that companies face due to their business activities. “S” refers to social issues like workplace wellbeing and safety, product safety, human rights, and social responsibility. “G” alludes to corporate governance and leadership, including corporate purpose, the rights and representation of shareholders and other stakeholders, and Owners.
           </p>
           <p
             style={{
@@ -108,7 +108,7 @@ export default function Page() {
                 You want to learn how to implement ESG best practices and achieve sustainability goals for your organization.
                 <br />
                 <span style={{ color: "#666" }}>
-                  (Managers, executives, or professionals in charge of ESG or sustainability initiatives; those seeking to improve ESG knowledge and skills and get certified.)
+                  (Managers, Owners, or professionals in charge of ESG or sustainability initiatives; those seeking to improve ESG knowledge and skills and get certified.)
                 </span>
               </li>
               <li style={{ marginTop: "16px" }}>
