@@ -15,7 +15,7 @@ export default function Menu() {
               <Link href="/about-us/">Who We Are</Link>
             </li>
             <li>
-              <Link href="/our-team/">Our Owners</Link>
+              <Link href="/our-team/">Our Leaders</Link>
             </li>
             <li className="dropdown">
               <Link href="/#" aria-haspopup="true">Policies</Link>
