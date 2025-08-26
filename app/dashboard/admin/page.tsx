@@ -16,7 +16,7 @@ const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
 
 const styles = {
   container: {
-    maxWidth: '1100px',
+    maxWidth: '1280px',
     margin: '40px auto',
     padding: '32px',
     background: '#fff',
@@ -54,17 +54,62 @@ const styles = {
     margin: '10px 0',
     transition: 'background 0.2s',
   },
+  toolbar: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '12px',
+    marginTop: 10,
+    marginBottom: 18,
+  },
+  toolbarRight: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
+    width: '100%',
+    justifyContent: 'flex-end',
+  },
+  filtersRow: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    gap: '10px',
+    marginTop: 8,
+    marginBottom: 12,
+  },
+  inputSm: {
+    padding: '10px 12px',
+    border: '1px solid #ddd',
+    borderRadius: '8px',
+    fontSize: '14px',
+  },
+  select: {
+    padding: '10px 12px',
+    border: '1px solid #ddd',
+    borderRadius: '8px',
+    fontSize: '14px',
+    background: '#fff',
+  },
   table: {
     width: '100%',
     borderCollapse: 'collapse' as const,
     marginTop: '32px',
     fontSize: '15px',
   },
+  tableWrap: {
+    background: '#fff',
+    borderRadius: '12px',
+    boxShadow: '0 2px 16px rgba(0,0,0,0.06)',
+    padding: '12px',
+  },
   th: {
     background: '#f2f2f2',
     padding: '12px 8px',
     border: '1px solid #e0e0e0',
     fontWeight: 600,
+    position: 'sticky' as const,
+    top: 0,
+    zIndex: 1,
   },
   td: {
     padding: '10px 8px',
@@ -137,6 +182,22 @@ const styles = {
     cursor: 'pointer',
     marginLeft: '10px',
   },
+  actionsRow: {
+    display: 'flex',
+    gap: '8px',
+    alignItems: 'center',
+  },
+  fullWidthButton: {
+    width: '100%',
+  },
+  primaryCTA: {
+    width: 'auto',
+    padding: '14px 24px',
+    borderRadius: '10px',
+    fontSize: '17px',
+    whiteSpace: 'nowrap' as const,
+    minWidth: 240,
+  },
   logoutBtn: {
     background: '#e53935',
     color: '#fff',
@@ -151,6 +212,87 @@ const styles = {
     marginBottom: '10px',
   }
 };
+
+type ModalProps = {
+  isOpen: boolean;
+  title?: string;
+  onClose: () => void;
+  width?: string | number;
+  children: React.ReactNode;
+  footer?: React.ReactNode;
+};
+
+function Modal({ isOpen, title, onClose, width = 720, children, footer }: ModalProps) {
+  if (!isOpen) return null;
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        inset: 0,
+        background: 'rgba(0,0,0,0.45)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 16,
+        zIndex: 1000,
+      }}
+      role="dialog"
+      aria-modal
+    >
+      <div
+        style={{
+          width: typeof width === 'number' ? width : width,
+          maxWidth: '95vw',
+          maxHeight: '90vh',
+          overflow: 'auto',
+          background: '#fff',
+          borderRadius: 12,
+          boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+          padding: 20,
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+          <h3 style={{ margin: 0 }}>{title}</h3>
+          <button onClick={onClose} style={{ ...styles.button, background: '#e0e0e0', color: '#333', padding: '6px 12px' }}>Close</button>
+        </div>
+        <div>{children}</div>
+        {footer && (
+          <div style={{ marginTop: 12 }}>{footer}</div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+type Toast = { id: string; message: string; type?: 'success' | 'error' | 'info' };
+
+function Toasts({ toasts, remove }: { toasts: Toast[]; remove: (id: string) => void }) {
+  if (!toasts.length) return null;
+  return (
+    <div style={{ position: 'fixed', top: 20, right: 20, display: 'flex', flexDirection: 'column', gap: 8, zIndex: 1100 }}>
+      {toasts.map(t => (
+        <div
+          key={t.id}
+          style={{
+            minWidth: 240,
+            maxWidth: 360,
+            background: t.type === 'error' ? '#fdecea' : t.type === 'success' ? '#e8f5e9' : '#e3f2fd',
+            color: '#111',
+            borderLeft: `4px solid ${t.type === 'error' ? '#e53935' : t.type === 'success' ? '#43a047' : '#1a73e8'}`,
+            borderRadius: 8,
+            boxShadow: '0 6px 20px rgba(0,0,0,0.12)',
+            padding: '10px 12px',
+          }}
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
+            <span style={{ fontSize: 14 }}>{t.message}</span>
+            <button onClick={() => remove(t.id)} style={{ ...styles.button, background: 'transparent', color: '#333', padding: '4px 8px' }}>✕</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 type BlogSection = {
   heading: string;
@@ -495,6 +637,13 @@ export default function AdminBlogDashboard() {
   const [showForm, setShowForm] = useState<boolean>(false);
   const [editBlog, setEditBlog] = useState<any>(null);
   const [formLoading, setFormLoading] = useState<boolean>(false);
+  const [confirmOpen, setConfirmOpen] = useState<boolean>(false);
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string>('');
+  const [toasts, setToasts] = useState<Toast[]>([]);
+  const [search, setSearch] = useState<string>('');
+  // filters removed
+  const [page, setPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(10);
 
   const dispatch = useDispatch<AppDispatch>();
   const blogs = useSelector(selectBlogs);
@@ -529,7 +678,7 @@ export default function AdminBlogDashboard() {
       setIsLoggedIn(true);
       dispatch(fetchBlogs({}));
     } else {
-      alert('Invalid credentials');
+      showToast('error', 'Invalid credentials');
     }
   };
 
@@ -543,6 +692,12 @@ export default function AdminBlogDashboard() {
     setSavedPass('');
     setIsLoggedIn(false);
   };
+
+  function showToast(type: Toast['type'], message: string) {
+    const id = Math.random().toString(36).slice(2);
+    setToasts(prev => [...prev, { id, message, type }]);
+    setTimeout(() => setToasts(prev => prev.filter(t => t.id !== id)), 3500);
+  }
 
   // Create blog (single or batch)
   const normalizeImage = (img: any) => {
@@ -615,7 +770,7 @@ export default function AdminBlogDashboard() {
           setShowForm(false);
           setEditBlog(null);
           // Do NOT refresh blogs here (per instruction: don't refresh screen)
-          alert(`All blogs processed. Success: ${successCount}, Failed: ${failCount}`);
+          showToast('success', `Processed: ${successCount} ✓, Failed: ${failCount}`);
         } else if (
           typeof jsonData === 'object' &&
           !Array.isArray(jsonData)
@@ -644,7 +799,7 @@ export default function AdminBlogDashboard() {
             setShowForm(false);
             setEditBlog(null);
             // Do NOT refresh blogs here
-            alert(`All blogs processed. Success: ${successCount}, Failed: ${failCount}`);
+            showToast('success', `Processed: ${successCount} ✓, Failed: ${failCount}`);
           } else {
             // Single blog object
             let blogObj = jsonData;
@@ -660,7 +815,7 @@ export default function AdminBlogDashboard() {
             setShowForm(false);
             setEditBlog(null);
             // Do NOT refresh blogs here
-            alert('Blog created successfully!');
+            showToast('success', 'Blog created successfully');
           }
         }
       } else {
@@ -669,10 +824,10 @@ export default function AdminBlogDashboard() {
         setShowForm(false);
         setEditBlog(null);
         // Do NOT refresh blogs here
-        alert('Blog created successfully!');
+        showToast('success', 'Blog created successfully');
       }
     } catch (err) {
-      alert('Failed to create blog');
+      showToast('error', 'Failed to create blog');
     }
     setFormLoading(false);
   };
@@ -685,23 +840,21 @@ export default function AdminBlogDashboard() {
       setShowForm(false);
       setEditBlog(null);
       dispatch(fetchBlogs({}));
-      alert('Blog updated successfully!');
+      showToast('success', 'Blog updated successfully');
     } catch (err) {
-      alert('Failed to update blog');
+      showToast('error', 'Failed to update blog');
     }
     setFormLoading(false);
   };
 
   // Delete blog
   const handleDeleteBlog = async (id: string) => {
-    if (window.confirm('Are you sure you want to delete this blog?')) {
-      try {
-        await dispatch(deleteBlog(id)).unwrap();
-        dispatch(fetchBlogs({}));
-        alert('Blog deleted!');
-      } catch (err) {
-        alert('Failed to delete blog');
-      }
+    try {
+      await dispatch(deleteBlog(id)).unwrap();
+      dispatch(fetchBlogs({}));
+      showToast('success', 'Blog deleted');
+    } catch (err) {
+      showToast('error', 'Failed to delete blog');
     }
   };
 
@@ -711,9 +864,31 @@ export default function AdminBlogDashboard() {
       setEditBlog(blog);
       setShowForm(true);
     } else {
-      alert('Invalid credentials');
+      showToast('error', 'Invalid credentials');
     }
   };
+
+  // Derived filtered and paginated data
+  const filteredBlogs = React.useMemo(() => {
+    let data = Array.isArray(blogs) ? blogs : [];
+    if (search.trim()) {
+      const q = search.toLowerCase();
+      data = data.filter((b: any) =>
+        (b.title || '').toLowerCase().includes(q) ||
+        (b.slug || '').toLowerCase().includes(q) ||
+        (b.category || '').toLowerCase().includes(q)
+      );
+    }
+    return data;
+  }, [blogs, search]);
+
+  const totalPages = Math.max(1, Math.ceil((filteredBlogs?.length || 0) / pageSize));
+  const currentPage = Math.min(page, totalPages);
+  const paginatedBlogs = React.useMemo(() => {
+    const start = (currentPage - 1) * pageSize;
+    const end = start + pageSize;
+    return filteredBlogs.slice(start, end);
+  }, [filteredBlogs, currentPage, pageSize]);
 
   if (!isLoggedIn) {
     return (
@@ -746,24 +921,40 @@ export default function AdminBlogDashboard() {
     <div style={styles.container}>
       <button style={styles.logoutBtn} onClick={handleLogout}>Logout</button>
       <h1 style={{marginBottom: 10}}>Blog Admin Dashboard</h1>
-      {!showForm && (
-        <button
-          style={{...styles.button, marginBottom: 18, marginTop: 10}}
-          onClick={() => { setShowForm(true); setEditBlog(null); }}
-        >
-          + Create New Blog
-        </button>
-      )}
-      {showForm && (
+      <div style={styles.toolbar}>
+        {!showForm && (
+          <button
+            style={{...styles.button, ...styles.primaryCTA}}
+            onClick={() => { setShowForm(true); setEditBlog(null); }}
+          >
+            + Create New Blog
+          </button>
+        )}
+        <div style={styles.toolbarRight}>
+          <input
+            placeholder="Search title, slug, category"
+            value={search}
+            onChange={(e) => { setSearch(e.target.value); setPage(1); }}
+            style={{...styles.inputSm, minWidth: 320, maxWidth: 420, width: '100%'}}
+          />
+        </div>
+      </div>
+      {/* Filters removed as requested */}
+      <Modal
+        isOpen={showForm}
+        title={editBlog ? 'Edit Blog' : 'Create Blog'}
+        onClose={() => { setShowForm(false); setEditBlog(null); }}
+        width={1100}
+      >
         <BlogForm
           onSubmit={editBlog ? handleEditBlog : handleCreateBlog}
           initial={editBlog}
           loading={formLoading}
           onCancel={() => { setShowForm(false); setEditBlog(null); }}
         />
-      )}
+      </Modal>
       <h2 style={{marginTop: 30, marginBottom: 10}}>All Blogs</h2>
-      <div style={{overflowX: 'auto'}}>
+      <div style={{...styles.tableWrap, overflowX: 'auto'}}>
         <table style={styles.table}>
           <thead>
             <tr>
@@ -783,12 +974,12 @@ export default function AdminBlogDashboard() {
               <tr>
                 <td colSpan={9} style={{ ...styles.td, textAlign: 'center' }}>Loading...</td>
               </tr>
-            ) : blogs.length === 0 ? (
+            ) : filteredBlogs.length === 0 ? (
               <tr>
                 <td colSpan={9} style={styles.td}>No blogs found.</td>
               </tr>
             ) : (
-              blogs.map((blog: any) => (
+              paginatedBlogs.map((blog: any) => (
                 <tr key={blog._id}>
                   <td style={styles.td}>{blog.title}</td>
                   <td style={styles.td}>{blog.slug}</td>
@@ -799,18 +990,20 @@ export default function AdminBlogDashboard() {
                   <td style={styles.td}>{blog.likes}</td>
                   <td style={styles.td}>{blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : ''}</td>
                   <td style={styles.td}>
-                    <button
-                      style={{...styles.actionBtn, ...styles.editBtn}}
-                      onClick={() => handleEditPrompt(blog)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      style={{...styles.actionBtn, ...styles.deleteBtn}}
-                      onClick={() => handleDeleteBlog(blog._id)}
-                    >
-                      Delete
-                    </button>
+                    <div style={styles.actionsRow}>
+                      <button
+                        style={{...styles.actionBtn, ...styles.editBtn}}
+                        onClick={() => handleEditPrompt(blog)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        style={{...styles.actionBtn, ...styles.deleteBtn}}
+                        onClick={() => { setConfirmDeleteId(blog._id); setConfirmOpen(true); }}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))
@@ -818,6 +1011,61 @@ export default function AdminBlogDashboard() {
           </tbody>
         </table>
       </div>
+      {/* Pagination */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginTop: 14 }}>
+        <div>
+          <button
+            style={{ ...styles.button, background: '#e0e0e0', color: '#333', padding: '8px 14px' }}
+            disabled={currentPage <= 1}
+            onClick={() => setPage(p => Math.max(1, p - 1))}
+          >
+            Prev
+          </button>
+          <button
+            style={{ ...styles.button, background: '#e0e0e0', color: '#333', padding: '8px 14px', marginLeft: 8 }}
+            disabled={currentPage >= totalPages}
+            onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+          >
+            Next
+          </button>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{ fontSize: 14 }}>Page {currentPage} of {totalPages}</span>
+          <select
+            value={pageSize}
+            onChange={(e) => { setPageSize(Number(e.target.value)); setPage(1); }}
+            style={styles.select}
+          >
+            <option value={5}>5</option>
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+            <option value={50}>50</option>
+          </select>
+        </div>
+      </div>
+      <Modal
+        isOpen={confirmOpen}
+        title="Confirm Delete"
+        onClose={() => { setConfirmOpen(false); setConfirmDeleteId(''); }}
+        width={420}
+      >
+        <p style={{ marginTop: 8 }}>Are you sure you want to delete this blog? This action cannot be undone.</p>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10, marginTop: 16 }}>
+          <button
+            style={{ ...styles.button, background: '#9e9e9e' }}
+            onClick={() => { setConfirmOpen(false); setConfirmDeleteId(''); }}
+          >
+            Cancel
+          </button>
+          <button
+            style={{ ...styles.button, background: '#e53935' }}
+            onClick={() => { const id = confirmDeleteId; setConfirmOpen(false); setConfirmDeleteId(''); handleDeleteBlog(id); }}
+          >
+            Delete
+          </button>
+        </div>
+      </Modal>
+      <Toasts toasts={toasts} remove={(id) => setToasts(prev => prev.filter(t => t.id !== id))} />
     </div>
   );
 }
