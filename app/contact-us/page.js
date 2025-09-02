@@ -3,42 +3,42 @@ import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-async function handleContactThreeSubmit(e) {
-  const router = useRouter();
-  e.preventDefault();
-  const form = e.target;
-  const data = {
-    name: form.name.value,
-    company: form.companyName.value,
-    email: form.email.value,
-    mobile: form.Phone.value,
-    message: form.message.value,
-  };
-
-  try {
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
-    const result = await response.json();
-    console.log("Form submission successful:", result);
-    // You can add success handling here (e.g., show success message, reset form)
-    router.push("/thankyou");
-  } catch (error) {
-    console.error("Error submitting form:", error);
-    // You can add error handling here (e.g., show error message to user)
-  }
-}
-
 export default function Home() {
+  const router = useRouter();
+
+  async function handleContactThreeSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      company: form.companyName.value,
+      email: form.email.value,
+      mobile: form.Phone.value,
+      message: form.message.value,
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const result = await response.json();
+      console.log("Form submission successful:", result);
+      // You can add success handling here (e.g., show success message, reset form)
+      router.push("/thankyou");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      // You can add error handling here (e.g., show error message to user)
+    }
+  }
   return (
     <>
       <Layout headerStyle={6} footerStyle={6} breadcrumbTitle="Contact">
