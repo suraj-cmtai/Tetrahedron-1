@@ -1,7 +1,10 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ContactForm({ onSuccess, onError, buttonText = "Submit", style = {} }) {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -54,6 +57,9 @@ export default function ContactForm({ onSuccess, onError, buttonText = "Submit",
         setModal({ open: true, message: "Form submitted successfully!", success: true });
         setFormData({ name: "", company: "", email: "", mobile: "", requirements: "" });
         if (onSuccess) onSuccess();
+        setTimeout(() => {
+          router.push("/thankyou");
+        }, 300);
       } else {
         setModal({ open: true, message: "Failed to submit form.", success: false });
         if (onError) onError();
