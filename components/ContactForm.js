@@ -59,7 +59,7 @@ export default function ContactForm({ onSuccess, onError, buttonText = "Submit",
         if (onSuccess) onSuccess();
         setTimeout(() => {
           router.push("/thankyou");
-        }, 3000);
+        }, 1500);
       } else {
         setModal({ open: true, message: "Failed to submit form.", success: false });
         if (onError) onError();
