@@ -6,6 +6,7 @@ import "./global.css";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
 import ReduxProvider from "./providers/ReduxProvider";
+import FloatingButton from "@/components/layout/floating-button";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
           ></iframe>
         </noscript>
         <ReduxProvider>{children}</ReduxProvider>
+        <FloatingButton />
       </body>
     </html>
   );

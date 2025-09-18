@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from "react"
-import BackToTop from '../elements/BackToTop'
+// import BackToTop from '../elements/BackToTop'
 import DataBg from "../elements/DataBg"
 import Breadcrumb from './Breadcrumb'
 import SearchPopup from "./SearchPopup"
@@ -56,7 +56,6 @@ export default function Layout({ breadcrumbTitle, children, wrapperCls }) {
 
                < Footer1 />
             </div>
-            <BackToTop scroll={scroll} />
         </>
     )
 }
