@@ -2,14 +2,11 @@
 import Link from "next/link";
 import Menu from "../Menu";
 import MobileMenu from "../MobileMenu";
-// Correct the import path for Modal if it's in app/components or similar
-// Assuming it might be in app/components/Modal.js or similar:
-// import Modal from "@/components/Modal"; // Example correction
-import Modal from "../../../app/leadModal"; // Keep if this path is correct relative to Header.js
+import Modal from "../../../app/leadModal";
 import ContactFormModal from "@/components/ContactFormModal";
 import { useState } from "react";
 
-export default function Header({ scroll, handlePopup, handleMobileMenu }) {
+export default function Header({ scroll, handlePopup, handleMobileMenu, isMobileMenu }) {
     const [isModalOpen, setModalOpen] = useState(false);
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
     const [modalButtonText, setModalButtonText] = useState("");
@@ -44,7 +41,6 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                         </Link>
                         <style jsx>{`
                             @media (max-width: 1200px) {
-                                
                                 .main-header-two__logo-img {
                                     width: 60px !important;
                                     position: absolute !important;
@@ -89,21 +85,19 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                                         <h4 className="main-header-two__social-box-title" ref={node => { if (node) node.style.setProperty("font-size", "16px", "important"); }}>
                                             Follow Us On:
                                         </h4>
-                                        <div className="main-header-two__social" style={{ height: "24px" }}>
-                                            {/* --- FIX HERE: Add actual URLs --- */}
+                                        <div className="main-header-two__social" style={{height:"24px"}}>
                                             <Link href="https://www.facebook.com/TetrahedronManufacturingServices" target="_blank" rel="noopener noreferrer">
                                                 <i className="icon-facebook"></i>
                                             </Link>
                                             <Link href="https://www.instagram.com/tetrahedron_tms/" target="_blank" rel="noopener noreferrer">
                                                 <i className="icon-instagram"></i>
                                             </Link>
-                                            <Link href="https://x.com/Tetrahe35782523" target="_blank" rel="noopener noreferrer"> {/* Replace with actual URL if icon-Frame is X/Twitter or other */}
+                                            <Link href="https://x.com/Tetrahe35782523" target="_blank" rel="noopener noreferrer">
                                                 <i className="icon-Frame"></i>
                                             </Link>
                                             <Link href="https://www.linkedin.com/company/tetrahedronmanufacturingservicesprivatelimited/" target="_blank" rel="noopener noreferrer">
                                                 <i className="icon-link-in"></i>
                                             </Link>
-                                            {/* --- END FIX --- */}
                                         </div>
                                     </div>
                                 </div>
@@ -113,19 +107,51 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                     <nav className="main-menu main-menu-two">
                         <div className="main-menu-two__wrapper">
                             <div className="main-menu-two__wrapper-inner">
-                                <div className="main-menu-two__menu-box-and-btn-box">
-                                    <Link
-                                        href="#"
-                                        className="mobile-nav__toggler"
-                                        onClick={handleMobileMenu}
-                                    >
-                                        <div className="main-menu-two__menu-box">
-                                            <div className="main-menu-two__main-menu-box">
-                                                <i className="fa fa-bars"></i>
-                                                <Menu />
-                                            </div>
+                                <div className="main-menu-two__menu-box-and-btn-box" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                                    <div className="main-menu-two__menu-box" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                                        {/* Mobile menu trigger button: only visible below md */}
+                                        <button
+                                            className="mobile-nav__toggler mobile-nav__toggler-menu mobile-menu-trigger-md-down"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
+                                                if (handleMobileMenu) {
+                                                    handleMobileMenu();
+                                                }
+                                            }}
+                                            type="button"
+                                            style={{
+                                                display: 'inline-block',
+                                                position: 'relative',
+                                                fontSize: '20px',
+                                                color: '#ffc001',
+                                                cursor: 'pointer',
+                                                background: 'rgba(255, 192, 1, 0.1)',
+                                                border: '2px solid #ffc001',
+                                                padding: '8px 12px',
+                                                borderRadius: '4px',
+                                                zIndex: 9999,
+                                                minWidth: '40px',
+                                                minHeight: '40px'
+                                            }}
+                                        >
+                                            <i className="fa fa-bars"></i>
+                                        </button>
+                                        <style jsx>{`
+                                            /* Hide mobile menu trigger on md and up (min-width: 768px) */
+                                            .mobile-menu-trigger-md-down {
+                                                display: inline-block;
+                                            }
+                                            @media (min-width: 768px) {
+                                                .mobile-menu-trigger-md-down {
+                                                    display: none !important;
+                                                }
+                                            }
+                                        `}</style>
+                                        <div className="main-menu-two__main-menu-box">
+                                            <Menu />
                                         </div>
-                                    </Link>
+                                    </div>
                                     <div className="main-menu-two__btn-box">
                                         <button
                                             onClick={() => openContactModal("Quick Support")}
@@ -142,7 +168,7 @@ export default function Header({ scroll, handlePopup, handleMobileMenu }) {
                     </nav>
                 </div>
             </header>
-            <MobileMenu handleMobileMenu={handleMobileMenu} />
+            <MobileMenu handleMobileMenu={handleMobileMenu} isMobileMenu={isMobileMenu} />
             {isModalOpen && (
                 <div className="modal-overlay active">
                     <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
