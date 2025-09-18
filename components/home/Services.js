@@ -197,7 +197,6 @@ export default function IndustriesSection() {
             transition: "opacity 0.4s ease",
             animationName: "fadeIn",
             animationDuration: "0.5s",
-            overflow: "hidden", // prevent background scroll
           }}
           // onClick={(e) => {
           //   if (e.target.id === "modalOverlay") {
@@ -228,7 +227,18 @@ export default function IndustriesSection() {
           opacity: 1;
         }
         #modalContent::-webkit-scrollbar {
-          display: none;
+          width: 6px;
+        }
+        #modalContent::-webkit-scrollbar-track {
+          background: rgba(0,0,0,0.1);
+          border-radius: 3px;
+        }
+        #modalContent::-webkit-scrollbar-thumb {
+          background: rgba(76,81,191,0.3);
+          border-radius: 3px;
+        }
+        #modalContent::-webkit-scrollbar-thumb:hover {
+          background: rgba(76,81,191,0.5);
         }
       `}
           </style>
@@ -248,9 +258,10 @@ export default function IndustriesSection() {
               animationName: "scaleIn",
               animationDuration: "0.5s",
               animationTimingFunction: "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-              maxHeight: "none", // no constraint
-              height: "auto",    // allow content height
-              overflowY: "auto", // enable scroll
+              minHeight: "auto",
+              maxHeight: "90vh", // allow up to 90% of viewport height
+              overflowY: "auto", // enable scroll within modal
+              margin: "20px 0", // add margin for better spacing
             }}
             onClick={(e) => e.stopPropagation()}
             id="modalContent"
