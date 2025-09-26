@@ -64,7 +64,7 @@ export default function Menu() {
               <Link href="/#" aria-haspopup="true">Dojo Training Center</Link>
               <ul role="menu" style={{overflowY: 'auto',scrollbarWidth: 'none',msOverflowStyle: 'none',color: 'var(--elitecons-black)',paddingLeft: '10px',paddingRight: '10px'}}>
                 <li className="hover-style" style={{ borderBottom: '1px solid lightgray', paddingBottom: '11px' }}>
-                  <Link href="/dojo-training-center/" style={{ color: 'var(--elitecons-black)' }}>DOJO Training Center | DOJO Centre | DOJO Simulations</Link>
+                  <Link href="/dojo-training-center/" style={{ color: 'var(--elitecons-black)' }}>DOJO Training Center</Link>
                 </li>
                     <li className="hover-style" style={{ borderBottom: '1px solid lightgray', paddingBottom: '11px' }}>
                   <Link href="/dojo-2-0/" style={{ color: 'var(--elitecons-black)' }}>DOJO 2.0</Link>
@@ -97,9 +97,9 @@ export default function Menu() {
                     </li>
                   </ul>
                 </li>
-                <li>
+                {/* <li>
               <Link href="/energy-audit-and-efficiency-services/">Energy Cost Reduction Services</Link>
-                </li>
+                </li> */}
               </ul>
             </li>
 
@@ -277,14 +277,14 @@ export default function Menu() {
         </li>
 
             <li className="dropdown">
-          <Link href="/#" aria-haspopup="true">AMR/AGV</Link>
-              <ul role="menu">
+          <Link href="/automated-guided-vehicle-manufacturers" aria-haspopup="true">AMR/AGV/RGV</Link>
+              {/* <ul role="menu">
                 <li className="hover-style">
               <Link href="/automated-guided-vehicle-manufacturers">
                     Autonomous Mobile Robot | AGV | AMR
                   </Link>
             </li>
-          </ul>
+          </ul> */}
         </li>
 
         <li>

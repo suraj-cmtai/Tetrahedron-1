@@ -107,7 +107,7 @@ const MobileMenu = ({ handleMobileMenu }) => {
                                         <span className="fa fa-angle-right" />
                                     </button>
                                     <ul style={{ display: isActive.key == 2 && isActive.subMenuKey == "sub2" ? "block" : "none" }}>
-                                        <li><Link href="/dojo-training-center/" onClick={handleLinkClick}>DOJO Training Center | DOJO Centre | DOJO Simulations</Link></li>
+                                        <li><Link href="/dojo-training-center/" onClick={handleLinkClick}>DOJO Training Center</Link></li>
                                         <li><Link href="/dojo-2-0/" onClick={handleLinkClick}>DOJO 2.0</Link></li>
                                         <li><Link href="/mini-dojo-training-center/" onClick={handleLinkClick}>Mini DOJO Training Center Design and Setup</Link></li>
                                     </ul>
@@ -129,7 +129,7 @@ const MobileMenu = ({ handleMobileMenu }) => {
                                         <li><Link href="/iso-50001-enms/" onClick={handleLinkClick}>ISO 50001 EnMS (Energy Management System)</Link></li>
                                     </ul>
                                 </li>
-                                <li><Link href="/energy-audit-and-efficiency-services/" onClick={handleLinkClick}>Energy Cost Reduction Services</Link></li>
+                                {/* <li><Link href="/energy-audit-and-efficiency-services/" onClick={handleLinkClick}>Energy Cost Reduction Services</Link></li> */}
                             </ul>
                         </li>
 
@@ -238,13 +238,13 @@ const MobileMenu = ({ handleMobileMenu }) => {
 
                         {/* AMR/AGV Menu */}
                         <li className={isActive.key == 4 ? "dropdown current" : "dropdown"}>
-                            <Link href="#" onClick={() => handleToggle(4)}>AMR/AGV</Link>
-                            <button onClick={() => handleToggle(4)} className={isActive.key == 4 ? "expanded open" : ""}>
+                            <Link href="/automated-guided-vehicle-manufacturers" onClick={() => handleToggle(4)}>AMR/AGV/RGV</Link>
+                            {/* <button onClick={() => handleToggle(4)} className={isActive.key == 4 ? "expanded open" : ""}>
                                 <span className="fa fa-angle-right" />
-                            </button>
-                            <ul style={{ display: isActive.key == 4 ? "block" : "none" }}>
+                            </button> */}
+                            {/* <ul style={{ display: isActive.key == 4 ? "block" : "none" }}>
                                 <li><Link href="/automated-guided-vehicle-manufacturers" onClick={handleLinkClick}>Autonomous Mobile Robot | AGV | AMR</Link></li>
-                            </ul>
+                            </ul> */}
                         </li>
 
                         <li><Link href="/career" onClick={handleLinkClick}>Career</Link></li>
