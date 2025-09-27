@@ -276,7 +276,7 @@ export default function Menu() {
           </ul>
         </li>
 
-            <li className="dropdown">
+            <li>
           <Link href="/automated-guided-vehicle-manufacturers" aria-haspopup="true">AMR/AGV/RGV</Link>
               {/* <ul role="menu">
                 <li className="hover-style">

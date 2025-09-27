@@ -122,7 +122,42 @@ const themes = {
         iconWrapperBg: 'rgba(0, 95, 115, 0.1)',
         underlineColor: '#ff7b00',
         titleFontWeight: '700',
-    }
+    },
+    introSectionFlexContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center", // ⬅️ vertical centering
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    gap: "30px",
+  },
+  introSectionContent: {
+    flex: 2,
+    minWidth: "300px",
+    maxWidth: "65%",
+    width: "100%",
+  },
+  contactFormSide: {
+    flex: 1,
+    minWidth: "280px",
+    maxWidth: "35%",
+    width: "100%",
+  },
+  "@media (max-width: 768px)": {
+    introSectionFlexContainer: {
+      flexDirection: "column",
+      alignItems: "center",
+      gap: "20px",
+    },
+    introSectionContent: {
+      maxWidth: "100%",
+      width: "100%",
+    },
+    contactFormSide: {
+      maxWidth: "100%",
+      width: "100%",
+    },
+  },
 };
 // --- End of Theme Definitions ---
 
@@ -154,7 +189,7 @@ export default function TrainingPage({ params }) {
     const dynamicStyles = useMemo(() => ({
         // --- Banner Styles ---
         banner: {
-            position: "relative", minHeight: "400px", height: "auto", overflow: "hidden",
+            position: "relative", minHeight: "100vh", height: "auto", overflow: "hidden",
             // backgroundColor: currentTheme.bannerBg, // Use theme color
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             padding: '50px 20px', color: 'white',
@@ -764,14 +799,32 @@ export default function TrainingPage({ params }) {
         <Layout headerStyle={1} footerStyle={1}>
             <ContactFormModal open={modalOpen} onClose={() => setModalOpen(false)} buttonText={modalButtonText} />
             {renderBanner()}
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "400px", width: "100%" }}>
-        <div style={{ width: "100%", maxWidth: "500px" }}>
-          <ContactForm />
-        </div>
-      </div>
+            <section style={{ padding: "4rem 0" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center", // ⬅️ Vertically center
+                        justifyContent: "space-between",
+                        flexWrap: "wrap",
+                        gap: "30px",
+                      }}
+                      className="container"
+                    >
+                      {/* Left: Intro Text */}
+                      <div style={{ flex: 2, minWidth: "300px", maxWidth: "65%" }}>
+                        {renderIntro()}
+                      </div>
+            
+                      {/* Right: Contact Form */}
+                      <div style={{ flex: 1, minWidth: "280px", maxWidth: "35%" }}>
+                        <ContactForm />
+                      </div>
+                    </div>
+                  </section>
             <div className="container py-4">
                 {/* Sections will now only render if they have content */}
-                {renderIntro()}
+                {/* {renderIntro()} */}
                 {renderWhyChoose()}
 
                 {/* Render the primary content block based on its key */}
